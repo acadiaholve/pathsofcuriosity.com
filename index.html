@@ -37,18 +37,8 @@
     height: 68px;
     border-bottom: 1px solid rgba(37, 95, 241, 0.2);
   }
-
   .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .nav-logo-mark {
-    width: 38px; height: 38px;
-    background: linear-gradient(135deg, var(--cobalt), var(--navy));
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-weight: 900; font-size: 14px;
-    color: white; letter-spacing: -1px;
-    border: 1px solid rgba(91, 135, 245, 0.4);
-  }
+  .nav-logo-mark { width: 38px; height: 38px; background: linear-gradient(135deg, var(--cobalt), var(--navy)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 14px; color: white; letter-spacing: -1px; border: 1px solid rgba(91, 135, 245, 0.4); }
   .nav-title { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 14px; color: var(--white); letter-spacing: 0.02em; }
   .nav-title span { color: var(--cobalt-light); }
   .nav-links { display: flex; gap: 32px; list-style: none; }
@@ -57,18 +47,8 @@
   .nav-cta { background: var(--cobalt); color: white !important; padding: 8px 20px; border-radius: 6px; transition: background 0.2s !important; }
   .nav-cta:hover { background: var(--cobalt-light) !important; color: white !important; }
 
-  #home {
-    min-height: 100vh;
-    background: linear-gradient(160deg, var(--dark) 0%, var(--navy) 45%, var(--royal) 75%, var(--cobalt) 100%);
-    display: flex; align-items: center;
-    padding: 120px 40px 80px;
-    position: relative; overflow: hidden;
-  }
-  .hero-grid {
-    position: absolute; inset: 0; opacity: 0.06;
-    background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
+  #home { min-height: 100vh; background: linear-gradient(160deg, var(--dark) 0%, var(--navy) 45%, var(--royal) 75%, var(--cobalt) 100%); display: flex; align-items: center; padding: 120px 40px 80px; position: relative; overflow: hidden; }
+  .hero-grid { position: absolute; inset: 0; opacity: 0.06; background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px; }
   .hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,95,241,0.3) 0%, transparent 70%); top: -100px; right: -100px; pointer-events: none; }
   .hero-glow-2 { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(91,135,245,0.2) 0%, transparent 70%); bottom: 0; left: 20%; pointer-events: none; }
   .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
@@ -98,6 +78,7 @@
   h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.15; color: var(--dark); margin-bottom: 20px; }
   h2 em { font-style: normal; color: var(--cobalt); }
   .section-desc { font-size: 17px; line-height: 1.7; color: #4a5080; max-width: 560px; font-weight: 300; }
+  .section-divider { width: 60px; height: 3px; background: linear-gradient(90deg, var(--cobalt), var(--cobalt-light)); border-radius: 2px; margin: 20px 0 40px; }
 
   #about { background: var(--off-white); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -130,16 +111,8 @@
   .ep-title { font-size: 13px; font-weight: 500; color: var(--cobalt); margin-bottom: 12px; line-height: 1.4; }
   .ep-focus { font-size: 13px; color: #4a5080; line-height: 1.6; margin-bottom: 20px; }
   .ep-tag { display: inline-block; background: rgba(37,95,241,0.08); color: var(--cobalt); padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; }
-
-  /* Listen buttons */
   .ep-listen { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
-  .btn-listen {
-    display: inline-flex; align-items: center; gap: 5px;
-    padding: 6px 12px; border-radius: 20px;
-    font-size: 11px; font-weight: 700;
-    text-decoration: none; transition: all 0.2s;
-    letter-spacing: 0.03em;
-  }
+  .btn-listen { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; text-decoration: none; transition: all 0.2s; letter-spacing: 0.03em; }
   .btn-spotify { background: #1d2780; color: white; border: 1px solid rgba(91,135,245,0.3); }
   .btn-spotify:hover { background: #2538a0; transform: translateY(-1px); }
   .btn-apple { background: #2038a4; color: white; border: 1px solid rgba(91,135,245,0.3); }
@@ -154,6 +127,7 @@
   .coming-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: white; margin-bottom: 8px; }
   .coming-subtitle { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
 
+  /* ── RESOURCES — TWO BUTTONS PER CARD ── */
   #resources { background: var(--off-white); }
   .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
   .resource-card { background: white; border-radius: 16px; padding: 36px 28px; border: 1px solid #e8ecf8; text-align: center; transition: all 0.25s; }
@@ -161,8 +135,11 @@
   .resource-icon { width: 64px; height: 64px; background: linear-gradient(135deg, var(--cobalt), var(--navy)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 20px; }
   .resource-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
   .resource-desc { font-size: 14px; color: #4a5080; line-height: 1.65; margin-bottom: 24px; }
-  .btn-resource { display: inline-block; background: var(--off-white); color: var(--cobalt); padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; border: 1px solid rgba(37,95,241,0.2); transition: all 0.2s; }
-  .btn-resource:hover { background: var(--cobalt); color: white; border-color: var(--cobalt); }
+  .resource-buttons { display: flex; gap: 8px; justify-content: center; }
+  .btn-view { display: inline-block; background: var(--off-white); color: var(--cobalt); padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; border: 1px solid rgba(37,95,241,0.2); transition: all 0.2s; cursor: pointer; }
+  .btn-view:hover { background: rgba(37,95,241,0.08); border-color: var(--cobalt); }
+  .btn-download { display: inline-block; background: var(--cobalt); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; transition: all 0.2s; cursor: pointer; }
+  .btn-download:hover { background: var(--cobalt-light); transform: translateY(-1px); }
 
   #educators { background: white; }
   .educators-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 48px; }
@@ -184,7 +161,7 @@
   .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; }
   .team-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid #e8ecf8; transition: all 0.25s; }
   .team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(32,56,164,0.1); }
-  .team-header { background: linear-gradient(135deg, var(--navy), var(--cobalt)); padding: 40px 36px 32px; position: relative; }
+  .team-header { background: linear-gradient(135deg, var(--navy), var(--cobalt)); padding: 40px 36px 32px; }
   .team-role { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cobalt-light); margin-bottom: 10px; }
   .team-name { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; color: white; line-height: 1.1; }
   .team-body { padding: 32px 36px; }
@@ -223,8 +200,6 @@
   .footer-social { display: flex; gap: 12px; }
   .social-btn { width: 36px; height: 36px; background: rgba(255,255,255,0.06); border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 14px; color: rgba(255,255,255,0.5); transition: all 0.2s; border: 1px solid rgba(255,255,255,0.08); }
   .social-btn:hover { background: var(--cobalt); color: white; border-color: var(--cobalt); }
-
-  .section-divider { width: 60px; height: 3px; background: linear-gradient(90deg, var(--cobalt), var(--cobalt-light)); border-radius: 2px; margin: 20px 0 40px; }
 
   @media (max-width: 900px) {
     nav { padding: 0 20px; }
@@ -321,9 +296,7 @@
       </div>
       <div class="series-badge"><span class="dot"></span>Now Airing</div>
     </div>
-
     <div class="episodes-grid">
-
       <div class="episode-card">
         <div class="ep-number">Episode 01</div>
         <div class="ep-guest">Christopher Longhurst, MD, MS</div>
@@ -336,7 +309,6 @@
           <a href="https://www.youtube.com/watch?v=_1wQL3Dj3Vs&t=7s" class="btn-listen btn-youtube" target="_blank">▶ YouTube</a>
         </div>
       </div>
-
       <div class="episode-card">
         <div class="ep-number">Episode 02</div>
         <div class="ep-guest">Julia Adler-Milstein, PhD</div>
@@ -349,7 +321,6 @@
           <a href="https://www.youtube.com/watch?v=2SN85ZGeoMs" class="btn-listen btn-youtube" target="_blank">▶ YouTube</a>
         </div>
       </div>
-
       <div class="episode-card">
         <div class="ep-number">Episode 03</div>
         <div class="ep-guest">Gabriel Wardi, MD</div>
@@ -362,7 +333,6 @@
           <a href="https://www.youtube.com/watch?v=VB8JRA4FoAQ" class="btn-listen btn-youtube" target="_blank">▶ YouTube</a>
         </div>
       </div>
-
       <div class="episode-card">
         <div class="ep-number">Episode 04</div>
         <div class="ep-guest">Natalie Pageler, MD</div>
@@ -375,7 +345,6 @@
           <a href="https://www.youtube.com/watch?v=2W4NXAnMiuY" class="btn-listen btn-youtube" target="_blank">▶ YouTube</a>
         </div>
       </div>
-
       <div class="episode-card">
         <div class="ep-number">Episode 05</div>
         <div class="ep-guest">Erin Holve, PhD, MPH, MPP</div>
@@ -383,7 +352,6 @@
         <div class="ep-focus">Patient-centered outcomes research, how AI changes what questions we ask and who benefits from healthcare evidence.</div>
         <span class="ep-tag">Outcomes Research</span>
       </div>
-
       <div class="episode-card">
         <div class="ep-number">Episode 06</div>
         <div class="ep-guest">Mayank Goel, PhD</div>
@@ -391,15 +359,12 @@
         <div class="ep-focus">Passive sensing, using smartphones and everyday devices to monitor health without active patient input.</div>
         <span class="ep-tag">Passive Sensing & HCI</span>
       </div>
-
     </div>
-
     <div style="margin-top:64px;">
       <div class="section-label">Coming Up</div>
       <h2 style="margin-bottom:8px;">Q2 — Q4 <em>Year 1</em></h2>
       <p style="color:#4a5080; font-size:15px; margin-bottom:0;">Three more mini-series completing Year 1 of the arc.</p>
     </div>
-
     <div class="coming-soon-grid">
       <div class="coming-card">
         <div class="coming-quarter">Quarter 2 · 2025</div>
@@ -417,12 +382,10 @@
         <div class="coming-subtitle">Building, Sensing & Maintaining the World — Smart grids, predictive maintenance, urban systems, and the invisible infrastructure of modern life.</div>
       </div>
     </div>
-
     <div style="text-align:center; margin-top:48px;">
       <a href="https://open.spotify.com/show/your-show-id" class="btn-primary" style="margin-right:12px;">Listen on Spotify</a>
       <a href="https://podcasts.apple.com/podcast/id1867335577" class="btn-outline" style="color:var(--navy); border-color:rgba(32,56,164,0.3);">Apple Podcasts</a>
     </div>
-
   </div>
 </section>
 
@@ -433,24 +396,43 @@
     <div class="section-divider"></div>
     <p class="section-desc">Every mini-series comes with a complete set of free learning resources — designed to help students explore careers, build self-knowledge, and take concrete next steps.</p>
     <div class="resources-grid">
+
       <div class="resource-card">
         <div class="resource-icon">🗺️</div>
         <div class="resource-title">Future Jobs Map</div>
-        <div class="resource-desc">An interactive career map showing every major role in the mini-series domain, how AI affects each one, and which guests represent which career paths. Includes a "this might fit you if…" guide.</div>
-        <a href="#" class="btn-resource">Download Q1 Map →</a>
+        <div class="resource-desc">An interactive career map showing every major role in the mini-series domain, how AI affects each one, and which guests represent which career paths.</div>
+        <div class="resource-buttons">
+          <a href="Future_Jobs_Map_-_AI_in_Healthcare.htm" target="_blank" class="btn-view"
+             onclick="trackResource('Future Jobs Map','view')">👁 Preview</a>
+          <a href="Future_Jobs_Map_-_AI_in_Healthcare.htm" download class="btn-download"
+             onclick="trackResource('Future Jobs Map','download')">↓ Download</a>
+        </div>
       </div>
+
       <div class="resource-card">
         <div class="resource-icon">📝</div>
-        <div class="resource-title">Student Worksheets</div>
-        <div class="resource-desc">Two worksheets per series: an episode reflection sheet for use after each guest, and a quarterly synthesis worksheet to connect insights across all six conversations. Covers career exploration, skills mapping, and next steps.</div>
-        <a href="#" class="btn-resource">Download Worksheets →</a>
+        <div class="resource-title">What's Your Spark?</div>
+        <div class="resource-desc">Eight questions map your instincts to five AI career clusters — with episode recommendations and concrete next steps for each result.</div>
+        <div class="resource-buttons">
+          <a href="whats_your_spark_quiz.html" target="_blank" class="btn-view"
+             onclick="trackResource('Whats Your Spark','view')">👁 Preview</a>
+          <a href="whats_your_spark_quiz.html" download class="btn-download"
+             onclick="trackResource('Whats Your Spark','download')">↓ Download</a>
+        </div>
       </div>
+
       <div class="resource-card">
         <div class="resource-icon">📚</div>
         <div class="resource-title">Educator Guide</div>
-        <div class="resource-desc">A structured guide for counselors and teachers with learning objectives, discussion prompts for each episode, classroom activities, and curriculum connections across subject areas. Ready to use in advisory sessions.</div>
-        <a href="#" class="btn-resource">Download Guide →</a>
+        <div class="resource-desc">Curriculum connections, learning objectives, discussion prompts, and classroom activities. Ready to use in advisory sessions or STEM classes.</div>
+        <div class="resource-buttons">
+          <a href="educator_guide_AI_healthcare_v3.docx" target="_blank" class="btn-view"
+             onclick="trackResource('Educator Guide','view')">👁 Preview</a>
+          <a href="educator_guide_AI_healthcare_v3.docx" download class="btn-download"
+             onclick="trackResource('Educator Guide','download')">↓ Download</a>
+        </div>
       </div>
+
     </div>
     <div style="margin-top:48px; padding:32px 40px; background:white; border-radius:16px; border:1px solid #e8ecf8; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
       <div>
@@ -489,7 +471,7 @@
         <div class="standards-list">
           <div class="standard-item"><span class="check">✓</span><span>All resources free — no account required, no paywall</span></div>
           <div class="standard-item"><span class="check">✓</span><span>New mini-series materials released every quarter</span></div>
-          <div class="standard-item"><span class="check">✓</span><span>Suitable for grades 9–12 and community college</span></div>
+          <div class="standard-item"><span class="check">✓</span><span>For students navigating what's next</span></div>
           <div class="standard-item"><span class="check">✓</span><span>Available in print-ready and digital fillable formats</span></div>
         </div>
       </div>
@@ -623,6 +605,26 @@
 </footer>
 
 <script>
+  // ─────────────────────────────────────────────
+  // RESOURCE TRACKING — Google Forms
+  // Silently logs every view and download click
+  // to your private Google Sheet. Invisible to users.
+  // ─────────────────────────────────────────────
+  const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScafnyfukbQ7rCzspFeMklzKQy1KxLrFIoi-l-2vzaNR5gwDQ/formResponse';
+  const FIELD_RESOURCE = 'entry.579263147';
+  const FIELD_ACTION   = 'entry.1132176600';
+
+  function trackResource(resource, action) {
+    const body = new FormData();
+    body.append(FIELD_RESOURCE, resource);
+    body.append(FIELD_ACTION, action);
+    // Fire and forget — no redirect, no visible effect
+    fetch(FORM_URL, { method: 'POST', body: body, mode: 'no-cors' });
+  }
+
+  // ─────────────────────────────────────────────
+  // NAV SCROLL HIGHLIGHT
+  // ─────────────────────────────────────────────
   const sections = document.querySelectorAll('section[id], footer');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
@@ -631,6 +633,9 @@
     navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--cobalt-light)' : ''; });
   });
 
+  // ─────────────────────────────────────────────
+  // CARD ENTRANCE ANIMATIONS
+  // ─────────────────────────────────────────────
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
