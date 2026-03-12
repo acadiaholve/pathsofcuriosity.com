@@ -8,32 +8,32 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --teal: #1B7A7A;
-      --teal-light: #2A9D9D;
-      --teal-pale: #E6F4F4;
-      --teal-mid: #B8DEDE;
-      --gold: #C8933A;
-      --gold-light: #F5E6CC;
-      --gold-pale: #FFF8F0;
-      --dark: #1A1A2E;
-      --gray: #6B7280;
-      --gray-light: #F4F5F7;
-      --white: #FFFFFF;
+      --teal: #255ff1;
+      --teal-light: #5b87f5;
+      --teal-pale: #0a1230;
+      --teal-mid: #1a2a6a;
+      --gold: #e8b84b;
+      --gold-light: #2a1f00;
+      --gold-pale: #0d1020;
+      --dark: #07090f;
+      --gray: #8892b0;
+      --gray-light: #0d1545;
+      --white: #e8f0fa;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: #F0F4F4;
-      color: var(--dark);
+      background: #07090f;
+      color: var(--white);
       min-height: 100vh;
     }
 
     .page {
       max-width: 860px;
       margin: 0 auto;
-      background: white;
+      background: #0a1020;
       padding: 52px 56px 60px;
     }
 
@@ -61,7 +61,7 @@
       font-family: 'DM Serif Display', serif;
       font-size: 38px;
       line-height: 1.1;
-      color: var(--dark);
+      color: var(--white);
       margin-bottom: 6px;
     }
 
@@ -112,11 +112,11 @@
     .intro-box p {
       font-size: 13px;
       line-height: 1.75;
-      color: var(--dark);
+      color: var(--white);
     }
 
     .intro-box strong {
-      color: var(--teal);
+      color: var(--teal-light);
     }
 
     /* INSTRUCTIONS */
@@ -132,7 +132,7 @@
     /* QUESTIONS */
     .question-block {
       margin-bottom: 22px;
-      border: 1.5px solid #DDE8E8;
+      border: 1.5px solid #1a2a6a;
       border-radius: 6px;
       overflow: hidden;
     }
@@ -170,7 +170,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0;
-      background: white;
+      background: #0a1228;
     }
 
     .option {
@@ -178,8 +178,8 @@
       align-items: flex-start;
       gap: 10px;
       padding: 12px 18px;
-      border-bottom: 1px solid #EEF2F2;
-      border-right: 1px solid #EEF2F2;
+      border-bottom: 1px solid #1a2a6a;
+      border-right: 1px solid #1a2a6a;
       cursor: pointer;
       transition: background 0.15s;
     }
@@ -193,7 +193,7 @@
     }
 
     .option:hover {
-      background: var(--teal-pale);
+      background: #0d1a40;
     }
 
     .option input[type="radio"] {
@@ -207,7 +207,7 @@
     .option-label {
       font-size: 12.5px;
       line-height: 1.5;
-      color: var(--dark);
+      color: var(--white);
       cursor: pointer;
     }
 
@@ -244,7 +244,7 @@
     .spark-card {
       border-radius: 6px;
       overflow: hidden;
-      border: 1.5px solid #DDE8E8;
+      border: 1.5px solid #1a2a6a;
     }
 
     .spark-card-header {
@@ -256,7 +256,7 @@
 
     .spark-card-header.teal { background: var(--teal); }
     .spark-card-header.gold { background: var(--gold); }
-    .spark-card-header.dark { background: var(--dark); }
+    .spark-card-header.dark { background: #051248; }
     .spark-card-header.teal-light { background: var(--teal-light); }
 
     .spark-icon {
@@ -279,13 +279,13 @@
 
     .spark-card-body {
       padding: 12px 16px;
-      background: white;
+      background: #0a1228;
     }
 
     .spark-card-body p {
       font-size: 11.5px;
       line-height: 1.6;
-      color: var(--dark);
+      color: var(--white);
       margin-bottom: 8px;
     }
 
@@ -302,7 +302,7 @@
       padding: 3px 8px;
       border-radius: 20px;
       background: var(--teal-pale);
-      color: var(--teal);
+      color: var(--teal-light);
       border: 1px solid var(--teal-mid);
     }
 
@@ -316,13 +316,13 @@
       font-size: 11px;
       color: var(--gray);
       font-style: italic;
-      border-top: 1px solid #EEF2F2;
+      border-top: 1px solid #1a2a6a;
       padding-top: 8px;
       margin-top: 4px;
     }
 
     .start-action strong {
-      color: var(--teal);
+      color: var(--teal-light);
       font-style: normal;
     }
 
@@ -352,20 +352,20 @@
 
     .score-col {
       text-align: center;
-      background: white;
+      background: #0a1228;
       border-radius: 4px;
       padding: 10px 8px;
       border-top: 3px solid var(--teal);
     }
 
     .score-col.gold-top { border-top-color: var(--gold); }
-    .score-col.dark-top { border-top-color: var(--dark); }
+    .score-col.dark-top { border-top-color: #5b87f5; }
     .score-col.teal-light-top { border-top-color: var(--teal-light); }
 
     .score-letter {
       font-family: 'DM Serif Display', serif;
       font-size: 22px;
-      color: var(--dark);
+      color: var(--white);
       display: block;
       margin-bottom: 3px;
     }
@@ -385,7 +385,7 @@
     }
 
     .score-tally.gold { color: var(--gold); }
-    .score-tally.dark { color: var(--dark); }
+    .score-tally.dark { color: #5b87f5; }
     .score-tally.teal-light { color: var(--teal-light); }
 
     .tally-line {
@@ -393,7 +393,7 @@
       align-items: center;
       gap: 6px;
       font-size: 11.5px;
-      color: var(--dark);
+      color: var(--white);
       margin-bottom: 4px;
     }
 
@@ -445,10 +445,11 @@
 
     .series-tag.coming {
       background: var(--gold);
+      color: #07090f;
     }
 
     .series-desc {
-      color: var(--dark);
+      color: var(--white);
       font-weight: 500;
     }
 
@@ -507,14 +508,14 @@
     .result-reveal h3 {
       font-family: 'DM Serif Display', serif;
       font-size: 22px;
-      color: var(--teal);
+      color: var(--teal-light);
       margin-bottom: 6px;
     }
 
     .result-reveal p {
       font-size: 13px;
       line-height: 1.7;
-      color: var(--dark);
+      color: var(--white);
       margin-bottom: 10px;
     }
 
@@ -947,7 +948,7 @@
       desc: "You're drawn to the human side of AI in healthcare. Technology is a tool you'll use to serve patients better — not the point itself. You'd thrive as an AI-augmented clinician, a clinical informaticist, or a community health analyst. Your superpower is empathy backed by science.",
       clusters: ['Direct Patient Care', 'Health Informatics & Systems', 'Community Health'],
       action: 'Volunteer in a clinic. Shadow a physician or nurse practitioner. Explore pre-med with a data or informatics track. Listen to Episodes 1, 3, and 4.',
-      color: '#1B7A7A'
+      color: '#255ff1'
     },
     B: {
       letter: 'B',
@@ -956,7 +957,7 @@
       desc: "You see patterns where others see noise. You want to build the models, test the algorithms, and push the boundaries of what sensors and data can detect. Your path leads toward health data science, machine learning, and research. Dr. Mayank Goel's advice? Study physics — it's the bridge between the physical world and what a computer can measure.",
       clusters: ['Health Data Science & AI Research', 'Passive Sensing', 'ML Engineering'],
       action: 'Learn Python and basic ML. Build a project with a public health dataset (CDC, Kaggle). Listen to Episodes 3 and 6.',
-      color: '#C8933A'
+      color: '#e8b84b'
     },
     C: {
       letter: 'C',
@@ -965,7 +966,7 @@
       desc: "You ask 'should we?' before anyone asks 'can we?' You think about fairness, accountability, and who gets left out when systems are built without the right people in the room. You'd thrive as an AI safety lead, a health policy director, or a governance researcher. This field needs you — badly.",
       clusters: ['AI Safety, Ethics & Policy', 'Health Research Policy', 'AI Governance'],
       action: "Study AI bias case studies. Read about HIPAA and health data rights. Explore public health or epidemiology. Listen to Episodes 2, 4, and 5.",
-      color: '#1A1A2E'
+      color: '#051248'
     },
     D: {
       letter: 'D',
@@ -974,7 +975,7 @@
       desc: "You know the best discovery in the world fails if nobody understands it. You're a natural translator — between researchers and patients, between AI's capabilities and what people think AI does. You'd thrive as a science journalist, health AI communicator, or educator. Writing clearly, as Dr. Adler-Milstein said, is the most underrated skill in this entire field.",
       clusters: ['Health AI Communicator', 'Science Journalism', 'Education & Media'],
       action: 'Write a health explainer for a student audience. Start a podcast, video, or blog. Listen to Episodes 1 and 2.',
-      color: '#2A9D9D'
+      color: '#5b87f5'
     }
   };
 
@@ -1004,7 +1005,7 @@
 
     let html = `
       <h3>${s.title}</h3>
-      <p style="color:var(--teal);font-weight:600;margin-bottom:8px;">${s.subtitle}</p>
+      <p style="color:var(--teal-light);font-weight:600;margin-bottom:8px;">${s.subtitle}</p>
       <p>${s.desc}</p>
     `;
 
@@ -1012,7 +1013,7 @@
       html += `<p><strong>You also scored high in ${s2.title.split('—')[1].trim()}.</strong> That combination — ${s.letter} + ${s2.letter} — is actually a rare bridge-builder profile. The field needs people who can cross those lines.</p>`;
     }
 
-    html += `<p style="margin-top:10px;"><strong style="color:var(--teal);">Your next step:</strong> ${s.action}</p>`;
+    html += `<p style="margin-top:10px;"><strong style="color:var(--teal-light);">Your next step:</strong> ${s.action}</p>`;
     html += `<p style="font-size:11px;color:var(--gray);margin-top:10px;">Your scores: A (People & Science): ${counts.A} &nbsp;|&nbsp; B (Data & Coding): ${counts.B} &nbsp;|&nbsp; C (Ethics & Policy): ${counts.C} &nbsp;|&nbsp; D (Communicating): ${counts.D}</p>`;
 
     const box = document.getElementById('resultBox');
