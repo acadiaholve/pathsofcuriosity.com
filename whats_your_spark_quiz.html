@@ -52,7 +52,7 @@
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.15em;
-      color: var(--teal);
+      color: var(--teal-light);
       text-transform: uppercase;
       margin-bottom: 8px;
     }
@@ -66,7 +66,7 @@
     }
 
     .header h1 em {
-      color: var(--teal);
+      color: var(--teal-light);
       font-style: italic;
     }
 
@@ -115,9 +115,7 @@
       color: var(--white);
     }
 
-    .intro-box strong {
-      color: var(--teal-light);
-    }
+    .intro-box strong { color: var(--teal-light); }
 
     /* INSTRUCTIONS */
     .instructions {
@@ -184,17 +182,9 @@
       transition: background 0.15s;
     }
 
-    .option:nth-child(even) {
-      border-right: none;
-    }
-
-    .option:nth-last-child(-n+2) {
-      border-bottom: none;
-    }
-
-    .option:hover {
-      background: #0d1a40;
-    }
+    .option:nth-child(even) { border-right: none; }
+    .option:nth-last-child(-n+2) { border-bottom: none; }
+    .option:hover { background: #0d1a40; }
 
     .option input[type="radio"] {
       margin-top: 2px;
@@ -211,25 +201,13 @@
       cursor: pointer;
     }
 
-    .option-tag {
-      display: inline-block;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 1px 6px;
-      border-radius: 2px;
-      margin-left: 5px;
-      vertical-align: middle;
-    }
-
     /* RESULTS SECTION */
     .section-title {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.13em;
       text-transform: uppercase;
-      color: var(--teal);
+      color: var(--teal-light);
       margin-bottom: 14px;
       margin-top: 32px;
     }
@@ -255,14 +233,11 @@
     }
 
     .spark-card-header.teal { background: var(--teal); }
-    .spark-card-header.gold { background: var(--gold); }
+    .spark-card-header.gold { background: #b8882a; }
     .spark-card-header.dark { background: #051248; }
     .spark-card-header.teal-light { background: var(--teal-light); }
 
-    .spark-icon {
-      font-size: 18px;
-      flex-shrink: 0;
-    }
+    .spark-icon { font-size: 18px; flex-shrink: 0; }
 
     .spark-title {
       font-size: 12px;
@@ -273,7 +248,7 @@
 
     .spark-subtitle {
       font-size: 10px;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.85);
       margin-top: 1px;
     }
 
@@ -329,7 +304,7 @@
     /* SCORE BOX */
     .score-box {
       background: var(--gold-pale);
-      border: 1.5px solid var(--gold-light);
+      border: 1.5px solid rgba(232,184,75,0.3);
       border-radius: 6px;
       padding: 16px 20px;
       margin-bottom: 24px;
@@ -370,11 +345,7 @@
       margin-bottom: 3px;
     }
 
-    .score-label {
-      font-size: 10px;
-      color: var(--gray);
-      line-height: 1.4;
-    }
+    .score-label { font-size: 10px; color: var(--gray); line-height: 1.4; }
 
     .score-tally {
       display: block;
@@ -388,25 +359,7 @@
     .score-tally.dark { color: #5b87f5; }
     .score-tally.teal-light { color: var(--teal-light); }
 
-    .tally-line {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11.5px;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
-
-    .tally-line:last-child { margin-bottom: 0; }
-
-    .tally-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* MINI SERIES NOTE */
+    /* SERIES NOTE */
     .series-note {
       background: var(--gray-light);
       border-radius: 6px;
@@ -419,7 +372,7 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--teal);
+      color: var(--teal-light);
       margin-bottom: 10px;
     }
 
@@ -443,20 +396,10 @@
       flex-shrink: 0;
     }
 
-    .series-tag.coming {
-      background: var(--gold);
-      color: #07090f;
-    }
+    .series-tag.coming { background: var(--gold); color: #07090f; }
 
-    .series-desc {
-      color: var(--white);
-      font-weight: 500;
-    }
-
-    .series-sub {
-      color: var(--gray);
-      font-size: 11px;
-    }
+    .series-desc { color: var(--white); font-weight: 500; }
+    .series-sub { color: var(--gray); font-size: 11px; }
 
     /* FOOTER */
     .footer {
@@ -469,25 +412,10 @@
       margin-top: 28px;
     }
 
-    .footer-left p {
-      font-size: 11px;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-
+    .footer-left p { font-size: 11px; color: var(--gray); line-height: 1.6; }
     .footer-right { text-align: right; }
-
-    .footer-right .site {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--teal);
-      display: block;
-    }
-
-    .footer-right .tagline {
-      font-size: 10px;
-      color: var(--gray);
-    }
+    .footer-right .site { font-size: 12px; font-weight: 600; color: var(--teal-light); display: block; }
+    .footer-right .tagline { font-size: 10px; color: var(--gray); }
 
     /* INTERACTIVE RESULTS (web only) */
     .result-reveal {
@@ -541,33 +469,165 @@
     .web-only { display: block; }
     .print-only { display: none; }
 
-    /* PRINT */
-    @media print {
-      body { background: white; }
-      .page { padding: 32px 40px; max-width: 100%; }
-      .calc-btn { display: none; }
-      .result-reveal { display: none !important; }
-      .web-only { display: none; }
-      .print-only { display: block; }
-      .option { break-inside: avoid; }
-      .question-block { break-inside: avoid; }
-      .spark-card { break-inside: avoid; }
+    /* PRINT NOTICE BAR */
+    .print-notice {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(232,184,75,0.1);
+      border: 1px solid rgba(232,184,75,0.3);
+      border-radius: 6px;
+      padding: 10px 16px;
+      margin-bottom: 28px;
     }
+    .print-notice-text {
+      flex: 1;
+      font-size: 12px;
+      color: #c8a84b;
+      line-height: 1.4;
+    }
+    .print-notice-text strong { color: #e8c870; font-weight: 600; }
+    .print-btn {
+      background: var(--teal);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 7px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+      transition: background 0.15s;
+    }
+    .print-btn:hover { background: var(--teal-light); }
 
     @media (max-width: 700px) {
       .page { padding: 28px 20px; }
       .header { grid-template-columns: 1fr; }
       .options-grid { grid-template-columns: 1fr; }
-      .option:nth-child(even) { border-right: none; }
       .option { border-right: none; }
       .results-grid { grid-template-columns: 1fr; }
       .score-grid { grid-template-columns: 1fr 1fr; }
       .footer { grid-template-columns: 1fr; }
     }
+
+    /* =============================================
+       PRINT STYLES — light, ink-friendly
+       ============================================= */
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+      body { background: white !important; color: #111 !important; }
+
+      .page {
+        background: white !important;
+        padding: 20px 28px !important;
+        max-width: 100% !important;
+      }
+
+      /* Header */
+      .header { border-bottom-color: #255ff1 !important; }
+      .eyebrow { color: #255ff1 !important; }
+      .header h1 { color: #07090f !important; }
+      .header h1 em { color: #255ff1 !important; }
+      .subtitle { color: #444 !important; }
+      .quarter-label { color: #555 !important; }
+      .podcast-badge { background: #255ff1 !important; color: white !important; }
+
+      /* Intro */
+      .intro-box { background: #f0f4ff !important; border-left-color: #255ff1 !important; }
+      .intro-box p { color: #111 !important; }
+      .intro-box strong { color: #255ff1 !important; }
+
+      .instructions { color: #b8882a !important; }
+
+      /* Questions */
+      .question-block { border-color: #c0c8e0 !important; }
+      .question-header { background: #255ff1 !important; }
+      .q-number { background: rgba(255,255,255,0.25) !important; color: white !important; }
+      .question-text { color: white !important; }
+
+      .options-grid { background: #f8f9ff !important; }
+      .option {
+        border-bottom-color: #dde2f0 !important;
+        border-right-color: #dde2f0 !important;
+      }
+      .option-label { color: #111 !important; }
+
+      /* Score box */
+      .score-box { background: #fffbf0 !important; border-color: #e8b84b !important; }
+      .score-title { color: #b8882a !important; }
+      .score-col { background: white !important; border: 1px solid #dde2f0 !important; }
+      .score-col { border-top: 3px solid #255ff1 !important; }
+      .score-col.gold-top { border-top-color: #e8b84b !important; }
+      .score-col.dark-top { border-top-color: #5b87f5 !important; }
+      .score-col.teal-light-top { border-top-color: #5b87f5 !important; }
+      .score-letter { color: #07090f !important; }
+      .score-label { color: #555 !important; }
+      .score-tally { color: #255ff1 !important; }
+      .score-tally.gold { color: #b8882a !important; }
+      .score-tally.dark,
+      .score-tally.teal-light { color: #5b87f5 !important; }
+
+      /* Spark result cards */
+      .results-grid { grid-template-columns: 1fr 1fr !important; }
+      .spark-card { border-color: #c0c8e0 !important; }
+      .spark-card-header.teal { background: #255ff1 !important; }
+      .spark-card-header.gold { background: #b8882a !important; }
+      .spark-card-header.dark { background: #1a3a9a !important; }
+      .spark-card-header.teal-light { background: #5b87f5 !important; }
+      .spark-title { color: white !important; }
+      .spark-subtitle { color: rgba(255,255,255,0.9) !important; }
+
+      .spark-card-body { background: #f8f9ff !important; }
+      .spark-card-body p { color: #111 !important; }
+
+      .cluster-pill { background: #e8eeff !important; color: #255ff1 !important; border-color: #c0ccee !important; }
+      .cluster-pill.gold { background: #fff8e8 !important; color: #b8882a !important; border-color: #e8c870 !important; }
+
+      .start-action { border-top-color: #dde2f0 !important; color: #555 !important; }
+      .start-action strong { color: #255ff1 !important; }
+
+      /* Series note */
+      .series-note { background: #f0f4ff !important; }
+      .series-note-title { color: #255ff1 !important; }
+      .series-tag { background: #255ff1 !important; color: white !important; }
+      .series-tag.coming { background: #e8b84b !important; color: #07090f !important; }
+      .series-desc { color: #111 !important; }
+      .series-sub { color: #555 !important; }
+
+      /* Footer */
+      .footer { border-top-color: #c0c8e0 !important; }
+      .footer-left p { color: #555 !important; }
+      .footer-right .site { color: #255ff1 !important; }
+      .footer-right .tagline { color: #777 !important; }
+
+      /* Section title */
+      .section-title { color: #255ff1 !important; }
+
+      /* Hide web-only, show print-only */
+      .calc-btn { display: none !important; }
+      .result-reveal { display: none !important; }
+      .web-only { display: none !important; }
+      .print-only { display: block !important; }
+      .print-notice { display: none !important; }
+
+      /* Page break helpers */
+      .question-block { break-inside: avoid; }
+      .spark-card { break-inside: avoid; }
+    }
   </style>
 </head>
 <body>
 <div class="page">
+
+  <!-- PRINT NOTICE -->
+  <div class="print-notice">
+    <div class="print-notice-text">🖨️ <strong>Printer friendly.</strong> This page prints cleanly on a white background. No ink waste.</div>
+    <button class="print-btn" onclick="window.print()">Print this page</button>
+  </div>
 
   <!-- HEADER -->
   <div class="header">
@@ -590,29 +650,16 @@
   <div class="instructions">→ Circle or check one answer per question. Count your letters at the end.</div>
 
   <!-- QUESTIONS -->
-
   <div class="question-block">
     <div class="question-header">
       <div class="q-number">1</div>
       <div class="question-text">It's a free Saturday and you can learn anything. What sounds most appealing?</div>
     </div>
     <div class="options-grid">
-      <label class="option">
-        <input type="radio" name="q1" value="A">
-        <span class="option-label">Volunteering at a clinic or community event, being around people</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q1" value="B">
-        <span class="option-label">Building something with code — an app, a model, a script</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q1" value="C">
-        <span class="option-label">Reading about a law, a policy debate, or an ethics dilemma in the news</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q1" value="D">
-        <span class="option-label">Writing, making a video, or explaining something complicated to a friend</span>
-      </label>
+      <label class="option"><input type="radio" name="q1" value="A"><span class="option-label">Volunteering at a clinic or community event, being around people</span></label>
+      <label class="option"><input type="radio" name="q1" value="B"><span class="option-label">Building something with code — an app, a model, a script</span></label>
+      <label class="option"><input type="radio" name="q1" value="C"><span class="option-label">Reading about a law, a policy debate, or an ethics dilemma in the news</span></label>
+      <label class="option"><input type="radio" name="q1" value="D"><span class="option-label">Writing, making a video, or explaining something complicated to a friend</span></label>
     </div>
   </div>
 
@@ -622,22 +669,10 @@
       <div class="question-text">Your school is testing a new AI tool that predicts which students might be at risk of failing. What's your first reaction?</div>
     </div>
     <div class="options-grid">
-      <label class="option">
-        <input type="radio" name="q2" value="A">
-        <span class="option-label">I want to know how it would actually help the student sitting in front of me</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q2" value="B">
-        <span class="option-label">I'm curious how the model was built and what data it used</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q2" value="C">
-        <span class="option-label">I'm worried about bias — what if it flags the wrong kids for the wrong reasons?</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q2" value="D">
-        <span class="option-label">I want to write about it or explain it so students and parents actually understand what it does</span>
-      </label>
+      <label class="option"><input type="radio" name="q2" value="A"><span class="option-label">I want to know how it would actually help the student sitting in front of me</span></label>
+      <label class="option"><input type="radio" name="q2" value="B"><span class="option-label">I'm curious how the model was built and what data it used</span></label>
+      <label class="option"><input type="radio" name="q2" value="C"><span class="option-label">I'm worried about bias — what if it flags the wrong kids for the wrong reasons?</span></label>
+      <label class="option"><input type="radio" name="q2" value="D"><span class="option-label">I want to write about it or explain it so students and parents actually understand what it does</span></label>
     </div>
   </div>
 
@@ -647,22 +682,10 @@
       <div class="question-text">A doctor says an AI flagged your friend's test results as abnormal — but the doctor isn't sure the AI is right. What do you want to know more about?</div>
     </div>
     <div class="options-grid">
-      <label class="option">
-        <input type="radio" name="q3" value="A">
-        <span class="option-label">How the doctor is going to talk to my friend and make the decision</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q3" value="B">
-        <span class="option-label">How accurate the model actually is and what its error rate looks like</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q3" value="C">
-        <span class="option-label">Who is responsible if the AI is wrong — the doctor, the hospital, the company?</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q3" value="D">
-        <span class="option-label">How patients are being told about this and whether they understand what's happening</span>
-      </label>
+      <label class="option"><input type="radio" name="q3" value="A"><span class="option-label">How the doctor is going to talk to my friend and make the decision</span></label>
+      <label class="option"><input type="radio" name="q3" value="B"><span class="option-label">How accurate the model actually is and what its error rate looks like</span></label>
+      <label class="option"><input type="radio" name="q3" value="C"><span class="option-label">Who is responsible if the AI is wrong — the doctor, the hospital, the company?</span></label>
+      <label class="option"><input type="radio" name="q3" value="D"><span class="option-label">How patients are being told about this and whether they understand what's happening</span></label>
     </div>
   </div>
 
@@ -672,22 +695,10 @@
       <div class="question-text">Which school project sounds most like something you'd actually be proud of?</div>
     </div>
     <div class="options-grid">
-      <label class="option">
-        <input type="radio" name="q4" value="A">
-        <span class="option-label">Designing a health intervention for underserved kids in my community</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q4" value="B">
-        <span class="option-label">Analyzing a real dataset to find a pattern no one's noticed before</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q4" value="C">
-        <span class="option-label">Writing a proposal for how a city should regulate AI in public schools</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q4" value="D">
-        <span class="option-label">Creating a podcast, article, or video that makes a complex issue click for people</span>
-      </label>
+      <label class="option"><input type="radio" name="q4" value="A"><span class="option-label">Designing a health intervention for underserved kids in my community</span></label>
+      <label class="option"><input type="radio" name="q4" value="B"><span class="option-label">Analyzing a real dataset to find a pattern no one's noticed before</span></label>
+      <label class="option"><input type="radio" name="q4" value="C"><span class="option-label">Writing a proposal for how a city should regulate AI in public schools</span></label>
+      <label class="option"><input type="radio" name="q4" value="D"><span class="option-label">Creating a podcast, article, or video that makes a complex issue click for people</span></label>
     </div>
   </div>
 
@@ -697,22 +708,10 @@
       <div class="question-text">Which kind of problem frustrates you most when it goes unsolved?</div>
     </div>
     <div class="options-grid">
-      <label class="option">
-        <input type="radio" name="q5" value="A">
-        <span class="option-label">People not getting the care or support they clearly need</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q5" value="B">
-        <span class="option-label">Data sitting unused when it could be answering important questions</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q5" value="C">
-        <span class="option-label">Powerful tools being used in ways that are unfair or unaccountable</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q5" value="D">
-        <span class="option-label">Important ideas being ignored because nobody explained them clearly enough</span>
-      </label>
+      <label class="option"><input type="radio" name="q5" value="A"><span class="option-label">People not getting the care or support they clearly need</span></label>
+      <label class="option"><input type="radio" name="q5" value="B"><span class="option-label">Data sitting unused when it could be answering important questions</span></label>
+      <label class="option"><input type="radio" name="q5" value="C"><span class="option-label">Powerful tools being used in ways that are unfair or unaccountable</span></label>
+      <label class="option"><input type="radio" name="q5" value="D"><span class="option-label">Important ideas being ignored because nobody explained them clearly enough</span></label>
     </div>
   </div>
 
@@ -722,22 +721,10 @@
       <div class="question-text">Which subject do you find yourself going down rabbit holes in — even when it's not assigned?</div>
     </div>
     <div class="options-grid">
-      <label class="option">
-        <input type="radio" name="q6" value="A">
-        <span class="option-label">Biology, medicine, psychology — how the human body and mind work</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q6" value="B">
-        <span class="option-label">Math, statistics, computer science — how systems and patterns work</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q6" value="C">
-        <span class="option-label">History, law, ethics — how societies make rules and who gets to decide</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q6" value="D">
-        <span class="option-label">English, media, storytelling — how ideas spread and who gets heard</span>
-      </label>
+      <label class="option"><input type="radio" name="q6" value="A"><span class="option-label">Biology, medicine, psychology — how the human body and mind work</span></label>
+      <label class="option"><input type="radio" name="q6" value="B"><span class="option-label">Math, statistics, computer science — how systems and patterns work</span></label>
+      <label class="option"><input type="radio" name="q6" value="C"><span class="option-label">History, law, ethics — how societies make rules and who gets to decide</span></label>
+      <label class="option"><input type="radio" name="q6" value="D"><span class="option-label">English, media, storytelling — how ideas spread and who gets heard</span></label>
     </div>
   </div>
 
@@ -747,22 +734,10 @@
       <div class="question-text">You're on a team building an AI tool for a hospital. Which role do you naturally end up in?</div>
     </div>
     <div class="options-grid">
-      <label class="option">
-        <input type="radio" name="q7" value="A">
-        <span class="option-label">The one talking to nurses and patients to understand what they actually need</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q7" value="B">
-        <span class="option-label">The one building the model and making sure it performs accurately</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q7" value="C">
-        <span class="option-label">The one asking "but what happens when it's wrong — and who's responsible?"</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q7" value="D">
-        <span class="option-label">The one figuring out how to present it so the whole hospital understands it</span>
-      </label>
+      <label class="option"><input type="radio" name="q7" value="A"><span class="option-label">The one talking to nurses and patients to understand what they actually need</span></label>
+      <label class="option"><input type="radio" name="q7" value="B"><span class="option-label">The one building the model and making sure it performs accurately</span></label>
+      <label class="option"><input type="radio" name="q7" value="C"><span class="option-label">The one asking "but what happens when it's wrong — and who's responsible?"</span></label>
+      <label class="option"><input type="radio" name="q7" value="D"><span class="option-label">The one figuring out how to present it so the whole hospital understands it</span></label>
     </div>
   </div>
 
@@ -772,22 +747,10 @@
       <div class="question-text">Which sentence sounds most like something you'd say?</div>
     </div>
     <div class="options-grid">
-      <label class="option">
-        <input type="radio" name="q8" value="A">
-        <span class="option-label">"I went into this to help people — the technology is just how I do it."</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q8" value="B">
-        <span class="option-label">"The problem is interesting enough. Give me the data and I'll figure it out."</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q8" value="C">
-        <span class="option-label">"Just because we <em>can</em> build it doesn't mean we should — or not yet."</span>
-      </label>
-      <label class="option">
-        <input type="radio" name="q8" value="D">
-        <span class="option-label">"The best discovery in the world doesn't matter if nobody understands it."</span>
-      </label>
+      <label class="option"><input type="radio" name="q8" value="A"><span class="option-label">"I went into this to help people — the technology is just how I do it."</span></label>
+      <label class="option"><input type="radio" name="q8" value="B"><span class="option-label">"The problem is interesting enough. Give me the data and I'll figure it out."</span></label>
+      <label class="option"><input type="radio" name="q8" value="C"><span class="option-label">"Just because we <em>can</em> build it doesn't mean we should — or not yet."</span></label>
+      <label class="option"><input type="radio" name="q8" value="D"><span class="option-label">"The best discovery in the world doesn't matter if nobody understands it."</span></label>
     </div>
   </div>
 
@@ -824,7 +787,7 @@
           <span class="score-tally teal-light">_____ / 8</span>
         </div>
       </div>
-      <p style="font-size:11px;color:var(--gray);margin-top:10px;">Your highest letter is your primary spark. Close scores? You might be a natural bridge-builder — see the results below.</p>
+      <p style="font-size:11px;color:#666;margin-top:10px;">Your highest letter is your primary spark. Close scores? You might be a natural bridge-builder — see the results below.</p>
     </div>
   </div>
 
@@ -910,7 +873,7 @@
 
   </div>
 
-  <!-- MINI SERIES NOTE -->
+  <!-- SERIES NOTE -->
   <div class="series-note">
     <div class="series-note-title">Where to go from here — Paths of Curiosity Mini-Series</div>
     <div class="series-row">
@@ -942,47 +905,34 @@
 <script>
   const sparks = {
     A: {
-      letter: 'A',
       title: 'Spark A — People & Science',
       subtitle: 'You want to heal, help, and connect.',
       desc: "You're drawn to the human side of AI in healthcare. Technology is a tool you'll use to serve patients better — not the point itself. You'd thrive as an AI-augmented clinician, a clinical informaticist, or a community health analyst. Your superpower is empathy backed by science.",
-      clusters: ['Direct Patient Care', 'Health Informatics & Systems', 'Community Health'],
-      action: 'Volunteer in a clinic. Shadow a physician or nurse practitioner. Explore pre-med with a data or informatics track. Listen to Episodes 1, 3, and 4.',
-      color: '#255ff1'
+      action: 'Volunteer in a clinic. Shadow a physician or nurse practitioner. Explore pre-med with a data or informatics track. Listen to Episodes 1, 3, and 4.'
     },
     B: {
-      letter: 'B',
       title: 'Spark B — Data & Coding',
       subtitle: 'You want to build and discover.',
-      desc: "You see patterns where others see noise. You want to build the models, test the algorithms, and push the boundaries of what sensors and data can detect. Your path leads toward health data science, machine learning, and research. Dr. Mayank Goel's advice? Study physics — it's the bridge between the physical world and what a computer can measure.",
-      clusters: ['Health Data Science & AI Research', 'Passive Sensing', 'ML Engineering'],
-      action: 'Learn Python and basic ML. Build a project with a public health dataset (CDC, Kaggle). Listen to Episodes 3 and 6.',
-      color: '#e8b84b'
+      desc: "You see patterns where others see noise. You want to build the models, test the algorithms, and push the boundaries of what sensors and data can detect. Dr. Mayank Goel's advice? Study physics — it's the bridge between the physical world and what a computer can measure.",
+      action: 'Learn Python and basic ML. Build a project with a public health dataset (CDC, Kaggle). Listen to Episodes 3 and 6.'
     },
     C: {
-      letter: 'C',
       title: 'Spark C — Ethics & Policy',
       subtitle: "You want to make sure AI works for everyone.",
-      desc: "You ask 'should we?' before anyone asks 'can we?' You think about fairness, accountability, and who gets left out when systems are built without the right people in the room. You'd thrive as an AI safety lead, a health policy director, or a governance researcher. This field needs you — badly.",
-      clusters: ['AI Safety, Ethics & Policy', 'Health Research Policy', 'AI Governance'],
-      action: "Study AI bias case studies. Read about HIPAA and health data rights. Explore public health or epidemiology. Listen to Episodes 2, 4, and 5.",
-      color: '#051248'
+      desc: "You ask 'should we?' before anyone asks 'can we?' You think about fairness, accountability, and who gets left out when systems are built without the right people in the room. This field needs you — badly.",
+      action: "Study AI bias case studies. Read about HIPAA and health data rights. Explore public health or epidemiology. Listen to Episodes 2, 4, and 5."
     },
     D: {
-      letter: 'D',
       title: 'Spark D — Communicating Ideas',
       subtitle: 'You want to close the gap between knowing and understanding.',
-      desc: "You know the best discovery in the world fails if nobody understands it. You're a natural translator — between researchers and patients, between AI's capabilities and what people think AI does. You'd thrive as a science journalist, health AI communicator, or educator. Writing clearly, as Dr. Adler-Milstein said, is the most underrated skill in this entire field.",
-      clusters: ['Health AI Communicator', 'Science Journalism', 'Education & Media'],
-      action: 'Write a health explainer for a student audience. Start a podcast, video, or blog. Listen to Episodes 1 and 2.',
-      color: '#5b87f5'
+      desc: "You know the best discovery in the world fails if nobody understands it. You're a natural translator — between researchers and patients, between AI's capabilities and what people think AI does. Writing clearly, as Dr. Adler-Milstein said, is the most underrated skill in this entire field.",
+      action: 'Write a health explainer for a student audience. Start a podcast, video, or blog. Listen to Episodes 1 and 2.'
     }
   };
 
   function calculateSpark() {
     const questions = ['q1','q2','q3','q4','q5','q6','q7','q8'];
     const counts = {A:0, B:0, C:0, D:0};
-
     questions.forEach(q => {
       const checked = document.querySelector(`input[name="${q}"]:checked`);
       if (checked) counts[checked.value]++;
@@ -990,8 +940,9 @@
 
     const total = Object.values(counts).reduce((a,b) => a+b, 0);
     if (total < 6) {
-      document.getElementById('resultBox').style.display = 'block';
-      document.getElementById('resultBox').innerHTML = `<h3>Almost there!</h3><p>Answer at least 6 questions to see your result.</p>`;
+      const box = document.getElementById('resultBox');
+      box.style.display = 'block';
+      box.innerHTML = `<h3>Almost there!</h3><p>Answer at least 6 questions to see your result.</p>`;
       return;
     }
 
@@ -999,22 +950,19 @@
     const top = sorted[0][0];
     const second = sorted[1][0];
     const isClose = sorted[0][1] - sorted[1][1] <= 1;
-
     const s = sparks[top];
     const s2 = sparks[second];
 
-    let html = `
-      <h3>${s.title}</h3>
+    let html = `<h3>${s.title}</h3>
       <p style="color:var(--teal-light);font-weight:600;margin-bottom:8px;">${s.subtitle}</p>
-      <p>${s.desc}</p>
-    `;
+      <p>${s.desc}</p>`;
 
     if (isClose) {
-      html += `<p><strong>You also scored high in ${s2.title.split('—')[1].trim()}.</strong> That combination — ${s.letter} + ${s2.letter} — is actually a rare bridge-builder profile. The field needs people who can cross those lines.</p>`;
+      html += `<p><strong>You also scored high in ${s2.title.split('—')[1].trim()}.</strong> That combination — ${top} + ${second} — is actually a rare bridge-builder profile. The field needs people who can cross those lines.</p>`;
     }
 
     html += `<p style="margin-top:10px;"><strong style="color:var(--teal-light);">Your next step:</strong> ${s.action}</p>`;
-    html += `<p style="font-size:11px;color:var(--gray);margin-top:10px;">Your scores: A (People & Science): ${counts.A} &nbsp;|&nbsp; B (Data & Coding): ${counts.B} &nbsp;|&nbsp; C (Ethics & Policy): ${counts.C} &nbsp;|&nbsp; D (Communicating): ${counts.D}</p>`;
+    html += `<p style="font-size:11px;color:var(--gray);margin-top:10px;">Your scores: A (People & Science): ${counts.A} | B (Data & Coding): ${counts.B} | C (Ethics & Policy): ${counts.C} | D (Communicating): ${counts.D}</p>`;
 
     const box = document.getElementById('resultBox');
     box.innerHTML = html;
@@ -1022,6 +970,5 @@
     box.scrollIntoView({behavior: 'smooth', block: 'nearest'});
   }
 </script>
-
 </body>
 </html>
