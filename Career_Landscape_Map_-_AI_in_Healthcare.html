@@ -52,7 +52,7 @@
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.15em;
-    color: var(--teal);
+    color: var(--teal-light);
     text-transform: uppercase;
     margin-bottom: 8px;
   }
@@ -210,7 +210,7 @@
 
   .cluster-subtitle {
     font-size: 10.5px;
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.85);
     margin-top: 1px;
   }
 
@@ -261,13 +261,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--gold-light);
+    border: 2px solid rgba(232,184,75,0.3);
     cursor: default;
   }
 
   .role-desc {
     font-size: 11.5px;
-    color: var(--gray);
+    color: #a8b4cc;
     line-height: 1.55;
     margin-bottom: 6px;
   }
@@ -357,7 +357,7 @@
 
   .path-card p {
     font-size: 11px;
-    color: var(--gray);
+    color: #a8b4cc;
     line-height: 1.5;
   }
 
@@ -391,10 +391,39 @@
     color: var(--gray);
   }
 
-  @media print {
-    body { background: white; }
-    .page { padding: 32px 40px; max-width: 100%; }
+  /* PRINT NOTICE BAR */
+  .print-notice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(232,184,75,0.1);
+    border: 1px solid rgba(232,184,75,0.3);
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin-bottom: 28px;
   }
+  .print-notice-text {
+    flex: 1;
+    font-size: 12px;
+    color: #c8a84b;
+    line-height: 1.4;
+  }
+  .print-notice-text strong { color: #e8c870; font-weight: 600; }
+  .print-btn {
+    background: var(--teal);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    transition: background 0.15s;
+  }
+  .print-btn:hover { background: var(--teal-light); }
 
   @media (max-width: 800px) {
     .clusters-grid { grid-template-columns: 1fr; }
@@ -404,10 +433,108 @@
     .header { grid-template-columns: 1fr; }
     .page { padding: 28px 24px; }
   }
+
+  /* =============================================
+     PRINT STYLES — light, ink-friendly
+     ============================================= */
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    body {
+      background: white !important;
+      color: #111 !important;
+    }
+
+    .page {
+      background: white !important;
+      padding: 20px 28px !important;
+      max-width: 100% !important;
+    }
+
+    .print-notice { display: none !important; }
+
+    /* Header */
+    .header {
+      border-bottom-color: #255ff1 !important;
+    }
+    .header-left .eyebrow { color: #255ff1 !important; }
+    .header-left h1 { color: #07090f !important; }
+    .header-left h1 em { color: #255ff1 !important; }
+    .header-left .subtitle { color: #444 !important; }
+    .header-right .quarter-label { color: #555 !important; }
+    .podcast-badge { background: #255ff1 !important; color: white !important; }
+
+    /* Intro row */
+    .intro-box {
+      background: #f0f4ff !important;
+      border-left-color: #255ff1 !important;
+    }
+    .intro-box p { color: #111 !important; }
+
+    .guest-legend {
+      background: #fffbf0 !important;
+      border-color: #e8b84b !important;
+    }
+    .guest-legend .legend-title { color: #b8882a !important; }
+    .guest-pill {
+      background: white !important;
+      border-color: #e8b84b !important;
+      color: #111 !important;
+    }
+    .guest-dot { background: #e8b84b !important; color: #07090f !important; }
+
+    /* Clusters */
+    .cluster { border-color: #c0c8e0 !important; }
+    .cluster-header { background: #255ff1 !important; }
+    .cluster-title { color: white !important; }
+    .cluster-subtitle { color: rgba(255,255,255,0.9) !important; }
+    .cluster-number { background: rgba(255,255,255,0.25) !important; color: white !important; }
+
+    .cluster-body { background: #f8f9ff !important; }
+    .role { border-bottom-color: #dde2f0 !important; }
+    .role-name { color: #07090f !important; }
+    .role-desc { color: #444 !important; }
+
+    .role-tag { background: #e8eeff !important; color: #255ff1 !important; }
+    .role-tag.skills { background: #eef0f8 !important; color: #555 !important; }
+    .role-tag.spark { background: #efffee !important; color: #1a7a2a !important; }
+
+    .guest-tag { background: #e8b84b !important; color: #07090f !important; border-color: #c8942a !important; }
+
+    /* Full-width cluster 5 */
+    .cluster-full { border-color: #c0c8e0 !important; }
+    .cluster-full .cluster-header { background: #1a3a9a !important; }
+    .cluster-full .cluster-body { background: #f8f9ff !important; }
+    .cluster-full .role { border-right-color: #dde2f0 !important; }
+
+    /* Path section */
+    .path-section { background: #f0f4ff !important; }
+    .path-section-title { color: #255ff1 !important; }
+    .path-card { background: white !important; border-top-color: #255ff1 !important; border: 1px solid #dde2f0; border-top: 3px solid #255ff1 !important; }
+    .path-card h4 { color: #07090f !important; }
+    .path-card p { color: #444 !important; }
+
+    /* Footer */
+    .footer { border-top-color: #c0c8e0 !important; }
+    .footer-left p { color: #555 !important; }
+    .footer-right .site { color: #255ff1 !important; }
+    .footer-right .tagline { color: #777 !important; }
+
+    /* Page break helpers */
+    .cluster { break-inside: avoid; }
+    .role { break-inside: avoid; }
+    .path-card { break-inside: avoid; }
+  }
 </style>
 </head>
 <body>
 <div class="page">
+
+  <!-- PRINT NOTICE -->
+  <div class="print-notice">
+    <div class="print-notice-text">🖨️ <strong>Printer friendly.</strong> This page prints cleanly on a white background. No ink waste.</div>
+    <button class="print-btn" onclick="window.print()">Print this page</button>
+  </div>
 
   <!-- HEADER -->
   <div class="header">
