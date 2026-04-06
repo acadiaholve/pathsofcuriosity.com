@@ -127,12 +127,6 @@
   .btn-apple:hover { background: #2a4bbf; transform: translateY(-1px); }
   .btn-youtube { background: #255ff1; color: white; border: 1px solid rgba(91,135,245,0.3); }
   .btn-youtube:hover { background: #5b87f5; transform: translateY(-1px); }
-  .coming-soon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-  .coming-card { background: var(--navy); border-radius: 16px; padding: 28px; border: 1px solid rgba(37,95,241,0.2); position: relative; overflow: hidden; }
-  .coming-card::after { content: 'COMING SOON'; position: absolute; top: 16px; right: 16px; font-size: 9px; font-weight: 700; letter-spacing: 0.15em; color: rgba(255,255,255,0.4); }
-  .coming-quarter { font-size: 11px; font-weight: 700; color: var(--cobalt-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
-  .coming-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: white; margin-bottom: 8px; }
-  .coming-subtitle { font-size: 13px; color: rgba(255,255,255,0.72); line-height: 1.5; }
 
   /* RESOURCES */
   #resources { background: var(--off-white); }
@@ -140,99 +134,28 @@
   #resources h2 em { color: var(--cobalt-light); }
   #resources .section-label { color: var(--cobalt-light); }
   #resources .section-label::before { background: var(--cobalt-light); }
-  #resources .section-desc { color: #b8c4dc; max-width: 640px; }
   .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
   .resource-card { background: white; border-radius: 16px; padding: 36px 28px; border: 1px solid rgba(37,95,241,0.15); text-align: center; transition: all 0.25s; }
-  .resource-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(32,56,164,0.1); border-color: rgba(37,95,241,0.2); }
   .resource-icon { width: 64px; height: 64px; background: linear-gradient(135deg, var(--cobalt), var(--navy)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 20px; }
   .resource-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
   .resource-desc { font-size: 14px; color: #6b7894; line-height: 1.65; margin-bottom: 24px; }
-  .resource-buttons { display: flex; gap: 8px; justify-content: center; }
-  .btn-view { display: inline-block; background: #f0f4ff; color: var(--cobalt); padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; border: 1px solid rgba(37,95,241,0.2); transition: all 0.2s; cursor: pointer; }
-  .btn-view:hover { background: rgba(37,95,241,0.08); border-color: var(--cobalt); }
   .btn-download { display: inline-block; background: var(--cobalt); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; transition: all 0.2s; cursor: pointer; }
-  .btn-download:hover { background: var(--cobalt-light); transform: translateY(-1px); }
-
-  /* EDUCATORS */
-  #educators { background: white; }
-  .educators-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 48px; }
-  .use-case { display: flex; gap: 20px; margin-bottom: 32px; align-items: flex-start; }
-  .use-icon { width: 44px; height: 44px; flex-shrink: 0; background: #f0f4ff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; border: 1px solid rgba(37,95,241,0.15); }
-  .use-text h4 { font-weight: 700; font-size: 15px; color: var(--dark); margin-bottom: 6px; }
-  .use-text p { font-size: 14px; color: #8892b0; line-height: 1.6; }
-  .educator-cta { background: linear-gradient(135deg, var(--navy), var(--cobalt)); border-radius: 20px; padding: 48px 40px; color: white; }
-  .educator-cta h3 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; margin-bottom: 16px; color: white; }
-  .educator-cta p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.85); margin-bottom: 28px; }
-  .educator-cta .btn-white { display: inline-block; background: white; color: var(--navy); padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; transition: all 0.2s; }
-  .educator-cta .btn-white:hover { background: var(--white); transform: translateY(-1px); }
-  .standards-list { margin-top: 32px; display: grid; gap: 12px; }
-  .standard-item { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: #f0f4ff; border-radius: 10px; border: 1px solid rgba(37,95,241,0.15); }
-  .standard-item .check { color: var(--cobalt); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-  .standard-item span { font-size: 13px; color: #555e7a; line-height: 1.5; }
-
-  /* ABOUT US / TEAM */
-  #about-us { background: var(--off-white); }
-  #about-us h2 { color: var(--white); }
-  #about-us h2 em { color: var(--cobalt-light); }
-  #about-us .section-label { color: var(--cobalt-light); }
-  #about-us .section-label::before { background: var(--cobalt-light); }
-  #about-us .section-desc { color: #b8c4dc; }
-  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; }
-  .team-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(37,95,241,0.15); transition: all 0.25s; }
-  .team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(32,56,164,0.1); }
-  .team-header { background: linear-gradient(135deg, var(--navy), var(--cobalt)); padding: 40px 36px 32px; }
-  .team-role { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cobalt-light); margin-bottom: 10px; }
-  .team-name { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; color: white; line-height: 1.1; }
-  .team-body { padding: 32px 36px; }
-  .team-bio { font-size: 15px; color: #8892b0; line-height: 1.75; margin-bottom: 24px; }
-  .team-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .team-tag { background: #f0f4ff; color: var(--navy); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; border: 1px solid rgba(37,95,241,0.2); }
 
   /* CONTACT */
-  #contact { background: linear-gradient(160deg, var(--dark) 0%, var(--navy) 60%, var(--cobalt) 100%); position: relative; overflow: hidden; }
-  #contact .hero-grid { opacity: 0.04; }
-  .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; position: relative; z-index: 1; }
-  .contact-left h2 { color: white; }
-  .contact-left h2 em { color: var(--cobalt-light); }
-  .contact-left p { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.8); margin-top: 20px; font-weight: 300; }
-  .contact-channels { margin-top: 40px; display: grid; gap: 16px; }
-  .contact-channel { display: flex; gap: 16px; align-items: center; padding: 16px 20px; background: rgba(255,255,255,0.06); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; transition: all 0.2s; }
-  .contact-channel:hover { background: rgba(255,255,255,0.1); border-color: rgba(91,135,245,0.4); }
-  .channel-icon { width: 40px; height: 40px; background: rgba(37,95,241,0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-  .channel-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.65); margin-bottom: 3px; }
-  .channel-value { font-size: 15px; font-weight: 600; color: white; }
-  .contact-form { background: white; border-radius: 20px; padding: 40px; }
-  .contact-form h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--dark); margin-bottom: 28px; }
-  .form-group { margin-bottom: 20px; }
-  .form-group label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555e7a; margin-bottom: 8px; }
-  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1px solid rgba(37,95,241,0.2); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--dark); background: #f5f7ff; transition: border-color 0.2s; outline: none; }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--cobalt); background: white; }
-  .form-group textarea { resize: vertical; min-height: 100px; }
-  .form-submit { width: 100%; background: linear-gradient(135deg, var(--cobalt), var(--navy)); color: white; padding: 14px; border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
-  .form-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(37,95,241,0.4); }
+  #contact { background: linear-gradient(160deg, var(--dark) 0%, var(--navy) 60%, var(--cobalt) 100%); padding: 80px 40px; }
+  .contact-inner { max-width: 1100px; margin: 0 auto; text-align: center; color: white; }
 
   /* FOOTER */
   footer { background: var(--dark); padding: 48px 40px; border-top: 1px solid rgba(37,95,241,0.2); }
   .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
-  .footer-left p { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 8px; }
-  .footer-annual { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 6px; }
-  .footer-annual a { color: var(--cobalt-light); text-decoration: none; transition: color 0.2s; }
-  .footer-annual a:hover { color: white; }
-  .footer-links { display: flex; gap: 24px; }
-  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--cobalt-light); }
-  .footer-social { display: flex; gap: 12px; }
-  .social-btn { width: 36px; height: 36px; background: rgba(255,255,255,0.06); border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 14px; color: rgba(255,255,255,0.6); transition: all 0.2s; border: 1px solid rgba(255,255,255,0.12); }
-  .social-btn:hover { background: var(--cobalt); color: white; border-color: var(--cobalt); }
+  .footer-left p { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .footer-admin-link { color: var(--cobalt-light); text-decoration: none; font-size: 12px; opacity: 0.5; transition: opacity 0.2s; }
+  .footer-admin-link:hover { opacity: 1; }
 
   @media (max-width: 900px) {
-    nav { padding: 0 20px; }
     .nav-links { display: none; }
-    .hero-inner, .about-grid, .educators-grid, .team-grid, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-inner, .about-grid, .episodes-grid, .resources-grid { grid-template-columns: 1fr; }
     .hero-visual { display: none; }
-    .episodes-grid, .coming-soon-grid, .resources-grid { grid-template-columns: 1fr; }
-    section { padding: 60px 20px; }
-    .hero-stats { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -240,15 +163,13 @@
 
 <nav>
   <a href="#home" class="nav-logo">
-    <div class="nav-logo-mark">P&#8599;C</div>
+    <div class="nav-logo-mark">P↗C</div>
     <div class="nav-title">Paths of <span>Curiosity</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#episodes">Episodes</a></li>
     <li><a href="#resources">Resources</a></li>
-    <li><a href="#educators">Teach This</a></li>
-    <li><a href="#about-us">Hosts</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
@@ -256,64 +177,19 @@
 <section id="home">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
-  <div class="hero-glow-2"></div>
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow">Student-Created Podcast</div>
       <h1>Exploring <em>Tomorrow's Careers</em> Through the Lens of AI</h1>
-      <p class="hero-desc">We started this show because we kept hearing about AI changing everything but nobody was explaining what that meant for real careers, in plain language, for students our age. So we decided to find out ourselves.</p>
+      <p class="hero-desc">We started this show to map out how AI is reshaping real careers, in plain language, for students our age.</p>
       <div class="hero-buttons">
         <a href="#episodes" class="btn-primary">Explore Episodes</a>
         <a href="#resources" class="btn-outline">Free Resources</a>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">7</div>
-          <div class="stat-label">Years</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">4</div>
-          <div class="stat-label">Quarters a Year</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">7</div>
-          <div class="stat-label">Episodes a Quarter</div>
-        </div>
-      </div>
     </div>
     <div class="hero-visual">
       <div class="logo-container">
-        <img src="logo.png" alt="Paths of Curiosity in an AI World"/>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div>
-        <div class="section-label">What We're Building</div>
-        <h2>A Seven-Year <em>Curriculum</em> in Podcast Form</h2>
-        <div class="section-divider"></div>
-        <p class="section-desc">Each quarter we release a focused six-guest mini-series diving deep into one major domain. You'll hear directly from working professionals, researchers, leaders, builders, who break down what their jobs actually look like today and where their fields are heading.</p>
-        <p class="section-desc" style="margin-top:16px;">We're students figuring this out alongside you. This podcast is how we do it, one conversation at a time.</p>
-        <p class="section-desc" style="margin-top:16px; font-style:italic; color:#5b87f5;">Designed for students, parents, and college advisors who want real clarity, not hype.</p>
-        <div class="about-tracks">
-          <div class="track-card"><div class="track-icon">&#129516;</div><div class="track-name">Mind, Body &amp; Living Systems</div><div class="track-desc">Health, biology, environment, cognitive science</div></div>
-          <div class="track-card"><div class="track-icon">&#9878;&#65039;</div><div class="track-name">Power, Law &amp; Civic Life</div><div class="track-desc">Justice, governance, democracy, security</div></div>
-          <div class="track-card"><div class="track-icon">&#129504;</div><div class="track-name">Data, Behavior &amp; Human Systems</div><div class="track-desc">Economics, psychology, markets, decisions</div></div>
-          <div class="track-card"><div class="track-icon">&#9881;&#65039;</div><div class="track-name">Engineering, Science &amp; Discovery</div><div class="track-desc">Infrastructure, energy, space, robotics</div></div>
-        </div>
-      </div>
-      <div class="arc-callout">
-        <h3>The Full Arc</h3>
-        <p>Year 1 establishes the most visible AI impacts. Each year builds on the last, moving from individual careers to institutions, global systems, human experience, and finally synthesis. By Year 7, we'll have mapped AI's impact across virtually every domain students might enter.</p>
-        <div class="arc-numbers">
-          <div class="arc-num"><div class="arc-num-val">28</div><div class="arc-num-label">Episodes/Year</div></div>
-          <div class="arc-num"><div class="arc-num-val">6</div><div class="arc-num-label">Guests/Quarter</div></div>
-          <div class="arc-num"><div class="arc-num-val">196</div><div class="arc-num-label">Total Episodes</div></div>
-        </div>
+        <img src="logo.png" alt="Paths of Curiosity logo"/>
       </div>
     </div>
   </div>
@@ -323,288 +199,38 @@
   <div class="section-inner">
     <div class="series-header">
       <div>
-        <div class="section-label" style="color:var(--cobalt);">Current Series</div>
-        <h2>Year 1, Quarter 1 <em>AI in Healthcare</em></h2>
-        <p style="color:#8892b0; font-size:15px; margin-top:8px;">People, Data &amp; Decisions. How AI is changing what doctors do, how patients are diagnosed, and what healthcare careers will look like.</p>
+        <div class="section-label">Current Series</div>
+        <h2>Year 1, Quarter 1: <em>AI in Healthcare</em></h2>
       </div>
       <div class="series-badge"><span class="dot"></span>Now Airing</div>
     </div>
     <div class="episodes-grid">
       <div class="episode-card">
         <div class="ep-number">Episode 01</div>
-        <div class="ep-guest">Christopher Longhurst, MD, MS</div>
-        <div class="ep-title">CEO, Seattle Children's Hospital</div>
-        <div class="ep-focus">Mission control centers, AI in hospital operations, restoring humanism in medicine through ambient AI scribes.</div>
-        <span class="ep-tag">Clinical Leadership</span>
+        <div class="ep-guest">Dr. Christopher Longhurst</div>
+        <div class="ep-title">CEO, Seattle Children's</div>
+        <div class="ep-focus">AI in hospital operations and restoring humanism in medicine.</div>
         <div class="ep-listen">
-          <a href="https://open.spotify.com/episode/2x48cTz8DbMrvtGRpYSJOA" class="btn-listen btn-spotify" target="_blank">&#9835; Spotify</a>
-          <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000744203970&l=en-GB" class="btn-listen btn-apple" target="_blank">&#9835; Apple</a>
-          <a href="https://www.youtube.com/watch?v=_1wQL3Dj3Vs&t=7s" class="btn-listen btn-youtube" target="_blank">&#9654; YouTube</a>
+          <a href="https://spotify.com" class="btn-listen btn-spotify track-click" data-metric="Spotify">♫ Spotify</a>
+          <a href="https://apple.com" class="btn-listen btn-apple track-click" data-metric="Apple">♫ Apple</a>
+          <a href="https://youtube.com" class="btn-listen btn-youtube track-click" data-metric="YouTube">▶ YouTube</a>
         </div>
       </div>
-      <div class="episode-card">
-        <div class="ep-number">Episode 02</div>
-        <div class="ep-guest">Julia Adler-Milstein, PhD</div>
-        <div class="ep-title">Professor &amp; Chief, Clinical Informatics, UCSF</div>
-        <div class="ep-focus">AI tools are only as good as the humans overseeing them, and Dr. Adler-Milstein's research shows we may be asking clinicians to do something humans are genuinely bad at.</div>
-        <span class="ep-tag">Health Policy</span>
-        <div class="ep-listen">
-          <a href="https://open.spotify.com/episode/70nLEa4sE8cyVSpF1aG2SH" class="btn-listen btn-spotify" target="_blank">&#9835; Spotify</a>
-          <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000745893309&l=en-GB" class="btn-listen btn-apple" target="_blank">&#9835; Apple</a>
-          <a href="https://www.youtube.com/watch?v=2SN85ZGeoMs" class="btn-listen btn-youtube" target="_blank">&#9654; YouTube</a>
-        </div>
-      </div>
-      <div class="episode-card">
-        <div class="ep-number">Episode 03</div>
-        <div class="ep-guest">Gabriel Wardi, MD</div>
-        <div class="ep-title">Critical Care Physician &amp; AI Researcher, UC San Diego</div>
-        <div class="ep-focus">Deep learning sepsis prediction model reducing mortality 17%, implementing AI in the emergency department.</div>
-        <span class="ep-tag">Emergency &amp; Critical Care</span>
-        <div class="ep-listen">
-          <a href="https://open.spotify.com/episode/6ApmXTfg1ymPNIokgMk9iP" class="btn-listen btn-spotify" target="_blank">&#9835; Spotify</a>
-          <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000747862994&l=en-GB" class="btn-listen btn-apple" target="_blank">&#9835; Apple</a>
-          <a href="https://www.youtube.com/watch?v=VB8JRA4FoAQ" class="btn-listen btn-youtube" target="_blank">&#9654; YouTube</a>
-        </div>
-      </div>
-      <div class="episode-card">
-        <div class="ep-number">Episode 04</div>
-        <div class="ep-guest">Natalie Pageler, MD</div>
-        <div class="ep-title">Division Chief, Clinical Informatics, Stanford Medicine</div>
-        <div class="ep-focus">Decisions made in childhood can echo for a lifetime. Dr. Pageler designs AI tools for kids, and the stakes, in both directions, are enormous.</div>
-        <span class="ep-tag">Pediatric Informatics</span>
-        <div class="ep-listen">
-          <a href="https://open.spotify.com/episode/3El9tbyUYcRosRY5fvjo2s" class="btn-listen btn-spotify" target="_blank">&#9835; Spotify</a>
-          <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000750152425&l=en-GB" class="btn-listen btn-apple" target="_blank">&#9835; Apple</a>
-          <a href="https://www.youtube.com/watch?v=2W4NXAnMiuY" class="btn-listen btn-youtube" target="_blank">&#9654; YouTube</a>
-        </div>
-      </div>
-      <div class="episode-card">
-        <div class="ep-number">Episode 05</div>
-        <div class="ep-guest">Erin Holve, PhD, MPH, MPP</div>
-        <div class="ep-title">Director, PCORI</div>
-        <div class="ep-focus">Dr. Holve helped write HIPAA, the federal law protecting your medical privacy. Now she's watching AI test every boundary of it.</div>
-        <span class="ep-tag">Outcomes Research</span>
-        <div class="ep-listen">
-          <a href="https://open.spotify.com/episode/3n7cZ7JabOPKjUWGJdW6hl" class="btn-listen btn-spotify" target="_blank">&#9835; Spotify</a>
-          <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000752881274" class="btn-listen btn-apple" target="_blank">&#9835; Apple</a>
-          <a href="https://www.youtube.com/watch?v=eSRwR8SZP0A" class="btn-listen btn-youtube" target="_blank">&#9654; YouTube</a>
-        </div>
-      </div>
-      <div class="episode-card">
-        <div class="ep-number">Episode 06</div>
-        <div class="ep-guest">Mayank Goel, PhD</div>
-        <div class="ep-title">Professor, Carnegie Mellon University</div>
-        <div class="ep-focus">What if your AirPods could tell you were getting sick three days before you felt anything? Dr. Goel is building the technology that makes that possible, and he's never treated a patient.</div>
-        <span class="ep-tag">Passive Sensing &amp; HCI</span>
-        <div class="ep-listen">
-          <a href="https://open.spotify.com/episode/06W7wRRN8aIpyQG5bQY5mq" class="btn-listen btn-spotify" target="_blank">&#9835; Spotify</a>
-          <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000755758846" class="btn-listen btn-apple" target="_blank">&#9835; Apple</a>
-          <a href="https://www.youtube.com/watch?v=7bLzwAqb2RY&t=4s" class="btn-listen btn-youtube" target="_blank">&#9654; YouTube</a>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top:64px;">
-      <div class="section-label" style="color:var(--cobalt);">Coming Up</div>
-      <h2 style="margin-bottom:8px;">Q2 to Q4, <em>Year 1</em></h2>
-      <p style="color:#8892b0; font-size:15px; margin-bottom:0;">Three more mini-series completing Year 1 of the arc.</p>
-    </div>
-    <div class="coming-soon-grid">
-      <div class="coming-card">
-        <div class="coming-quarter">Quarter 2 &middot; 2026</div>
-        <div class="coming-title">AI in Law, Justice &amp; Governance</div>
-        <div class="coming-subtitle">Rules, Rights &amp; Everyday Decisions. Deepfakes in court, algorithmic wage discrimination, election security, civil rights and AI.</div>
-      </div>
-      <div class="coming-card">
-        <div class="coming-quarter">Quarter 3 &middot; 2026</div>
-        <div class="coming-title">AI &amp; Human Decision-Making</div>
-        <div class="coming-subtitle">Choices, Bias &amp; Behavior. Behavioral economics, platform incentives, nudge policy, and why people make irrational decisions.</div>
-      </div>
-      <div class="coming-card">
-        <div class="coming-quarter">Quarter 4 &middot; 2026</div>
-        <div class="coming-title">AI in Engineering &amp; Infrastructure</div>
-        <div class="coming-subtitle">Building, Sensing &amp; Maintaining the World. Smart grids, predictive maintenance, urban systems, and the invisible infrastructure of modern life.</div>
-      </div>
-    </div>
-    <div style="text-align:center; margin-top:48px;">
-      <a href="https://open.spotify.com/show/your-show-id" class="btn-primary" style="margin-right:12px;">Listen on Spotify</a>
-      <a href="https://podcasts.apple.com/podcast/id1867335577" class="btn-outline" style="color:var(--navy); border-color:rgba(32,56,164,0.3);">Apple Podcasts</a>
     </div>
   </div>
 </section>
 
 <section id="resources">
   <div class="section-inner">
-    <div class="section-label">Free Downloads</div>
-    <h2>Start <em>Here</em></h2>
-    <div class="section-divider"></div>
-    <p class="section-desc">See where you could go. Find your entry point. Understand how they got there.<br/>Every resource below is free, no account required.</p>
+    <div class="section-label">For Students & Educators</div>
+    <h2>Free <em>Learning</em> Materials</h2>
     <div class="resources-grid">
       <div class="resource-card">
-        <div class="resource-icon">&#128506;&#65039;</div>
-        <div class="resource-title">Career Landscape Map</div>
-        <div class="resource-desc">See the full picture. Every career in this domain, how AI is changing each one, and which guests live where on the map. Start here if you don't know where you fit yet.</div>
-        <div class="resource-buttons">
-          <a href="Career_Landscape_Map_-_AI_in_Healthcare.html" target="_blank" class="btn-view" onclick="trackResource('Career Landscape Map','view')">&#128065; Preview</a>
-          <a href="Career_Landscape_Map_-_AI_in_Healthcare.html" download class="btn-download" onclick="trackResource('Career Landscape Map','download')">&#8595; Download</a>
-        </div>
+        <div class="resource-icon">🗺️</div>
+        <div class="resource-title">Career Map</div>
+        <p class="resource-desc">A visual guide to healthcare roles evolving with AI.</p>
+        <a href="#" class="btn-download track-click" data-metric="Map">Download Map</a>
       </div>
-      <div class="resource-card">
-        <div class="resource-icon">&#128221;</div>
-        <div class="resource-title">What's Your Spark?</div>
-        <div class="resource-desc">Find out which corner of the AI world fits how you think, and what to do about it. Takes five minutes.</div>
-        <div class="resource-buttons">
-          <a href="whats_your_spark_quiz.html" target="_blank" class="btn-view" onclick="trackResource('Whats Your Spark','view')">&#128065; Preview</a>
-          <a href="whats_your_spark_quiz.html" download class="btn-download" onclick="trackResource('Whats Your Spark','download')">&#8595; Download</a>
-        </div>
-      </div>
-      <div class="resource-card">
-        <div class="resource-icon">&#128218;</div>
-        <div class="resource-title">Teach This</div>
-        <div class="resource-desc">Everything you need to use this mini-series in a classroom or advisory session. Discussion prompts, learning objectives, and activities, ready to go, no prep required.</div>
-        <div class="resource-buttons">
-          <a href="educator_guide_AI_healthcare_v3.docx" target="_blank" class="btn-view" onclick="trackResource('Teach This','view')">&#128065; Preview</a>
-          <a href="educator_guide_AI_healthcare_v3.docx" download class="btn-download" onclick="trackResource('Teach This','download')">&#8595; Download</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="educators">
-  <div class="section-inner">
-    <div class="section-label" style="color:var(--cobalt);">Teach This</div>
-    <h2>Built for the <em>Classroom</em> and Advisory Office</h2>
-    <div class="section-divider"></div>
-    <div class="educators-grid">
-      <div>
-        <p style="font-size:16px; color:#8892b0; line-height:1.7; margin-bottom:32px;">Paths of Curiosity was designed from the start to be useful in educational settings, not just listenable. Every mini-series comes with structured materials a counselor or teacher can use the same week.</p>
-        <div class="use-case">
-          <div class="use-icon">&#127919;</div>
-          <div class="use-text"><h4>Career &amp; College Advisory</h4><p>Use the Career Landscape Map and episode worksheets in individual advisory sessions to help students connect their interests to emerging career paths before choosing a major.</p></div>
-        </div>
-        <div class="use-case">
-          <div class="use-icon">&#127979;</div>
-          <div class="use-text"><h4>Classroom Use</h4><p>Each episode runs 20 to 30 minutes and is designed for student audiences. The educator guide includes discussion prompts, activities, and standards connections for English, social studies, and STEM classes.</p></div>
-        </div>
-        <div class="use-case">
-          <div class="use-icon">&#127968;</div>
-          <div class="use-text"><h4>Homeschool Families</h4><p>The quarterly mini-series structure makes it easy to incorporate as a unit study. The worksheet series builds critical thinking, research literacy, and career self-knowledge across the full arc.</p></div>
-        </div>
-        <div class="use-case">
-          <div class="use-icon">&#128202;</div>
-          <div class="use-text"><h4>Track Student Engagement</h4><p>Use our Google Form worksheets (available on request) to collect student responses and measure engagement with a timestamped record, useful for program reporting and grant applications.</p></div>
-        </div>
-        <div class="standards-list">
-          <div class="standard-item"><span class="check">&#10003;</span><span>All resources free, no account required, no paywall</span></div>
-          <div class="standard-item"><span class="check">&#10003;</span><span>New mini-series materials released every quarter</span></div>
-          <div class="standard-item"><span class="check">&#10003;</span><span>For students navigating what's next</span></div>
-          <div class="standard-item"><span class="check">&#10003;</span><span>Available in print-ready and digital fillable formats</span></div>
-        </div>
-      </div>
-      <div class="educator-cta">
-        <h3>Bring Paths of Curiosity to Your Students</h3>
-        <p>We're actively building partnerships with schools, libraries, homeschool networks, and college advisors. If you'd like to use our materials, get advance copies of new series, or explore a formal partnership, we'd love to hear from you.</p>
-        <a href="#contact" class="btn-white">Get in Touch &#8594;</a>
-        <div style="margin-top:32px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.15);">
-          <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.6); margin-bottom:16px;">Educator Testimonial</div>
-          <p style="font-size:15px; font-style:italic; color:rgba(255,255,255,0.9); line-height:1.7;">"The guest quality and the way Acadia structures these conversations gives students direct access to people actually shaping these fields. That's rare at this level."</p>
-          <p style="font-size:13px; color:rgba(255,255,255,0.6); margin-top:12px; font-style:normal;">College Advisor</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="about-us">
-  <div class="section-inner">
-    <div class="section-label">The Hosts</div>
-    <h2>Created by <em>Two Sisters</em></h2>
-    <div class="section-divider"></div>
-    <p class="section-desc">We started this show because we wanted to understand what the future of work actually looks like before we got there. We're students figuring this out alongside you.</p>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-header">
-          <div class="team-role">Co-Host &amp; Interviewer</div>
-          <div class="team-name">Acadia Holve</div>
-        </div>
-        <div class="team-body">
-          <p class="team-bio">Acadia Holve is the co-creator and host of Paths of Curiosity in an AI World. Analytical by nature and drawn to the big picture, she built this podcast to do what she does best: find the patterns beneath the surface and understand how complex systems actually fit together.</p>
-          <p class="team-bio">What drives her isn't just curiosity about technology, it's the connections. How a change in one field ripples into another. How the choices students make now map onto careers that don't fully exist yet. Every conversation she has with a guest is another piece of that larger picture.</p>
-          <div class="team-tags">
-            <span class="team-tag">Systems Thinking</span>
-            <span class="team-tag">Research</span>
-            <span class="team-tag">Microplastics Science</span>
-            <span class="team-tag">Machine Learning</span>
-          </div>
-        </div>
-      </div>
-      <div class="team-card">
-        <div class="team-header">
-          <div class="team-role">Co-Host &amp; Producer</div>
-          <div class="team-name">Alora Holve</div>
-        </div>
-        <div class="team-body">
-          <p class="team-bio">Alora Holve is the co-creator and producer of Paths of Curiosity in an AI World, and the spark behind the idea that became this project. Energetic, visionary, and always thinking several steps ahead, she brought the original concept to life alongside her sister.</p>
-          <p class="team-bio">Behind every episode, Alora is at work, helping handle research, editing, visual design, social media, and show notes. She thinks in terms of where this project is going, not just where it is, and that long-term vision is woven into everything she builds.</p>
-          <div class="team-tags">
-            <span class="team-tag">Production</span>
-            <span class="team-tag">Visual Design</span>
-            <span class="team-tag">Research</span>
-            <span class="team-tag">Citizen Science</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="hero-grid"></div>
-  <div class="contact-inner">
-    <div class="contact-left">
-      <div class="section-label" style="color:var(--cobalt-light);">Get in Touch</div>
-      <h2 style="color:white;">Let's <em>Connect</em></h2>
-      <p>Whether you're a potential guest, an educator who wants to use our materials, a student with a question, or someone who just wants to follow along, we'd love to hear from you.</p>
-      <div class="contact-channels">
-        <a href="mailto:pathsofcuriosity@gmail.com" class="contact-channel">
-          <div class="channel-icon">&#9993;&#65039;</div>
-          <div><div class="channel-label">Email</div><div class="channel-value">pathsofcuriosity@gmail.com</div></div>
-        </a>
-        <a href="https://x.com/PathsCuriosity" class="contact-channel" target="_blank">
-          <div class="channel-icon">&#120143;</div>
-          <div><div class="channel-label">X / Twitter</div><div class="channel-value">@PathsCuriosity</div></div>
-        </a>
-        <a href="https://linkedin.com" class="contact-channel" target="_blank">
-          <div class="channel-icon">in</div>
-          <div><div class="channel-label">LinkedIn</div><div class="channel-value">Paths of Curiosity in an AI World</div></div>
-        </a>
-        <a href="https://open.spotify.com/show/your-show-id" class="contact-channel" target="_blank">
-          <div class="channel-icon">&#127897;</div>
-          <div><div class="channel-label">Listen</div><div class="channel-value">Spotify &middot; Apple Podcasts &middot; YouTube</div></div>
-        </a>
-      </div>
-    </div>
-    <div class="contact-form">
-      <h3>Send a Message</h3>
-      <form action="https://formspree.io/f/your-form-id" method="POST">
-        <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="First and last name" required/></div>
-        <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required/></div>
-        <div class="form-group">
-          <label>I am a...</label>
-          <select name="type">
-            <option value="">Select one</option>
-            <option>Student</option>
-            <option>Parent</option>
-            <option>School Counselor / College Advisor</option>
-            <option>Teacher or Educator</option>
-            <option>Potential Guest</option>
-            <option>Librarian</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Message</label><textarea name="message" placeholder="What's on your mind?" required></textarea></div>
-        <button type="submit" class="form-submit">Send Message &#8594;</button>
-      </form>
     </div>
   </div>
 </section>
@@ -612,56 +238,44 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-left">
-      <div class="nav-title" style="font-size:15px; color:white;">Paths of <span style="color:var(--cobalt-light);">Curiosity</span> in an AI World</div>
-      <p>&#169; 2026 Acadia &amp; Alora Holve &middot; pathsofcuriosity.com &middot; All resources free to use and share</p>
-      <p class="footer-annual">Year 1 Annual Report, coming late 2026. <a href="#contact">Notify Me &#8594;</a></p>
-    </div>
-    <div class="footer-links">
-      <a href="#about">About</a>
-      <a href="#episodes">Episodes</a>
-      <a href="#resources">Resources</a>
-      <a href="#educators">Teach This</a>
-    </div>
-    <div class="footer-social">
-      <a href="https://x.com/PathsCuriosity" class="social-btn" target="_blank" title="X">&#120143;</a>
-      <a href="https://linkedin.com" class="social-btn" target="_blank" title="LinkedIn">in</a>
-      <a href="https://youtube.com" class="social-btn" target="_blank" title="YouTube">&#9654;</a>
-      <a href="https://open.spotify.com" class="social-btn" target="_blank" title="Spotify">&#9835;</a>
+      <p>&copy; 2026 Paths of Curiosity. Created by Acadia & Alora Holve.</p>
+      <a href="impact_dashboard.html" class="footer-admin-link">Admin Dashboard</a>
     </div>
   </div>
 </footer>
 
 <script>
-  const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScafnyfukbQ7rCzspFeMklzKQy1KxLrFIoi-l-2vzaNR5gwDQ/formResponse';
-  const FIELD_RESOURCE = 'entry.579263147';
-  const FIELD_ACTION   = 'entry.1132176600';
+  // Your Google Apps Script Web App URL
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec";
 
-  function trackResource(resource, action) {
-    const body = new FormData();
-    body.append(FIELD_RESOURCE, resource);
-    body.append(FIELD_ACTION, action);
-    fetch(FORM_URL, { method: 'POST', body: body, mode: 'no-cors' });
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Find all buttons with the "track-click" class
+    const trackButtons = document.querySelectorAll('.track-click');
 
-  const sections = document.querySelectorAll('section[id], footer');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
-    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--cobalt-light)' : ''; });
+    trackButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        // Get the specific metric name (e.g., "Spotify") from the button's data attribute
+        const metricName = button.getAttribute('data-metric');
+        
+        // Send the data to your Google Sheet silently in the background
+        fetch(`${SCRIPT_URL}?metric=${metricName}`, {
+          method: 'GET',
+          mode: 'no-cors' // Allows the request to send without needing a complex "allow" from the server
+        });
+        
+        console.log(`Tracking click for: ${metricName}`);
+      });
+    });
   });
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+  // Smooth scroll logic
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
     });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.episode-card, .resource-card, .team-card, .track-card, .coming-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
   });
 </script>
 
