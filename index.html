@@ -228,6 +228,59 @@
     section { padding: 60px 20px; }
     .hero-stats { grid-template-columns: 1fr; }
   }
+
+  /* ── ACCORDION ── */
+  .accordion { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+  .accordion-item { border-radius: 14px; overflow: hidden; border: 1px solid rgba(37,95,241,0.2); }
+  .accordion-trigger {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 28px; background: var(--off-white); border: none; cursor: pointer;
+    text-align: left; gap: 16px; transition: background 0.2s;
+  }
+  .accordion-trigger:hover { background: #111d55; }
+  .accordion-item.is-open .accordion-trigger { background: #111d55; border-bottom: 1px solid rgba(37,95,241,0.2); }
+  .accordion-trigger-left { display: flex; align-items: center; gap: 16px; }
+  .accordion-q-badge {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+  }
+  .q-badge-q1 { background: rgba(74,222,128,0.15); color: #4ade80; border: 1px solid rgba(74,222,128,0.3); }
+  .q-badge-q2 { background: rgba(37,95,241,0.15); color: var(--cobalt-light); border: 1px solid rgba(37,95,241,0.3); }
+  .q-badge-q3 { background: rgba(232,184,75,0.15); color: var(--gold); border: 1px solid rgba(232,184,75,0.3); }
+  .q-badge-q4 { background: rgba(168,85,247,0.15); color: #c084fc; border: 1px solid rgba(168,85,247,0.3); }
+  .accordion-trigger-titles { display: flex; flex-direction: column; gap: 3px; }
+  .accordion-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--white); line-height: 1.2; }
+  .accordion-subtitle { font-size: 13px; color: var(--gray); }
+  .accordion-trigger-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .accordion-status {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 20px;
+  }
+  .status-live { background: rgba(74,222,128,0.12); color: #4ade80; border: 1px solid rgba(74,222,128,0.25); }
+  .status-coming { background: rgba(136,146,176,0.12); color: var(--gray); border: 1px solid rgba(136,146,176,0.2); }
+  .accordion-chevron {
+    width: 28px; height: 28px; border-radius: 50%; background: rgba(37,95,241,0.15);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  .accordion-chevron svg { width: 14px; height: 14px; fill: none; stroke: var(--cobalt-light); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .accordion-item.is-open .accordion-chevron { transform: rotate(180deg); }
+  .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.45s ease; }
+  .accordion-item.is-open .accordion-body { max-height: 9999px; }
+  .accordion-body-inner { padding: 32px 28px; }
+  .coming-soon-placeholder {
+    text-align: center; padding: 48px 32px;
+    border: 1.5px dashed rgba(37,95,241,0.25); border-radius: 12px;
+  }
+  .coming-soon-placeholder p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+  .coming-soon-placeholder strong { color: var(--white); }
+  .roadmap-subscribe-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+  @media (max-width: 900px) {
+    .accordion-trigger { padding: 18px 20px; }
+    .accordion-body-inner { padding: 24px 16px; }
+    .accordion-title { font-size: 15px; }
+    .accordion-subtitle { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -278,12 +331,12 @@
         <p class="section-desc">Each quarter we release a focused six-guest mini-series diving deep into one major domain. You'll hear directly from working professionals, researchers, leaders, builders, who break down what their jobs actually look like today and where their fields are heading.</p>
         <p class="section-desc" style="margin-top:16px;">We're students figuring this out alongside you. This podcast is how we do it, one conversation at a time.</p>
         <p class="section-desc" style="margin-top:16px; font-style:italic; color:#5b87f5;">Designed for students, parents, and college advisors who want real clarity, not hype.</p>
-      </div>
-      <div class="about-tracks">
-        <div class="track-card"><div class="track-icon">🧬</div><div class="track-name">Mind, Body & Living Systems</div><div class="track-desc">Health, biology, environment, cognitive science</div></div>
-        <div class="track-card"><div class="track-icon">⚖️</div><div class="track-name">Power, Law & Civic Life</div><div class="track-desc">Justice, governance, democracy, security</div></div>
-        <div class="track-card"><div class="track-icon">🧠</div><div class="track-name">Data, Behavior & Human Systems</div><div class="track-desc">Economics, psychology, markets, decisions</div></div>
-        <div class="track-card"><div class="track-icon">⚙️</div><div class="track-name">Engineering, Science & Discovery</div><div class="track-desc">Infrastructure, energy, space, robotics</div></div>
+        <div class="about-tracks">
+          <div class="track-card"><div class="track-icon">🧬</div><div class="track-name">Mind, Body & Living Systems</div><div class="track-desc">Health, biology, environment, cognitive science</div></div>
+          <div class="track-card"><div class="track-icon">⚖️</div><div class="track-name">Power, Law & Civic Life</div><div class="track-desc">Justice, governance, democracy, security</div></div>
+          <div class="track-card"><div class="track-icon">🧠</div><div class="track-name">Data, Behavior & Human Systems</div><div class="track-desc">Economics, psychology, markets, decisions</div></div>
+          <div class="track-card"><div class="track-icon">⚙️</div><div class="track-name">Engineering, Science & Discovery</div><div class="track-desc">Infrastructure, energy, space, robotics</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -291,127 +344,207 @@
 
 <section id="episodes">
   <div class="section-inner">
-    <div class="series-header">
-      <div>
-        <div class="section-label" style="color:var(--cobalt);">Current Series</div>
-        <h2>Year 1, Quarter 1 <em>AI in Healthcare</em></h2>
-        <p style="color:#8892b0; font-size:15px; margin-top:8px;">People, Data & Decisions. How AI is changing what doctors do, how patients are diagnosed, and what healthcare careers will look like.</p>
-      </div>
-      <div class="series-badge"><span class="dot"></span>Now Airing</div>
+
+    <!-- Section header -->
+    <div style="margin-bottom:40px;">
+      <div class="section-label" style="color:var(--cobalt);">Year 1 · 2026</div>
+      <h2>All <em>Four Quarters</em></h2>
+      <p style="color:#8892b0; font-size:15px; margin-top:8px;">One mini-series per quarter, each a deep dive into a different domain where AI is reshaping careers.</p>
     </div>
-    <div class="episodes-grid">
-      <div class="episode-card">
-        <div class="ep-number">Episode 01</div>
-        <div class="ep-guest">Christopher Longhurst, MD, MS</div>
-        <div class="ep-title">CEO, Seattle Children's Hospital</div>
-        <div class="ep-focus">Mission control centers, AI in hospital operations, restoring humanism in medicine through ambient AI scribes.</div>
-        <span class="ep-tag">Clinical Leadership</span>
-        <div class="ep-listen">
-          <a href="https://open.spotify.com/episode/2x48cTz8DbMrvtGRpYSJOA" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 01" data-platform="spotify" target="_blank">♫ Spotify</a>
-          <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000744203970&l=en-GB" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 01" data-platform="apple" target="_blank">♫ Apple</a>
-          <a href="https://www.youtube.com/watch?v=_1wQL3Dj3Vs&t=7s" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 01" data-platform="youtube" target="_blank">▶ YouTube</a>
+
+    <!-- Accordion -->
+    <div class="accordion">
+
+      <!-- ── Q1 ── CLOSED BY DEFAULT, open via JS if desired -->
+      <div class="accordion-item" id="acc-q1">
+        <button class="accordion-trigger" onclick="toggleAccordion('acc-q1')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-q-badge q-badge-q1">Q1 · 2026</span>
+            <div class="accordion-trigger-titles">
+              <div class="accordion-title">AI in Healthcare</div>
+              <div class="accordion-subtitle">Mind, Body &amp; Living Systems &nbsp;·&nbsp; People, Data &amp; Decisions</div>
+            </div>
+          </div>
+          <div class="accordion-trigger-right">
+            <span class="accordion-status status-live">Complete</span>
+            <div class="accordion-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="episodes-grid">
+              <div class="episode-card">
+                <div class="ep-number">Episode 01</div>
+                <div class="ep-guest">Christopher Longhurst, MD, MS</div>
+                <div class="ep-title">CEO, Seattle Children's Hospital</div>
+                <div class="ep-focus">Mission control centers, AI in hospital operations, restoring humanism in medicine through ambient AI scribes.</div>
+                <span class="ep-tag">Clinical Leadership</span>
+                <div class="ep-listen">
+                  <a href="https://open.spotify.com/episode/2x48cTz8DbMrvtGRpYSJOA" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 01" data-platform="spotify" target="_blank">♫ Spotify</a>
+                  <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000744203970&l=en-GB" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 01" data-platform="apple" target="_blank">♫ Apple</a>
+                  <a href="https://www.youtube.com/watch?v=_1wQL3Dj3Vs&t=7s" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 01" data-platform="youtube" target="_blank">▶ YouTube</a>
+                </div>
+              </div>
+              <div class="episode-card">
+                <div class="ep-number">Episode 02</div>
+                <div class="ep-guest">Julia Adler-Milstein, PhD</div>
+                <div class="ep-title">Professor &amp; Chief, Clinical Informatics, UCSF</div>
+                <div class="ep-focus">AI tools are only as good as the humans overseeing them, and Dr. Adler-Milstein's research shows we may be asking clinicians to do something humans are genuinely bad at.</div>
+                <span class="ep-tag">Health Policy</span>
+                <div class="ep-listen">
+                  <a href="https://open.spotify.com/episode/70nLEa4sE8cyVSpF1aG2SH" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 02" data-platform="spotify" target="_blank">♫ Spotify</a>
+                  <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000745893309&l=en-GB" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 02" data-platform="apple" target="_blank">♫ Apple</a>
+                  <a href="https://www.youtube.com/watch?v=2SN85ZGeoMs" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 02" data-platform="youtube" target="_blank">▶ YouTube</a>
+                </div>
+              </div>
+              <div class="episode-card">
+                <div class="ep-number">Episode 03</div>
+                <div class="ep-guest">Gabriel Wardi, MD</div>
+                <div class="ep-title">Critical Care Physician &amp; AI Researcher, UC San Diego</div>
+                <div class="ep-focus">Deep learning sepsis prediction model reducing mortality 17%, implementing AI in the emergency department.</div>
+                <span class="ep-tag">Emergency &amp; Critical Care</span>
+                <div class="ep-listen">
+                  <a href="https://open.spotify.com/episode/6ApmXTfg1ymPNIokgMk9iP" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 03" data-platform="spotify" target="_blank">♫ Spotify</a>
+                  <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000747862994&l=en-GB" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 03" data-platform="apple" target="_blank">♫ Apple</a>
+                  <a href="https://www.youtube.com/watch?v=VB8JRA4FoAQ" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 03" data-platform="youtube" target="_blank">▶ YouTube</a>
+                </div>
+              </div>
+              <div class="episode-card">
+                <div class="ep-number">Episode 04</div>
+                <div class="ep-guest">Natalie Pageler, MD</div>
+                <div class="ep-title">Division Chief, Clinical Informatics, Stanford Medicine</div>
+                <div class="ep-focus">Decisions made in childhood can echo for a lifetime. Dr. Pageler designs AI tools for kids, and the stakes, in both directions, are enormous.</div>
+                <span class="ep-tag">Pediatric Informatics</span>
+                <div class="ep-listen">
+                  <a href="https://open.spotify.com/episode/3El9tbyUYcRosRY5fvjo2s" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 04" data-platform="spotify" target="_blank">♫ Spotify</a>
+                  <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000750152425&l=en-GB" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 04" data-platform="apple" target="_blank">♫ Apple</a>
+                  <a href="https://www.youtube.com/watch?v=2W4NXAnMiuY" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 04" data-platform="youtube" target="_blank">▶ YouTube</a>
+                </div>
+              </div>
+              <div class="episode-card">
+                <div class="ep-number">Episode 05</div>
+                <div class="ep-guest">Erin Holve, PhD, MPH, MPP</div>
+                <div class="ep-title">Director, PCORI</div>
+                <div class="ep-focus">Dr. Holve helped write HIPAA, the federal law protecting your medical privacy. Now she's watching AI test every boundary of it.</div>
+                <span class="ep-tag">Outcomes Research</span>
+                <div class="ep-listen">
+                  <a href="https://open.spotify.com/episode/3n7cZ7JabOPKjUWGJdW6hl" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 05" data-platform="spotify" target="_blank">♫ Spotify</a>
+                  <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000752881274" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 05" data-platform="apple" target="_blank">♫ Apple</a>
+                  <a href="https://www.youtube.com/watch?v=eSRwR8SZP0A" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 05" data-platform="youtube" target="_blank">▶ YouTube</a>
+                </div>
+              </div>
+              <div class="episode-card">
+                <div class="ep-number">Episode 06</div>
+                <div class="ep-guest">Mayank Goel, PhD</div>
+                <div class="ep-title">Professor, Carnegie Mellon University</div>
+                <div class="ep-focus">What if your AirPods could tell you were getting sick three days before you felt anything? Dr. Goel is building the technology that makes that possible, and he's never treated a patient.</div>
+                <span class="ep-tag">Passive Sensing &amp; HCI</span>
+                <div class="ep-listen">
+                  <a href="https://open.spotify.com/episode/06W7wRRN8aIpyQG5bQY5mq" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 06" data-platform="spotify" target="_blank">♫ Spotify</a>
+                  <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000755758846" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 06" data-platform="apple" target="_blank">♫ Apple</a>
+                  <a href="https://www.youtube.com/watch?v=7bLzwAqb2RY&t=4s" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 06" data-platform="youtube" target="_blank">▶ YouTube</a>
+                </div>
+              </div>
+            </div>
+            <!-- Episode 07 — centered finale card -->
+            <div style="display:flex; justify-content:center; margin-top:24px;">
+              <div class="episode-card" style="max-width:400px; width:100%;">
+                <div class="ep-number">Episode 07</div>
+                <div class="ep-guest">AI in Healthcare Recap</div>
+                <div class="ep-title">Season 1 Finale</div>
+                <div class="ep-focus">A synthesis of key insights from our six deep-dive conversations, mapping the future of healthcare careers.</div>
+                <div class="ep-listen">
+                  <a href="https://www.youtube.com/watch?v=HFotS5_n3hQ" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 7" data-platform="youtube" target="_blank" onclick="trackEvent('Episode 7','play-youtube')">▶ YouTube</a>
+                  <a href="https://open.spotify.com/episode/0NtbmlI5hkBzlUMWuGwnrk" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 7" data-platform="spotify" target="_blank" onclick="trackEvent('Episode 7','play-spotify')">♫ Spotify</a>
+                  <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in-healthcare-recap/id1867335577?i=1000758470626" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 7" data-platform="apple" target="_blank" onclick="trackEvent('Episode 7','play-apple')">♫ Apple</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="episode-card">
-        <div class="ep-number">Episode 02</div>
-        <div class="ep-guest">Julia Adler-Milstein, PhD</div>
-        <div class="ep-title">Professor & Chief, Clinical Informatics, UCSF</div>
-        <div class="ep-focus">AI tools are only as good as the humans overseeing them, and Dr. Adler-Milstein's research shows we may be asking clinicians to do something humans are genuinely bad at.</div>
-        <span class="ep-tag">Health Policy</span>
-        <div class="ep-listen">
-          <a href="https://open.spotify.com/episode/70nLEa4sE8cyVSpF1aG2SH" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 02" data-platform="spotify" target="_blank">♫ Spotify</a>
-          <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000745893309&l=en-GB" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 02" data-platform="apple" target="_blank">♫ Apple</a>
-          <a href="https://www.youtube.com/watch?v=2SN85ZGeoMs" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 02" data-platform="youtube" target="_blank">▶ YouTube</a>
+
+      <!-- ── Q2 ── -->
+      <div class="accordion-item" id="acc-q2">
+        <button class="accordion-trigger" onclick="toggleAccordion('acc-q2')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-q-badge q-badge-q2">Q2 · 2026</span>
+            <div class="accordion-trigger-titles">
+              <div class="accordion-title">AI in Law, Justice &amp; Governance</div>
+              <div class="accordion-subtitle">Power, Law &amp; Civic Life &nbsp;·&nbsp; Rules, Rights &amp; Everyday Decisions</div>
+            </div>
+          </div>
+          <div class="accordion-trigger-right">
+            <span class="accordion-status status-coming">Coming Soon</span>
+            <div class="accordion-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="coming-soon-placeholder">
+              <p><strong>Launching Q2 2026.</strong><br>Guests include scholars and practitioners from UC Irvine, the Brookings Institution, University of Waterloo, and more. Episodes will appear here when the series drops.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="episode-card">
-        <div class="ep-number">Episode 03</div>
-        <div class="ep-guest">Gabriel Wardi, MD</div>
-        <div class="ep-title">Critical Care Physician & AI Researcher, UC San Diego</div>
-        <div class="ep-focus">Deep learning sepsis prediction model reducing mortality 17%, implementing AI in the emergency department.</div>
-        <span class="ep-tag">Emergency & Critical Care</span>
-        <div class="ep-listen">
-          <a href="https://open.spotify.com/episode/6ApmXTfg1ymPNIokgMk9iP" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 03" data-platform="spotify" target="_blank">♫ Spotify</a>
-          <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000747862994&l=en-GB" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 03" data-platform="apple" target="_blank">♫ Apple</a>
-          <a href="https://www.youtube.com/watch?v=VB8JRA4FoAQ" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 03" data-platform="youtube" target="_blank">▶ YouTube</a>
+
+      <!-- ── Q3 ── -->
+      <div class="accordion-item" id="acc-q3">
+        <button class="accordion-trigger" onclick="toggleAccordion('acc-q3')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-q-badge q-badge-q3">Q3 · 2026</span>
+            <div class="accordion-trigger-titles">
+              <div class="accordion-title">AI &amp; Human Decision-Making</div>
+              <div class="accordion-subtitle">Data, Behavior &amp; Human Systems &nbsp;·&nbsp; Choices, Bias &amp; Behavior</div>
+            </div>
+          </div>
+          <div class="accordion-trigger-right">
+            <span class="accordion-status status-coming">Coming Soon</span>
+            <div class="accordion-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="coming-soon-placeholder">
+              <p><strong>Launching Q3 2026.</strong><br>Behavioral economics, platform incentives, nudge policy, and why people make irrational decisions. Episode cards will appear here when guests are announced.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="episode-card">
-        <div class="ep-number">Episode 04</div>
-        <div class="ep-guest">Natalie Pageler, MD</div>
-        <div class="ep-title">Division Chief, Clinical Informatics, Stanford Medicine</div>
-        <div class="ep-focus">Decisions made in childhood can echo for a lifetime. Dr. Pageler designs AI tools for kids, and the stakes, in both directions, are enormous.</div>
-        <span class="ep-tag">Pediatric Informatics</span>
-        <div class="ep-listen">
-          <a href="https://open.spotify.com/episode/3El9tbyUYcRosRY5fvjo2s" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 04" data-platform="spotify" target="_blank">♫ Spotify</a>
-          <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000750152425&l=en-GB" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 04" data-platform="apple" target="_blank">♫ Apple</a>
-          <a href="https://www.youtube.com/watch?v=2W4NXAnMiuY" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 04" data-platform="youtube" target="_blank">▶ YouTube</a>
+
+      <!-- ── Q4 ── -->
+      <div class="accordion-item" id="acc-q4">
+        <button class="accordion-trigger" onclick="toggleAccordion('acc-q4')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-q-badge q-badge-q4">Q4 · 2026</span>
+            <div class="accordion-trigger-titles">
+              <div class="accordion-title">AI in Engineering &amp; Infrastructure</div>
+              <div class="accordion-subtitle">Engineering, Science &amp; Discovery &nbsp;·&nbsp; Building, Sensing &amp; Maintaining the World</div>
+            </div>
+          </div>
+          <div class="accordion-trigger-right">
+            <span class="accordion-status status-coming">Coming Soon</span>
+            <div class="accordion-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="coming-soon-placeholder">
+              <p><strong>Launching Q4 2026.</strong><br>Smart grids, predictive maintenance, urban systems, and the invisible infrastructure of modern life. Episode cards will appear here when guests are announced.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="episode-card">
-        <div class="ep-number">Episode 05</div>
-        <div class="ep-guest">Erin Holve, PhD, MPH, MPP</div>
-        <div class="ep-title">Director, PCORI</div>
-        <div class="ep-focus">Dr. Holve helped write HIPAA, the federal law protecting your medical privacy. Now she's watching AI test every boundary of it.</div>
-        <span class="ep-tag">Outcomes Research</span>
-        <div class="ep-listen">
-          <a href="https://open.spotify.com/episode/3n7cZ7JabOPKjUWGJdW6hl" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 05" data-platform="spotify" target="_blank">♫ Spotify</a>
-          <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000752881274" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 05" data-platform="apple" target="_blank">♫ Apple</a>
-          <a href="https://www.youtube.com/watch?v=eSRwR8SZP0A" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 05" data-platform="youtube" target="_blank">▶ YouTube</a>
-        </div>
-      </div>
-      <div class="episode-card">
-        <div class="ep-number">Episode 06</div>
-        <div class="ep-guest">Mayank Goel, PhD</div>
-        <div class="ep-title">Professor, Carnegie Mellon University</div>
-        <div class="ep-focus">What if your AirPods could tell you were getting sick three days before you felt anything? Dr. Goel is building the technology that makes that possible, and he's never treated a patient.</div>
-        <span class="ep-tag">Passive Sensing & HCI</span>
-        <div class="ep-listen">
-          <a href="https://open.spotify.com/episode/06W7wRRN8aIpyQG5bQY5mq" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 06" data-platform="spotify" target="_blank">♫ Spotify</a>
-          <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000755758846" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 06" data-platform="apple" target="_blank">♫ Apple</a>
-          <a href="https://www.youtube.com/watch?v=7bLzwAqb2RY&t=4s" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 06" data-platform="youtube" target="_blank">▶ YouTube</a>
-        </div>
-      </div>
-    </div>
-    <div style="display:flex; justify-content:center; margin-top:40px;">
-      <div class="episode-card" style="max-width:400px; width:100%;">
-        <div class="ep-number">Episode 07</div>
-        <div class="ep-guest">AI in Healthcare Recap</div>
-        <div class="ep-title">Season 1 Finale</div>
-        <div class="ep-focus">Season 1 Finale. A synthesis of key insights from our six deep-dive conversations, mapping the future of healthcare careers.</div>
-        <div class="ep-listen">
-          <a href="https://www.youtube.com/watch?v=HFotS5_n3hQ" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 7" data-platform="youtube" target="_blank" onclick="trackEvent('Episode 7','play-youtube')">▶ YouTube</a>
-          <a href="https://open.spotify.com/episode/0NtbmlI5hkBzlUMWuGwnrk" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 7" data-platform="spotify" target="_blank" onclick="trackEvent('Episode 7','play-spotify')">♫ Spotify</a>
-          <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in-healthcare-recap/id1867335577?i=1000758470626" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 7" data-platform="apple" target="_blank" onclick="trackEvent('Episode 7','play-apple')">♫ Apple</a>
-        </div>
-      </div>
-    </div>
-      <div class="section-label" style="color:var(--cobalt);">Coming Up</div>
-      <h2 style="margin-bottom:8px;">Q2 to Q4, <em>Year 1</em></h2>
-      <p style="color:#8892b0; font-size:15px; margin-bottom:0;">Three more mini-series completing Year 1 of the arc.</p>
-    </div>
-    <div class="coming-soon-grid">
-      <div class="coming-card">
-        <div class="coming-quarter">Quarter 2 · 2026</div>
-        <div class="coming-title">AI in Law, Justice & Governance</div>
-        <div class="coming-subtitle">Rules, Rights & Everyday Decisions. Deepfakes in court, algorithmic wage discrimination, election security, civil rights and AI.</div>
-      </div>
-      <div class="coming-card">
-        <div class="coming-quarter">Quarter 3 · 2026</div>
-        <div class="coming-title">AI & Human Decision-Making</div>
-        <div class="coming-subtitle">Choices, Bias & Behavior. Behavioral economics, platform incentives, nudge policy, and why people make irrational decisions.</div>
-      </div>
-      <div class="coming-card">
-        <div class="coming-quarter">Quarter 4 · 2026</div>
-        <div class="coming-title">AI in Engineering & Infrastructure</div>
-        <div class="coming-subtitle">Building, Sensing & Maintaining the World. Smart grids, predictive maintenance, urban systems, and the invisible infrastructure of modern life.</div>
-      </div>
-    </div>
-    <div style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-top:48px;">
+
+    </div><!-- /accordion -->
+
+    <!-- Subscribe buttons — always visible below the accordion -->
+    <div class="roadmap-subscribe-row">
       <a href="https://open.spotify.com/show/58n7fUm5FexHf7BQMmlQ4A" class="btn-listen btn-spotify" target="_blank" onclick="trackEvent('Main Show Link','click-spotify')">♫ Follow on Spotify</a>
       <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world/id1867335577" class="btn-listen btn-apple" target="_blank" onclick="trackEvent('Main Show Link','click-apple')">♫ Subscribe on Apple</a>
       <a href="https://www.youtube.com/@PathsofCuriosity" class="btn-listen btn-youtube" target="_blank" onclick="trackEvent('Main Show Link','click-youtube')">▶ Watch on YouTube</a>
     </div>
+
   </div>
 </section>
 
@@ -656,4 +789,19 @@
       if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.e
+  document.querySelectorAll('.episode-card, .resource-card, .team-card, .coming-card').forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'all 0.6s ease-out';
+    observer.observe(el);
+  });
+
+  // ── ACCORDION ──
+  function toggleAccordion(id) {
+    var item = document.getElementById(id);
+    if (!item) return;
+    item.classList.toggle('is-open');
+  }
+</script>
+</body>
+</html>
