@@ -662,6 +662,11 @@
     fetch(FORM_URL, { method: 'POST', body: body, mode: 'no-cors' });
   }
 
+// This automatically tracks a visit when the site is opened
+  window.addEventListener('load', () => {
+    trackResource('Homepage', 'Arrival');
+  });
+  
   const sections = document.querySelectorAll('section[id], footer');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
