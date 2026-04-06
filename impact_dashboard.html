@@ -10,110 +10,57 @@
   :root {
     --navy: #081e6a; --royal: #0f38a0; --cobalt: #255ff1; --cobalt-light: #5b87f5;
     --white: #e8f0fa; --off-white: #0d1545; --gray: #8892b0; --dark: #07090f;
-    --gold: #e8b84b; --gold-light: #1c1500; --green: #22c55e; --green-pale: #061a0e;
-    --red: #ef4444;
+    --gold: #e8b84b; --gold-light: #1c1500; --green: #22c55e;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--white); }
 
-  .topbar {
-    background: var(--dark); padding: 16px 48px;
-    display: flex; align-items: center; justify-content: space-between;
-    border-bottom: 1px solid rgba(37,95,241,0.3);
-  }
+  .topbar { background: var(--dark); padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(37,95,241,0.3); }
   .topbar-left { display: flex; align-items: center; gap: 14px; }
-  .logo-mark {
-    width: 36px; height: 36px; background: linear-gradient(135deg, var(--cobalt), var(--navy));
-    border-radius: 8px; display: flex; align-items: center; justify-content: center;
-    font-family: 'Playfair Display', serif; font-weight: 900; font-size: 13px; color: white;
-    border: 1px solid rgba(91,135,245,0.4);
-  }
+  .logo-mark { width: 36px; height: 36px; background: linear-gradient(135deg, var(--cobalt), var(--navy)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 13px; color: white; border: 1px solid rgba(91,135,245,0.4); text-decoration: none; }
   .topbar-title { font-size: 14px; font-weight: 600; color: white; }
   .topbar-title span { color: var(--cobalt-light); }
-  .topbar-center { display: flex; align-items: center; gap: 16px; }
-  .live-badge {
-    display: flex; align-items: center; gap: 6px;
-    background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3);
-    color: #4ade80; font-size: 11px; font-weight: 700;
-    letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px;
-  }
+  .live-badge { display: flex; align-items: center; gap: 6px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #4ade80; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; }
   .live-dot { width: 6px; height: 6px; background: #4ade80; border-radius: 50%; animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  .private-badge {
-    background: rgba(232,184,75,0.15); color: var(--gold);
-    border: 1px solid rgba(232,184,75,0.3);
-    font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    padding: 4px 12px; border-radius: 20px;
-  }
+  .private-badge { background: rgba(232,184,75,0.15); color: var(--gold); border: 1px solid rgba(232,184,75,0.3); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
   .topbar-right { display: flex; align-items: center; gap: 16px; }
-  .refresh-btn {
-    background: rgba(37,95,241,0.15); border: 1px solid rgba(37,95,241,0.3);
-    color: var(--cobalt-light); font-size: 12px; font-weight: 600;
-    padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
+  .refresh-btn { background: rgba(37,95,241,0.15); border: 1px solid rgba(37,95,241,0.3); color: var(--cobalt-light); font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
   .refresh-btn:hover { background: rgba(37,95,241,0.25); }
   .topbar-time { font-size: 11px; color: rgba(255,255,255,0.35); }
 
   .page { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; }
 
-  .error-banner {
-    background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3);
-    border-radius: 8px; padding: 14px 20px; margin-bottom: 24px; display: none;
-  }
+  .error-banner { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; padding: 14px 20px; margin-bottom: 24px; display: none; }
   .error-banner.visible { display: block; }
-  .error-banner p { font-size: 12px; color: #fca5a5; line-height: 1.6; }
+  .error-banner p { font-size: 13px; color: #fca5a5; line-height: 1.6; }
 
   .dash-header { margin-bottom: 40px; }
-  .dash-eyebrow {
-    font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--cobalt); display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
-  }
+  .dash-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cobalt); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
   .dash-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--cobalt); }
   .dash-header h1 { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 8px; }
   .dash-header h1 em { font-style: normal; color: var(--cobalt); }
   .dash-subtitle { font-size: 14px; color: var(--gray); }
 
-  .section-label {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--cobalt); margin-bottom: 16px;
-    display: flex; align-items: center; gap: 10px;
-  }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cobalt); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
   .section-label::before { content: ''; display: block; width: 20px; height: 2px; background: var(--cobalt); }
 
-  /* Grid layout preserved from original */
   .totals-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
-  .total-card {
-    background: #0a1228; border-radius: 14px; padding: 28px 24px;
-    border: 1px solid rgba(37,95,241,0.2); position: relative; overflow: hidden;
-  }
+  .total-card { background: #0a1228; border-radius: 14px; padding: 28px 24px; border: 1px solid rgba(37,95,241,0.2); position: relative; overflow: hidden; }
   .total-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
-  
-  /* Added specific color theme for Site Visits */
-  .total-card.visits::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
-  .total-card.views::before { background: linear-gradient(90deg, var(--cobalt), var(--cobalt-light)); }
+  .total-card.visits::before  { background: linear-gradient(90deg, var(--gold), #fbbf24); }
+  .total-card.views::before   { background: linear-gradient(90deg, var(--cobalt), var(--cobalt-light)); }
   .total-card.downloads::before { background: linear-gradient(90deg, var(--green), #4ade80); }
-  .total-card.plays::before { background: linear-gradient(90deg, #a855f7, #c084fc); }
-  .total-card.combined::before { background: linear-gradient(90deg, var(--gold), #fbbf24); }
-  
+  .total-card.plays::before   { background: linear-gradient(90deg, #a855f7, #c084fc); }
   .total-icon { font-size: 20px; margin-bottom: 12px; }
-  .total-num {
-    font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900;
-    color: var(--white); line-height: 1; margin-bottom: 6px;
-  }
+  .total-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 6px; }
   .total-num.loading { color: #1a2a6a; }
   .total-label { font-size: 12px; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; }
   .total-since { font-size: 11px; color: #3a4a7a; margin-top: 6px; }
 
   .resource-section { margin-bottom: 48px; }
   .resource-rows { display: grid; gap: 12px; }
-  .resource-row {
-    background: #0a1228; border-radius: 12px; border: 1px solid rgba(37,95,241,0.2);
-    padding: 20px 24px; display: grid;
-    grid-template-columns: 32px 1fr 110px 110px 110px 110px;
-    align-items: center; gap: 12px;
-  }
-  .resource-row.loading { opacity: 0.4; }
+  .resource-row { background: #0a1228; border-radius: 12px; border: 1px solid rgba(37,95,241,0.2); padding: 20px 24px; display: grid; grid-template-columns: 32px 1fr 100px 100px 100px; align-items: center; gap: 12px; }
   .resource-emoji { font-size: 18px; text-align: center; }
   .resource-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--white); }
   .resource-series { font-size: 11px; color: var(--gray); margin-top: 2px; }
@@ -127,10 +74,7 @@
 
   .episodes-section { margin-bottom: 48px; }
   .episodes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .episode-stat-card {
-    background: #0a1228; border-radius: 12px; border: 1px solid rgba(37,95,241,0.2);
-    padding: 18px 20px;
-  }
+  .episode-stat-card { background: #0a1228; border-radius: 12px; border: 1px solid rgba(37,95,241,0.2); padding: 18px 20px; }
   .ep-label { font-size: 10px; font-weight: 700; color: var(--cobalt-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
   .ep-guest { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 12px; line-height: 1.3; }
   .ep-platform-row { display: flex; gap: 8px; justify-content: space-between; }
@@ -148,23 +92,22 @@
 
   .activity-section { margin-bottom: 48px; }
   .activity-feed { background: #0a1228; border-radius: 14px; border: 1px solid rgba(37,95,241,0.2); overflow: hidden; }
-  .activity-header { background: var(--dark); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(37,95,241,0.15); }
+  .activity-header { background: var(--dark); padding: 16px 24px; border-bottom: 1px solid rgba(37,95,241,0.15); display: flex; justify-content: space-between; align-items: center; }
+  .activity-header-title { font-size: 13px; font-weight: 700; color: var(--white); }
+  .activity-header-sub { font-size: 11px; color: var(--gray); }
   .activity-row { display: flex; align-items: center; gap: 16px; padding: 12px 24px; border-bottom: 1px solid rgba(37,95,241,0.08); }
-  .activity-date { font-size: 11px; color: var(--gray); min-width: 80px; }
+  .activity-row:last-child { border-bottom: none; }
+  .activity-date { font-size: 11px; color: var(--gray); min-width: 90px; }
   .activity-resource { font-size: 12px; font-weight: 600; color: var(--white); flex: 1; }
-  .activity-action { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 4px; }
-  .action-view { background: rgba(37,95,241,0.15); color: var(--cobalt-light); }
+  .activity-action { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
+  .action-view    { background: rgba(37,95,241,0.15); color: var(--cobalt-light); }
   .action-download { background: rgba(34,197,94,0.12); color: #4ade80; }
-  .action-play { background: rgba(168,85,247,0.12); color: #c084fc; }
-  .action-arrival { background: rgba(232,184,75,0.15); color: var(--gold); }
+  .action-play    { background: rgba(168,85,247,0.12); color: #c084fc; }
+  .action-arrival { background: rgba(232,184,75,0.12); color: var(--gold); }
   .activity-count { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 900; color: var(--gold); min-width: 32px; text-align: right; }
   .no-activity { padding: 32px 24px; text-align: center; color: var(--gray); font-size: 13px; }
 
-  .dash-footer {
-    border-top: 1px solid rgba(37,95,241,0.2); padding-top: 24px;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 12px; color: var(--gray);
-  }
+  .dash-footer { border-top: 1px solid rgba(37,95,241,0.2); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--gray); }
   .dash-footer a { color: var(--cobalt); text-decoration: none; }
 
   @media (max-width: 900px) {
@@ -173,7 +116,6 @@
     .episodes-grid { grid-template-columns: 1fr 1fr; }
     .page { padding: 32px 20px; }
     .topbar { padding: 14px 20px; }
-    .topbar-center { display: none; }
   }
 </style>
 </head>
@@ -181,12 +123,10 @@
 
 <div class="topbar">
   <div class="topbar-left">
-    <div class="logo-mark">P↗C</div>
+    <a href="index.html" class="logo-mark">P↗C</a>
     <div class="topbar-title">Paths of <span>Curiosity</span> — Impact Dashboard</div>
   </div>
-  <div class="topbar-center">
-    <div class="live-badge"><span class="live-dot"></span>Live Data</div>
-  </div>
+  <div class="live-badge"><span class="live-dot"></span>Live Data</div>
   <div class="topbar-right">
     <button class="refresh-btn" onclick="loadData()">↺ Refresh</button>
     <span class="private-badge">Private</span>
@@ -195,6 +135,7 @@
 </div>
 
 <div class="page">
+
   <div class="error-banner" id="error-banner">
     <p id="error-text">Could not load data.</p>
   </div>
@@ -202,7 +143,7 @@
   <div class="dash-header">
     <div class="dash-eyebrow">Acadia & Alora Holve · Passion Project Tracking</div>
     <h1>Resource <em>Impact</em> Dashboard</h1>
-    <div class="dash-subtitle">Auto-updating · All numbers pulled live from your Google Sheet</div>
+    <div class="dash-subtitle">Auto-updating · Numbers pulled live from Google Sheets</div>
   </div>
 
   <div class="section-label">All-Time Totals</div>
@@ -210,140 +151,184 @@
     <div class="total-card visits">
       <div class="total-icon">🏠</div>
       <div class="total-num loading" id="grand-visits">—</div>
-      <div class="total-label">Total Site Visits</div>
+      <div class="total-label">Site Visits</div>
+      <div class="total-since">Homepage arrivals</div>
     </div>
     <div class="total-card views">
       <div class="total-icon">👁</div>
       <div class="total-num loading" id="grand-views">—</div>
       <div class="total-label">Resource Views</div>
+      <div class="total-since">Preview clicks</div>
     </div>
     <div class="total-card downloads">
       <div class="total-icon">↓</div>
       <div class="total-num loading" id="grand-downloads">—</div>
       <div class="total-label">Downloads</div>
+      <div class="total-since">All resources</div>
     </div>
     <div class="total-card plays">
       <div class="total-icon">▶</div>
       <div class="total-num loading" id="grand-plays">—</div>
       <div class="total-label">Episode Plays</div>
+      <div class="total-since">All platforms</div>
     </div>
   </div>
 
   <div class="resource-section">
     <div class="section-label">Resources — Views & Downloads</div>
-    <div class="resource-rows" id="resource-rows"></div>
+    <div class="resource-rows" id="resource-rows">
+      <div class="no-activity">Loading...</div>
+    </div>
   </div>
 
   <div class="episodes-section">
     <div class="section-label">Episodes — Plays by Platform</div>
-    <div class="episodes-grid" id="episodes-grid"></div>
+    <div class="episodes-grid" id="episodes-grid">
+      <div class="no-activity">Loading...</div>
+    </div>
   </div>
 
   <div class="activity-section">
-    <div class="section-label">Recent Activity — Last 30 Days</div>
+    <div class="section-label">Recent Activity</div>
     <div class="activity-feed">
-      <div id="activity-feed-body">
-        <div class="no-activity">Loading activity...</div>
+      <div class="activity-header">
+        <div class="activity-header-title">Activity Log</div>
+        <div class="activity-header-sub">Grouped by date · resource · action</div>
       </div>
+      <div id="activity-feed-body"><div class="no-activity">Loading...</div></div>
     </div>
   </div>
 
   <div class="dash-footer">
-    <div>Paths of Curiosity · Private Dashboard</div>
+    <div>Paths of Curiosity · <a href="index.html">← Back to site</a></div>
     <div>Last fetched: <span id="footer-time">—</span></div>
   </div>
+
 </div>
 
 <script>
-// API CONFIGURATION
-const API_URL = 'script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec';
+  // ── REPLACE WITH YOUR APPS SCRIPT URL (must start with https://) ──
+  const API_URL = 'https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec';
 
-const EPISODES = [
-  { key: 'Episode 01', label: 'Episode 01', guest: 'Christopher Longhurst', title: 'Seattle Children\'s CEO' },
-  { key: 'Episode 02', label: 'Episode 02', guest: 'Julia Adler-Milstein', title: 'UCSF' },
-  { key: 'Episode 03', label: 'Episode 03', guest: 'Gabriel Wardi', title: 'UC San Diego' },
-  { key: 'Episode 04', label: 'Episode 04', guest: 'Natalie Pageler', title: 'Stanford Children\'s' },
-  { key: 'Episode 05', label: 'Episode 05', guest: 'Erin Holve', title: 'PCORI' },
-  { key: 'Episode 06', label: 'Episode 06', guest: 'Mayank Goel', title: 'Carnegie Mellon' },
-];
+  const EPISODES = [
+    { key: 'Episode 01', label: 'Ep 01', guest: 'Christopher Longhurst' },
+    { key: 'Episode 02', label: 'Ep 02', guest: 'Julia Adler-Milstein' },
+    { key: 'Episode 03', label: 'Ep 03', guest: 'Gabriel Wardi' },
+    { key: 'Episode 04', label: 'Ep 04', guest: 'Natalie Pageler' },
+    { key: 'Episode 05', label: 'Ep 05', guest: 'Erin Holve' },
+    { key: 'Episode 06', label: 'Ep 06', guest: 'Mayank Goel' },
+  ];
 
-const RESOURCES = [
-  { key: 'Career Landscape Map', emoji: '🗺️', series: 'AI in Healthcare' },
-  { key: 'Whats Your Spark',     emoji: '📝', series: 'AI in Healthcare' },
-  { key: 'Teach This',           emoji: '📚', series: 'AI in Healthcare' },
-];
+  const RESOURCES = [
+    { key: 'Career Landscape Map', emoji: '🗺️', series: 'AI in Healthcare · Q1' },
+    { key: 'Whats Your Spark',     emoji: '📝', series: 'AI in Healthcare · Q1' },
+    { key: 'Teach This',           emoji: '📚', series: 'AI in Healthcare · Q1' },
+  ];
 
-function fmt(n) { return n ? n.toLocaleString() : '0'; }
+  function fmt(n) { return (n && n > 0) ? n.toLocaleString() : '0'; }
 
-async function loadData() {
-  document.getElementById('last-fetched').textContent = 'Refreshing...';
-  try {
-    const res = await fetch(API_URL + '?t=' + Date.now());
-    const data = await res.json();
-    if (!data.ok) throw new Error(data.error);
-    renderDashboard(data);
-    const now = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-    document.getElementById('last-fetched').textContent = 'Updated ' + now;
-    document.getElementById('footer-time').textContent = now;
-  } catch(err) {
-    document.getElementById('error-banner').classList.add('visible');
-    document.getElementById('error-text').textContent = 'Error: ' + err.message;
+  function getActionClass(action) {
+    if (action === 'view') return 'action-view';
+    if (action === 'download') return 'action-download';
+    if (action === 'arrival') return 'action-arrival';
+    return 'action-play';
   }
-}
 
-function renderDashboard(data) {
-  const br = data.byResource || {};
+  async function loadData() {
+    document.getElementById('last-fetched').textContent = 'Refreshing...';
+    document.getElementById('error-banner').classList.remove('visible');
 
-  // VISITS LOGIC: Extract "arrival" actions for the Homepage key
-  const siteVisits = br["Homepage"] ? (br["Homepage"].arrival || 0) : 0;
-  document.getElementById('grand-visits').textContent = fmt(siteVisits);
+    try {
+      const res = await fetch(API_URL + '?t=' + Date.now());
+      if (!res.ok) throw new Error('HTTP ' + res.status);
 
-  document.getElementById('grand-views').textContent = fmt(data.totals.views);
-  document.getElementById('grand-downloads').textContent = fmt(data.totals.downloads);
-  document.getElementById('grand-plays').textContent = fmt(data.totals.episodePlays);
-  
-  ['grand-visits','grand-views','grand-downloads','grand-plays'].forEach(id => {
-    const el = document.getElementById(id);
-    if(el) el.classList.remove('loading');
-  });
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch(e) {
+        throw new Error('Response was not JSON. Got: ' + text.substring(0, 80));
+      }
 
-  document.getElementById('resource-rows').innerHTML = RESOURCES.map(meta => {
-    const actions = br[meta.key] || {};
-    const v = actions['view'] || 0, d = actions['download'] || 0, c = v + d;
-    return `<div class="resource-row">
-      <div class="resource-emoji">${meta.emoji}</div>
-      <div><div class="resource-name">${meta.key}</div><div class="resource-series">${meta.series}</div></div>
-      <div class="metric"><div class="metric-num v">${fmt(v)}</div><div class="metric-label">Views</div></div>
-      <div class="metric"><div class="metric-num d">${fmt(d)}</div><div class="metric-label">Downloads</div></div>
-      <div class="metric"><div class="metric-num t">${fmt(c)}</div><div class="metric-label">Total</div></div>
-    </div>`;
-  }).join('');
+      if (!data.ok) throw new Error(data.error || 'API returned ok:false');
 
-  document.getElementById('episodes-grid').innerHTML = EPISODES.map(ep => {
-    const a = br[ep.key] || {};
-    const s = a['play-spotify'] || 0, ap = a['play-apple'] || 0, y = a['play-youtube'] || 0;
-    return `<div class="episode-stat-card">
-      <div class="ep-label">${ep.label}</div>
-      <div class="ep-guest">${ep.guest}</div>
-      <div class="ep-platform-row">
-        <div class="ep-platform"><div class="ep-platform-num sp">${fmt(s)}</div><div class="ep-platform-label">Spotify</div></div>
-        <div class="ep-platform"><div class="ep-platform-num ap">${fmt(ap)}</div><div class="ep-platform-label">Apple</div></div>
-        <div class="ep-platform"><div class="ep-platform-num yt">${fmt(y)}</div><div class="ep-platform-label">YouTube</div></div>
-      </div>
-    </div>`;
-  }).join('');
+      renderDashboard(data);
+      const now = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+      document.getElementById('last-fetched').textContent = 'Updated ' + now;
+      document.getElementById('footer-time').textContent = now;
 
-  const daily = (data.daily || []).slice().reverse().slice(0, 15);
-  document.getElementById('activity-feed-body').innerHTML = daily.length ? daily.map(row => `
-    <div class="activity-row">
-      <div class="activity-date">${row.date}</div>
-      <div class="activity-resource">${row.resource}</div>
-      <span class="activity-action action-${row.action.toLowerCase()}">${row.action}</span>
-      <div class="activity-count">${row.count}</div>
-    </div>`).join('') : '<div class="no-activity">No recent activity</div>';
-}
+    } catch(err) {
+      document.getElementById('error-banner').classList.add('visible');
+      document.getElementById('error-text').textContent = 'Error: ' + err.message;
+      document.getElementById('last-fetched').textContent = 'Error';
+    }
+  }
 
-loadData();
+  function renderDashboard(data) {
+    const br = data.byResource || {};
+
+    // Totals
+    const siteVisits = br['Homepage'] ? (br['Homepage']['arrival'] || 0) : 0;
+    document.getElementById('grand-visits').textContent   = fmt(siteVisits);
+    document.getElementById('grand-views').textContent    = fmt(data.totals.views);
+    document.getElementById('grand-downloads').textContent = fmt(data.totals.downloads);
+    document.getElementById('grand-plays').textContent    = fmt(data.totals.episodePlays);
+    ['grand-visits','grand-views','grand-downloads','grand-plays'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.classList.remove('loading');
+    });
+
+    // Resources
+    var allKeys = new Set(RESOURCES.map(function(r) { return r.key; }));
+    Object.keys(br).forEach(function(k) {
+      if (!k.startsWith('Episode') && k !== 'Homepage') allKeys.add(k);
+    });
+    document.getElementById('resource-rows').innerHTML = Array.from(allKeys).map(function(key) {
+      var meta = RESOURCES.find(function(r) { return r.key === key; }) || { emoji: '📄', series: 'Resource' };
+      var actions = br[key] || {};
+      var v = actions['view'] || 0, d = actions['download'] || 0, c = v + d;
+      return '<div class="resource-row">'
+        + '<div class="resource-emoji">' + meta.emoji + '</div>'
+        + '<div><div class="resource-name">' + key + '</div><div class="resource-series">' + meta.series + '</div></div>'
+        + '<div class="metric"><div class="metric-num v' + (v===0?' zero':'') + '">' + fmt(v) + '</div><div class="metric-label">👁 Views</div></div>'
+        + '<div class="metric"><div class="metric-num d' + (d===0?' zero':'') + '">' + fmt(d) + '</div><div class="metric-label">↓ Downloads</div></div>'
+        + '<div class="metric"><div class="metric-num t' + (c===0?' zero':'') + '">' + fmt(c) + '</div><div class="metric-label">Total</div></div>'
+        + '</div>';
+    }).join('');
+
+    // Episodes
+    document.getElementById('episodes-grid').innerHTML = EPISODES.map(function(ep) {
+      var a = br[ep.key] || {};
+      var s = a['play-spotify'] || 0, ap = a['play-apple'] || 0, y = a['play-youtube'] || 0, total = s+ap+y;
+      return '<div class="episode-stat-card">'
+        + '<div class="ep-label">' + ep.label + '</div>'
+        + '<div class="ep-guest">' + ep.guest + '</div>'
+        + '<div class="ep-platform-row">'
+        + '<div class="ep-platform"><div class="ep-platform-num sp' + (s===0?' zero':'') + '">' + fmt(s) + '</div><div class="ep-platform-label">Spotify</div></div>'
+        + '<div class="ep-platform"><div class="ep-platform-num ap' + (ap===0?' zero':'') + '">' + fmt(ap) + '</div><div class="ep-platform-label">Apple</div></div>'
+        + '<div class="ep-platform"><div class="ep-platform-num yt' + (y===0?' zero':'') + '">' + fmt(y) + '</div><div class="ep-platform-label">YouTube</div></div>'
+        + '</div>'
+        + '<div class="ep-total"><span class="ep-total-label">Total plays</span><span class="ep-total-num' + (total===0?' zero':'') + '">' + fmt(total) + '</span></div>'
+        + '</div>';
+    }).join('');
+
+    // Activity feed — most recent first
+    var daily = (data.daily || []).slice().reverse().slice(0, 40);
+    if (daily.length === 0) {
+      document.getElementById('activity-feed-body').innerHTML = '<div class="no-activity">No activity yet. Start clicking around the site!</div>';
+    } else {
+      document.getElementById('activity-feed-body').innerHTML = daily.map(function(row) {
+        return '<div class="activity-row">'
+          + '<div class="activity-date">' + row.date + '</div>'
+          + '<div class="activity-resource">' + row.resource + '</div>'
+          + '<span class="activity-action ' + getActionClass(row.action) + '">' + row.action + '</span>'
+          + '<div class="activity-count">' + row.count + '</div>'
+          + '</div>';
+      }).join('');
+    }
+  }
+
+  loadData();
 </script>
 </body>
 </html>
