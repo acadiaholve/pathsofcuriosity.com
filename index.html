@@ -219,7 +219,34 @@
   .social-btn { width: 36px; height: 36px; background: rgba(255,255,255,0.06); border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 14px; color: rgba(255,255,255,0.6); transition: all 0.2s; border: 1px solid rgba(255,255,255,0.12); }
   .social-btn:hover { background: var(--cobalt); color: white; border-color: var(--cobalt); }
 
-  @media (max-width: 900px) {
+  .hero-sub-headline { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 20px; text-transform: uppercase; }
+  .roadmap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+  .roadmap-card { background: white; border-radius: 16px; padding: 32px 28px; border: 1px solid rgba(37,95,241,0.15); transition: all 0.25s; position: relative; overflow: hidden; }
+  .roadmap-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(32,56,164,0.12); border-color: rgba(91,135,245,0.4); }
+  .roadmap-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--cobalt), var(--cobalt-light)); }
+  .roadmap-card.complete::before { background: linear-gradient(90deg, #059669, #34d399); }
+  .roadmap-quarter { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cobalt); margin-bottom: 8px; }
+  .roadmap-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--dark); margin-bottom: 8px; }
+  .roadmap-focus { font-size: 13px; color: #6b7894; line-height: 1.6; margin-bottom: 16px; }
+  .roadmap-status { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+  .status-complete { background: #d1fae5; color: #065f46; }
+  .status-upcoming { background: #e0e7ff; color: #3730a3; }
+  .status-dev { background: #f1f5f9; color: #64748b; }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .ep7-row { display: flex; justify-content: center; margin-top: 40px; }
+  .ep7-card { background: var(--off-white); border-radius: 16px; padding: 32px 28px; border: 1px solid rgba(91,135,245,0.2); max-width: 400px; width: 100%; position: relative; overflow: hidden; transition: all 0.25s; }
+  .ep7-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), #f5c842); }
+  .ep7-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(32,56,164,0.25); border-color: rgba(91,135,245,0.4); }
+  .ep7-badge { display: inline-block; background: rgba(232,184,75,0.15); color: var(--gold); border: 1px solid rgba(232,184,75,0.4); padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+  .subscribe-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 40px; padding-top: 40px; border-top: 1px solid rgba(37,95,241,0.12); }
+  .btn-pill { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 50px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; letter-spacing: 0.04em; border: 2px solid transparent; }
+  .btn-pill-spotify { background: #081e6a; color: white; border-color: rgba(91,135,245,0.3); }
+  .btn-pill-spotify:hover { background: #2538a0; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(8,30,106,0.4); }
+  .btn-pill-apple { background: #0f38a0; color: white; border-color: rgba(91,135,245,0.3); }
+  .btn-pill-apple:hover { background: #2a4bbf; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15,56,160,0.4); }
+  .btn-pill-youtube { background: #255ff1; color: white; border-color: rgba(91,135,245,0.3); }
+  .btn-pill-youtube:hover { background: #5b87f5; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,95,241,0.4); }
+  @media (max-width: 900px) { .roadmap-grid { grid-template-columns: 1fr; } }
     nav { padding: 0 20px; }
     .nav-links { display: none; }
     .hero-inner, .about-grid, .educators-grid, .team-grid, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -253,19 +280,15 @@
   <div class="hero-glow-2"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow">Student-Created Podcast</div>
+      <div class="hero-eyebrow">Hosted by Acadia &amp; Alora</div>
       <h1>Exploring <em>Tomorrow's Careers</em> Through the Lens of AI</h1>
+      <p class="hero-sub-headline">Expert Interviews &bull; Interactive Maps &bull; Educator Guides</p>
       <p class="hero-desc">We started this show because we kept hearing about AI changing everything but nobody was explaining what that meant for real careers, in plain language, for students our age. So we decided to find out ourselves.</p>
       <div class="hero-buttons">
         <a href="#episodes" class="btn-primary">Explore Episodes</a>
         <a href="#resources" class="btn-outline">Free Resources</a>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num">7</div><div class="stat-label">Years</div></div>
-        <div class="stat"><div class="stat-num">4</div><div class="stat-label">Quarters a Year</div></div>
-        <div class="stat"><div class="stat-num">7</div><div class="stat-label">Episodes a Quarter</div></div>
       </div>
-    </div>
     <div class="hero-visual">
       <div class="logo-container"><img src="logo.png" alt="Paths of Curiosity in an AI World"/></div>
     </div>
@@ -274,7 +297,7 @@
 
 <section id="about">
   <div class="section-inner">
-    <div class="about-grid">
+    <div class="about-grid" style="grid-template-columns:1fr; max-width:720px;">
       <div>
         <div class="section-label">What We're Building</div>
         <h2>A Seven-Year <em>Curriculum</em> in Podcast Form</h2>
@@ -289,15 +312,6 @@
           <div class="track-card"><div class="track-icon">⚙️</div><div class="track-name">Engineering, Science & Discovery</div><div class="track-desc">Infrastructure, energy, space, robotics</div></div>
         </div>
       </div>
-      <div class="arc-callout">
-        <h3>The Full Arc</h3>
-        <p>Year 1 establishes the most visible AI impacts. Each year builds on the last, moving from individual careers to institutions, global systems, human experience, and finally synthesis. By Year 7, we'll have mapped AI's impact across virtually every domain students might enter.</p>
-        <div class="arc-numbers">
-          <div class="arc-num"><div class="arc-num-val">28</div><div class="arc-num-label">Episodes/Year</div></div>
-          <div class="arc-num"><div class="arc-num-val">6</div><div class="arc-num-label">Guests/Quarter</div></div>
-          <div class="arc-num"><div class="arc-num-val">196</div><div class="arc-num-label">Total Episodes</div></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -310,7 +324,7 @@
         <h2>Year 1, Quarter 1 <em>AI in Healthcare</em></h2>
         <p style="color:#8892b0; font-size:15px; margin-top:8px;">People, Data & Decisions. How AI is changing what doctors do, how patients are diagnosed, and what healthcare careers will look like.</p>
       </div>
-      <div class="series-badge"><span class="dot"></span>Now Airing</div>
+      <div class="series-badge"><span class="dot"></span>Season Complete</div>
     </div>
     <div class="episodes-grid">
       <div class="episode-card">
@@ -386,30 +400,61 @@
         </div>
       </div>
     </div>
-    <div style="margin-top:64px;">
-      <div class="section-label" style="color:var(--cobalt);">Coming Up</div>
-      <h2 style="margin-bottom:8px;">Q2 to Q4, <em>Year 1</em></h2>
-      <p style="color:#8892b0; font-size:15px; margin-bottom:0;">Three more mini-series completing Year 1 of the arc.</p>
+    <div class="ep7-row">
+      <div class="ep7-card">
+        <div class="ep7-badge">Season 1 Finale</div>
+        <div class="ep-number">Episode 07</div>
+        <div class="ep-guest">AI in Healthcare Recap</div>
+        <div class="ep-title" style="color:var(--gold);">Season 1 Finale</div>
+        <div class="ep-focus">A synthesis of key insights from our six deep-dive conversations, mapping the future of healthcare careers.</div>
+        <div class="ep-listen">
+          <a href="https://www.youtube.com/watch?v=HFotS5_n3hQ" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 7" data-platform="youtube" target="_blank" onclick="trackEvent('Episode 7','play-youtube')">▶ YouTube</a>
+          <a href="https://open.spotify.com/episode/0NtbmlI5hkBzlUMWuGwnrk" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 7" data-platform="spotify" target="_blank" onclick="trackEvent('Episode 7','play-spotify')">♫ Spotify</a>
+          <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in-healthcare-recap/id1867335577?i=1000758470626" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 7" data-platform="apple" target="_blank" onclick="trackEvent('Episode 7','play-apple')">♫ Apple</a>
+        </div>
+      </div>
     </div>
-    <div class="coming-soon-grid">
-      <div class="coming-card">
-        <div class="coming-quarter">Quarter 2 · 2026</div>
-        <div class="coming-title">AI in Law, Justice & Governance</div>
-        <div class="coming-subtitle">Rules, Rights & Everyday Decisions. Deepfakes in court, algorithmic wage discrimination, election security, civil rights and AI.</div>
-      </div>
-      <div class="coming-card">
-        <div class="coming-quarter">Quarter 3 · 2026</div>
-        <div class="coming-title">AI & Human Decision-Making</div>
-        <div class="coming-subtitle">Choices, Bias & Behavior. Behavioral economics, platform incentives, nudge policy, and why people make irrational decisions.</div>
-      </div>
-      <div class="coming-card">
-        <div class="coming-quarter">Quarter 4 · 2026</div>
-        <div class="coming-title">AI in Engineering & Infrastructure</div>
-        <div class="coming-subtitle">Building, Sensing & Maintaining the World. Smart grids, predictive maintenance, urban systems, and the invisible infrastructure of modern life.</div>
-      </div>
+    <div class="subscribe-row">
+      <a href="https://open.spotify.com/show/58n7fUm5FexHf7BQMmlQ4A" class="btn-pill btn-pill-spotify" target="_blank" onclick="trackEvent('Main Show Link','click-spotify')">♫ Follow on Spotify</a>
+      <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world/id1867335577" class="btn-pill btn-pill-apple" target="_blank" onclick="trackEvent('Main Show Link','click-apple')">♫ Subscribe on Apple</a>
+      <a href="https://www.youtube.com/@PathsofCuriosity" class="btn-pill btn-pill-youtube" target="_blank" onclick="trackEvent('Main Show Link','click-youtube')">▶ Watch on YouTube</a>
     </div>
   </div>
 </section>
+
+<section id="roadmap" style="background: white;">
+  <div class="section-inner">
+    <div class="section-label" style="color:var(--cobalt);">Year 1 Plan</div>
+    <h2>2026 <em>Roadmap</em></h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Four quarterly mini-series, each built around a different domain. Six expert guests per quarter, one focused conversation at a time.</p>
+    <div class="roadmap-grid">
+      <div class="roadmap-card complete">
+        <div class="roadmap-quarter">Q1 · 2026</div>
+        <div class="roadmap-title">AI in Healthcare</div>
+        <div class="roadmap-focus">Surgical Robotics &bull; Informatics &bull; Health Equity</div>
+        <span class="roadmap-status status-complete"><span class="status-dot"></span>Season Complete</span>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-quarter">Q2 · 2026</div>
+        <div class="roadmap-title">AI in Law &amp; Governance</div>
+        <div class="roadmap-focus">Policy &bull; Justice &bull; Global Regulation</div>
+        <span class="roadmap-status status-upcoming"><span class="status-dot"></span>Upcoming</span>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-quarter">Q3 · 2026</div>
+        <div class="roadmap-title">AI in Creative Arts</div>
+        <div class="roadmap-focus">Authorship &bull; Music &bull; Visual Culture</div>
+        <span class="roadmap-status status-dev"><span class="status-dot"></span>In Development</span>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-quarter">Q4 · 2026</div>
+        <div class="roadmap-title">AI in Environment</div>
+        <div class="roadmap-focus">Climate Modeling &bull; Conservation &bull; Sustainability</div>
+        <span class="roadmap-status status-dev"><span class="status-dot"></span>In Development</span>
+      </div>
+    </div>
+  </div>
 
 <section id="resources">
   <div class="section-inner">
@@ -544,9 +589,9 @@
       <h2 style="color:white;">Let's <em>Connect</em></h2>
       <p>Whether you're a potential guest, an educator who wants to use our materials, a student with a question, or someone who just wants to follow along, we'd love to hear from you.</p>
       <div class="contact-channels">
-        <a href="mailto:pathsofcuriosity@gmail.com" class="contact-channel">
+        <a href="/cdn-cgi/l/email-protection#1969786d716a767f7a6c6b70766a706d60597e74787075377a7674" class="contact-channel">
           <div class="channel-icon">✉️</div>
-          <div><div class="channel-label">Email</div><div class="channel-value">pathsofcuriosity@gmail.com</div></div>
+          <div><div class="channel-label">Email</div><div class="channel-value"><span class="__cf_email__" data-cfemail="265647524e5549404553544f49554f525f66414b474f4a0845494b">[email&#160;protected]</span></div></div>
         </a>
         <a href="https://x.com/PathsCuriosity" class="contact-channel" target="_blank">
           <div class="channel-icon">𝕏</div>
@@ -604,7 +649,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── REPLACE THIS URL WITH YOUR APPS SCRIPT URL ──
   // Must start with https://  ← that was the bug before
   const API_URL = 'https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec';
@@ -652,12 +697,4 @@
       if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.episode-card, .resource-card, .team-card, .coming-card').forEach(function(el) {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'all 0.6s ease-out';
-    observer.observe(el);
-  });
-</script>
-</body>
-</html>
+  document.querySelectorAll('.e
