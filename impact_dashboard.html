@@ -17,308 +17,322 @@
   body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--white); }
 
   .topbar {
-    background: rgba(1, 5, 20, 0.95);
-    padding: 20px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(37, 95, 241, 0.2);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(10px);
+    background: var(--dark); padding: 16px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(37,95,241,0.3);
   }
-  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .topbar-left { display: flex; align-items: center; gap: 14px; }
   .logo-mark {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, var(--cobalt), var(--navy));
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: 12px;
-    color: white;
-    border: 1px solid rgba(91, 135, 245, 0.4);
+    width: 36px; height: 36px; background: linear-gradient(135deg, var(--cobalt), var(--navy));
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-weight: 900; font-size: 13px; color: white;
+    border: 1px solid rgba(91,135,245,0.4);
   }
-  .logo-text { font-weight: 700; font-size: 14px; color: var(--white); letter-spacing: 0.05em; }
+  .topbar-title { font-size: 14px; font-weight: 600; color: white; }
+  .topbar-title span { color: var(--cobalt-light); }
+  .topbar-center { display: flex; align-items: center; gap: 16px; }
+  .live-badge {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3);
+    color: #4ade80; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px;
+  }
+  .live-dot { width: 6px; height: 6px; background: #4ade80; border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .private-badge {
+    background: rgba(232,184,75,0.15); color: var(--gold);
+    border: 1px solid rgba(232,184,75,0.3);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 20px;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 16px; }
+  .refresh-btn {
+    background: rgba(37,95,241,0.15); border: 1px solid rgba(37,95,241,0.3);
+    color: var(--cobalt-light); font-size: 12px; font-weight: 600;
+    padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .refresh-btn:hover { background: rgba(37,95,241,0.25); }
+  .topbar-time { font-size: 11px; color: rgba(255,255,255,0.35); }
 
-  .status-tag {
-    background: var(--green-pale);
-    color: var(--green);
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
-    border: 1px solid rgba(34, 197, 94, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .status-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--green);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--green);
-  }
+  .page { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; }
 
-  .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-  .header { margin-bottom: 40px; }
-  h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; margin-bottom: 8px; }
-  .subtitle { color: var(--gray); font-size: 15px; font-weight: 400; }
+  .error-banner {
+    background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3);
+    border-radius: 8px; padding: 14px 20px; margin-bottom: 24px; display: none;
+  }
+  .error-banner.visible { display: block; }
+  .error-banner p { font-size: 12px; color: #fca5a5; line-height: 1.6; }
 
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
-  .stat-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 24px;
+  .dash-header { margin-bottom: 40px; }
+  .dash-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--cobalt); display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
   }
-  .stat-val { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--white); margin-bottom: 4px; }
-  .stat-label { font-size: 11px; font-weight: 700; color: var(--cobalt-light); text-transform: uppercase; letter-spacing: 0.1em; }
+  .dash-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--cobalt); }
+  .dash-header h1 { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 8px; }
+  .dash-header h1 em { font-style: normal; color: var(--cobalt); }
+  .dash-subtitle { font-size: 14px; color: var(--gray); }
 
-  .grid-2 { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; margin-bottom: 40px; }
-  .card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 30px;
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--cobalt); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
   }
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  .section-label::before { content: ''; display: block; width: 20px; height: 2px; background: var(--cobalt); }
 
-  .resource-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+  .totals-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+  .total-card {
+    background: #0a1228; border-radius: 14px; padding: 28px 24px;
+    border: 1px solid rgba(37,95,241,0.2); position: relative; overflow: hidden;
   }
-  .res-info { display: flex; align-items: center; gap: 16px; }
-  .res-icon {
-    width: 40px;
-    height: 40px;
-    background: rgba(37, 95, 241, 0.1);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
+  .total-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .total-card.views::before { background: linear-gradient(90deg, var(--cobalt), var(--cobalt-light)); }
+  .total-card.downloads::before { background: linear-gradient(90deg, var(--green), #4ade80); }
+  .total-card.plays::before { background: linear-gradient(90deg, #a855f7, #c084fc); }
+  .total-card.combined::before { background: linear-gradient(90deg, var(--gold), #fbbf24); }
+  .total-icon { font-size: 20px; margin-bottom: 12px; }
+  .total-num {
+    font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900;
+    color: var(--white); line-height: 1; margin-bottom: 6px;
   }
-  .res-name { font-weight: 600; font-size: 14px; }
-  .res-metrics { display: flex; gap: 20px; }
-  .metric { text-align: right; }
-  .metric-num { font-weight: 700; font-size: 16px; }
-  .metric-num.t { color: var(--cobalt-light); }
-  .metric-label { font-size: 10px; color: var(--gray); text-transform: uppercase; }
+  .total-num.loading { color: #1a2a6a; }
+  .total-label { font-size: 12px; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; }
+  .total-since { font-size: 11px; color: #3a4a7a; margin-top: 6px; }
 
+  .resource-section { margin-bottom: 48px; }
+  .resource-rows { display: grid; gap: 12px; }
+  .resource-row {
+    background: #0a1228; border-radius: 12px; border: 1px solid rgba(37,95,241,0.2);
+    padding: 20px 24px; display: grid;
+    grid-template-columns: 32px 1fr 110px 110px 110px 110px;
+    align-items: center; gap: 12px;
+  }
+  .resource-row.loading { opacity: 0.4; }
+  .resource-emoji { font-size: 18px; text-align: center; }
+  .resource-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--white); }
+  .resource-series { font-size: 11px; color: var(--gray); margin-top: 2px; }
+  .metric { text-align: center; }
+  .metric-num { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; line-height: 1; margin-bottom: 3px; }
+  .metric-num.v { color: var(--cobalt-light); }
+  .metric-num.d { color: var(--green); }
+  .metric-num.t { color: var(--gold); }
+  .metric-num.zero { color: #1a2a6a; }
+  .metric-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); }
+
+  .episodes-section { margin-bottom: 48px; }
+  .episodes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .episode-stat-card {
-    background: rgba(1, 5, 20, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
+    background: #0a1228; border-radius: 12px; border: 1px solid rgba(37,95,241,0.2);
+    padding: 18px 20px;
   }
-  .ep-label { font-size: 10px; color: var(--cobalt-light); font-weight: 700; text-transform: uppercase; margin-bottom: 2px; }
-  .ep-guest { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; margin-bottom: 12px; }
-  .ep-platform-row { display: flex; gap: 16px; }
+  .ep-label { font-size: 10px; font-weight: 700; color: var(--cobalt-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+  .ep-guest { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 12px; line-height: 1.3; }
+  .ep-platform-row { display: flex; gap: 8px; justify-content: space-between; }
   .ep-platform { text-align: center; flex: 1; }
-  .ep-platform-num { font-weight: 700; font-size: 15px; }
-  .ep-platform-label { font-size: 9px; color: var(--gray); text-transform: uppercase; margin-top: 2px; }
-  .sp { color: #1DB954; } .ap { color: #FC3C44; } .yt { color: #FF0000; }
+  .ep-platform-num { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 900; line-height: 1; }
+  .ep-platform-num.sp { color: #4ade80; }
+  .ep-platform-num.ap { color: var(--cobalt-light); }
+  .ep-platform-num.yt { color: #f87171; }
+  .ep-platform-num.zero { color: #1a2a6a; }
+  .ep-platform-label { font-size: 9px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+  .ep-total { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(37,95,241,0.15); }
+  .ep-total-label { font-size: 10px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; }
+  .ep-total-num { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 900; color: var(--gold); }
+  .ep-total-num.zero { color: #1a2a6a; }
 
-  .activity-feed {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 30px;
-  }
-  .activity-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.02);
-    margin-bottom: 8px;
-    border-radius: 8px;
-    border-left: 3px solid var(--cobalt);
-  }
-  .activity-date { font-size: 12px; color: var(--gray); }
-  .activity-resource { font-weight: 600; font-size: 13px; }
-  .activity-action {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 4px 8px;
-    border-radius: 4px;
-  }
-  .act-view { background: rgba(91, 135, 245, 0.15); color: var(--cobalt-light); }
-  .act-download { background: rgba(34, 197, 94, 0.15); color: var(--green); }
-  .act-arrival { background: rgba(232, 184, 75, 0.15); color: var(--gold); }
+  .activity-section { margin-bottom: 48px; }
+  .activity-feed { background: #0a1228; border-radius: 14px; border: 1px solid rgba(37,95,241,0.2); overflow: hidden; }
+  .activity-header { background: var(--dark); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(37,95,241,0.15); }
+  .activity-header-title { font-size: 13px; font-weight: 700; color: var(--white); }
+  .activity-header-sub { font-size: 11px; color: var(--gray); }
+  .activity-row { display: flex; align-items: center; gap: 16px; padding: 12px 24px; border-bottom: 1px solid rgba(37,95,241,0.08); }
+  .activity-date { font-size: 11px; color: var(--gray); min-width: 80px; }
+  .activity-resource { font-size: 12px; font-weight: 600; color: var(--white); flex: 1; }
+  .activity-action { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 4px; }
+  .action-view { background: rgba(37,95,241,0.15); color: var(--cobalt-light); }
+  .action-download { background: rgba(34,197,94,0.12); color: #4ade80; }
+  .action-play { background: rgba(168,85,247,0.12); color: #c084fc; }
+  .activity-count { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 900; color: var(--gold); min-width: 32px; text-align: right; }
+  .no-activity { padding: 32px 24px; text-align: center; color: var(--gray); font-size: 13px; }
 
-  #loader {
-    position: fixed; inset: 0; background: var(--off-white);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    z-index: 1000;
+  .dash-footer {
+    border-top: 1px solid rgba(37,95,241,0.2); padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--gray);
   }
-  .spinner {
-    width: 40px; height: 40px;
-    border: 3px solid rgba(37, 95, 241, 0.2);
-    border-top-color: var(--cobalt);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin-bottom: 16px;
+  .dash-footer a { color: var(--cobalt); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .totals-row { grid-template-columns: 1fr 1fr; }
+    .resource-row { grid-template-columns: 1fr 1fr 1fr; }
+    .episodes-grid { grid-template-columns: 1fr 1fr; }
+    .page { padding: 32px 20px; }
+    .topbar { padding: 14px 20px; }
+    .topbar-center { display: none; }
   }
-  @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
 
-<div id="loader">
-  <div class="spinner"></div>
-  <p style="font-size: 11px; color: var(--gray); letter-spacing: 0.2em; text-transform: uppercase;">Syncing Impact Data</p>
-</div>
-
 <div class="topbar">
-  <a href="#" class="logo">
+  <div class="topbar-left">
     <div class="logo-mark">P↗C</div>
-    <div class="logo-text">Paths of Curiosity <span style="font-weight: 400; opacity: 0.6;">| Impact</span></div>
-  </a>
-  <div class="status-tag"><div class="status-dot"></div> LIVE ANALYTICS</div>
+    <div class="topbar-title">Paths of <span>Curiosity</span> — Impact Dashboard</div>
+  </div>
+  <div class="topbar-center">
+    <div class="live-badge"><span class="live-dot"></span>Live Data</div>
+  </div>
+  <div class="topbar-right">
+    <button class="refresh-btn" onclick="loadData()">↺ Refresh</button>
+    <span class="private-badge">Private</span>
+    <div class="topbar-time" id="last-fetched">—</div>
+  </div>
 </div>
 
-<div class="container">
-  <div class="header">
-    <h1>Project Impact Dashboard</h1>
-    <p class="subtitle">Real-time engagement across resources and podcast platforms.</p>
+<div class="page">
+  <div class="error-banner" id="error-banner">
+    <p id="error-text">Could not load data.</p>
   </div>
 
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-val" id="total-visits">0</div>
-      <div class="stat-label">Total Site Visits</div>
+  <div class="dash-header">
+    <div class="dash-eyebrow">Acadia & Alora Holve · Passion Project Tracking</div>
+    <h1>Resource <em>Impact</em> Dashboard</h1>
+    <div class="dash-subtitle">Auto-updating · All numbers pulled live from your Google Sheet</div>
+  </div>
+
+  <div class="section-label">All-Time Totals</div>
+  <div class="totals-row">
+    <div class="total-card views">
+      <div class="total-icon">👁</div>
+      <div class="total-num loading" id="grand-views">—</div>
+      <div class="total-label">Resource Views</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-val" id="total-views">0</div>
-      <div class="stat-label">Resource Views</div>
+    <div class="total-card downloads">
+      <div class="total-icon">↓</div>
+      <div class="total-num loading" id="grand-downloads">—</div>
+      <div class="total-label">Downloads</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-val" id="total-downloads">0</div>
-      <div class="stat-label">Downloads</div>
+    <div class="total-card plays">
+      <div class="total-icon">▶</div>
+      <div class="total-num loading" id="grand-plays">—</div>
+      <div class="total-label">Episode Plays</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-val" id="total-plays">0</div>
-      <div class="stat-label">Podcast Plays</div>
+    <div class="total-card combined">
+      <div class="total-icon">✦</div>
+      <div class="total-num loading" id="grand-total">—</div>
+      <div class="total-label">Total Interactions</div>
     </div>
   </div>
 
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">Resources <span style="font-size: 12px; color: var(--gray); font-weight: 400;">Engagement by File</span></div>
-      <div id="resources-list"></div>
-    </div>
-    <div class="card">
-      <div class="card-title">Episode Reach <span style="font-size: 12px; color: var(--gray); font-weight: 400;">Platform Breakdown</span></div>
-      <div id="episodes-grid"></div>
+  <div class="resource-section">
+    <div class="section-label">Resources — Views & Downloads</div>
+    <div class="resource-rows" id="resource-rows"></div>
+  </div>
+
+  <div class="episodes-section">
+    <div class="section-label">Episodes — Plays by Platform</div>
+    <div class="episodes-grid" id="episodes-grid"></div>
+  </div>
+
+  <div class="activity-section">
+    <div class="section-label">Recent Activity — Last 30 Days</div>
+    <div class="activity-feed">
+      <div id="activity-feed-body">
+        <div class="no-activity">Loading activity...</div>
+      </div>
     </div>
   </div>
 
-  <div class="activity-feed">
-    <div class="card-title">Recent Activity Feed</div>
-    <div id="activity-feed-body"></div>
+  <div class="dash-footer">
+    <div>Paths of Curiosity · Private Dashboard</div>
+    <div>Last fetched: <span id="footer-time">—</span></div>
   </div>
 </div>
 
 <script>
-  const API_URL = "https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec";
+// API CONFIGURATION
+const API_URL = 'https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec';
 
-  const RESOURCES = [
-    { name: "Career Landscape Map", icon: "🗺️", key: "Landscape Map" },
-    { name: "What's Your Spark?", icon: "📝", key: "Quiz" },
-    { name: "Educator Guide / Teach This", icon: "📚", key: "Educator Guide" }
-  ];
+const EPISODES = [
+  { key: 'Episode 01', label: 'Episode 01', guest: 'Christopher Longhurst', title: 'Seattle Children\'s CEO' },
+  { key: 'Episode 02', label: 'Episode 02', guest: 'Julia Adler-Milstein', title: 'UCSF' },
+  { key: 'Episode 03', label: 'Episode 03', guest: 'Gabriel Wardi', title: 'UC San Diego' },
+  { key: 'Episode 04', label: 'Episode 04', guest: 'Natalie Pageler', title: 'Stanford Children\'s' },
+  { key: 'Episode 05', label: 'Episode 05', guest: 'Erin Holve', title: 'PCORI' },
+  { key: 'Episode 06', label: 'Episode 06', guest: 'Mayank Goel', title: 'Carnegie Mellon' },
+];
 
-  const EPISODES = [
-    { label: "Episode 01", guest: "Christopher Longhurst, MD", key: "Christopher Longhurst" },
-    { label: "Episode 02", guest: "Julia Adler-Milstein, PhD", key: "Julia Adler-Milstein" },
-    { label: "Episode 03", guest: "Gabriel Wardi, MD", key: "Gabriel Wardi" }
-  ];
+const RESOURCES = [
+  { key: 'Career Landscape Map', emoji: '🗺️', series: 'AI in Healthcare' },
+  { key: 'Whats Your Spark',     emoji: '📝', series: 'AI in Healthcare' },
+  { key: 'Teach This',           emoji: '📚', series: 'AI in Healthcare' },
+];
 
-  async function loadData() {
-    try {
-      const response = await fetch(API_URL);
-      const data = await response.json();
-      renderDashboard(data);
-      document.getElementById('loader').style.display = 'none';
-    } catch (err) { console.error(err); }
+function fmt(n) { return n ? n.toLocaleString() : '0'; }
+
+async function loadData() {
+  document.getElementById('last-fetched').textContent = 'Refreshing...';
+  try {
+    const res = await fetch(API_URL + '?t=' + Date.now());
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error);
+    renderDashboard(data);
+    const now = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    document.getElementById('last-fetched').textContent = 'Updated ' + now;
+    document.getElementById('footer-time').textContent = now;
+  } catch(err) {
+    document.getElementById('error-banner').classList.add('visible');
+    document.getElementById('error-text').textContent = 'Error: ' + err.message;
   }
+}
 
-  function renderDashboard(data) {
-    const br = data.breakdown || {};
-    const fmt = (n) => n.toLocaleString();
+function renderDashboard(data) {
+  const br = data.byResource || {};
+  document.getElementById('grand-views').textContent = fmt(data.totals.views);
+  document.getElementById('grand-downloads').textContent = fmt(data.totals.downloads);
+  document.getElementById('grand-plays').textContent = fmt(data.totals.episodePlays);
+  document.getElementById('grand-total').textContent = fmt(data.totals.grand);
+  
+  ['grand-views','grand-downloads','grand-plays','grand-total'].forEach(id => document.getElementById(id).classList.remove('loading'));
 
-    // Logic for Site Visits
-    const visits = br["Homepage"] ? (br["Homepage"].arrival || 0) : 0;
+  document.getElementById('resource-rows').innerHTML = RESOURCES.map(meta => {
+    const actions = br[meta.key] || {};
+    const v = actions['view'] || 0, d = actions['download'] || 0, c = v + d;
+    return `<div class="resource-row">
+      <div class="resource-emoji">${meta.emoji}</div>
+      <div><div class="resource-name">${meta.key}</div><div class="resource-series">${meta.series}</div></div>
+      <div class="metric"><div class="metric-num v">${fmt(v)}</div><div class="metric-label">Views</div></div>
+      <div class="metric"><div class="metric-num d">${fmt(d)}</div><div class="metric-label">Downloads</div></div>
+      <div class="metric"><div class="metric-num t">${fmt(c)}</div><div class="metric-label">Total</div></div>
+    </div>`;
+  }).join('');
 
-    document.getElementById('total-visits').innerText = fmt(visits);
-    document.getElementById('total-views').innerText = fmt(data.totalViews || 0);
-    document.getElementById('total-downloads').innerText = fmt(data.totalDownloads || 0);
-    document.getElementById('total-plays').innerText = fmt(data.totalPlays || 0);
-
-    document.getElementById('resources-list').innerHTML = RESOURCES.map(res => {
-      const a = br[res.key] || {};
-      const v = a.view || 0, d = a.download || 0, c = v + d;
-      return `
-        <div class="resource-item">
-          <div class="res-info">
-            <div class="res-icon">${res.icon}</div>
-            <div class="res-name">${res.name}</div>
-          </div>
-          <div class="res-metrics">
-            <div class="metric"><div class="metric-num">${fmt(v)}</div><div class="metric-label">Views</div></div>
-            <div class="metric"><div class="metric-num">${fmt(d)}</div><div class="metric-label">Files</div></div>
-            <div class="metric"><div class="metric-num t">${fmt(c)}</div><div class="metric-label">Total</div></div>
-          </div>
-        </div>`;
-    }).join('');
-
-    document.getElementById('episodes-grid').innerHTML = EPISODES.map(ep => {
-      const a = br[ep.key] || {};
-      const s = a['play-spotify'] || 0, ap = a['play-apple'] || 0, y = a['play-youtube'] || 0;
-      return `
-        <div class="episode-stat-card">
-          <div class="ep-label">${ep.label}</div>
-          <div class="ep-guest">${ep.guest}</div>
-          <div class="ep-platform-row">
-            <div class="ep-platform"><div class="ep-platform-num sp">${fmt(s)}</div><div class="ep-platform-label">Spotify</div></div>
-            <div class="ep-platform"><div class="ep-platform-num ap">${fmt(ap)}</div><div class="ep-platform-label">Apple</div></div>
-            <div class="ep-platform"><div class="ep-platform-num yt">${fmt(y)}</div><div class="ep-platform-label">YouTube</div></div>
-          </div>
-        </div>`;
-    }).join('');
-
-    const daily = (data.daily || []).slice().reverse().slice(0, 15);
-    document.getElementById('activity-feed-body').innerHTML = daily.length ? daily.map(row => `
-      <div class="activity-row">
-        <div class="activity-date">${row.date}</div>
-        <div class="activity-resource">${row.resource}</div>
-        <div class="activity-action act-${row.action.toLowerCase()}">${row.action}</div>
+  document.getElementById('episodes-grid').innerHTML = EPISODES.map(ep => {
+    const a = br[ep.key] || {};
+    const s = a['play-spotify'] || 0, ap = a['play-apple'] || 0, y = a['play-youtube'] || 0;
+    return `<div class="episode-stat-card">
+      <div class="ep-label">${ep.label}</div>
+      <div class="ep-guest">${ep.guest}</div>
+      <div class="ep-platform-row">
+        <div class="ep-platform"><div class="ep-platform-num sp">${fmt(s)}</div><div class="ep-platform-label">Spotify</div></div>
+        <div class="ep-platform"><div class="ep-platform-num ap">${fmt(ap)}</div><div class="ep-platform-label">Apple</div></div>
+        <div class="ep-platform"><div class="ep-platform-num yt">${fmt(y)}</div><div class="ep-platform-label">YouTube</div></div>
       </div>
-    `).join('') : '<p style="text-align:center; color:var(--gray); padding: 20px;">No recent activity.</p>';
-  }
+    </div>`;
+  }).join('');
 
-  loadData();
-  setInterval(loadData, 300000);
+  const daily = (data.daily || []).slice().reverse().slice(0, 15);
+  document.getElementById('activity-feed-body').innerHTML = daily.length ? daily.map(row => `
+    <div class="activity-row">
+      <div class="activity-date">${row.date}</div>
+      <div class="activity-resource">${row.resource}</div>
+      <span class="activity-action action-${row.action}">${row.action}</span>
+      <div class="activity-count">${row.count}</div>
+    </div>`).join('') : '<div class="no-activity">No recent activity</div>';
+}
+
+loadData();
 </script>
 </body>
 </html>
