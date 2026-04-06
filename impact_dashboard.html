@@ -81,16 +81,21 @@
   }
   .section-label::before { content: ''; display: block; width: 20px; height: 2px; background: var(--cobalt); }
 
+  /* Grid layout preserved from original */
   .totals-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
   .total-card {
     background: #0a1228; border-radius: 14px; padding: 28px 24px;
     border: 1px solid rgba(37,95,241,0.2); position: relative; overflow: hidden;
   }
   .total-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  
+  /* Added specific color theme for Site Visits */
+  .total-card.visits::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
   .total-card.views::before { background: linear-gradient(90deg, var(--cobalt), var(--cobalt-light)); }
   .total-card.downloads::before { background: linear-gradient(90deg, var(--green), #4ade80); }
   .total-card.plays::before { background: linear-gradient(90deg, #a855f7, #c084fc); }
   .total-card.combined::before { background: linear-gradient(90deg, var(--gold), #fbbf24); }
+  
   .total-icon { font-size: 20px; margin-bottom: 12px; }
   .total-num {
     font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900;
@@ -144,8 +149,6 @@
   .activity-section { margin-bottom: 48px; }
   .activity-feed { background: #0a1228; border-radius: 14px; border: 1px solid rgba(37,95,241,0.2); overflow: hidden; }
   .activity-header { background: var(--dark); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(37,95,241,0.15); }
-  .activity-header-title { font-size: 13px; font-weight: 700; color: var(--white); }
-  .activity-header-sub { font-size: 11px; color: var(--gray); }
   .activity-row { display: flex; align-items: center; gap: 16px; padding: 12px 24px; border-bottom: 1px solid rgba(37,95,241,0.08); }
   .activity-date { font-size: 11px; color: var(--gray); min-width: 80px; }
   .activity-resource { font-size: 12px; font-weight: 600; color: var(--white); flex: 1; }
@@ -153,6 +156,7 @@
   .action-view { background: rgba(37,95,241,0.15); color: var(--cobalt-light); }
   .action-download { background: rgba(34,197,94,0.12); color: #4ade80; }
   .action-play { background: rgba(168,85,247,0.12); color: #c084fc; }
+  .action-arrival { background: rgba(232,184,75,0.15); color: var(--gold); }
   .activity-count { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 900; color: var(--gold); min-width: 32px; text-align: right; }
   .no-activity { padding: 32px 24px; text-align: center; color: var(--gray); font-size: 13px; }
 
@@ -203,6 +207,11 @@
 
   <div class="section-label">All-Time Totals</div>
   <div class="totals-row">
+    <div class="total-card visits">
+      <div class="total-icon">🏠</div>
+      <div class="total-num loading" id="grand-visits">—</div>
+      <div class="total-label">Total Site Visits</div>
+    </div>
     <div class="total-card views">
       <div class="total-icon">👁</div>
       <div class="total-num loading" id="grand-views">—</div>
@@ -217,11 +226,6 @@
       <div class="total-icon">▶</div>
       <div class="total-num loading" id="grand-plays">—</div>
       <div class="total-label">Episode Plays</div>
-    </div>
-    <div class="total-card combined">
-      <div class="total-icon">✦</div>
-      <div class="total-num loading" id="grand-total">—</div>
-      <div class="total-label">Total Interactions</div>
     </div>
   </div>
 
@@ -289,12 +293,19 @@ async function loadData() {
 
 function renderDashboard(data) {
   const br = data.byResource || {};
+
+  // VISITS LOGIC: Extract "arrival" actions for the Homepage key
+  const siteVisits = br["Homepage"] ? (br["Homepage"].arrival || 0) : 0;
+  document.getElementById('grand-visits').textContent = fmt(siteVisits);
+
   document.getElementById('grand-views').textContent = fmt(data.totals.views);
   document.getElementById('grand-downloads').textContent = fmt(data.totals.downloads);
   document.getElementById('grand-plays').textContent = fmt(data.totals.episodePlays);
-  document.getElementById('grand-total').textContent = fmt(data.totals.grand);
   
-  ['grand-views','grand-downloads','grand-plays','grand-total'].forEach(id => document.getElementById(id).classList.remove('loading'));
+  ['grand-visits','grand-views','grand-downloads','grand-plays'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.classList.remove('loading');
+  });
 
   document.getElementById('resource-rows').innerHTML = RESOURCES.map(meta => {
     const actions = br[meta.key] || {};
@@ -327,7 +338,7 @@ function renderDashboard(data) {
     <div class="activity-row">
       <div class="activity-date">${row.date}</div>
       <div class="activity-resource">${row.resource}</div>
-      <span class="activity-action action-${row.action}">${row.action}</span>
+      <span class="activity-action action-${row.action.toLowerCase()}">${row.action}</span>
       <div class="activity-count">${row.count}</div>
     </div>`).join('') : '<div class="no-activity">No recent activity</div>';
 }
