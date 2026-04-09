@@ -211,18 +211,29 @@
   const API_URL = 'https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec';
 
   const EPISODES = [
-    { key: 'Episode 01', label: 'Ep 01', guest: 'Christopher Longhurst' },
-    { key: 'Episode 02', label: 'Ep 02', guest: 'Julia Adler-Milstein' },
-    { key: 'Episode 03', label: 'Ep 03', guest: 'Gabriel Wardi' },
-    { key: 'Episode 04', label: 'Ep 04', guest: 'Natalie Pageler' },
-    { key: 'Episode 05', label: 'Ep 05', guest: 'Erin Holve' },
-    { key: 'Episode 06', label: 'Ep 06', guest: 'Mayank Goel' },
+    // Q1 — AI in Healthcare
+    { key: 'Episode 01', label: 'Ep 01', guest: 'Christopher Longhurst', quarter: 'Q1' },
+    { key: 'Episode 02', label: 'Ep 02', guest: 'Julia Adler-Milstein', quarter: 'Q1' },
+    { key: 'Episode 03', label: 'Ep 03', guest: 'Gabriel Wardi', quarter: 'Q1' },
+    { key: 'Episode 04', label: 'Ep 04', guest: 'Natalie Pageler', quarter: 'Q1' },
+    { key: 'Episode 05', label: 'Ep 05', guest: 'Erin Holve', quarter: 'Q1' },
+    { key: 'Episode 06', label: 'Ep 06', guest: 'Mayank Goel', quarter: 'Q1' },
+    { key: 'Episode 7',  label: 'Ep 07', guest: 'Q1 Healthcare Recap', quarter: 'Q1' },
+    // Q2 — Power, Law & Civic Life
+    { key: 'Episode 08', label: 'Ep 08', guest: 'Nathan Wessler', quarter: 'Q2' },
+    { key: 'Episode 09', label: 'Ep 09', guest: 'Veena Dubal', quarter: 'Q2' },
+    { key: 'Episode 10', label: 'Ep 10', guest: 'Maura Grossman', quarter: 'Q2' },
+    { key: 'Episode 11', label: 'Ep 11', guest: 'Ramesh Srinivasan', quarter: 'Q2' },
+    { key: 'Episode 12', label: 'Ep 12', guest: 'Clarence Okoh', quarter: 'Q2' },
+    { key: 'Episode 13', label: 'Ep 13', guest: 'Jennifer Leonard', quarter: 'Q2' },
+    { key: 'Episode 14', label: 'Ep 14', guest: 'Q2 Power & Law Recap', quarter: 'Q2' },
   ];
 
   const RESOURCES = [
     { key: 'Career Landscape Map', emoji: '🗺️', series: 'AI in Healthcare · Q1' },
     { key: 'Whats Your Spark',     emoji: '📝', series: 'AI in Healthcare · Q1' },
     { key: 'Teach This',           emoji: '📚', series: 'AI in Healthcare · Q1' },
+    { key: 'Main Series',          emoji: '📡', series: 'Series Follow / Subscribe' },
   ];
 
   function fmt(n) { return (n && n > 0) ? n.toLocaleString() : '0'; }
@@ -279,9 +290,9 @@
     });
 
     // Resources
-    var allKeys = new Set(RESOURCES.map(function(r) { return r.key; }));
+    var allKeys = new Set(RESOURCES.filter(function(r){ return r.key !== 'Main Series'; }).map(function(r) { return r.key; }));
     Object.keys(br).forEach(function(k) {
-      if (!k.startsWith('Episode') && k !== 'Homepage') allKeys.add(k);
+      if (!k.startsWith('Episode') && k !== 'Homepage' && k !== 'Main Series') allKeys.add(k);
     });
     document.getElementById('resource-rows').innerHTML = Array.from(allKeys).map(function(key) {
       var meta = RESOURCES.find(function(r) { return r.key === key; }) || { emoji: '📄', series: 'Resource' };
@@ -296,21 +307,46 @@
         + '</div>';
     }).join('');
 
-    // Episodes
-    document.getElementById('episodes-grid').innerHTML = EPISODES.map(function(ep) {
-      var a = br[ep.key] || {};
-      var s = a['play-spotify'] || 0, ap = a['play-apple'] || 0, y = a['play-youtube'] || 0, total = s+ap+y;
-      return '<div class="episode-stat-card">'
-        + '<div class="ep-label">' + ep.label + '</div>'
-        + '<div class="ep-guest">' + ep.guest + '</div>'
-        + '<div class="ep-platform-row">'
-        + '<div class="ep-platform"><div class="ep-platform-num sp' + (s===0?' zero':'') + '">' + fmt(s) + '</div><div class="ep-platform-label">Spotify</div></div>'
-        + '<div class="ep-platform"><div class="ep-platform-num ap' + (ap===0?' zero':'') + '">' + fmt(ap) + '</div><div class="ep-platform-label">Apple</div></div>'
-        + '<div class="ep-platform"><div class="ep-platform-num yt' + (y===0?' zero':'') + '">' + fmt(y) + '</div><div class="ep-platform-label">YouTube</div></div>'
-        + '</div>'
-        + '<div class="ep-total"><span class="ep-total-label">Total plays</span><span class="ep-total-num' + (total===0?' zero':'') + '">' + fmt(total) + '</span></div>'
-        + '</div>';
-    }).join('');
+    // Episodes — grouped by quarter
+    var quarters = [
+      { label: 'Q1 · AI in Healthcare', badge: '#4ade80', eps: EPISODES.filter(function(e){ return e.quarter === 'Q1'; }) },
+      { label: 'Q2 · Power, Law &amp; Civic Life', badge: '#5b87f5', eps: EPISODES.filter(function(e){ return e.quarter === 'Q2'; }) },
+    ];
+    var episodesHtml = '';
+    quarters.forEach(function(q) {
+      episodesHtml += '<div style="grid-column:1/-1; margin-top:8px; margin-bottom:-4px;"><span style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:' + q.badge + ';">' + q.label + '</span></div>';
+      q.eps.forEach(function(ep) {
+        var a = br[ep.key] || {};
+        var s = a['play-spotify'] || 0, ap = a['play-apple'] || 0, y = a['play-youtube'] || 0, total = s+ap+y;
+        episodesHtml += '<div class="episode-stat-card">'
+          + '<div class="ep-label">' + ep.label + '</div>'
+          + '<div class="ep-guest">' + ep.guest + '</div>'
+          + '<div class="ep-platform-row">'
+          + '<div class="ep-platform"><div class="ep-platform-num sp' + (s===0?' zero':'') + '">' + fmt(s) + '</div><div class="ep-platform-label">Spotify</div></div>'
+          + '<div class="ep-platform"><div class="ep-platform-num ap' + (ap===0?' zero':'') + '">' + fmt(ap) + '</div><div class="ep-platform-label">Apple</div></div>'
+          + '<div class="ep-platform"><div class="ep-platform-num yt' + (y===0?' zero':'') + '">' + fmt(y) + '</div><div class="ep-platform-label">YouTube</div></div>'
+          + '</div>'
+          + '<div class="ep-total"><span class="ep-total-label">Total plays</span><span class="ep-total-num' + (total===0?' zero':'') + '">' + fmt(total) + '</span></div>'
+          + '</div>';
+      });
+    });
+
+    // Main Series follow tracking card
+    var ms = br['Main Series'] || {};
+    var msSpotify = ms['follow-spotify'] || 0, msApple = ms['subscribe-apple'] || 0, msYT = ms['watch-youtube'] || 0, msTotal = msSpotify + msApple + msYT;
+    episodesHtml += '<div style="grid-column:1/-1; margin-top:8px; margin-bottom:-4px;"><span style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#e8b84b;">Series Follow / Subscribe</span></div>';
+    episodesHtml += '<div class="episode-stat-card" style="grid-column:1/2;">'
+      + '<div class="ep-label">Main Series</div>'
+      + '<div class="ep-guest">Follow &amp; Subscribe Clicks</div>'
+      + '<div class="ep-platform-row">'
+      + '<div class="ep-platform"><div class="ep-platform-num sp' + (msSpotify===0?' zero':'') + '">' + fmt(msSpotify) + '</div><div class="ep-platform-label">Spotify</div></div>'
+      + '<div class="ep-platform"><div class="ep-platform-num ap' + (msApple===0?' zero':'') + '">' + fmt(msApple) + '</div><div class="ep-platform-label">Apple</div></div>'
+      + '<div class="ep-platform"><div class="ep-platform-num yt' + (msYT===0?' zero':'') + '">' + fmt(msYT) + '</div><div class="ep-platform-label">YouTube</div></div>'
+      + '</div>'
+      + '<div class="ep-total"><span class="ep-total-label">Total follows</span><span class="ep-total-num' + (msTotal===0?' zero':'') + '">' + fmt(msTotal) + '</span></div>'
+      + '</div>';
+
+    document.getElementById('episodes-grid').innerHTML = episodesHtml;
 
     // Activity feed — most recent first
     var daily = (data.daily || []).slice().reverse().slice(0, 40);
