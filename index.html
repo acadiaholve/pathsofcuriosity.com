@@ -171,20 +171,90 @@
   #about-us .section-label { color: var(--cobalt-light); }
   #about-us .section-label::before { background: var(--cobalt-light); }
   #about-us .section-desc { color: #b8c4dc; }
+
+  /* ── INTERLOCKING HOST CARDS ── */
   .team-grid { display: flex; flex-direction: column; gap: 28px; margin-top: 48px; }
-  .team-card { display: grid; grid-template-columns: 1fr 1fr; border-radius: 20px; overflow: hidden; border: 1px solid rgba(232,184,75,0.18); background: #0d1545; transition: all 0.35s ease; box-shadow: 0 4px 24px rgba(0,0,0,0.3); min-height: 380px; }
-  .team-card:hover { border-color: rgba(232,184,75,0.55); box-shadow: 0 0 0 1px rgba(232,184,75,0.4), 0 20px 60px rgba(232,184,75,0.15), 0 8px 32px rgba(0,0,0,0.4); transform: translateY(-3px); }
-  .team-photo { position: relative; overflow: hidden; min-height: 380px; }
-  .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.5s ease; }
+  .team-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(232,184,75,0.18);
+    background: #0d1545;
+    transition: all 0.35s ease;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    min-height: 380px;
+  }
+  .team-card:hover {
+    border-color: rgba(232,184,75,0.55);
+    box-shadow: 0 0 0 1px rgba(232,184,75,0.4), 0 20px 60px rgba(232,184,75,0.15), 0 8px 32px rgba(0,0,0,0.4);
+    transform: translateY(-3px);
+  }
+  /* Acadia: text left, photo right */
+  .team-card.card-acadia .team-text { order: 1; }
+  .team-card.card-acadia .team-photo { order: 2; }
+  /* Alora: photo left, text right */
+  .team-card.card-alora .team-photo { order: 1; }
+  .team-card.card-alora .team-text { order: 2; }
+
+  .team-photo {
+    position: relative;
+    overflow: hidden;
+    min-height: 380px;
+  }
+  .team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.5s ease;
+  }
   .team-card:hover .team-photo img { transform: scale(1.03); }
-  .team-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(232,184,75,0.12) 0%, transparent 60%); opacity: 0; transition: opacity 0.35s ease; pointer-events: none; }
+  /* Gold shimmer overlay on photo on hover */
+  .team-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(232,184,75,0.12) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
   .team-card:hover .team-photo::after { opacity: 1; }
-  .team-text { padding: 48px 44px; display: flex; flex-direction: column; justify-content: center; }
-  .team-role { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(232,184,75,0.75); margin-bottom: 12px; }
-  .team-name { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 900; color: var(--gold); line-height: 1.05; margin-bottom: 20px; }
-  .team-bio { font-size: 15px; color: #b8c4dc; line-height: 1.78; margin-bottom: 16px; }
+
+  .team-text {
+    padding: 48px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .team-role {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(232,184,75,0.75); margin-bottom: 12px;
+  }
+  .team-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px; font-weight: 900;
+    color: var(--gold);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .team-bio {
+    font-size: 15px; color: #b8c4dc; line-height: 1.78; margin-bottom: 16px;
+  }
   .team-bio:last-child { margin-bottom: 0; }
-  @media (max-width: 900px) { .team-card { grid-template-columns: 1fr; min-height: unset; } .team-photo { min-height: 280px; } .team-text { padding: 32px 28px; } .team-name { font-size: 28px; } }
+
+  @media (max-width: 900px) {
+    .team-card { grid-template-columns: 1fr; min-height: unset; }
+    .team-card.card-acadia .team-text,
+    .team-card.card-acadia .team-photo,
+    .team-card.card-alora .team-photo,
+    .team-card.card-alora .team-text { order: unset; }
+    .team-photo { min-height: 280px; }
+    .team-text { padding: 32px 28px; }
+    .team-name { font-size: 28px; }
+  }
 
   #contact { background: linear-gradient(160deg, var(--dark) 0%, var(--navy) 60%, var(--cobalt) 100%); position: relative; overflow: hidden; }
   #contact .hero-grid { opacity: 0.04; }
@@ -337,10 +407,10 @@
         <p class="section-desc" style="margin-top:16px; font-style:italic; color:#5b87f5;">Designed for students, parents, and college advisors who want real clarity, not hype.</p>
       </div>
       <div class="about-tracks">
-          <div class="track-card"><div class="track-icon">🧬</div><div class="track-name">Mind, Body & Living Systems</div><div class="track-desc">Health, biology, environment, cognitive science</div></div>
-          <div class="track-card"><div class="track-icon">⚖️</div><div class="track-name">Power, Law & Civic Life</div><div class="track-desc">Justice, governance, democracy, security</div></div>
-          <div class="track-card"><div class="track-icon">🧠</div><div class="track-name">Data, Behavior & Human Systems</div><div class="track-desc">Economics, psychology, markets, decisions</div></div>
-          <div class="track-card"><div class="track-icon">⚙️</div><div class="track-name">Engineering, Science & Discovery</div><div class="track-desc">Infrastructure, energy, space, robotics</div></div>
+        <div class="track-card"><div class="track-icon">🧬</div><div class="track-name">Mind, Body & Living Systems</div><div class="track-desc">Health, biology, environment, cognitive science</div></div>
+        <div class="track-card"><div class="track-icon">⚖️</div><div class="track-name">Power, Law & Civic Life</div><div class="track-desc">Justice, governance, democracy, security</div></div>
+        <div class="track-card"><div class="track-icon">🧠</div><div class="track-name">Data, Behavior & Human Systems</div><div class="track-desc">Economics, psychology, markets, decisions</div></div>
+        <div class="track-card"><div class="track-icon">⚙️</div><div class="track-name">Engineering, Science & Discovery</div><div class="track-desc">Infrastructure, energy, space, robotics</div></div>
       </div>
     </div>
   </div>
@@ -479,15 +549,115 @@
             </div>
           </div>
           <div class="accordion-trigger-right">
-            <span class="accordion-status status-coming">Coming Soon</span>
+            <span class="accordion-status status-live">Now Airing</span>
             <div class="accordion-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
           </div>
         </button>
         <div class="accordion-body">
           <div class="accordion-body-inner">
-            <div class="coming-soon-placeholder">
-              <p>Episodes will appear here when the series drops.</p>
+            <div class="episodes-grid">
+
+              <!-- Ep 08 · Nathan Wessler · LIVE -->
+              <div class="episode-card">
+                <div class="ep-number">Episode 08</div>
+                <div class="ep-guest">Nathan Wessler, JD</div>
+                <div class="ep-title">Deputy Director, ACLU Speech, Privacy &amp; Technology Project</div>
+                <div class="ep-focus">The government's secret use of facial recognition technology is already here — and it's testing the limits of every constitutional protection you have. Nathan Wessler won the landmark Supreme Court case that now governs how police track your location.</div>
+                <span class="ep-tag">Digital Civil Liberties</span>
+                <div class="ep-listen">
+                  <a href="https://open.spotify.com/episode/7F7awnK1NZCQZ2XDpBW8oi" class="btn-listen btn-spotify ep-play-btn" data-ep="Episode 08" data-platform="spotify" target="_blank" onclick="trackEvent('Episode 08','play-spotify')">♫ Spotify</a>
+                  <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-q2-power-law/id1867335577?i=1000759987698" class="btn-listen btn-apple ep-play-btn" data-ep="Episode 08" data-platform="apple" target="_blank" onclick="trackEvent('Episode 08','play-apple')">♫ Apple</a>
+                  <a href="https://www.youtube.com/watch?v=Dl4CVZDItg8&t=198s" class="btn-listen btn-youtube ep-play-btn" data-ep="Episode 08" data-platform="youtube" target="_blank" onclick="trackEvent('Episode 08','play-youtube')">▶ YouTube</a>
+                </div>
+              </div>
+
+              <!-- Ep 09 · Veena Dubal · Coming Soon -->
+              <div class="episode-card">
+                <div class="ep-number">Episode 09</div>
+                <div class="ep-guest">Veena Dubal, JD, PhD</div>
+                <div class="ep-title">Professor of Law, UC Hastings College of the Law</div>
+                <div class="ep-focus">Algorithms now decide what gig workers earn, when they work, and whether they keep their jobs — all without a human manager in sight. Prof. Dubal's research exposes the legal vacuum that lets this happen.</div>
+                <span class="ep-tag">Labor Law &amp; AI</span>
+                <div class="ep-listen">
+                  <a class="btn-listen btn-spotify" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 09','play-spotify')">♫ Spotify</a>
+                  <a class="btn-listen btn-apple" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 09','play-apple')">♫ Apple</a>
+                  <a class="btn-listen btn-youtube" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 09','play-youtube')">▶ YouTube</a>
+                </div>
+              </div>
+
+              <!-- Ep 10 · Maura Grossman · Coming Soon -->
+              <div class="episode-card">
+                <div class="ep-number">Episode 10</div>
+                <div class="ep-guest">Maura Grossman, JD, PhD</div>
+                <div class="ep-title">Research Professor, University of Waterloo</div>
+                <div class="ep-focus">When AI reviews millions of legal documents, who is accountable for what it misses? Prof. Grossman pioneered the use of machine learning in e-discovery and now shapes the ethical standards courts rely on.</div>
+                <span class="ep-tag">AI Ethics &amp; Judiciary</span>
+                <div class="ep-listen">
+                  <a class="btn-listen btn-spotify" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 10','play-spotify')">♫ Spotify</a>
+                  <a class="btn-listen btn-apple" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 10','play-apple')">♫ Apple</a>
+                  <a class="btn-listen btn-youtube" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 10','play-youtube')">▶ YouTube</a>
+                </div>
+              </div>
+
+              <!-- Ep 11 · Ramesh Srinivasan · Coming Soon -->
+              <div class="episode-card">
+                <div class="ep-number">Episode 11</div>
+                <div class="ep-guest">Ramesh Srinivasan, PhD, MS</div>
+                <div class="ep-title">Professor &amp; Author, UCLA</div>
+                <div class="ep-focus">Who decides how technology reshapes democracy? Prof. Srinivasan has spent a career at the intersection of technology, power, and social justice — and he argues the answers have never been more consequential.</div>
+                <span class="ep-tag">Technology &amp; Democracy</span>
+                <div class="ep-listen">
+                  <a class="btn-listen btn-spotify" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 11','play-spotify')">♫ Spotify</a>
+                  <a class="btn-listen btn-apple" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 11','play-apple')">♫ Apple</a>
+                  <a class="btn-listen btn-youtube" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 11','play-youtube')">▶ YouTube</a>
+                </div>
+              </div>
+
+              <!-- Ep 12 · Clarence Okoh · Coming Soon -->
+              <div class="episode-card">
+                <div class="ep-number">Episode 12</div>
+                <div class="ep-guest">Clarence Okoh, JD</div>
+                <div class="ep-title">Civil Rights Attorney &amp; AI Policy Advocate</div>
+                <div class="ep-focus">Automated systems are making decisions about bail, benefits, and hiring — and those decisions carry the same old biases at unprecedented scale. Clarence Okoh is building the legal arguments to hold algorithmic power accountable.</div>
+                <span class="ep-tag">Racial Equity &amp; AI</span>
+                <div class="ep-listen">
+                  <a class="btn-listen btn-spotify" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 12','play-spotify')">♫ Spotify</a>
+                  <a class="btn-listen btn-apple" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 12','play-apple')">♫ Apple</a>
+                  <a class="btn-listen btn-youtube" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 12','play-youtube')">▶ YouTube</a>
+                </div>
+              </div>
+
+              <!-- Ep 13 · Jennifer Leonard · Coming Soon -->
+              <div class="episode-card">
+                <div class="ep-number">Episode 13</div>
+                <div class="ep-guest">Jennifer Leonard, JD</div>
+                <div class="ep-title">President &amp; CEO, The College of Law Practice Management</div>
+                <div class="ep-focus">Law schools were built for a world where lawyers researched, drafted, and argued. AI does all three now. Jennifer Leonard is at the center of the profession's reckoning with what a lawyer actually needs to know.</div>
+                <span class="ep-tag">Legal Innovation</span>
+                <div class="ep-listen">
+                  <a class="btn-listen btn-spotify" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 13','play-spotify')">♫ Spotify</a>
+                  <a class="btn-listen btn-apple" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 13','play-apple')">♫ Apple</a>
+                  <a class="btn-listen btn-youtube" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 13','play-youtube')">▶ YouTube</a>
+                </div>
+              </div>
+
             </div>
+
+            <!-- Episode 14 — Q2 Recap, centered -->
+            <div style="display:flex; justify-content:center; margin-top:24px;">
+              <div class="episode-card" style="max-width:400px; width:100%;">
+                <div class="ep-number">Episode 14</div>
+                <div class="ep-guest">Q2 Power &amp; Law Recap</div>
+                <div class="ep-title">Quarter 2 Finale</div>
+                <div class="ep-focus">A synthesis of how governance must evolve to keep pace with algorithmic power — and what careers at the intersection of law and AI actually look like.</div>
+                <div class="ep-listen">
+                  <a class="btn-listen btn-spotify" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 14','play-spotify')">♫ Spotify</a>
+                  <a class="btn-listen btn-apple" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 14','play-apple')">♫ Apple</a>
+                  <a class="btn-listen btn-youtube" style="opacity:0.45;cursor:not-allowed;" onclick="trackEvent('Episode 14','play-youtube')">▶ YouTube</a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -542,9 +712,9 @@
 
     <!-- Subscribe buttons — always visible below the accordion -->
     <div class="roadmap-subscribe-row">
-      <a href="https://open.spotify.com/show/58n7fUm5FexHf7BQMmlQ4A" class="btn-listen btn-spotify" target="_blank" onclick="trackEvent('Main Show Link','click-spotify')">♫ Follow on Spotify</a>
-      <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world/id1867335577" class="btn-listen btn-apple" target="_blank" onclick="trackEvent('Main Show Link','click-apple')">♫ Subscribe on Apple</a>
-      <a href="https://www.youtube.com/@PathsofCuriosity" class="btn-listen btn-youtube" target="_blank" onclick="trackEvent('Main Show Link','click-youtube')">▶ Watch on YouTube</a>
+      <a href="https://open.spotify.com/show/58n7fUm5FexHf7BQMmlQ4A" class="btn-listen btn-spotify" target="_blank" onclick="trackEvent('Main Series','follow-spotify')">♫ Follow on Spotify</a>
+      <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world/id1867335577" class="btn-listen btn-apple" target="_blank" onclick="trackEvent('Main Series','subscribe-apple')">♫ Subscribe on Apple</a>
+      <a href="https://www.youtube.com/@PathsofCuriosity" class="btn-listen btn-youtube" target="_blank" onclick="trackEvent('Main Series','watch-youtube')">▶ Watch on YouTube</a>
     </div>
 
   </div>
@@ -639,7 +809,8 @@
     <div class="section-divider"></div>
     <p class="section-desc">We started this show because we wanted to understand what the future of work actually looks like before we got there. We're students figuring this out alongside you.</p>
     <div class="team-grid">
-      <div class="team-card">
+      <!-- Acadia: Text LEFT · Photo RIGHT -->
+      <div class="team-card card-acadia">
         <div class="team-text">
           <div class="team-role">Co-Host &amp; Interviewer</div>
           <div class="team-name">Acadia Holve</div>
@@ -647,12 +818,13 @@
           <p class="team-bio">What drives her isn't just curiosity about technology, it's the connections. How a change in one field ripples into another. How the choices students make now map onto careers that don't fully exist yet.</p>
         </div>
         <div class="team-photo">
-          <img src="Acadia Holve Thumbnail.png" alt="Acadia Holve"/>
+          <img src="Acadia_Holve_Thumbnail.png" alt="Acadia Holve"/>
         </div>
       </div>
-      <div class="team-card">
+      <!-- Alora: Photo LEFT · Text RIGHT -->
+      <div class="team-card card-alora">
         <div class="team-photo">
-          <img src="Alora Holve Thumbnail.png" alt="Alora Holve"/>
+          <img src="Alora_Holve_Thumbnail.png" alt="Alora Holve"/>
         </div>
         <div class="team-text">
           <div class="team-role">Co-Host &amp; Producer</div>
@@ -675,7 +847,7 @@
       <div class="contact-channels">
         <div class="contact-channel">
           <div class="channel-icon">✉️</div>
-          <div><div class="channel-label">Email</div><div class="channel-value">pathsofcuriosity@gmail.com</div></div>
+          <div><div class="channel-label">Email</div><div class="channel-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c0b0a1b4a8b3afa6a3b5b2a9afb3a9b4b980a7ada1a9aceea3afad">[email&#160;protected]</a></div></div>
         </div>
         <a href="https://x.com/PathsCuriosity" class="contact-channel" target="_blank">
           <div class="channel-icon">𝕏</div>
@@ -729,7 +901,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── REPLACE THIS URL WITH YOUR APPS SCRIPT URL ──
   // Must start with https://  ← that was the bug before
   const API_URL = 'https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec';
@@ -777,19 +949,23 @@
       if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.episode-card, .resource-card, .coming-card').forEach(function(el) {
+  document.querySelectorAll('.episode-card, .resource-card, .team-card, .coming-card').forEach(function(el) {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
-    el.style.transition = 'all 0.6s ease-out';
+    el.style.transition = 'all 0.6s ease';
     observer.observe(el);
   });
 
-  // ── ACCORDION ──
+  // Accordion toggle
   function toggleAccordion(id) {
     var item = document.getElementById(id);
-    if (!item) return;
-    item.classList.toggle('is-open');
+    var isOpen = item.classList.contains('is-open');
+    document.querySelectorAll('.accordion-item').forEach(function(el) {
+      el.classList.remove('is-open');
+    });
+    if (!isOpen) { item.classList.add('is-open'); }
   }
+
+  // Open Q2 by default since it's now airing
+  window.addEventListener('load', function() { toggleAccordion('acc-q2'); });
 </script>
-</body>
-</html>
