@@ -171,90 +171,16 @@
   #about-us .section-label { color: var(--cobalt-light); }
   #about-us .section-label::before { background: var(--cobalt-light); }
   #about-us .section-desc { color: #b8c4dc; }
-
-  /* ── INTERLOCKING HOST CARDS ── */
-  .team-grid { display: flex; flex-direction: column; gap: 28px; margin-top: 48px; }
-  .team-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(232,184,75,0.18);
-    background: #0d1545;
-    transition: all 0.35s ease;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
-    min-height: 380px;
-  }
-  .team-card:hover {
-    border-color: rgba(232,184,75,0.55);
-    box-shadow: 0 0 0 1px rgba(232,184,75,0.4), 0 20px 60px rgba(232,184,75,0.15), 0 8px 32px rgba(0,0,0,0.4);
-    transform: translateY(-3px);
-  }
-  /* Acadia: text left, photo right */
-  .team-card.card-acadia .team-text { order: 1; }
-  .team-card.card-acadia .team-photo { order: 2; }
-  /* Alora: photo left, text right */
-  .team-card.card-alora .team-photo { order: 1; }
-  .team-card.card-alora .team-text { order: 2; }
-
-  .team-photo {
-    position: relative;
-    overflow: hidden;
-    min-height: 380px;
-  }
-  .team-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-  .team-card:hover .team-photo img { transform: scale(1.03); }
-  /* Gold shimmer overlay on photo on hover */
-  .team-photo::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(232,184,75,0.12) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    pointer-events: none;
-  }
-  .team-card:hover .team-photo::after { opacity: 1; }
-
-  .team-text {
-    padding: 48px 44px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .team-role {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(232,184,75,0.75); margin-bottom: 12px;
-  }
-  .team-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 38px; font-weight: 900;
-    color: var(--gold);
-    line-height: 1.05;
-    margin-bottom: 20px;
-  }
-  .team-bio {
-    font-size: 15px; color: #b8c4dc; line-height: 1.78; margin-bottom: 16px;
-  }
-  .team-bio:last-child { margin-bottom: 0; }
-
-  @media (max-width: 900px) {
-    .team-card { grid-template-columns: 1fr; min-height: unset; }
-    .team-card.card-acadia .team-text,
-    .team-card.card-acadia .team-photo,
-    .team-card.card-alora .team-photo,
-    .team-card.card-alora .team-text { order: unset; }
-    .team-photo { min-height: 280px; }
-    .team-text { padding: 32px 28px; }
-    .team-name { font-size: 28px; }
-  }
+  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; }
+  .team-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(37,95,241,0.15); transition: all 0.25s; }
+  .team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(32,56,164,0.1); }
+  .team-header { background: linear-gradient(135deg, var(--navy), var(--cobalt)); padding: 40px 36px 32px; }
+  .team-role { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cobalt-light); margin-bottom: 10px; }
+  .team-name { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; color: white; line-height: 1.1; }
+  .team-body { padding: 32px 36px; }
+  .team-bio { font-size: 15px; color: #8892b0; line-height: 1.75; margin-bottom: 24px; }
+  .team-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .team-tag { background: #f0f4ff; color: var(--navy); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; border: 1px solid rgba(37,95,241,0.2); }
 
   #contact { background: linear-gradient(160deg, var(--dark) 0%, var(--navy) 60%, var(--cobalt) 100%); position: relative; overflow: hidden; }
   #contact .hero-grid { opacity: 0.04; }
@@ -709,26 +635,22 @@
     <div class="section-divider"></div>
     <p class="section-desc">We started this show because we wanted to understand what the future of work actually looks like before we got there. We're students figuring this out alongside you.</p>
     <div class="team-grid">
-      <!-- Acadia: Text LEFT · Photo RIGHT -->
-      <div class="team-card card-acadia">
-        <div class="team-text">
-          <div class="team-role">Co-Host &amp; Interviewer</div>
+      <div class="team-card">
+        <div class="team-header">
+          <div class="team-role">Co-Host & Interviewer</div>
           <div class="team-name">Acadia Holve</div>
+        </div>
+        <div class="team-body">
           <p class="team-bio">Acadia Holve is the co-creator and host of Paths of Curiosity in an AI World. Analytical by nature and drawn to the big picture, she built this podcast to do what she does best: find the patterns beneath the surface and understand how complex systems actually fit together.</p>
           <p class="team-bio">What drives her isn't just curiosity about technology, it's the connections. How a change in one field ripples into another. How the choices students make now map onto careers that don't fully exist yet.</p>
         </div>
-        <div class="team-photo">
-          <img src="Acadia_Holve_Thumbnail.PNG" alt="Acadia Holve"/>
-        </div>
       </div>
-      <!-- Alora: Photo LEFT · Text RIGHT -->
-      <div class="team-card card-alora">
-        <div class="team-photo">
-          <img src="Alora_Holve_Thumbnail.PNG" alt="Alora Holve"/>
-        </div>
-        <div class="team-text">
-          <div class="team-role">Co-Host &amp; Producer</div>
+      <div class="team-card">
+        <div class="team-header">
+          <div class="team-role">Co-Host & Producer</div>
           <div class="team-name">Alora Holve</div>
+        </div>
+        <div class="team-body">
           <p class="team-bio">Alora Holve is the co-creator and producer of Paths of Curiosity in an AI World, and the spark behind the idea that became this project. Energetic, visionary, and always thinking several steps ahead, she brought the original concept to life alongside her sister.</p>
           <p class="team-bio">Behind every episode, Alora is at work — research, editing, visual design, social media, and show notes. She thinks in terms of where this project is going, not just where it is.</p>
         </div>
@@ -747,7 +669,7 @@
       <div class="contact-channels">
         <div class="contact-channel">
           <div class="channel-icon">✉️</div>
-          <div><div class="channel-label">Email</div><div class="channel-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c0b0a1b4a8b3afa6a3b5b2a9afb3a9b4b980a7ada1a9aceea3afad">[email&#160;protected]</a></div></div>
+          <div><div class="channel-label">Email</div><div class="channel-value">pathsofcuriosity@gmail.com</div></div>
         </div>
         <a href="https://x.com/PathsCuriosity" class="contact-channel" target="_blank">
           <div class="channel-icon">𝕏</div>
@@ -801,7 +723,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── REPLACE THIS URL WITH YOUR APPS SCRIPT URL ──
   // Must start with https://  ← that was the bug before
   const API_URL = 'https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec';
@@ -852,4 +774,16 @@
   document.querySelectorAll('.episode-card, .resource-card, .team-card, .coming-card').forEach(function(el) {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
-    el.style.transition = 'all 0.6s ease
+    el.style.transition = 'all 0.6s ease-out';
+    observer.observe(el);
+  });
+
+  // ── ACCORDION ──
+  function toggleAccordion(id) {
+    var item = document.getElementById(id);
+    if (!item) return;
+    item.classList.toggle('is-open');
+  }
+</script>
+</body>
+</html>
