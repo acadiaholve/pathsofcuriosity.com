@@ -174,6 +174,13 @@
     </div>
   </div>
 
+  <div class="resource-section" style="margin-bottom:48px;">
+    <div class="section-label">Page Arrivals</div>
+    <div class="resource-rows" id="page-arrival-rows">
+      <div class="no-activity">Loading...</div>
+    </div>
+  </div>
+
   <div class="resource-section">
     <div class="section-label">Resources — Views & Downloads</div>
     <div class="resource-rows" id="resource-rows">
@@ -238,10 +245,27 @@
   ];
 
   const RESOURCES = [
-    { key: 'Career Landscape Map', emoji: '🗺️', series: 'AI in Healthcare · Q1' },
-    { key: 'Whats Your Spark',     emoji: '📝', series: 'AI in Healthcare · Q1' },
-    { key: 'Teach This',           emoji: '📚', series: 'AI in Healthcare · Q1' },
-    { key: 'Main Series',          emoji: '📡', series: 'Series Follow / Subscribe' },
+    // Q1 Resources
+    { key: 'Career Landscape Map',    emoji: '🗺️', series: 'AI in Healthcare · Q1' },
+    { key: 'Whats Your Spark',        emoji: '📝', series: 'AI in Healthcare · Q1' },
+    { key: 'Teach This',              emoji: '📚', series: 'AI in Healthcare · Q1' },
+    { key: 'Q1 Career Landscape Map', emoji: '🗺️', series: 'AI in Healthcare · Q1' },
+    { key: 'Q1 Whats Your Spark',     emoji: '📝', series: 'AI in Healthcare · Q1' },
+    { key: 'Q1 Teach This',           emoji: '📚', series: 'AI in Healthcare · Q1' },
+    // Q2 Resources
+    { key: 'Q2 Career Landscape Map', emoji: '🗺️', series: 'Power, Law & Civic Life · Q2' },
+    { key: 'Q2 Whats Your Spark',     emoji: '📝', series: 'Power, Law & Civic Life · Q2' },
+    { key: 'Q2 Teach This',           emoji: '📚', series: 'Power, Law & Civic Life · Q2' },
+    // Series
+    { key: 'Main Series',             emoji: '📡', series: 'Series Follow / Subscribe' },
+  ];
+
+  const PAGE_ARRIVALS = [
+    { key: 'Homepage',  emoji: '🏠', label: 'Homepage' },
+    { key: 'Q1 Page',   emoji: '🩺', label: 'Q1 Ecosystem Page' },
+    { key: 'Q2 Page',   emoji: '⚖️', label: 'Q2 Ecosystem Page' },
+    { key: 'Q1 Portal', emoji: '↗️', label: 'Q1 Portal Click (from index)' },
+    { key: 'Q2 Portal', emoji: '↗️', label: 'Q2 Portal Click (from index)' },
   ];
 
   function fmt(n) { return (n && n > 0) ? n.toLocaleString() : '0'; }
@@ -287,7 +311,9 @@
     const br = data.byResource || {};
 
     // Totals
-    const siteVisits = br['Homepage'] ? (br['Homepage']['arrival'] || 0) : 0;
+    const siteVisits = (br['Homepage'] ? (br['Homepage']['arrival'] || 0) : 0)
+                     + (br['Q1 Page']  ? (br['Q1 Page']['arrival']  || 0) : 0)
+                     + (br['Q2 Page']  ? (br['Q2 Page']['arrival']  || 0) : 0);
     document.getElementById('grand-visits').textContent   = fmt(siteVisits);
     document.getElementById('grand-views').textContent    = fmt(data.totals.views);
     document.getElementById('grand-downloads').textContent = fmt(data.totals.downloads);
@@ -297,7 +323,18 @@
       if (el) el.classList.remove('loading');
     });
 
-    // Resources — exclude episode keys, homepage, and both main show key variants
+    // Page Arrivals
+    document.getElementById('page-arrival-rows').innerHTML = PAGE_ARRIVALS.map(function(p) {
+      var actions = br[p.key] || {};
+      var count = actions['arrival'] || actions['click'] || 0;
+      return '<div class="resource-row" style="grid-template-columns:32px 1fr 100px;">'
+        + '<div class="resource-emoji">' + p.emoji + '</div>'
+        + '<div><div class="resource-name">' + p.label + '</div><div class="resource-series">Tracking key: ' + p.key + '</div></div>'
+        + '<div class="metric"><div class="metric-num v' + (count===0?' zero':'') + '">' + fmt(count) + '</div><div class="metric-label">Visits</div></div>'
+        + '</div>';
+    }).join('');
+
+    // Resources — exclude episode keys, homepage, page arrivals, and main series variants
     var EXCLUDE = new Set(['Homepage', 'Main Series', 'Main Show Link']);
     var allKeys = new Set(RESOURCES.filter(function(r){ return !EXCLUDE.has(r.key); }).map(function(r) { return r.key; }));
     Object.keys(br).forEach(function(k) {
