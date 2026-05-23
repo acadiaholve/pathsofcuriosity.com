@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teach This: AI in Power, Law & Civic Life</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #255ff1;
+    --teal-light: #5b87f5;
+    --teal-pale: #0a1230;
+    --teal-mid: #1a2a6a;
+    --gold: #e8b84b;
+    --gold-light: #2a1f00;
+    --dark: #07090f;
+    --gray: #8892b0;
+    --gray-light: #0d1545;
+    --white: #e8f0fa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #07090f;
+    color: var(--white);
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #0a1020;
+    padding: 52px 56px 60px;
+  }
+
+  /* HEADER */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    border-bottom: 3px solid var(--teal);
+    padding-bottom: 24px;
+    margin-bottom: 36px;
+    gap: 24px;
+  }
+
+  .header-left .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--teal-light);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .header-left h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .header-left h1 em {
+    color: var(--teal-light);
+    font-style: italic;
+  }
+
+  .header-left .subtitle {
+    font-size: 14px;
+    color: var(--gray);
+    font-weight: 400;
+  }
+
+  .header-right {
+    text-align: right;
+    padding-top: 4px;
+  }
+
+  .podcast-badge {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+
+  .header-right .quarter-label {
+    display: block;
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+  /* INTRO */
+  .intro-box {
+    background: var(--teal-pale);
+    border-left: 4px solid var(--teal);
+    padding: 18px 20px;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 36px;
+  }
+
+  .intro-box p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .intro-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--white);
+    margin-bottom: 16px;
+    border-bottom: 1px solid #1a2a6a;
+    padding-bottom: 12px;
+  }
+
+  .section-content {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #b0b8c8;
+  }
+
+  .section-content p {
+    margin-bottom: 12px;
+  }
+
+  .section-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-content strong {
+    color: var(--white);
+  }
+
+  /* EPISODE GUIDE */
+  .episode {
+    background: var(--teal-pale);
+    border-left: 4px solid var(--teal);
+    padding: 18px 20px;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 12px;
+  }
+
+  .episode-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .episode-title {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 13px;
+  }
+
+  .episode-role {
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  .episode-focus {
+    display: inline-block;
+    background: rgba(37, 95, 241, 0.2);
+    border: 1px solid var(--teal);
+    color: var(--teal-light);
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .episode-question {
+    background: rgba(37, 95, 241, 0.08);
+    border-left: 2px solid var(--teal-light);
+    padding: 12px 14px;
+    margin: 12px 0;
+    font-size: 12px;
+    font-style: italic;
+    color: #b0b8c8;
+  }
+
+  .episode-prompt {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #b0b8c8;
+  }
+
+  /* ACTIVITY */
+  .activity {
+    background: #0a1228;
+    border: 1.5px solid #1a2a6a;
+    border-radius: 4px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+
+  .activity-title {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .activity-time {
+    font-size: 11px;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+
+  .activity-content {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #b0b8c8;
+  }
+
+  .activity-content p {
+    margin-bottom: 8px;
+  }
+
+  .activity-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* TWO-COLUMN GRID */
+  .grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .grid-two {
+      grid-template-columns: 1fr;
+    }
+    .header {
+      grid-template-columns: 1fr;
+    }
+    .header-right {
+      text-align: left;
+    }
+    .section-title {
+      font-size: 20px;
+    }
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #1a2a6a;
+    text-align: center;
+  }
+
+  .footer p {
+    font-size: 11px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .site {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--teal-light);
+    margin-top: 12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="eyebrow">Paths of Curiosity in an AI World</div>
+      <h1>Teach This</h1>
+      <div class="subtitle">Educator Guide — Q2: AI in Power, Law & Civic Life</div>
+    </div>
+    <div class="header-right">
+      <div class="podcast-badge">Q2 Mini-Series</div>
+      <div class="quarter-label">Free for classroom use</div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-box">
+    <p><strong>This quarter's mini-series explores how AI is being used in surveillance, algorithmic wage-setting, courtrooms, and the justice system — and the people fighting to keep it accountable.</strong> This guide includes episode breakdowns, discussion prompts, and classroom activities designed for advisory periods, college counseling, STEM classes, and early undergraduate settings.</p>
+    <p><strong>Each episode can stand alone or be used as part of a full six-episode unit.</strong> Activities range from 15 to 30 minutes and work in synchronous or asynchronous settings.</p>
+  </div>
+
+  <!-- LEARNING OBJECTIVES -->
+  <div class="section">
+    <div class="section-title">Learning Objectives</div>
+    <div class="section-content">
+      <p>After engaging with this series, students will be able to:</p>
+      <p style="margin-top: 12px;">Describe at least three ways AI affects power structures, law, and justice in the real world • Distinguish between "AI replacing jobs" and "AI changing how work gets governed" • Identify which skills matter most for careers at the intersection of law, technology, and justice • Connect their own values and interests to at least one emerging career pathway • Ask better questions about whose interests are served by algorithms and whose are harmed</p>
+    </div>
+  </div>
+
+  <!-- CURRICULUM CONNECTIONS -->
+  <div class="section">
+    <div class="section-title">Curriculum Connections</div>
+    <div class="section-content">
+      <p><strong>Social Studies & Civics:</strong> How surveillance works, Fourth Amendment, government power, algorithmic justice and bias • <strong>Law & Policy:</strong> Constitutional law, employment law, algorithms and fairness, regulatory frameworks • <strong>Computer Science & Data Science:</strong> Machine learning in hiring and wage-setting, algorithmic bias, audit methods • <strong>Economics & Labor:</strong> Gig economy, wage theory, labor organizing, the future of work • <strong>Ethics & Philosophy:</strong> Accountability, power, consent, whose values get encoded into systems</p>
+    </div>
+  </div>
+
+  <!-- EPISODE GUIDE -->
+  <div class="section">
+    <div class="section-title">Episode Guide & Discussion Prompts</div>
+
+    <div class="episode">
+      <div class="episode-header">
+        <div>
+          <div class="episode-title">Episode 1: Nathan Freed Wessler</div>
+          <div class="episode-role">ACLU Deputy Director — Surveillance Law</div>
+        </div>
+        <span class="episode-focus">Constitutional Law</span>
+      </div>
+      <div class="episode-question">"What does privacy actually mean when the government can access years of your location history without a warrant?"</div>
+      <div class="episode-prompt"><strong>Focus:</strong> How the Fourth Amendment is being tested by surveillance technology. The Carpenter v. U.S. case and what came after. How facial recognition, cell tower data, and automated license plate readers work. Why practical barriers matter.</div>
+      <div class="episode-prompt" style="margin-top: 10px;"><strong>Discussion starter:</strong> Most students carry phones everywhere. Without knowing it, they're generating location history that the government could theoretically access. What should happen first — better laws or better technology limits? Is one more effective?</div>
+    </div>
+
+    <div class="episode">
+      <div class="episode-header">
+        <div>
+          <div class="episode-title">Episode 2: Veena Dubal</div>
+          <div class="episode-role">UC Irvine Professor — Labor & Algorithms</div>
+        </div>
+        <span class="episode-focus">Labor Law</span>
+      </div>
+      <div class="episode-question">"Two drivers, same ride, different pay — decided by an algorithm neither can see or challenge. Is that fair?"</div>
+      <div class="episode-prompt"><strong>Focus:</strong> How gig work differs from traditional employment. Wage history and why minimum wage protections matter. How algorithmic wage discrimination works. The gap between what platforms claim and what workers experience.</div>
+      <div class="episode-prompt" style="margin-top: 10px;"><strong>Discussion starter:</strong> If you're doing gig work now, you've probably felt this. The pay varies wildly day to day, and you have no idea why. What would fair look like? Should companies have to explain how they calculate pay?</div>
+    </div>
+
+    <div class="episode">
+      <div class="episode-header">
+        <div>
+          <div class="episode-title">Episode 3: Maura Grossman</div>
+          <div class="episode-role">University of Waterloo — Legal Technology</div>
+        </div>
+        <span class="episode-focus">Courts & Evidence</span>
+      </div>
+      <div class="episode-question">"A deepfake video plays in family court. How is a judge supposed to know what's real?"</div>
+      <div class="episode-prompt"><strong>Focus:</strong> How deepfakes work. The challenge of detecting AI-generated evidence. Why explainability matters in courtrooms. The gap between what is technically possible and what judges are trained to evaluate.</div>
+      <div class="episode-prompt" style="margin-top: 10px;"><strong>Discussion starter:</strong> People assume judges can spot fakes. But the technology is advancing fast. What safeguards should courts have before allowing AI-generated evidence? Who decides?</div>
+    </div>
+
+    <div class="episode">
+      <div class="episode-header">
+        <div>
+          <div class="episode-title">Episode 4: Ramesh Srinivasan</div>
+          <div class="episode-role">UCLA Digital Cultures Lab — Culture & Code</div>
+        </div>
+        <span class="episode-focus">Platform Justice</span>
+      </div>
+      <div class="episode-question">"Every algorithm is built by humans with beliefs. Whose beliefs are in the code you use every day?"</div>
+      <div class="episode-prompt"><strong>Focus:</strong> How algorithms shape what we see and believe. The myth of neutrality. How fragmentation of shared reality affects democracy. Who benefits when algorithms work the way they do.</div>
+      <div class="episode-prompt" style="margin-top: 10px;"><strong>Discussion starter:</strong> Ask students to compare their social media feeds with a classmate's. Are they seeing completely different realities? What's the long-term effect on society when we can't agree on basic facts?</div>
+    </div>
+
+    <div class="episode">
+      <div class="episode-header">
+        <div>
+          <div class="episode-title">Episode 5: Clarence Okoh</div>
+          <div class="episode-role">NOTICE Coalition — Civil Rights</div>
+        </div>
+        <span class="episode-focus">School Surveillance</span>
+      </div>
+      <div class="episode-question">"Seventeen thousand kids flagged as future criminals by an algorithm. None of them knew it was happening."</div>
+      <div class="episode-prompt"><strong>Focus:</strong> How predictive policing works in schools. The harms of secret surveillance. The disproportionate impact on marginalized students. How community organizing can shut down harmful programs.</div>
+      <div class="episode-prompt" style="margin-top: 10px;"><strong>Discussion starter:</strong> This actually happened. Students didn't know they were being watched or scored. What would they want to know about algorithms tracking them in school? What rights should they have?</div>
+    </div>
+
+    <div class="episode">
+      <div class="episode-header">
+        <div>
+          <div class="episode-title">Episode 6: Jennifer Leonard</div>
+          <div class="episode-role">Creative Lawyers — Future of Law</div>
+        </div>
+        <span class="episode-focus">Legal Innovation</span>
+      </div>
+      <div class="episode-question">"What if AI could make legal help actually affordable for regular people?"</div>
+      <div class="episode-prompt"><strong>Focus:</strong> How the legal profession works now. Why legal help is expensive. How AI might change what lawyers do. New roles emerging because of AI. The gap between legal problems and people who can afford lawyers.</div>
+      <div class="episode-prompt" style="margin-top: 10px;"><strong>Discussion starter:</strong> Almost nobody can afford a lawyer when they need one. AI could theoretically democratize legal help. But what skills will lawyers still need that AI can't do? What goes wrong when we over-rely on tools?</div>
+    </div>
+
+  </div>
+
+  <!-- CLASSROOM ACTIVITIES -->
+  <div class="section">
+    <div class="section-title">Classroom Activities</div>
+
+    <div class="activity">
+      <div class="activity-title">Activity 1: The Surveillance Audit</div>
+      <div class="activity-time">20 minutes</div>
+      <div class="activity-content">
+        <p>After listening to Episode 1 (Nathan Wessler), ask students: "What data about you is being collected right now — by your phone, your school, your apps, your social media?" Have them list everything they can think of without researching. Then do 10 minutes of quick research. What did they miss? What surprised them? Debrief: Where does all this data go? Who has access? Should there be rules about what's collected?</p>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title">Activity 2: The Wage Algorithm</div>
+      <div class="activity-time">25 minutes</div>
+      <div class="activity-content">
+        <p>After Episode 2 (Veena Dubal), set up a scenario: "You're designing an app that needs to set prices dynamically. What factors should you include in your algorithm? What would make it fair?" Have students propose rules. Then ask: "What if you included how desperate someone was — how long they've worked without a break? Is that fair?" Challenge them to think about what gets coded in and what gets left out. Who benefits from different algorithms?</p>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title">Activity 3: The Deepfake Dilemma</div>
+      <div class="activity-time">20 minutes</div>
+      <div class="activity-content">
+        <p>After Episode 3 (Maura Grossman), play a video that could be real or could be a deepfake. Have students vote on what they think. Reveal the truth. Discuss: How did you decide? What clues were there — or weren't there? In a court, should a lawyer have to prove something's real, or should a defendant have to prove it's fake? Who should decide whether evidence is allowed?</p>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title">Activity 4: The Algorithm Comparison</div>
+      <div class="activity-time">30 minutes</div>
+      <div class="activity-content">
+        <p>After Episode 4 (Ramesh Srinivasan), have pairs of students compare their own social media feeds. What news stories, creators, and topics are they seeing? Are they different? Debrief as a group: Why would platforms show different things to different people? Who benefits? What does this mean for democracy and shared facts?</p>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title">Activity 5: The Community Response</div>
+      <div class="activity-time">25 minutes</div>
+      <div class="activity-content">
+        <p>After Episode 5 (Clarence Okoh), have students research a local algorithmic harm — a surveillance program in schools, hiring discrimination, predictive policing, etc. What happened? How did communities respond? What would they do? Role-play: Some students are advocates, some are school officials. How would you convince them to change?</p>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title">Activity 6: Design the Legal Future</div>
+      <div class="activity-time">30 minutes</div>
+      <div class="activity-content">
+        <p>After Episode 6 (Jennifer Leonard), have students redesign legal help for 2030. What would be different? What would AI handle? What would humans handle? What new skills would lawyers need? Present to the group. Debrief: What went wrong if you over-relied on AI? What needs human judgment?</p>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title">Final Reflection: Your Spark</div>
+      <div class="activity-time">45 minutes (can be asynchronous)</div>
+      <div class="activity-content">
+        <p>After all six episodes, have students write 1–2 pages on: Which guest's work most surprised or interested you? What's one question none of them answered that you still have? If you wanted to work in this field, what would your first concrete step be? (Not "go to law school" — something you could do this month.) Students can share in small groups or turn in anonymously for feedback.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ASSESSMENT OPTIONS -->
+  <div class="section">
+    <div class="section-title">Assessment Options (Choose One or Combine)</div>
+    <div class="section-content">
+      <p><strong>Formative:</strong> Discussion participation, observation of activity engagement, quick exit tickets asking "What surprised you?" and "What do you still want to know?" • <strong>Summative:</strong> Final reflection paper (1–2 pages), podcast episode analysis (pick one guest, explain their work and why it matters), policy proposal (design a law to address one algorithmic harm discussed in the series) • <strong>Creative:</strong> Have students create their own podcast episode, make art responding to an episode, write a dialogue between two guests, design a social media campaign about algorithmic justice</p>
+    </div>
+  </div>
+
+  <!-- BEYOND THE CLASSROOM -->
+  <div class="section">
+    <div class="section-title">Beyond the Classroom</div>
+    <div class="section-content">
+      <p><strong>Peer discussion:</strong> Students listen to one episode outside class and come ready to discuss. • <strong>Homework:</strong> Listen to an episode and answer the "big question" at the top of that episode guide. • <strong>Advisory use:</strong> Play a 5–10 minute clip during advisory and use the discussion prompt to spark conversation. • <strong>College counseling:</strong> Use the What's Your Spark quiz (free at pathsofcuriosity.com) to help students identify career interests at the intersection of law, technology, and justice. • <strong>Field trips & speakers:</strong> Reach out to local civil rights organizations, legal aid societies, or policy groups doing this work. Many guests have their own podcast or write publicly; links are at pathsofcuriosity.com.</p>
+    </div>
+  </div>
+
+  <!-- RESOURCES -->
+  <div class="section">
+    <div class="section-title">Resources</div>
+    <div class="section-content">
+      <p><strong>Career planning:</strong> Career Landscape Map and What's Your Spark quiz, both free at pathsofcuriosity.com • <strong>Follow-up learning:</strong> ACLU Free Future blog (surveillance), Labor Notes (labor & AI), Brookings Institution (policy research), The Markup (investigative tech journalism) • <strong>Current cases:</strong> Search for news on Carpenter v. U.S., NOTICE Coalition cases on school surveillance, gig worker lawsuits • <strong>Guest resources:</strong> Each guest has published work, written articles, or leads organizations. Links are at pathsofcuriosity.com</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>This guide may be freely reproduced for educational purposes in classrooms, advisories, and school settings. For bulk downloads, bulk licensing, or curriculum integration support, contact pathsofcuriosity.com.</p>
+    <a href="https://www.pathsofcuriosity.com" class="site">pathsofcuriosity.com</a>
+  </div>
+
+</div>
+
+</body>
+</html>
