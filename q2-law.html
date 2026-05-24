@@ -4,128 +4,157 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Q2: Power, Law & Civic Life | Paths of Curiosity</title>
-<meta name="description" content="The full Q2 series ecosystem — AI in Power, Law & Civic Life. Guest profiles, episodes, career map, Spark Quiz, and educator guide."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --navy: #081e6a; --royal: #0f38a0; --cobalt: #255ff1; --cobalt-light: #5b87f5;
-    --white: #e8f0fa; --off-white: #0d1545; --gray: #8892b0; --dark: #07090f;
-    --gold: #e8b84b;
-    --q2-accent: #5b87f5; --q2-accent2: #255ff1; --q2-glow: rgba(37,95,241,0.18);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(--white); overflow-x: hidden; }
+:root {
+  --ink: #07090f;
+  --cobalt: #255ff1;
+  --cobalt-mid: #1a4bc4;
+  --cobalt-bright: #5b87f5;
+  --cobalt-pale: #d0dcff;
+  --white: #e8f0fa;
+  --gray: #8892b0;
+  --dark-bg: #050810;
+  --dark-surface: #070b18;
+  --dark-card: #0a0f22;
+  --gold: #c9a227;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--dark-bg);color:var(--white);overflow-x:hidden;}
 
-  /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(1,5,20,0.97); backdrop-filter: blur(12px); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; border-bottom: 1px solid rgba(37,95,241,0.2); }
-  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .nav-logo-mark { width: 36px; height: 36px; background: linear-gradient(135deg, var(--cobalt), var(--navy)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 13px; color: white; border: 1px solid rgba(91,135,245,0.4); }
-  .nav-logo-text { font-size: 13px; font-weight: 600; color: rgba(232,240,250,0.8); }
-  .nav-back { display: flex; align-items: center; gap: 8px; color: rgba(232,240,250,0.6); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s; }
-  .nav-back:hover { color: var(--q2-accent); }
-  .nav-quarter-badge { display: flex; align-items: center; gap: 6px; background: rgba(37,95,241,0.15); color: var(--q2-accent); border: 1px solid rgba(37,95,241,0.3); font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; }
-  .live-dot { width: 6px; height: 6px; background: var(--q2-accent); border-radius: 50%; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid rgba(37,95,241,0.15);background:rgba(5,8,16,0.97);backdrop-filter:blur(16px);}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-mark{width:32px;height:32px;background:linear-gradient(135deg,var(--cobalt),var(--cobalt-mid));border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:11px;color:white;}
+.nav-logo-text{font-size:12px;font-weight:600;color:rgba(232,240,250,0.7);}
+.nav-center{display:flex;align-items:center;gap:10px;}
+.nav-series-chip{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;background:rgba(37,95,241,0.12);color:var(--cobalt-bright);border:1px solid rgba(37,95,241,0.25);padding:4px 12px;border-radius:20px;}
+.live-pulse{display:inline-block;width:6px;height:6px;background:var(--cobalt-bright);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.nav-back{font-size:12px;font-weight:600;color:rgba(232,240,250,0.5);text-decoration:none;transition:color .2s;}
+.nav-back:hover{color:var(--cobalt-bright);}
 
-  /* HERO */
-  .hero { min-height: 100vh; background: linear-gradient(160deg, #020810 0%, #050f28 35%, #06174a 65%, #081e6a 100%); display: flex; align-items: center; padding: 120px 40px 80px; position: relative; overflow: hidden; }
-  .hero-grid { position: absolute; inset: 0; opacity: 0.05; background-image: linear-gradient(rgba(37,95,241,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(37,95,241,0.8) 1px, transparent 1px); background-size: 60px 60px; }
-  .hero-glow { position: absolute; width: 800px; height: 800px; background: radial-gradient(circle, rgba(37,95,241,0.14) 0%, transparent 70%); top: -200px; right: -150px; pointer-events: none; }
-  .hero-glow-2 { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(91,135,245,0.08) 0%, transparent 70%); bottom: 50px; left: 5%; pointer-events: none; }
-  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
-  .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--q2-accent); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--q2-accent); }
-  .hero-live { display: inline-flex; align-items: center; gap: 7px; background: rgba(37,95,241,0.12); border: 1px solid rgba(37,95,241,0.3); color: var(--q2-accent); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(38px, 5.5vw, 68px); font-weight: 900; line-height: 1.05; color: var(--white); margin-bottom: 16px; }
-  .hero h1 em { font-style: italic; color: var(--q2-accent); }
-  .hero-sub { font-size: 20px; color: rgba(232,240,250,0.6); font-weight: 300; margin-bottom: 32px; letter-spacing: 0.01em; }
-  .hero-desc { font-size: 17px; line-height: 1.75; color: rgba(232,240,250,0.7); max-width: 680px; margin-bottom: 48px; font-weight: 300; }
-  .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
-  .hero-chip { background: rgba(37,95,241,0.08); border: 1px solid rgba(91,135,245,0.2); color: rgba(232,240,250,0.75); padding: 7px 16px; border-radius: 20px; font-size: 12px; font-weight: 500; }
-  .hero-stats { display: flex; gap: 48px; padding-top: 40px; border-top: 1px solid rgba(37,95,241,0.2); }
-  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--white); line-height: 1; }
-  .hero-stat-label { font-size: 11px; color: rgba(232,240,250,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
-  .btn-primary-blue { background: var(--q2-accent2); color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: all 0.2s; display: inline-block; margin-right: 16px; }
-  .btn-primary-blue:hover { background: var(--q2-accent); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(37,95,241,0.35); }
-  .btn-outline-blue { background: transparent; color: var(--q2-accent); padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; border: 1px solid rgba(91,135,245,0.35); transition: all 0.2s; display: inline-block; }
-  .btn-outline-blue:hover { border-color: var(--q2-accent); background: rgba(37,95,241,0.06); }
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:0 0 80px;overflow:hidden;background:var(--dark-bg);}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg-gradient{position:absolute;inset:0;background:linear-gradient(175deg,#020408 0%,#060c20 25%,#0a1438 50%,#0e1a4a 75%,#07091e 100%);}
+.hero-noise{position:absolute;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px;}
+.hero-accent-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cobalt),var(--cobalt-bright),transparent);}
+.hero-glow{position:absolute;width:900px;height:900px;background:radial-gradient(ellipse,rgba(37,95,241,0.18) 0%,transparent 65%);top:-250px;right:-180px;pointer-events:none;}
+.hero-glow-2{position:absolute;width:500px;height:500px;background:radial-gradient(ellipse,rgba(91,135,245,0.08) 0%,transparent 65%);bottom:-100px;left:10%;pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;padding:0 48px;position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:flex-end;}
+.hero-left{}
+.hero-kicker{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-top:140px;}
+.hero-kicker-line{width:48px;height:1px;background:var(--cobalt-bright);opacity:.7;}
+.hero-kicker-text{font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--cobalt-bright);}
+.hero-live{display:inline-flex;align-items:center;gap:8px;background:rgba(37,95,241,0.1);border:1px solid rgba(37,95,241,0.25);color:var(--cobalt-bright);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:24px;}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(48px,6.5vw,82px);font-weight:900;line-height:.97;color:#edf2ff;margin-bottom:12px;letter-spacing:-.02em;}
+.hero-h1 em{font-style:italic;color:var(--cobalt-bright);}
+.hero-series-line{font-size:17px;font-weight:300;color:rgba(232,240,250,0.4);margin-bottom:48px;letter-spacing:.02em;}
+.hero-desc{font-size:16px;line-height:1.8;color:rgba(232,240,250,0.6);max-width:600px;margin-bottom:48px;font-weight:300;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px;}
+.btn-hero-primary{display:inline-flex;align-items:center;gap:8px;background:var(--cobalt);color:white;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;transition:all .2s;}
+.btn-hero-primary:hover{background:var(--cobalt-bright);transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,95,241,.3);}
+.btn-hero-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--cobalt-bright);padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;border:1px solid rgba(91,135,245,.3);transition:all .2s;}
+.btn-hero-outline:hover{border-color:var(--cobalt-bright);background:rgba(37,95,241,.06);}
+.hero-platforms{display:flex;align-items:center;gap:16px;padding-top:32px;border-top:1px solid rgba(37,95,241,.12);}
+.hero-platform-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,240,250,.3);}
+.btn-platform{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;font-size:11px;font-weight:700;text-decoration:none;transition:all .2s;letter-spacing:.03em;}
+.p-apple{background:rgba(91,135,245,.08);color:var(--cobalt-bright);border:1px solid rgba(91,135,245,.2);}
+.p-apple:hover{background:rgba(91,135,245,.16);}
+.p-youtube{background:rgba(248,113,113,.08);color:#f87171;border:1px solid rgba(248,113,113,.2);}
+.p-youtube:hover{background:rgba(248,113,113,.16);}
+/* Stats panel */
+.hero-stats-panel{background:rgba(10,15,34,0.85);border:1px solid rgba(37,95,241,0.18);border-radius:16px;padding:36px 32px;backdrop-filter:blur(8px);align-self:flex-end;}
+.stats-panel-title{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(91,135,245,.6);margin-bottom:28px;display:flex;align-items:center;gap:8px;}
+.stats-panel-title::after{content:'';flex:1;height:1px;background:rgba(37,95,241,.15);}
+.stat-row{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.stat-row:last-child{border-bottom:none;padding-bottom:0;}
+.stat-name{font-size:12px;color:rgba(232,240,250,.45);font-weight:400;}
+.stat-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:#edf2ff;line-height:1;}
+.stat-val em{font-style:normal;font-size:12px;color:var(--cobalt-bright);margin-left:4px;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;padding-top:24px;border-top:1px solid rgba(37,95,241,.12);}
+.hero-chip{font-size:10px;font-weight:600;background:rgba(37,95,241,.07);border:1px solid rgba(91,135,245,.18);color:rgba(232,240,250,.6);padding:5px 12px;border-radius:20px;letter-spacing:.03em;}
 
-  /* LISTEN ROW */
-  .listen-row { background: #050d1a; border-top: 1px solid rgba(37,95,241,0.12); border-bottom: 1px solid rgba(37,95,241,0.12); padding: 20px 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-  .listen-row-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(232,240,250,0.4); flex-shrink: 0; }
-  .btn-platform { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 20px; font-size: 12px; font-weight: 700; text-decoration: none; transition: all 0.2s; letter-spacing: 0.03em; }
-  .btn-spotify { background: rgba(91,135,245,0.1); color: var(--q2-accent); border: 1px solid rgba(91,135,245,0.25); }
-  .btn-spotify:hover { background: rgba(91,135,245,0.18); }
-  .btn-apple { background: rgba(91,135,245,0.07); color: rgba(232,240,250,0.7); border: 1px solid rgba(91,135,245,0.18); }
-  .btn-apple:hover { background: rgba(91,135,245,0.13); }
-  .btn-youtube { background: rgba(248,113,113,0.1); color: #f87171; border: 1px solid rgba(248,113,113,0.25); }
-  .btn-youtube:hover { background: rgba(248,113,113,0.18); }
+/* SECTION BASE */
+section{padding:100px 48px;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-kicker{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+.section-kicker-line{width:32px;height:2px;background:var(--cobalt-bright);}
+.section-kicker-text{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cobalt-bright);}
+.section-h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.8vw,46px);font-weight:900;color:#edf2ff;line-height:1.1;margin-bottom:16px;}
+.section-h2 em{font-style:italic;color:var(--cobalt-bright);}
+.section-rule{width:48px;height:3px;background:linear-gradient(90deg,var(--cobalt),transparent);border-radius:2px;margin-bottom:48px;}
 
-  /* SECTION COMMONS */
-  section { padding: 100px 40px; }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--q2-accent); margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
-  .section-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--q2-accent); }
-  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.5vw, 40px); font-weight: 900; color: var(--white); line-height: 1.15; margin-bottom: 16px; }
-  .section-title em { font-style: italic; color: var(--q2-accent); }
-  .section-divider { width: 50px; height: 3px; background: linear-gradient(90deg, var(--q2-accent2), var(--q2-accent)); border-radius: 2px; margin: 0 0 40px; }
+/* GUESTS */
+#guests{background:var(--dark-surface);}
+.guests-intro{max-width:560px;font-size:16px;color:rgba(232,240,250,.5);line-height:1.75;margin-bottom:64px;font-weight:300;}
+.guests-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.guest-card{background:var(--dark-card);position:relative;overflow:hidden;transition:all .35s ease;border:1px solid rgba(37,95,241,.08);}
+.guest-card:hover{border-color:rgba(91,135,245,.35);z-index:2;transform:scale(1.01);box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 1px rgba(91,135,245,.25);}
+.guest-card-accent{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cobalt),transparent);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+.guest-card:hover .guest-card-accent{transform:scaleX(1);}
+.guest-card-inner{padding:32px 28px 28px;}
+.guest-ep-tag{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--cobalt-bright);margin-bottom:20px;}
+.guest-ep-tag::before{content:'';display:block;width:16px;height:1px;background:var(--cobalt-bright);}
+.guest-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:#edf2ff;line-height:1.1;margin-bottom:6px;}
+.guest-role{font-size:11px;color:var(--cobalt-bright);font-weight:600;margin-bottom:4px;line-height:1.4;}
+.guest-inst{font-size:11px;color:rgba(232,240,250,.4);margin-bottom:20px;font-weight:400;}
+.guest-pull{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:rgba(232,240,250,.58);line-height:1.65;border-left:2px solid rgba(37,95,241,.4);padding-left:14px;margin-bottom:20px;}
+.guest-tag-pill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;background:rgba(37,95,241,.08);border:1px solid rgba(91,135,245,.2);color:rgba(91,135,245,.75);padding:4px 10px;border-radius:4px;margin-bottom:24px;}
+.guest-listen{display:flex;gap:8px;flex-wrap:wrap;}
+.btn-ep{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;font-size:10px;font-weight:800;text-decoration:none;transition:all .2s;letter-spacing:.04em;}
+.ep-sp{background:rgba(91,135,245,.08);color:var(--cobalt-bright);border:1px solid rgba(91,135,245,.2);}
+.ep-sp:hover{background:rgba(91,135,245,.16);}
+.ep-ap{background:rgba(91,135,245,.06);color:rgba(232,240,250,.65);border:1px solid rgba(91,135,245,.15);}
+.ep-ap:hover{background:rgba(91,135,245,.12);}
+.ep-yt{background:rgba(248,113,113,.08);color:#f87171;border:1px solid rgba(248,113,113,.2);}
+.ep-yt:hover{background:rgba(248,113,113,.16);}
+.ep-disabled{opacity:.22;cursor:not-allowed;pointer-events:none;}
+.guest-coming{font-size:11px;color:rgba(232,240,250,.3);font-style:italic;padding-top:4px;}
+/* Recap center */
+.recap-row{grid-column:1/-1;display:flex;justify-content:center;margin-top:2px;}
+.recap-card{background:linear-gradient(135deg,#080e28,#050810);border:1px solid rgba(37,95,241,.2);border-radius:0;padding:40px 48px;max-width:560px;width:100%;text-align:center;}
+.recap-card .guest-ep-tag{justify-content:center;}
+.recap-card .guest-ep-tag::before{display:none;}
+.recap-card .guest-pull{border-left:none;border-top:1px solid rgba(37,95,241,.15);border-bottom:1px solid rgba(37,95,241,.15);padding:16px 0;margin:16px 0;text-align:center;}
+.recap-card .guest-listen{justify-content:center;}
 
-  /* GUESTS GRID */
-  #guests { background: #050d1a; }
-  .guests-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .guest-card { background: #0a1228; border-radius: 20px; border: 1px solid rgba(37,95,241,0.15); overflow: hidden; transition: all 0.3s; }
-  .guest-card:hover { border-color: rgba(91,135,245,0.4); transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
-  .guest-card-top { padding: 28px 28px 0; display: flex; align-items: flex-start; gap: 16px; }
-  .guest-ep-num { font-size: 10px; font-weight: 700; color: var(--q2-accent); letter-spacing: 0.15em; text-transform: uppercase; background: rgba(37,95,241,0.1); border: 1px solid rgba(37,95,241,0.2); padding: 3px 10px; border-radius: 20px; white-space: nowrap; margin-top: 2px; }
-  .guest-name { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 4px; }
-  .guest-title { font-size: 12px; color: var(--q2-accent); font-weight: 500; line-height: 1.4; }
-  .guest-tag { font-size: 11px; font-weight: 600; color: rgba(232,240,250,0.45); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 3px 10px; border-radius: 4px; display: inline-block; margin-top: 8px; }
-  .guest-bio { padding: 16px 28px 20px; font-size: 13px; color: rgba(232,240,250,0.65); line-height: 1.7; }
-  .guest-listen { padding: 0 28px 24px; display: flex; gap: 8px; flex-wrap: wrap; }
-  .btn-ep-listen { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; text-decoration: none; transition: all 0.2s; letter-spacing: 0.03em; }
-  .ep-spotify { background: rgba(91,135,245,0.08); color: var(--q2-accent); border: 1px solid rgba(91,135,245,0.2); }
-  .ep-spotify:hover { background: rgba(91,135,245,0.15); }
-  .ep-apple { background: rgba(91,135,245,0.06); color: rgba(232,240,250,0.7); border: 1px solid rgba(91,135,245,0.15); }
-  .ep-apple:hover { background: rgba(91,135,245,0.12); }
-  .ep-youtube { background: rgba(248,113,113,0.08); color: #f87171; border: 1px solid rgba(248,113,113,0.2); }
-  .ep-youtube:hover { background: rgba(248,113,113,0.15); }
-  .ep-disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
-  .coming-soon-label { font-size: 11px; color: rgba(232,240,250,0.35); font-style: italic; padding: 0 28px 24px; }
-  /* Recap card */
-  .recap-card-wrap { grid-column: 1 / -1; display: flex; justify-content: center; margin-top: 8px; }
-  .recap-card { background: linear-gradient(135deg, #080e28, #061020); border-radius: 20px; border: 1px solid rgba(37,95,241,0.25); padding: 32px 40px; max-width: 560px; width: 100%; text-align: center; }
+/* RESOURCES */
+#resources{background:var(--dark-bg);position:relative;overflow:hidden;}
+#resources::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,95,241,.05) 0%,transparent 50%);}
+.resources-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:1;}
+.res-card{background:var(--dark-card);border:1px solid rgba(37,95,241,.1);border-radius:12px;padding:40px 32px;transition:all .3s;position:relative;overflow:hidden;}
+.res-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--cobalt),transparent);opacity:0;transition:opacity .3s;}
+.res-card:hover{border-color:rgba(91,135,245,.3);transform:translateY(-6px);box-shadow:0 24px 56px rgba(0,0,0,.5);}
+.res-card:hover::before{opacity:1;}
+.res-icon-wrap{width:56px;height:56px;background:rgba(37,95,241,.08);border:1px solid rgba(37,95,241,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:24px;}
+.res-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#edf2ff;margin-bottom:10px;line-height:1.15;}
+.res-desc{font-size:13px;color:rgba(232,240,250,.48);line-height:1.75;margin-bottom:28px;font-weight:300;}
+.res-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-res-view{display:inline-flex;align-items:center;gap:6px;background:rgba(37,95,241,.07);color:var(--cobalt-bright);padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:700;font-size:12px;border:1px solid rgba(91,135,245,.2);transition:all .2s;letter-spacing:.03em;}
+.btn-res-view:hover{background:rgba(37,95,241,.14);}
+.btn-res-dl{display:inline-flex;align-items:center;gap:6px;background:var(--cobalt);color:white;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:700;font-size:12px;transition:all .2s;letter-spacing:.03em;}
+.btn-res-dl:hover{background:var(--cobalt-bright);transform:translateY(-1px);}
 
-  /* RESOURCES */
-  #resources { background: var(--off-white); }
-  .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .res-card { background: #0a1228; border-radius: 20px; padding: 36px 28px; border: 1px solid rgba(37,95,241,0.15); text-align: center; transition: all 0.25s; }
-  .res-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); border-color: rgba(91,135,245,0.3); }
-  .res-icon { font-size: 36px; margin-bottom: 16px; }
-  .res-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
-  .res-desc { font-size: 13px; color: var(--gray); line-height: 1.65; margin-bottom: 24px; }
-  .res-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-  .btn-res-view { background: rgba(37,95,241,0.08); color: var(--q2-accent); padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; border: 1px solid rgba(91,135,245,0.2); transition: all 0.2s; cursor: pointer; }
-  .btn-res-view:hover { background: rgba(37,95,241,0.15); }
-  .btn-res-dl { background: var(--q2-accent2); color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 13px; transition: all 0.2s; cursor: pointer; }
-  .btn-res-dl:hover { background: var(--q2-accent); transform: translateY(-1px); }
+/* FOOTER */
+.eco-footer{background:#030508;border-top:1px solid rgba(37,95,241,.1);padding:48px;text-align:center;}
+.eco-footer p{font-size:12px;color:rgba(232,240,250,.3);margin-bottom:20px;}
+.footer-nav{display:flex;gap:36px;justify-content:center;flex-wrap:wrap;}
+.footer-nav a{font-size:13px;font-weight:600;color:rgba(232,240,250,.4);text-decoration:none;transition:color .2s;}
+.footer-nav a:hover{color:var(--cobalt-bright);}
 
-  /* FOOTER */
-  .eco-footer { background: var(--dark); border-top: 1px solid rgba(37,95,241,0.15); padding: 40px; text-align: center; }
-  .eco-footer p { font-size: 13px; color: rgba(232,240,250,0.4); margin-bottom: 16px; }
-  .eco-footer a { color: var(--cobalt-light); text-decoration: none; font-weight: 600; }
-  .eco-footer a:hover { color: var(--q2-accent); }
-  .footer-nav-row { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
-
-  @media (max-width: 900px) {
-    nav { padding: 0 20px; }
-    .hero { padding: 100px 24px 60px; }
-    section { padding: 72px 24px; }
-    .guests-grid, .resources-grid { grid-template-columns: 1fr; }
-    .hero-stats { gap: 32px; flex-wrap: wrap; }
-    .listen-row { padding: 16px 24px; }
-  }
+@media(max-width:1000px){
+  nav{padding:0 24px;}
+  .hero-inner{grid-template-columns:1fr;gap:48px;padding:0 24px;}
+  .hero-stats-panel{display:none;}
+  .hero-kicker{padding-top:100px;}
+  section{padding:72px 24px;}
+  .guests-grid{grid-template-columns:1fr;}
+  .resources-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -135,168 +164,180 @@
     <div class="nav-logo-mark">P↗C</div>
     <span class="nav-logo-text">Paths of Curiosity</span>
   </a>
+  <div class="nav-center">
+    <span class="nav-series-chip"><span class="live-pulse"></span> Q2 · Now Airing</span>
+  </div>
   <a href="index.html#resources" class="nav-back">← All Series</a>
-  <span class="nav-quarter-badge"><span class="live-dot"></span>Q2 · Now Airing</span>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-glow-2"></div>
+  <div class="hero-bg">
+    <div class="hero-bg-gradient"></div>
+    <div class="hero-noise"></div>
+    <div class="hero-accent-bar"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+  </div>
   <div class="hero-inner">
-    <div class="hero-live"><span class="live-dot"></span>Now Airing · Quarter 2 · 2026</div>
-    <h1>Power, Law &amp;<br/><em>Civic Life</em></h1>
-    <div class="hero-sub">When Algorithms Govern Your Life</div>
-    <p class="hero-desc">Six legal scholars, civil rights attorneys, and policy thinkers on what happens when AI enters the courtroom, the workplace, the ballot box, and your phone's location data. This series asks: who is accountable when a machine makes the call?</p>
-    <div class="hero-chips">
-      <span class="hero-chip">Digital Civil Liberties</span>
-      <span class="hero-chip">Labor Law &amp; AI</span>
-      <span class="hero-chip">AI Ethics &amp; the Courts</span>
-      <span class="hero-chip">Technology &amp; Democracy</span>
-      <span class="hero-chip">Racial Equity &amp; AI</span>
-      <span class="hero-chip">Legal Innovation</span>
+    <div class="hero-left">
+      <div class="hero-kicker">
+        <div class="hero-kicker-line"></div>
+        <div class="hero-kicker-text">Quarter 2 · 2026 · Series Ecosystem</div>
+      </div>
+      <div class="hero-live"><span class="live-pulse"></span> Now Airing</div>
+      <div class="hero-h1">Power, Law<br/>&amp; <em>Civic Life</em></div>
+      <div class="hero-series-line">When Algorithms Govern Your Life</div>
+      <p class="hero-desc">Six legal scholars, civil rights attorneys, and policy thinkers on what happens when AI enters the courtroom, the workplace, the ballot box, and your phone's location data. Who is accountable when a machine makes the call?</p>
+      <div class="hero-btns">
+        <a href="https://open.spotify.com/show/58n7fUm5FexHf7BQMmlQ4A" target="_blank" class="btn-hero-primary" onclick="trackEvent('Q2 Hero','follow-spotify')">♫ Follow on Spotify</a>
+        <a href="#guests" class="btn-hero-outline">Meet the Guests ↓</a>
+      </div>
+      <div class="hero-platforms">
+        <span class="hero-platform-label">Also on</span>
+        <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world/id1867335577" target="_blank" class="btn-platform p-apple" onclick="trackEvent('Q2 Hero','follow-apple')">♫ Apple Podcasts</a>
+        <a href="https://www.youtube.com/@PathsofCuriosity" target="_blank" class="btn-platform p-youtube" onclick="trackEvent('Q2 Hero','follow-youtube')">▶ YouTube</a>
+      </div>
     </div>
-    <a href="https://open.spotify.com/show/58n7fUm5FexHf7BQMmlQ4A" target="_blank" class="btn-primary-blue" onclick="trackEvent('Q2 Hero','follow-spotify')">♫ Follow on Spotify</a>
-    <a href="#guests" class="btn-outline-blue">Meet the Guests ↓</a>
-    <div class="hero-stats">
-      <div>
-        <div class="hero-stat-num">6</div>
-        <div class="hero-stat-label">Expert Guests</div>
+    <div class="hero-stats-panel">
+      <div class="stats-panel-title">Series at a Glance</div>
+      <div class="stat-row">
+        <span class="stat-name">Expert Guests</span>
+        <span class="stat-val">6</span>
       </div>
-      <div>
-        <div class="hero-stat-num">4</div>
-        <div class="hero-stat-label">Episodes Live</div>
+      <div class="stat-row">
+        <span class="stat-name">Episodes Live</span>
+        <span class="stat-val">4 <em>of 7</em></span>
       </div>
-      <div>
-        <div class="hero-stat-num">3</div>
-        <div class="hero-stat-label">Free Resources</div>
+      <div class="stat-row">
+        <span class="stat-name">Free Resources</span>
+        <span class="stat-val">3</span>
       </div>
-      <div>
-        <div class="hero-stat-num">▶</div>
-        <div class="hero-stat-label">Now Airing</div>
+      <div class="stat-row">
+        <span class="stat-name">Series Status</span>
+        <span class="stat-val" style="font-size:14px;color:var(--cobalt-bright);display:flex;align-items:center;gap:6px;"><span class="live-pulse"></span>Now Airing</span>
+      </div>
+      <div class="hero-chips">
+        <span class="hero-chip">Digital Civil Liberties</span>
+        <span class="hero-chip">Labor Law &amp; AI</span>
+        <span class="hero-chip">AI &amp; the Courts</span>
+        <span class="hero-chip">Tech &amp; Democracy</span>
+        <span class="hero-chip">Racial Equity</span>
+        <span class="hero-chip">Legal Innovation</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LISTEN STRIP -->
-<div class="listen-row">
-  <span class="listen-row-label">Listen Now</span>
-  <a href="https://open.spotify.com/show/58n7fUm5FexHf7BQMmlQ4A" target="_blank" class="btn-platform btn-spotify" onclick="trackEvent('Q2 Page','follow-spotify')">♫ Spotify</a>
-  <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world/id1867335577" target="_blank" class="btn-platform btn-apple" onclick="trackEvent('Q2 Page','follow-apple')">♫ Apple Podcasts</a>
-  <a href="https://www.youtube.com/@PathsofCuriosity" target="_blank" class="btn-platform btn-youtube" onclick="trackEvent('Q2 Page','follow-youtube')">▶ YouTube</a>
-</div>
-
 <!-- GUESTS -->
 <section id="guests">
   <div class="section-inner">
-    <div class="section-eyebrow">The Guests</div>
-    <div class="section-title">Six Experts.<br/><em>Six Perspectives.</em></div>
-    <div class="section-divider"></div>
+    <div class="section-kicker"><div class="section-kicker-line"></div><div class="section-kicker-text">The Guests</div></div>
+    <div class="section-h2">Six Experts.<br/><em>Six Perspectives.</em></div>
+    <div class="section-rule"></div>
+    <p class="guests-intro">Each guest works at a different intersection of law, technology, and power — and each has a different answer to the question of who is responsible when an algorithm causes harm.</p>
     <div class="guests-grid">
 
       <div class="guest-card">
-        <div class="guest-card-top">
-          <div><div class="guest-ep-num">Episode 01</div></div>
-          <div>
-            <div class="guest-name">Nathan Wessler, JD</div>
-            <div class="guest-title">Deputy Director, ACLU Speech, Privacy &amp; Technology Project</div>
-            <span class="guest-tag">Digital Civil Liberties</span>
+        <div class="guest-card-accent"></div>
+        <div class="guest-card-inner">
+          <div class="guest-ep-tag">Episode 01</div>
+          <div class="guest-name">Nathan Wessler, JD</div>
+          <div class="guest-role">Deputy Director, Speech, Privacy &amp; Technology Project</div>
+          <div class="guest-inst">ACLU</div>
+          <div class="guest-pull">"Your phone knows everywhere you've been. Nathan Wessler argued before the Supreme Court and won."</div>
+          <div class="guest-tag-pill">Digital Civil Liberties</div>
+          <div class="guest-listen">
+            <a href="https://open.spotify.com/episode/7F7awnK1NZCQZ2XDpBW8oi" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 08','play-spotify')">♫ Spotify</a>
+            <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-q2-power-law/id1867335577?i=1000759987698" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 08','play-apple')">♫ Apple</a>
+            <a href="https://www.youtube.com/watch?v=Dl4CVZDItg8&t=198s" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 08','play-youtube')">▶ YouTube</a>
           </div>
-        </div>
-        <div class="guest-bio">Your phone knows everywhere you've been. Nathan Wessler argued Carpenter v. United States before the Supreme Court and won — establishing that the government needs a warrant to track your location. He talks about what civil liberties actually mean when AI is always watching.</div>
-        <div class="guest-listen">
-          <a href="https://open.spotify.com/episode/7F7awnK1NZCQZ2XDpBW8oi" target="_blank" class="btn-ep-listen ep-spotify" onclick="trackEvent('Episode 08','play-spotify')">♫ Spotify</a>
-          <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-q2-power-law/id1867335577?i=1000759987698" target="_blank" class="btn-ep-listen ep-apple" onclick="trackEvent('Episode 08','play-apple')">♫ Apple</a>
-          <a href="https://www.youtube.com/watch?v=Dl4CVZDItg8&t=198s" target="_blank" class="btn-ep-listen ep-youtube" onclick="trackEvent('Episode 08','play-youtube')">▶ YouTube</a>
         </div>
       </div>
 
       <div class="guest-card">
-        <div class="guest-card-top">
-          <div><div class="guest-ep-num">Episode 02</div></div>
-          <div>
-            <div class="guest-name">Veena Dubal, JD, PhD</div>
-            <div class="guest-title">Professor of Law, UC College of the Law San Francisco</div>
-            <span class="guest-tag">Labor Law &amp; AI</span>
+        <div class="guest-card-accent"></div>
+        <div class="guest-card-inner">
+          <div class="guest-ep-tag">Episode 02</div>
+          <div class="guest-name">Veena Dubal, JD, PhD</div>
+          <div class="guest-role">Professor of Law</div>
+          <div class="guest-inst">UC College of the Law San Francisco</div>
+          <div class="guest-pull">"An app tells you when to work, what you'll earn, and whether you're still needed tomorrow."</div>
+          <div class="guest-tag-pill">Labor Law &amp; AI</div>
+          <div class="guest-listen">
+            <a href="https://open.spotify.com/episode/2gi3JLWqQHgTC4qlySENhh" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 09','play-spotify')">♫ Spotify</a>
+            <a href="https://podcasts.apple.com/us/podcast/q2-power-law-and-civic-life-when-algorithms-govern/id1867335577?i=1000762937512" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 09','play-apple')">♫ Apple</a>
+            <a href="https://www.youtube.com/watch?v=L0CTgFD6ZPI" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 09','play-youtube')">▶ YouTube</a>
           </div>
-        </div>
-        <div class="guest-bio">An app tells you when to work, what you'll earn, and whether you're still needed tomorrow. Prof. Dubal studies what happens to workers when the boss is an algorithm — and what the law has, and hasn't, figured out to do about it.</div>
-        <div class="guest-listen">
-          <a href="https://open.spotify.com/episode/2gi3JLWqQHgTC4qlySENhh" target="_blank" class="btn-ep-listen ep-spotify" onclick="trackEvent('Episode 09','play-spotify')">♫ Spotify</a>
-          <a href="https://podcasts.apple.com/us/podcast/q2-power-law-and-civic-life-when-algorithms-govern/id1867335577?i=1000762937512" target="_blank" class="btn-ep-listen ep-apple" onclick="trackEvent('Episode 09','play-apple')">♫ Apple</a>
-          <a href="https://www.youtube.com/watch?v=L0CTgFD6ZPI" target="_blank" class="btn-ep-listen ep-youtube" onclick="trackEvent('Episode 09','play-youtube')">▶ YouTube</a>
         </div>
       </div>
 
       <div class="guest-card">
-        <div class="guest-card-top">
-          <div><div class="guest-ep-num">Episode 03</div></div>
-          <div>
-            <div class="guest-name">Maura Grossman, JD, PhD</div>
-            <div class="guest-title">Research Professor, University of Waterloo</div>
-            <span class="guest-tag">AI Ethics &amp; the Courts</span>
+        <div class="guest-card-accent"></div>
+        <div class="guest-card-inner">
+          <div class="guest-ep-tag">Episode 03</div>
+          <div class="guest-name">Maura Grossman, JD, PhD</div>
+          <div class="guest-role">Research Professor</div>
+          <div class="guest-inst">University of Waterloo</div>
+          <div class="guest-pull">"Courts now let AI sift through millions of documents. She wrote the playbook for how that's done responsibly."</div>
+          <div class="guest-tag-pill">AI Ethics &amp; the Courts</div>
+          <div class="guest-listen">
+            <a href="https://open.spotify.com/episode/1UjAG8FavuwildscojjtAB" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 10','play-spotify')">♫ Spotify</a>
+            <a href="https://podcasts.apple.com/us/podcast/q2-power-law-and-civic-life-when-algorithms-govern/id1867335577?i=1000766358437" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 10','play-apple')">♫ Apple</a>
+            <a href="https://www.youtube.com/watch?v=-dHewCeC58c" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 10','play-youtube')">▶ YouTube</a>
           </div>
-        </div>
-        <div class="guest-bio">Courts now let AI sift through millions of documents to find evidence. Prof. Grossman helped write the playbook for how that's done responsibly — and she's still figuring out where the line is between useful and dangerous.</div>
-        <div class="guest-listen">
-          <a href="https://open.spotify.com/episode/1UjAG8FavuwildscojjtAB" target="_blank" class="btn-ep-listen ep-spotify" onclick="trackEvent('Episode 10','play-spotify')">♫ Spotify</a>
-          <a href="https://podcasts.apple.com/us/podcast/q2-power-law-and-civic-life-when-algorithms-govern/id1867335577?i=1000766358437" target="_blank" class="btn-ep-listen ep-apple" onclick="trackEvent('Episode 10','play-apple')">♫ Apple</a>
-          <a href="https://www.youtube.com/watch?v=-dHewCeC58c" target="_blank" class="btn-ep-listen ep-youtube" onclick="trackEvent('Episode 10','play-youtube')">▶ YouTube</a>
         </div>
       </div>
 
       <div class="guest-card">
-        <div class="guest-card-top">
-          <div><div class="guest-ep-num">Episode 04</div></div>
-          <div>
-            <div class="guest-name">Ramesh Srinivasan, PhD, MS</div>
-            <div class="guest-title">Professor &amp; Author, UCLA</div>
-            <span class="guest-tag">Technology &amp; Democracy</span>
+        <div class="guest-card-accent"></div>
+        <div class="guest-card-inner">
+          <div class="guest-ep-tag">Episode 04</div>
+          <div class="guest-name">Ramesh Srinivasan, PhD, MS</div>
+          <div class="guest-role">Professor &amp; Author</div>
+          <div class="guest-inst">UCLA</div>
+          <div class="guest-pull">"Who actually controls the internet — and who gets left out of that decision entirely?"</div>
+          <div class="guest-tag-pill">Technology &amp; Democracy</div>
+          <div class="guest-listen">
+            <a href="https://open.spotify.com/episode/0H4EYoefVo7YoU8CvIB4Aj" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 11','play-spotify')">♫ Spotify</a>
+            <a href="https://podcasts.apple.com/us/podcast/q2-power-law-and-civic-life-when-algorithms-govern/id1867335577?i=1000768580635" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 11','play-apple')">♫ Apple</a>
+            <a href="https://www.youtube.com/watch?v=qdMwRtEPe6k" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 11','play-youtube')">▶ YouTube</a>
           </div>
-        </div>
-        <div class="guest-bio">Who actually controls the internet — and who gets left out of that decision? Prof. Srinivasan has spent years listening to communities around the world answer that question, and what he's found should change how you think about technology and power.</div>
-        <div class="guest-listen">
-          <a href="https://open.spotify.com/episode/0H4EYoefVo7YoU8CvIB4Aj" target="_blank" class="btn-ep-listen ep-spotify" onclick="trackEvent('Episode 11','play-spotify')">♫ Spotify</a>
-          <a href="https://podcasts.apple.com/us/podcast/q2-power-law-and-civic-life-when-algorithms-govern/id1867335577?i=1000768580635" target="_blank" class="btn-ep-listen ep-apple" onclick="trackEvent('Episode 11','play-apple')">♫ Apple</a>
-          <a href="https://www.youtube.com/watch?v=qdMwRtEPe6k" target="_blank" class="btn-ep-listen ep-youtube" onclick="trackEvent('Episode 11','play-youtube')">▶ YouTube</a>
         </div>
       </div>
 
       <div class="guest-card">
-        <div class="guest-card-top">
-          <div><div class="guest-ep-num">Episode 05</div></div>
-          <div>
-            <div class="guest-name">Clarence Okoh, JD</div>
-            <div class="guest-title">Civil Rights Attorney &amp; AI Policy Advocate</div>
-            <span class="guest-tag">Racial Equity &amp; AI</span>
-          </div>
+        <div class="guest-card-accent"></div>
+        <div class="guest-card-inner">
+          <div class="guest-ep-tag">Episode 05</div>
+          <div class="guest-name">Clarence Okoh, JD</div>
+          <div class="guest-role">Civil Rights Attorney &amp; AI Policy Advocate</div>
+          <div class="guest-inst"></div>
+          <div class="guest-pull">"An algorithm denies your loan, flags your resume, recommends you stay in jail. Nobody wrote that rule — a model learned it."</div>
+          <div class="guest-tag-pill">Racial Equity &amp; AI</div>
+          <div class="guest-coming">Episode coming soon</div>
         </div>
-        <div class="guest-bio">An algorithm denies your loan, flags your resume, or recommends you stay in jail. Nobody wrote that rule — a model learned it. Clarence Okoh is one of the lawyers figuring out how to fight decisions made by machines.</div>
-        <div class="coming-soon-label">Episode coming soon</div>
       </div>
 
       <div class="guest-card">
-        <div class="guest-card-top">
-          <div><div class="guest-ep-num">Episode 06</div></div>
-          <div>
-            <div class="guest-name">Jennifer Leonard, JD</div>
-            <div class="guest-title">President &amp; CEO, The College of Law Practice Management</div>
-            <span class="guest-tag">Legal Innovation</span>
-          </div>
+        <div class="guest-card-accent"></div>
+        <div class="guest-card-inner">
+          <div class="guest-ep-tag">Episode 06</div>
+          <div class="guest-name">Jennifer Leonard, JD</div>
+          <div class="guest-role">President &amp; CEO</div>
+          <div class="guest-inst">College of Law Practice Management</div>
+          <div class="guest-pull">"If AI can research, draft, and argue — what exactly are law students learning to do?"</div>
+          <div class="guest-tag-pill">Legal Innovation</div>
+          <div class="guest-coming">Episode coming soon</div>
         </div>
-        <div class="guest-bio">If AI can research, draft, and argue — what exactly are law students learning to do? Jennifer Leonard is at the center of one of the legal profession's most uncomfortable questions, and she isn't afraid of the answer.</div>
-        <div class="coming-soon-label">Episode coming soon</div>
       </div>
 
-      <div class="recap-card-wrap">
+      <div class="recap-row">
         <div class="recap-card">
-          <div class="guest-ep-num" style="display:inline-block; margin-bottom:12px;">Episode 07</div>
+          <div class="guest-ep-tag">Episode 07 · Quarter Finale</div>
           <div class="guest-name">Power &amp; Law — Recap</div>
-          <div class="guest-title" style="text-align:center; margin-top:4px; color:var(--q2-accent);">Quarter 2 Finale</div>
-          <div class="guest-bio" style="text-align:center; padding:12px 0 20px;">Six conversations, six different corners of law, governance, and civic life. This episode pulls the threads together and asks: what does it mean to build a career in law when the tools, risks, and rules are all changing at once?</div>
-          <div class="coming-soon-label" style="text-align:center; padding:0;">Finale episode coming soon</div>
+          <div class="guest-inst" style="text-align:center;margin-bottom:0;">Six conversations, synthesized</div>
+          <div class="guest-pull">Six corners of law, governance, and civic life — and the one question they all point back to: who is actually accountable?</div>
+          <div class="guest-coming" style="text-align:center;">Finale episode coming soon</div>
         </div>
       </div>
 
@@ -307,15 +348,15 @@
 <!-- RESOURCES -->
 <section id="resources">
   <div class="section-inner">
-    <div class="section-eyebrow">Series Resources</div>
-    <div class="section-title">Everything You Need.<br/><em>All Free.</em></div>
-    <div class="section-divider"></div>
+    <div class="section-kicker"><div class="section-kicker-line"></div><div class="section-kicker-text">Series Resources</div></div>
+    <div class="section-h2">Everything You Need.<br/><em>All Free.</em></div>
+    <div class="section-rule"></div>
     <div class="resources-grid">
 
       <div class="res-card">
-        <div class="res-icon">🗺️</div>
+        <div class="res-icon-wrap">🗺️</div>
         <div class="res-title">Career Landscape Map</div>
-        <div class="res-desc">Every law and civic-tech career where AI is reshaping the work — mapped visually, with our six guests shown in context. Start here if you're curious but don't know where you fit.</div>
+        <div class="res-desc">Every law and civic-tech career where AI is reshaping the work — mapped visually with our guests shown in context.</div>
         <div class="res-btns">
           <a href="Q2 Resources/Q2_Career_Landscape_Map.html" target="_blank" class="btn-res-view res-btn" data-name="Q2 Career Landscape Map" data-action="view">👁 Preview</a>
           <a href="Q2 Resources/Q2_Career_Landscape_Map.html" download class="btn-res-dl res-btn" data-name="Q2 Career Landscape Map" data-action="download">↓ Download</a>
@@ -323,9 +364,9 @@
       </div>
 
       <div class="res-card">
-        <div class="res-icon">📝</div>
+        <div class="res-icon-wrap">📝</div>
         <div class="res-title">What's Your Spark?</div>
-        <div class="res-desc">A five-minute quiz that maps how you think to a corner of the AI-in-law world. Are you drawn to argument, policy, research, or design? Find out.</div>
+        <div class="res-desc">A five-minute quiz that maps how you think to a corner of the AI-in-law world. Argument, policy, research, or design — find out.</div>
         <div class="res-btns">
           <a href="Q2 Resources/Q2_Whats_Your_Spark_Quiz.html" target="_blank" class="btn-res-view res-btn" data-name="Q2 Whats Your Spark" data-action="view">👁 Take Quiz</a>
           <a href="Q2 Resources/Q2_Whats_Your_Spark_Quiz.html" download class="btn-res-dl res-btn" data-name="Q2 Whats Your Spark" data-action="download">↓ Download</a>
@@ -333,9 +374,9 @@
       </div>
 
       <div class="res-card">
-        <div class="res-icon">📚</div>
+        <div class="res-icon-wrap">📚</div>
         <div class="res-title">Teach This</div>
-        <div class="res-desc">Ready-to-use educator guide with discussion prompts, learning objectives, classroom activities, and curriculum connections aligned to law, ethics, and civic education.</div>
+        <div class="res-desc">Educator guide with discussion prompts, learning objectives, and activities aligned to law, ethics, and civic education.</div>
         <div class="res-btns">
           <a href="Q2 Resources/Q2_Teach_This_Educator_Guide.html" target="_blank" class="btn-res-view res-btn" data-name="Q2 Teach This" data-action="view">👁 Preview</a>
           <a href="Q2 Resources/Q2_Teach_This_Educator_Guide.html" download class="btn-res-dl res-btn" data-name="Q2 Teach This" data-action="download">↓ Download</a>
@@ -348,7 +389,7 @@
 
 <div class="eco-footer">
   <p>© 2026 Acadia &amp; Alora Holve · pathsofcuriosity.com · All resources free to use and share</p>
-  <div class="footer-nav-row">
+  <div class="footer-nav">
     <a href="index.html">← Back to Homepage</a>
     <a href="index.html#resources">All Series</a>
     <a href="q1-healthcare.html">← Q1: AI in Healthcare</a>
@@ -356,25 +397,12 @@
 </div>
 
 <script>
-  const API_URL = 'https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec';
-  function trackEvent(resource, action) {
-    fetch(API_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ resource: resource, action: action }) }).catch(function(){});
-  }
-  window.addEventListener('load', function() { trackEvent('Q2 Page', 'arrival'); });
-  document.querySelectorAll('.res-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      trackEvent(btn.getAttribute('data-name'), btn.getAttribute('data-action'));
-    });
-  });
-  // Entrance animation
-  const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }});
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.guest-card, .res-card').forEach(function(el) {
-    el.style.opacity='0'; el.style.transform='translateY(20px)'; el.style.transition='all 0.55s ease';
-    observer.observe(el);
-  });
+const API_URL='https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec';
+function trackEvent(r,a){fetch(API_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({resource:r,action:a})}).catch(function(){});}
+window.addEventListener('load',function(){trackEvent('Q2 Page','arrival');});
+document.querySelectorAll('.res-btn').forEach(function(b){b.addEventListener('click',function(){trackEvent(b.getAttribute('data-name'),b.getAttribute('data-action'));});});
+const obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:.08});
+document.querySelectorAll('.guest-card,.res-card').forEach(function(el){el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='all .6s cubic-bezier(.22,1,.36,1)';obs.observe(el);});
 </script>
 </body>
 </html>
