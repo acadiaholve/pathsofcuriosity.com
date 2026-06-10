@@ -4,231 +4,434 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Q1: Mind, Body & Living Systems | Paths of Curiosity</title>
+<meta name="description" content="Six healthcare leaders on what it means to practice medicine when AI is in the room. Q1 of Paths of Curiosity in an AI World."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --ink: #07090f;
-  --paper: #f5f1eb;
-  --cream: #ede8df;
-  --green: #1a5c2e;
-  --green-mid: #2d8a4a;
-  --green-bright: #4ade80;
-  --green-pale: #d4f5df;
-  --cobalt: #255ff1;
-  --cobalt-light: #5b87f5;
-  --white: #e8f0fa;
-  --gray: #8892b0;
-  --dark-bg: #070d08;
-  --dark-surface: #0b160d;
-  --dark-card: #0f1f12;
-  --gold: #c9a227;
+  --navy:       #081e6a;
+  --royal:      #0f38a0;
+  --cobalt:     #255ff1;
+  --cobalt-lt:  #5b87f5;
+  --white:      #e8f0fa;
+  --dark:       #07090f;
+  --off:        #0d1545;
+  --gray:       #8892b0;
+  --gold:       #e8b84b;
+  --gold-dim:   rgba(232,184,75,0.18);
+  --gold-glow:  rgba(232,184,75,0.08);
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--dark-bg);color:var(--white);overflow-x:hidden;}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid rgba(74,222,128,0.12);background:rgba(7,13,8,0.96);backdrop-filter:blur(16px);}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.nav-logo-mark{width:32px;height:32px;background:linear-gradient(135deg,var(--green-mid),var(--green));border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:11px;color:white;}
-.nav-logo-text{font-size:12px;font-weight:600;color:rgba(232,240,250,0.7);}
-.nav-center{display:flex;align-items:center;gap:6px;}
-.nav-series-chip{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;background:rgba(74,222,128,0.1);color:var(--green-bright);border:1px solid rgba(74,222,128,0.25);padding:4px 12px;border-radius:20px;}
-.nav-status{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(74,222,128,0.55);}
-.nav-back{font-size:12px;font-weight:600;color:rgba(232,240,250,0.5);text-decoration:none;transition:color .2s;}
-.nav-back:hover{color:var(--green-bright);}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; background:var(--dark); color:var(--white); overflow-x:hidden; }
 
-/* HERO — full bleed, editorial */
-.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:0 0 80px;overflow:hidden;background:var(--dark-bg);}
-.hero-bg{position:absolute;inset:0;z-index:0;}
-.hero-bg-gradient{position:absolute;inset:0;background:linear-gradient(175deg,#020a03 0%,#061a0a 25%,#0b2e12 50%,#0e3d18 75%,#091e0d 100%);}
-.hero-noise{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px;}
-.hero-lines{position:absolute;inset:0;overflow:hidden;}
-.hero-lines::before{content:'';position:absolute;top:0;left:50%;right:0;bottom:0;background:linear-gradient(90deg,transparent 0%,rgba(74,222,128,0.025) 50%,transparent 100%);}
-.hero-accent-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--green-mid),transparent);}
-.hero-glow{position:absolute;width:900px;height:900px;background:radial-gradient(ellipse,rgba(26,92,46,0.22) 0%,transparent 65%);top:-200px;right:-200px;pointer-events:none;}
-.hero-inner{max-width:1200px;margin:0 auto;width:100%;padding:0 48px;position:relative;z-index:1;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:flex-end;}
-.hero-left{}
-.hero-kicker{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-top:140px;}
-.hero-kicker-line{width:48px;height:1px;background:var(--green-bright);opacity:.6;}
-.hero-kicker-text{font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--green-bright);}
-.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(48px,6.5vw,82px);font-weight:900;line-height:.97;color:#f0f7f2;margin-bottom:12px;letter-spacing:-.02em;}
-.hero-h1 em{font-style:italic;color:var(--green-bright);}
-.hero-series-line{font-size:17px;font-weight:300;color:rgba(232,240,250,0.45);margin-bottom:48px;letter-spacing:.02em;}
-.hero-desc{font-size:16px;line-height:1.8;color:rgba(232,240,250,0.62);max-width:600px;margin-bottom:48px;font-weight:300;}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px;}
-.btn-hero-primary{display:inline-flex;align-items:center;gap:8px;background:var(--green-mid);color:white;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;transition:all .2s;}
-.btn-hero-primary:hover{background:var(--green-bright);color:var(--ink);transform:translateY(-2px);box-shadow:0 12px 32px rgba(74,222,128,.25);}
-.btn-hero-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--green-bright);padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;border:1px solid rgba(74,222,128,.3);transition:all .2s;}
-.btn-hero-outline:hover{border-color:var(--green-bright);background:rgba(74,222,128,.06);}
-.hero-platforms{display:flex;align-items:center;gap:16px;padding-top:32px;border-top:1px solid rgba(74,222,128,.1);}
-.hero-platform-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,240,250,.3);}
-.btn-platform{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;font-size:11px;font-weight:700;text-decoration:none;transition:all .2s;letter-spacing:.03em;}
-.p-spotify{background:rgba(74,222,128,.08);color:var(--green-bright);border:1px solid rgba(74,222,128,.2);}
-.p-spotify:hover{background:rgba(74,222,128,.15);}
-.p-apple{background:rgba(91,135,245,.08);color:var(--cobalt-light);border:1px solid rgba(91,135,245,.2);}
-.p-apple:hover{background:rgba(91,135,245,.15);}
-.p-youtube{background:rgba(248,113,113,.08);color:#f87171;border:1px solid rgba(248,113,113,.2);}
-.p-youtube:hover{background:rgba(248,113,113,.15);}
-/* Hero right column stats panel */
-.hero-stats-panel{background:rgba(11,22,13,.8);border:1px solid rgba(74,222,128,.15);border-radius:16px;padding:36px 32px;backdrop-filter:blur(8px);align-self:flex-end;}
-.stats-panel-title{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(74,222,128,.6);margin-bottom:28px;display:flex;align-items:center;gap:8px;}
-.stats-panel-title::after{content:'';flex:1;height:1px;background:rgba(74,222,128,.15);}
-.stat-row{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.05);}
-.stat-row:last-child{border-bottom:none;padding-bottom:0;}
-.stat-name{font-size:12px;color:rgba(232,240,250,.5);font-weight:400;}
-.stat-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:#f0f7f2;line-height:1;}
-.stat-val em{font-style:normal;font-size:12px;color:var(--green-bright);margin-left:4px;}
-.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;padding-top:24px;border-top:1px solid rgba(74,222,128,.1);}
-.hero-chip{font-size:10px;font-weight:600;background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.18);color:rgba(232,240,250,.65);padding:5px 12px;border-radius:20px;letter-spacing:.03em;}
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  height:64px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 48px;
+  background:rgba(7,9,15,0.97); backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(232,184,75,0.12);
+}
+.nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+.nav-mark {
+  width:34px; height:34px; border-radius:7px;
+  background:linear-gradient(135deg,var(--cobalt),var(--navy));
+  border:1px solid rgba(91,135,245,0.35);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Playfair Display',serif; font-weight:900; font-size:11px; color:white;
+}
+.nav-wordmark { font-size:13px; font-weight:600; color:rgba(232,240,250,0.75); }
+.nav-wordmark span { color:var(--cobalt-lt); }
+.nav-chip {
+  font-size:10px; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+  background:var(--gold-glow); color:var(--gold);
+  border:1px solid var(--gold-dim); padding:4px 13px; border-radius:20px;
+}
+.nav-chip .dot {
+  display:inline-block; width:5px; height:5px; background:#4ade80;
+  border-radius:50%; margin-right:6px; vertical-align:middle;
+}
+.nav-back {
+  font-size:12px; font-weight:600; color:rgba(232,240,250,0.45);
+  text-decoration:none; transition:color .2s;
+}
+.nav-back:hover { color:var(--gold); }
 
-/* SECTION BASE */
-section{padding:100px 48px;}
-.section-inner{max-width:1200px;margin:0 auto;}
-.section-kicker{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
-.section-kicker-line{width:32px;height:2px;background:var(--green-bright);}
-.section-kicker-text{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green-bright);}
-.section-h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.8vw,46px);font-weight:900;color:#f0f7f2;line-height:1.1;margin-bottom:16px;}
-.section-h2 em{font-style:italic;color:var(--green-bright);}
-.section-rule{width:48px;height:3px;background:linear-gradient(90deg,var(--green-mid),transparent);border-radius:2px;margin-bottom:48px;}
+/* ── HERO ── */
+.hero {
+  min-height:100vh; position:relative; display:flex; align-items:flex-end;
+  padding:0 0 80px; overflow:hidden;
+}
+.hero-bg { position:absolute; inset:0; z-index:0; }
+.hero-bg-grad {
+  position:absolute; inset:0;
+  background:linear-gradient(160deg, var(--dark) 0%, var(--navy) 45%, var(--royal) 75%, var(--cobalt) 100%);
+}
+.hero-grid {
+  position:absolute; inset:0; opacity:.05;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+.hero-glow {
+  position:absolute; width:700px; height:700px;
+  background:radial-gradient(ellipse, rgba(232,184,75,0.1) 0%, transparent 65%);
+  top:-100px; right:-100px; pointer-events:none;
+}
+.hero-glow-2 {
+  position:absolute; width:500px; height:500px;
+  background:radial-gradient(ellipse, rgba(37,95,241,0.2) 0%, transparent 65%);
+  bottom:-80px; left:5%; pointer-events:none;
+}
+/* thin gold bar at very top */
+.hero-bar {
+  position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--gold), rgba(232,184,75,0.3), transparent);
+}
 
-/* GUESTS */
-#guests{background:var(--dark-surface);}
-.guests-intro{max-width:560px;font-size:16px;color:rgba(232,240,250,.55);line-height:1.75;margin-bottom:64px;font-weight:300;}
-.guests-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-/* Big editorial guest cards */
-.guest-card{background:var(--dark-card);position:relative;overflow:hidden;transition:all .35s ease;border:1px solid rgba(74,222,128,.08);}
-.guest-card:hover{border-color:rgba(74,222,128,.3);z-index:2;transform:scale(1.01);box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 1px rgba(74,222,128,.25);}
-.guest-card-accent{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green-mid),transparent);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
-.guest-card:hover .guest-card-accent{transform:scaleX(1);}
-.guest-card-inner{padding:32px 28px 28px;}
-.guest-ep-tag{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--green-bright);margin-bottom:20px;}
-.guest-ep-tag::before{content:'';display:block;width:16px;height:1px;background:var(--green-bright);}
-.guest-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:#f0f7f2;line-height:1.1;margin-bottom:6px;}
-.guest-role{font-size:11px;color:var(--green-bright);font-weight:600;margin-bottom:4px;line-height:1.4;}
-.guest-inst{font-size:11px;color:rgba(232,240,250,.4);margin-bottom:20px;font-weight:400;}
-/* Pull quote */
-.guest-pull{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:rgba(232,240,250,.6);line-height:1.65;border-left:2px solid rgba(74,222,128,.35);padding-left:14px;margin-bottom:20px;}
-.guest-tag-pill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.18);color:rgba(74,222,128,.75);padding:4px 10px;border-radius:4px;margin-bottom:24px;}
-.guest-listen{display:flex;gap:8px;flex-wrap:wrap;}
-.btn-ep{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;font-size:10px;font-weight:800;text-decoration:none;transition:all .2s;letter-spacing:.04em;}
-.ep-sp{background:rgba(74,222,128,.08);color:var(--green-bright);border:1px solid rgba(74,222,128,.2);}
-.ep-sp:hover{background:rgba(74,222,128,.16);}
-.ep-ap{background:rgba(91,135,245,.08);color:var(--cobalt-light);border:1px solid rgba(91,135,245,.2);}
-.ep-ap:hover{background:rgba(91,135,245,.16);}
-.ep-yt{background:rgba(248,113,113,.08);color:#f87171;border:1px solid rgba(248,113,113,.2);}
-.ep-yt:hover{background:rgba(248,113,113,.16);}
-.ep-disabled{opacity:.25;cursor:not-allowed;pointer-events:none;}
-/* Recap center card */
-.recap-row{grid-column:1/-1;display:flex;justify-content:center;margin-top:2px;}
-.recap-card{background:linear-gradient(135deg,#0b1f0e,#060e08);border:1px solid rgba(74,222,128,.2);border-radius:0;padding:40px 48px;max-width:560px;width:100%;text-align:center;}
-.recap-card .guest-ep-tag{justify-content:center;}
-.recap-card .guest-ep-tag::before{display:none;}
-.recap-card .guest-pull{border-left:none;text-align:center;border-top:1px solid rgba(74,222,128,.15);border-bottom:1px solid rgba(74,222,128,.15);padding:16px 0;margin:16px 0;}
-.recap-card .guest-listen{justify-content:center;}
+.hero-inner {
+  max-width:1200px; margin:0 auto; width:100%; padding:0 48px;
+  position:relative; z-index:1;
+  display:grid; grid-template-columns:1fr 400px; gap:72px; align-items:flex-end;
+}
+.hero-eyebrow {
+  display:flex; align-items:center; gap:14px; margin-bottom:28px; padding-top:140px;
+}
+.hero-eyebrow-line { width:40px; height:1px; background:var(--gold); opacity:.7; }
+.hero-eyebrow-text {
+  font-size:10px; font-weight:700; letter-spacing:.25em; text-transform:uppercase;
+  color:var(--gold);
+}
+/* live badge */
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(74,222,128,0.08); border:1px solid rgba(74,222,128,0.2);
+  color:#4ade80; font-size:10px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:20px;
+}
+.badge-dot { width:5px; height:5px; background:#4ade80; border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.25} }
 
-/* RESOURCES */
-#resources{background:var(--dark-bg);position:relative;overflow:hidden;}
-#resources::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,92,46,.06) 0%,transparent 50%);}
-.resources-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:1;}
-.res-card{background:var(--dark-card);border:1px solid rgba(74,222,128,.1);border-radius:12px;padding:40px 32px;transition:all .3s;position:relative;overflow:hidden;}
-.res-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--green-mid),transparent);opacity:0;transition:opacity .3s;}
-.res-card:hover{border-color:rgba(74,222,128,.3);transform:translateY(-6px);box-shadow:0 24px 56px rgba(0,0,0,.5);}
-.res-card:hover::before{opacity:1;}
-.res-icon-wrap{width:56px;height:56px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:24px;}
-.res-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#f0f7f2;margin-bottom:10px;line-height:1.15;}
-.res-desc{font-size:13px;color:rgba(232,240,250,.5);line-height:1.75;margin-bottom:28px;font-weight:300;}
-.res-btns{display:flex;gap:10px;flex-wrap:wrap;}
-.btn-res-view{display:inline-flex;align-items:center;gap:6px;background:rgba(74,222,128,.07);color:var(--green-bright);padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:700;font-size:12px;border:1px solid rgba(74,222,128,.2);transition:all .2s;letter-spacing:.03em;}
-.btn-res-view:hover{background:rgba(74,222,128,.14);}
-.btn-res-dl{display:inline-flex;align-items:center;gap:6px;background:var(--green-mid);color:white;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:700;font-size:12px;transition:all .2s;letter-spacing:.03em;}
-.btn-res-dl:hover{background:var(--green-bright);color:var(--ink);transform:translateY(-1px);}
+h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(46px,6vw,78px); font-weight:900;
+  line-height:.97; letter-spacing:-.02em;
+  color:var(--white); margin-bottom:10px;
+}
+h1 em { font-style:italic; color:var(--gold); }
+.hero-sub {
+  font-size:17px; font-weight:300; color:rgba(232,240,250,0.45);
+  letter-spacing:.02em; margin-bottom:44px;
+}
+.hero-desc {
+  font-size:16px; line-height:1.8; font-weight:300;
+  color:rgba(232,240,250,0.62); max-width:580px; margin-bottom:48px;
+}
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:52px; }
+.btn-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--cobalt); color:white;
+  padding:14px 28px; border-radius:7px;
+  text-decoration:none; font-weight:700; font-size:14px;
+  transition:all .2s;
+}
+.btn-primary:hover { background:var(--cobalt-lt); transform:translateY(-2px); box-shadow:0 10px 28px rgba(37,95,241,.35); }
+.btn-outline {
+  display:inline-flex; align-items:center; gap:8px;
+  background:transparent; color:var(--gold);
+  padding:14px 28px; border-radius:7px;
+  text-decoration:none; font-weight:600; font-size:14px;
+  border:1px solid rgba(232,184,75,.3); transition:all .2s;
+}
+.btn-outline:hover { border-color:var(--gold); background:var(--gold-glow); }
+.hero-platforms {
+  display:flex; align-items:center; gap:16px;
+  padding-top:28px; border-top:1px solid rgba(232,184,75,.12);
+}
+.plat-label {
+  font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+  color:rgba(232,240,250,.3);
+}
+.btn-plat {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:7px 15px; border-radius:20px;
+  font-size:11px; font-weight:700; text-decoration:none;
+  transition:all .2s; letter-spacing:.03em;
+}
+.p-apple  { background:rgba(91,135,245,.08); color:var(--cobalt-lt); border:1px solid rgba(91,135,245,.2); }
+.p-apple:hover  { background:rgba(91,135,245,.16); }
+.p-youtube { background:rgba(248,113,113,.08); color:#f87171; border:1px solid rgba(248,113,113,.2); }
+.p-youtube:hover { background:rgba(248,113,113,.16); }
 
-/* FOOTER */
-.eco-footer{background:#030806;border-top:1px solid rgba(74,222,128,.1);padding:48px;text-align:center;}
-.eco-footer p{font-size:12px;color:rgba(232,240,250,.3);margin-bottom:20px;}
-.footer-nav{display:flex;gap:36px;justify-content:center;flex-wrap:wrap;}
-.footer-nav a{font-size:13px;font-weight:600;color:rgba(232,240,250,.4);text-decoration:none;transition:color .2s;}
-.footer-nav a:hover{color:var(--green-bright);}
+/* Stats panel */
+.hero-panel {
+  background:rgba(13,21,69,0.85); backdrop-filter:blur(10px);
+  border:1px solid rgba(232,184,75,0.18); border-radius:16px;
+  padding:36px 32px; align-self:flex-end;
+}
+.panel-title {
+  font-size:9px; font-weight:800; letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(232,184,75,.6); margin-bottom:28px;
+  display:flex; align-items:center; gap:8px;
+}
+.panel-title::after { content:''; flex:1; height:1px; background:rgba(232,184,75,.15); }
+.panel-stat {
+  display:flex; justify-content:space-between; align-items:baseline;
+  padding:15px 0; border-bottom:1px solid rgba(255,255,255,.05);
+}
+.panel-stat:last-of-type { border-bottom:none; padding-bottom:0; }
+.ps-label { font-size:12px; color:rgba(232,240,250,.45); }
+.ps-val {
+  font-family:'Playfair Display',serif; font-size:26px; font-weight:900;
+  color:var(--white); line-height:1;
+}
+.ps-val em { font-style:normal; font-size:11px; color:var(--gold); margin-left:4px; }
+.panel-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:22px; padding-top:22px; border-top:1px solid rgba(232,184,75,.1); }
+.p-chip {
+  font-size:10px; font-weight:600; letter-spacing:.03em;
+  background:var(--gold-glow); border:1px solid var(--gold-dim);
+  color:rgba(232,240,250,.6); padding:5px 11px; border-radius:20px;
+}
 
-@media(max-width:1000px){
-  nav{padding:0 24px;}
-  .hero-inner{grid-template-columns:1fr;gap:48px;padding:0 24px;}
-  .hero-stats-panel{display:none;}
-  .hero-kicker{padding-top:100px;}
-  section{padding:72px 24px;}
-  .guests-grid{grid-template-columns:1fr;}
-  .resources-grid{grid-template-columns:1fr;}
+/* ── SECTION BASE ── */
+section { padding:96px 48px; }
+.sec-inner { max-width:1200px; margin:0 auto; }
+.sec-kicker { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+.sec-kicker-line { width:28px; height:2px; background:var(--gold); }
+.sec-kicker-text { font-size:10px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); }
+h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,3.5vw,44px); font-weight:900;
+  color:var(--white); line-height:1.1; margin-bottom:14px;
+}
+h2 em { font-style:italic; color:var(--gold); }
+.sec-rule { width:44px; height:3px; background:linear-gradient(90deg,var(--gold),transparent); border-radius:2px; margin-bottom:48px; }
+
+/* ── GUESTS ── */
+#guests { background:var(--off); }
+.guests-intro { max-width:540px; font-size:16px; color:rgba(232,240,250,.55); line-height:1.75; margin-bottom:56px; font-weight:300; }
+
+/* Episode rail — the signature element:
+   3-col grid, each card has a large gold episode number,
+   generous padding, horizontal gold rule under name */
+.guests-rail { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(232,184,75,0.08); }
+
+.ep-card {
+  background:var(--off); padding:36px 32px 32px;
+  border:1px solid rgba(232,184,75,0.06);
+  position:relative; overflow:hidden;
+  transition:all .3s ease;
+  display:flex; flex-direction:column;
+}
+.ep-card::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  opacity:0; transition:opacity .3s;
+}
+.ep-card:hover { background:#111d55; border-color:rgba(232,184,75,0.25); }
+.ep-card:hover::after { opacity:1; }
+
+/* Big watermark episode number */
+.ep-num-bg {
+  position:absolute; top:16px; right:20px;
+  font-family:'Playfair Display',serif; font-size:72px; font-weight:900;
+  color:rgba(232,184,75,0.05); line-height:1; user-select:none;
+  transition:color .3s;
+}
+.ep-card:hover .ep-num-bg { color:rgba(232,184,75,0.09); }
+
+.ep-label {
+  font-size:9px; font-weight:800; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:18px;
+  display:flex; align-items:center; gap:8px;
+}
+.ep-label::before { content:''; display:block; width:14px; height:1px; background:var(--gold); }
+
+.ep-name {
+  font-family:'Playfair Display',serif; font-size:19px; font-weight:900;
+  color:var(--white); line-height:1.15; margin-bottom:6px;
+}
+.ep-role { font-size:11px; font-weight:600; color:var(--cobalt-lt); line-height:1.4; margin-bottom:3px; }
+.ep-inst { font-size:11px; color:rgba(232,240,250,.38); margin-bottom:20px; }
+
+/* thin gold divider under guest credentials */
+.ep-divider { width:32px; height:1px; background:rgba(232,184,75,.3); margin-bottom:18px; }
+
+.ep-focus {
+  font-size:13px; color:rgba(232,240,250,.55); line-height:1.7; font-weight:300;
+  flex:1; margin-bottom:20px;
+}
+.ep-tag {
+  display:inline-block; font-size:10px; font-weight:700; letter-spacing:.05em;
+  background:var(--gold-glow); border:1px solid var(--gold-dim);
+  color:rgba(232,184,75,.8); padding:4px 10px; border-radius:4px; margin-bottom:20px;
+}
+.ep-listen { display:flex; gap:7px; flex-wrap:wrap; margin-top:auto; }
+.btn-ep {
+  display:inline-flex; align-items:center; gap:5px;
+  padding:6px 12px; border-radius:20px;
+  font-size:10px; font-weight:800; letter-spacing:.04em;
+  text-decoration:none; transition:all .2s;
+}
+.ep-sp  { background:rgba(13,21,69,.8); color:var(--white); border:1px solid rgba(91,135,245,.25); }
+.ep-sp:hover  { background:rgba(37,95,241,.25); }
+.ep-ap  { background:rgba(13,21,69,.8); color:var(--cobalt-lt); border:1px solid rgba(91,135,245,.2); }
+.ep-ap:hover  { background:rgba(37,95,241,.2); }
+.ep-yt  { background:rgba(13,21,69,.8); color:#f87171; border:1px solid rgba(248,113,113,.2); }
+.ep-yt:hover  { background:rgba(248,113,113,.12); }
+
+/* Recap — full-width centered card */
+.recap-row { grid-column:1/-1; display:flex; justify-content:center; }
+.recap-card {
+  background:linear-gradient(135deg,#0d1545,#081260);
+  border:1px solid rgba(232,184,75,.2);
+  padding:44px 52px; max-width:520px; width:100%;
+  text-align:center; position:relative; overflow:hidden;
+}
+.recap-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.recap-card .ep-label { justify-content:center; }
+.recap-card .ep-label::before { display:none; }
+.recap-card .ep-focus {
+  border-top:1px solid rgba(232,184,75,.12); border-bottom:1px solid rgba(232,184,75,.12);
+  padding:16px 0; margin:14px 0 20px;
+}
+.recap-card .ep-listen { justify-content:center; }
+
+/* ── RESOURCES ── */
+#resources { background:var(--dark); position:relative; overflow:hidden; }
+#resources::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(232,184,75,.04) 0%,transparent 55%);
+}
+.res-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; position:relative; z-index:1; }
+
+.res-card {
+  background:var(--off); border:1px solid rgba(232,184,75,.1);
+  border-radius:14px; padding:40px 32px;
+  transition:all .3s; position:relative; overflow:hidden;
+}
+.res-card::before {
+  content:''; position:absolute; top:0; left:0; bottom:0; width:3px;
+  background:linear-gradient(180deg,var(--gold),transparent);
+  opacity:0; transition:opacity .3s;
+}
+.res-card:hover { border-color:rgba(232,184,75,.3); transform:translateY(-5px); box-shadow:0 20px 50px rgba(0,0,0,.5); }
+.res-card:hover::before { opacity:1; }
+
+.res-icon {
+  width:54px; height:54px; border-radius:12px;
+  background:var(--gold-glow); border:1px solid var(--gold-dim);
+  display:flex; align-items:center; justify-content:center;
+  font-size:24px; margin-bottom:24px;
+}
+.res-title {
+  font-family:'Playfair Display',serif; font-size:21px; font-weight:900;
+  color:var(--white); margin-bottom:10px; line-height:1.15;
+}
+.res-desc { font-size:13px; color:rgba(232,240,250,.5); line-height:1.75; margin-bottom:28px; font-weight:300; }
+.res-btns { display:flex; gap:10px; flex-wrap:wrap; }
+.btn-rv {
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--gold-glow); color:var(--gold);
+  padding:10px 18px; border-radius:7px;
+  text-decoration:none; font-weight:700; font-size:12px;
+  border:1px solid var(--gold-dim); transition:all .2s; letter-spacing:.03em;
+}
+.btn-rv:hover { background:rgba(232,184,75,.15); }
+.btn-rd {
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--cobalt); color:white;
+  padding:10px 18px; border-radius:7px;
+  text-decoration:none; font-weight:700; font-size:12px;
+  transition:all .2s; letter-spacing:.03em;
+}
+.btn-rd:hover { background:var(--cobalt-lt); transform:translateY(-1px); }
+
+/* ── FOOTER ── */
+.page-footer {
+  background:#030509; border-top:1px solid rgba(232,184,75,.1);
+  padding:48px; text-align:center;
+}
+.page-footer p { font-size:12px; color:rgba(232,240,250,.3); margin-bottom:20px; }
+.footer-links { display:flex; gap:32px; justify-content:center; flex-wrap:wrap; }
+.footer-links a { font-size:13px; font-weight:600; color:rgba(232,240,250,.4); text-decoration:none; transition:color .2s; }
+.footer-links a:hover { color:var(--gold); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px) {
+  nav { padding:0 20px; }
+  .hero-inner { grid-template-columns:1fr; padding:0 20px; }
+  .hero-panel { display:none; }
+  .hero-eyebrow { padding-top:96px; }
+  section { padding:72px 20px; }
+  .guests-rail { grid-template-columns:1fr; }
+  .res-grid { grid-template-columns:1fr; }
+}
+@media(max-width:700px) {
+  .guests-rail { grid-template-columns:1fr; }
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <div class="nav-logo-mark">P↗C</div>
-    <span class="nav-logo-text">Paths of Curiosity</span>
+    <div class="nav-mark">P↗C</div>
+    <span class="nav-wordmark">Paths of <span>Curiosity</span></span>
   </a>
-  <div class="nav-center">
-    <span class="nav-series-chip">Q1 · 2026</span>
-    <span class="nav-status">· Complete</span>
-  </div>
-  <a href="index.html#resources" class="nav-back">← All Series</a>
+  <span class="nav-chip">Q1 · 2026 — Complete</span>
+  <a href="index.html" class="nav-back">← Back to All Series</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <div class="hero-bg-gradient"></div>
-    <div class="hero-noise"></div>
-    <div class="hero-lines"></div>
-    <div class="hero-accent-bar"></div>
+    <div class="hero-bg-grad"></div>
+    <div class="hero-grid"></div>
     <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    <div class="hero-bar"></div>
   </div>
   <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-kicker">
-        <div class="hero-kicker-line"></div>
-        <div class="hero-kicker-text">Quarter 1 · 2026 · Series Ecosystem</div>
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <div class="hero-eyebrow-text">Quarter 1 · 2026 · Paths of Curiosity</div>
       </div>
-      <div class="hero-h1">Mind, Body<br/>&amp; <em>Living Systems</em></div>
-      <div class="hero-series-line">AI in Healthcare &amp; Clinical Informatics</div>
-      <p class="hero-desc">Six leaders at the frontier of health and AI — from ICU decision-making to ambient scribes, from pediatric informatics to passive sensing on everyday devices. What does it mean to practice medicine when algorithms are in the room?</p>
+      <div class="hero-badge"><span class="badge-dot"></span>Series Complete</div>
+      <h1>Mind, Body<br/>&amp; <em>Living Systems</em></h1>
+      <div class="hero-sub">AI in Healthcare &amp; Clinical Informatics</div>
+      <p class="hero-desc">Six leaders at the frontier of health and AI — from ICU decision-making to ambient scribes, from pediatric informatics to passive sensing on everyday devices. What does it actually mean to practice medicine when algorithms are in the room?</p>
       <div class="hero-btns">
-        <a href="https://open.spotify.com/show/58n7fUm5FexHf7BQMmlQ4A" target="_blank" class="btn-hero-primary" onclick="trackEvent('Q1 Hero','follow-spotify')">♫ Follow on Spotify</a>
-        <a href="#guests" class="btn-hero-outline">Meet the Guests ↓</a>
+        <a href="https://open.spotify.com/show/58n7fUm5FexHf7BQMmlQ4A" target="_blank" class="btn-primary" onclick="trackEvent('Q1 Hero','follow-spotify')">♫ Follow on Spotify</a>
+        <a href="#guests" class="btn-outline">Meet the Guests ↓</a>
       </div>
       <div class="hero-platforms">
-        <span class="hero-platform-label">Also on</span>
-        <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world/id1867335577" target="_blank" class="btn-platform p-apple" onclick="trackEvent('Q1 Hero','follow-apple')">♫ Apple Podcasts</a>
-        <a href="https://www.youtube.com/@PathsofCuriosity" target="_blank" class="btn-platform p-youtube" onclick="trackEvent('Q1 Hero','follow-youtube')">▶ YouTube</a>
+        <span class="plat-label">Also on</span>
+        <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world/id1867335577" target="_blank" class="btn-plat p-apple" onclick="trackEvent('Q1 Hero','follow-apple')">♫ Apple Podcasts</a>
+        <a href="https://www.youtube.com/@PathsofCuriosity" target="_blank" class="btn-plat p-youtube" onclick="trackEvent('Q1 Hero','follow-youtube')">▶ YouTube</a>
       </div>
     </div>
-    <div class="hero-stats-panel">
-      <div class="stats-panel-title">Series at a Glance</div>
-      <div class="stat-row">
-        <span class="stat-name">Expert Guests</span>
-        <span class="stat-val">6</span>
-      </div>
-      <div class="stat-row">
-        <span class="stat-name">Episodes</span>
-        <span class="stat-val">7 <em>incl. recap</em></span>
-      </div>
-      <div class="stat-row">
-        <span class="stat-name">Free Resources</span>
-        <span class="stat-val">3</span>
-      </div>
-      <div class="stat-row">
-        <span class="stat-name">Series Status</span>
-        <span class="stat-val" style="font-size:16px;color:var(--green-bright);">Complete ✓</span>
-      </div>
-      <div class="hero-chips">
-        <span class="hero-chip">Clinical Leadership</span>
-        <span class="hero-chip">Health Informatics</span>
-        <span class="hero-chip">Critical Care AI</span>
-        <span class="hero-chip">Pediatric Systems</span>
-        <span class="hero-chip">Outcomes Research</span>
-        <span class="hero-chip">Passive Sensing</span>
+    <div class="hero-panel">
+      <div class="panel-title">Series at a Glance</div>
+      <div class="panel-stat"><span class="ps-label">Expert Guests</span><span class="ps-val">6</span></div>
+      <div class="panel-stat"><span class="ps-label">Episodes</span><span class="ps-val">7 <em>incl. recap</em></span></div>
+      <div class="panel-stat"><span class="ps-label">Free Resources</span><span class="ps-val">3</span></div>
+      <div class="panel-stat"><span class="ps-label">Status</span><span class="ps-val" style="font-size:15px;color:#4ade80;">Complete ✓</span></div>
+      <div class="panel-chips">
+        <span class="p-chip">Clinical Leadership</span>
+        <span class="p-chip">Health Informatics</span>
+        <span class="p-chip">Critical Care AI</span>
+        <span class="p-chip">Pediatric Systems</span>
+        <span class="p-chip">Outcomes Research</span>
+        <span class="p-chip">Passive Sensing</span>
       </div>
     </div>
   </div>
@@ -236,122 +439,124 @@ section{padding:100px 48px;}
 
 <!-- GUESTS -->
 <section id="guests">
-  <div class="section-inner">
-    <div class="section-kicker"><div class="section-kicker-line"></div><div class="section-kicker-text">The Guests</div></div>
-    <div class="section-h2">Six Experts.<br/><em>Six Perspectives.</em></div>
-    <div class="section-rule"></div>
+  <div class="sec-inner">
+    <div class="sec-kicker"><div class="sec-kicker-line"></div><div class="sec-kicker-text">The Guests</div></div>
+    <h2>Six Experts.<br/><em>Six Perspectives.</em></h2>
+    <div class="sec-rule"></div>
     <p class="guests-intro">Each guest brought a different vantage point on the same question: what happens to healthcare when AI becomes part of every decision?</p>
-    <div class="guests-grid">
 
-      <div class="guest-card">
-        <div class="guest-card-accent"></div>
-        <div class="guest-card-inner">
-          <div class="guest-ep-tag">Episode 01</div>
-          <div class="guest-name">Christopher Longhurst, MD, MS</div>
-          <div class="guest-role">CEO</div>
-          <div class="guest-inst">Seattle Children's Hospital</div>
-          <div class="guest-pull">"What would healthcare look like if doctors spent 80% of their time with patients instead of paperwork?"</div>
-          <div class="guest-tag-pill">Clinical Leadership</div>
-          <div class="guest-listen">
-            <a href="https://open.spotify.com/episode/2x48cTz8DbMrvtGRpYSJOA" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 01','play-spotify')">♫ Spotify</a>
-            <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000744203970&l=en-GB" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 01','play-apple')">♫ Apple</a>
-            <a href="https://www.youtube.com/watch?v=_1wQL3Dj3Vs&t=7s" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 01','play-youtube')">▶ YouTube</a>
-          </div>
+    <div class="guests-rail">
+
+      <!-- Ep 01 -->
+      <div class="ep-card">
+        <div class="ep-num-bg">01</div>
+        <div class="ep-label">Episode 01</div>
+        <div class="ep-name">Christopher Longhurst, MD, MS</div>
+        <div class="ep-role">CEO</div>
+        <div class="ep-inst">Seattle Children's Hospital</div>
+        <div class="ep-divider"></div>
+        <div class="ep-focus">Mission control centers, AI in hospital operations, and restoring humanism in medicine through ambient AI scribes.</div>
+        <div class="ep-tag">Clinical Leadership</div>
+        <div class="ep-listen">
+          <a href="https://open.spotify.com/episode/2x48cTz8DbMrvtGRpYSJOA" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 01','play-spotify')">♫ Spotify</a>
+          <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000744203970&l=en-GB" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 01','play-apple')">♫ Apple</a>
+          <a href="https://www.youtube.com/watch?v=_1wQL3Dj3Vs&t=7s" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 01','play-youtube')">▶ YouTube</a>
         </div>
       </div>
 
-      <div class="guest-card">
-        <div class="guest-card-accent"></div>
-        <div class="guest-card-inner">
-          <div class="guest-ep-tag">Episode 02</div>
-          <div class="guest-name">Julia Adler-Milstein, PhD</div>
-          <div class="guest-role">Professor &amp; Chief, Clinical Informatics</div>
-          <div class="guest-inst">UCSF</div>
-          <div class="guest-pull">"Your medical record contains your entire health history — who should be able to use that data, and for what?"</div>
-          <div class="guest-tag-pill">Health Policy</div>
-          <div class="guest-listen">
-            <a href="https://open.spotify.com/episode/70nLEa4sE8cyVSpF1aG2SH" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 02','play-spotify')">♫ Spotify</a>
-            <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000745893309&l=en-GB" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 02','play-apple')">♫ Apple</a>
-            <a href="https://www.youtube.com/watch?v=2SN85ZGeoMs" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 02','play-youtube')">▶ YouTube</a>
-          </div>
+      <!-- Ep 02 -->
+      <div class="ep-card">
+        <div class="ep-num-bg">02</div>
+        <div class="ep-label">Episode 02</div>
+        <div class="ep-name">Julia Adler-Milstein, PhD</div>
+        <div class="ep-role">Professor &amp; Chief, Clinical Informatics</div>
+        <div class="ep-inst">UCSF</div>
+        <div class="ep-divider"></div>
+        <div class="ep-focus">AI tools are only as good as the humans overseeing them — and her research shows we may be asking clinicians to do something humans are genuinely bad at.</div>
+        <div class="ep-tag">Health Policy</div>
+        <div class="ep-listen">
+          <a href="https://open.spotify.com/episode/70nLEa4sE8cyVSpF1aG2SH" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 02','play-spotify')">♫ Spotify</a>
+          <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000745893309&l=en-GB" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 02','play-apple')">♫ Apple</a>
+          <a href="https://www.youtube.com/watch?v=2SN85ZGeoMs" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 02','play-youtube')">▶ YouTube</a>
         </div>
       </div>
 
-      <div class="guest-card">
-        <div class="guest-card-accent"></div>
-        <div class="guest-card-inner">
-          <div class="guest-ep-tag">Episode 03</div>
-          <div class="guest-name">Gabriel Wardi, MD</div>
-          <div class="guest-role">Critical Care Physician &amp; AI Researcher</div>
-          <div class="guest-inst">UC San Diego</div>
-          <div class="guest-pull">"Would you want a doctor to follow an AI's recommendation, even if they weren't sure why it made it?"</div>
-          <div class="guest-tag-pill">Emergency &amp; Critical Care</div>
-          <div class="guest-listen">
-            <a href="https://open.spotify.com/episode/6ApmXTfg1ymPNIokgMk9iP" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 03','play-spotify')">♫ Spotify</a>
-            <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000747862994&l=en-GB" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 03','play-apple')">♫ Apple</a>
-            <a href="https://www.youtube.com/watch?v=VB8JRA4FoAQ" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 03','play-youtube')">▶ YouTube</a>
-          </div>
+      <!-- Ep 03 -->
+      <div class="ep-card">
+        <div class="ep-num-bg">03</div>
+        <div class="ep-label">Episode 03</div>
+        <div class="ep-name">Gabriel Wardi, MD</div>
+        <div class="ep-role">Critical Care Physician &amp; AI Researcher</div>
+        <div class="ep-inst">UC San Diego</div>
+        <div class="ep-divider"></div>
+        <div class="ep-focus">A deep learning sepsis prediction model reducing mortality 17% — and what it takes to actually implement AI in the emergency department.</div>
+        <div class="ep-tag">Emergency &amp; Critical Care</div>
+        <div class="ep-listen">
+          <a href="https://open.spotify.com/episode/6ApmXTfg1ymPNIokgMk9iP" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 03','play-spotify')">♫ Spotify</a>
+          <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000747862994&l=en-GB" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 03','play-apple')">♫ Apple</a>
+          <a href="https://www.youtube.com/watch?v=VB8JRA4FoAQ" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 03','play-youtube')">▶ YouTube</a>
         </div>
       </div>
 
-      <div class="guest-card">
-        <div class="guest-card-accent"></div>
-        <div class="guest-card-inner">
-          <div class="guest-ep-tag">Episode 04</div>
-          <div class="guest-name">Natalie Pageler, MD</div>
-          <div class="guest-role">Division Chief, Clinical Informatics</div>
-          <div class="guest-inst">Stanford Medicine</div>
-          <div class="guest-pull">"What's the difference between a tool that's technically accurate and one that's actually useful?"</div>
-          <div class="guest-tag-pill">Pediatric Informatics</div>
-          <div class="guest-listen">
-            <a href="https://open.spotify.com/episode/3El9tbyUYcRosRY5fvjo2s" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 04','play-spotify')">♫ Spotify</a>
-            <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000750152425&l=en-GB" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 04','play-apple')">♫ Apple</a>
-            <a href="https://www.youtube.com/watch?v=2W4NXAnMiuY" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 04','play-youtube')">▶ YouTube</a>
-          </div>
+      <!-- Ep 04 -->
+      <div class="ep-card">
+        <div class="ep-num-bg">04</div>
+        <div class="ep-label">Episode 04</div>
+        <div class="ep-name">Natalie Pageler, MD</div>
+        <div class="ep-role">Division Chief, Clinical Informatics</div>
+        <div class="ep-inst">Stanford Medicine</div>
+        <div class="ep-divider"></div>
+        <div class="ep-focus">Decisions made in childhood can echo for a lifetime. She designs AI tools for kids — and the stakes, in both directions, are enormous.</div>
+        <div class="ep-tag">Pediatric Informatics</div>
+        <div class="ep-listen">
+          <a href="https://open.spotify.com/episode/3El9tbyUYcRosRY5fvjo2s" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 04','play-spotify')">♫ Spotify</a>
+          <a href="https://podcasts.apple.com/es/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000750152425&l=en-GB" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 04','play-apple')">♫ Apple</a>
+          <a href="https://www.youtube.com/watch?v=2W4NXAnMiuY" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 04','play-youtube')">▶ YouTube</a>
         </div>
       </div>
 
-      <div class="guest-card">
-        <div class="guest-card-accent"></div>
-        <div class="guest-card-inner">
-          <div class="guest-ep-tag">Episode 05</div>
-          <div class="guest-name">Erin Holve, PhD, MPH, MPP</div>
-          <div class="guest-role">Executive Director</div>
-          <div class="guest-inst">PCORI</div>
-          <div class="guest-pull">"If you could direct $1 billion in health research toward one problem AI might solve, what would it be?"</div>
-          <div class="guest-tag-pill">Outcomes Research</div>
-          <div class="guest-listen">
-            <a href="https://open.spotify.com/episode/3n7cZ7JabOPKjUWGJdW6hl" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 05','play-spotify')">♫ Spotify</a>
-            <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000752881274" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 05','play-apple')">♫ Apple</a>
-            <a href="https://www.youtube.com/watch?v=eSRwR8SZP0A" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 05','play-youtube')">▶ YouTube</a>
-          </div>
+      <!-- Ep 05 -->
+      <div class="ep-card">
+        <div class="ep-num-bg">05</div>
+        <div class="ep-label">Episode 05</div>
+        <div class="ep-name">Erin Holve, PhD, MPH, MPP</div>
+        <div class="ep-role">Director</div>
+        <div class="ep-inst">PCORI</div>
+        <div class="ep-divider"></div>
+        <div class="ep-focus">She helped write HIPAA — the federal law protecting your medical privacy. Now she's watching AI test every boundary of it.</div>
+        <div class="ep-tag">Outcomes Research</div>
+        <div class="ep-listen">
+          <a href="https://open.spotify.com/episode/3n7cZ7JabOPKjUWGJdW6hl" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 05','play-spotify')">♫ Spotify</a>
+          <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000752881274" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 05','play-apple')">♫ Apple</a>
+          <a href="https://www.youtube.com/watch?v=eSRwR8SZP0A" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 05','play-youtube')">▶ YouTube</a>
         </div>
       </div>
 
-      <div class="guest-card">
-        <div class="guest-card-accent"></div>
-        <div class="guest-card-inner">
-          <div class="guest-ep-tag">Episode 06</div>
-          <div class="guest-name">Mayank Goel, PhD</div>
-          <div class="guest-role">Associate Professor, Computer Science</div>
-          <div class="guest-inst">Carnegie Mellon University</div>
-          <div class="guest-pull">"If your device could predict a health problem weeks early, would you want to know — and who else should?"</div>
-          <div class="guest-tag-pill">Passive Sensing &amp; HCI</div>
-          <div class="guest-listen">
-            <a href="https://open.spotify.com/episode/06W7wRRN8aIpyQG5bQY5mq" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 06','play-spotify')">♫ Spotify</a>
-            <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000755758846" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 06','play-apple')">♫ Apple</a>
-            <a href="https://www.youtube.com/watch?v=7bLzwAqb2RY&t=4s" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 06','play-youtube')">▶ YouTube</a>
-          </div>
+      <!-- Ep 06 -->
+      <div class="ep-card">
+        <div class="ep-num-bg">06</div>
+        <div class="ep-label">Episode 06</div>
+        <div class="ep-name">Mayank Goel, PhD</div>
+        <div class="ep-role">Associate Professor, Computer Science</div>
+        <div class="ep-inst">Carnegie Mellon University</div>
+        <div class="ep-divider"></div>
+        <div class="ep-focus">What if your AirPods could tell you were getting sick three days before you felt anything? He's building that technology — and he's never treated a patient.</div>
+        <div class="ep-tag">Passive Sensing &amp; HCI</div>
+        <div class="ep-listen">
+          <a href="https://open.spotify.com/episode/06W7wRRN8aIpyQG5bQY5mq" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 06','play-spotify')">♫ Spotify</a>
+          <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in/id1867335577?i=1000755758846" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 06','play-apple')">♫ Apple</a>
+          <a href="https://www.youtube.com/watch?v=7bLzwAqb2RY&t=4s" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 06','play-youtube')">▶ YouTube</a>
         </div>
       </div>
 
+      <!-- Recap -->
       <div class="recap-row">
         <div class="recap-card">
-          <div class="guest-ep-tag">Episode 07 · Series Finale</div>
-          <div class="guest-name">AI in Healthcare — Recap</div>
-          <div class="guest-inst" style="text-align:center;margin-bottom:0;">Six conversations, synthesized</div>
-          <div class="guest-pull">What it all means for students thinking about a future in healthcare — and the one question every guest kept coming back to.</div>
-          <div class="guest-listen">
+          <div class="ep-label">Episode 07 · Series Finale</div>
+          <div class="ep-name" style="margin-bottom:6px;">AI in Healthcare — Recap</div>
+          <div class="ep-inst" style="text-align:center;margin-bottom:0;">Six conversations, synthesized</div>
+          <div class="ep-focus">What it all means for students thinking about a future in healthcare — and the one question every guest kept coming back to.</div>
+          <div class="ep-listen">
             <a href="https://open.spotify.com/episode/0NtbmlI5hkBzlUMWuGwnrk" target="_blank" class="btn-ep ep-sp" onclick="trackEvent('Episode 7','play-spotify')">♫ Spotify</a>
             <a href="https://podcasts.apple.com/us/podcast/paths-of-curiosity-in-an-ai-world-ai-in-healthcare-recap/id1867335577?i=1000758470626" target="_blank" class="btn-ep ep-ap" onclick="trackEvent('Episode 7','play-apple')">♫ Apple</a>
             <a href="https://www.youtube.com/watch?v=HFotS5_n3hQ" target="_blank" class="btn-ep ep-yt" onclick="trackEvent('Episode 7','play-youtube')">▶ YouTube</a>
@@ -365,39 +570,39 @@ section{padding:100px 48px;}
 
 <!-- RESOURCES -->
 <section id="resources">
-  <div class="section-inner">
-    <div class="section-kicker"><div class="section-kicker-line"></div><div class="section-kicker-text">Series Resources</div></div>
-    <div class="section-h2">Everything You Need.<br/><em>All Free.</em></div>
-    <div class="section-rule"></div>
-    <div class="resources-grid">
+  <div class="sec-inner">
+    <div class="sec-kicker"><div class="sec-kicker-line"></div><div class="sec-kicker-text">Series Resources</div></div>
+    <h2>Everything You Need.<br/><em>All Free.</em></h2>
+    <div class="sec-rule"></div>
+    <div class="res-grid">
 
       <div class="res-card">
-        <div class="res-icon-wrap">🗺️</div>
+        <div class="res-icon">🗺️</div>
         <div class="res-title">Career Landscape Map</div>
         <div class="res-desc">Every healthcare career where AI is making an impact — mapped visually with our six guests shown in context. Start here if you don't know where you fit yet.</div>
         <div class="res-btns">
-          <a href="Q1 Resources/Career_Landscape_Map_-_AI_in_Healthcare.html" target="_blank" class="btn-res-view res-btn" data-name="Q1 Career Landscape Map" data-action="view">👁 Preview</a>
-          <a href="Q1 Resources/Career_Landscape_Map_-_AI_in_Healthcare.html" download class="btn-res-dl res-btn" data-name="Q1 Career Landscape Map" data-action="download">↓ Download</a>
+          <a href="Q1 Resources/Career_Landscape_Map_-_AI_in_Healthcare.html" target="_blank" class="btn-rv res-btn" data-name="Q1 Career Landscape Map" data-action="view">👁 Preview</a>
+          <a href="Q1 Resources/Career_Landscape_Map_-_AI_in_Healthcare.html" download class="btn-rd res-btn" data-name="Q1 Career Landscape Map" data-action="download">↓ Download</a>
         </div>
       </div>
 
       <div class="res-card">
-        <div class="res-icon-wrap">📝</div>
+        <div class="res-icon">📝</div>
         <div class="res-title">What's Your Spark?</div>
         <div class="res-desc">A five-minute quiz that maps how you think to a corner of the AI-in-healthcare world. Find your entry point based on what actually interests you.</div>
         <div class="res-btns">
-          <a href="Q1 Resources/whats_your_spark_quiz.html" target="_blank" class="btn-res-view res-btn" data-name="Q1 Whats Your Spark" data-action="view">👁 Take Quiz</a>
-          <a href="Q1 Resources/whats_your_spark_quiz.html" download class="btn-res-dl res-btn" data-name="Q1 Whats Your Spark" data-action="download">↓ Download</a>
+          <a href="Q1 Resources/whats_your_spark_quiz.html" target="_blank" class="btn-rv res-btn" data-name="Q1 Whats Your Spark" data-action="view">👁 Take Quiz</a>
+          <a href="Q1 Resources/whats_your_spark_quiz.html" download class="btn-rd res-btn" data-name="Q1 Whats Your Spark" data-action="download">↓ Download</a>
         </div>
       </div>
 
       <div class="res-card">
-        <div class="res-icon-wrap">📚</div>
+        <div class="res-icon">📚</div>
         <div class="res-title">Teach This</div>
         <div class="res-desc">Ready-to-use educator guide with discussion prompts, learning objectives, classroom activities, and curriculum connections for each episode.</div>
         <div class="res-btns">
-          <a href="Q1 Resources/educator_guide_AI_healthcare_v3.html" target="_blank" class="btn-res-view res-btn" data-name="Q1 Teach This" data-action="view">👁 Preview</a>
-          <a href="Q1 Resources/educator_guide_AI_healthcare_v3.html" download class="btn-res-dl res-btn" data-name="Q1 Teach This" data-action="download">↓ Download</a>
+          <a href="Q1 Resources/educator_guide_AI_healthcare_v3.html" target="_blank" class="btn-rv res-btn" data-name="Q1 Teach This" data-action="view">👁 Preview</a>
+          <a href="Q1 Resources/educator_guide_AI_healthcare_v3.html" download class="btn-rd res-btn" data-name="Q1 Teach This" data-action="download">↓ Download</a>
         </div>
       </div>
 
@@ -405,22 +610,37 @@ section{padding:100px 48px;}
   </div>
 </section>
 
-<div class="eco-footer">
+<!-- FOOTER -->
+<div class="page-footer">
   <p>© 2026 Acadia &amp; Alora Holve · pathsofcuriosity.com · All resources free to use and share</p>
-  <div class="footer-nav">
+  <div class="footer-links">
     <a href="index.html">← Back to Homepage</a>
-    <a href="index.html#resources">All Series</a>
+    <a href="index.html#episodes">All Series</a>
     <a href="q2-law.html">Q2: Power, Law &amp; Civic Life →</a>
   </div>
 </div>
 
 <script>
-const API_URL='https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec';
-function trackEvent(r,a){fetch(API_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({resource:r,action:a})}).catch(function(){});}
-window.addEventListener('load',function(){trackEvent('Q1 Page','arrival');});
-document.querySelectorAll('.res-btn').forEach(function(b){b.addEventListener('click',function(){trackEvent(b.getAttribute('data-name'),b.getAttribute('data-action'));});});
-const obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:.08});
-document.querySelectorAll('.guest-card,.res-card').forEach(function(el){el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='all .6s cubic-bezier(.22,1,.36,1)';obs.observe(el);});
+const API_URL = 'https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec';
+function trackEvent(r, a) {
+  fetch(API_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify({resource:r, action:a}) }).catch(function(){});
+}
+window.addEventListener('load', function() { trackEvent('Q1 Page', 'arrival'); });
+document.querySelectorAll('.res-btn').forEach(function(b) {
+  b.addEventListener('click', function() { trackEvent(b.getAttribute('data-name'), b.getAttribute('data-action')); });
+});
+// Scroll entrance
+const obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.ep-card, .recap-card, .res-card').forEach(function(el) {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(22px)';
+  el.style.transition = 'all .55s cubic-bezier(.22,1,.36,1)';
+  obs.observe(el);
+});
 </script>
 </body>
 </html>
