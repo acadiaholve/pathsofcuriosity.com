@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's Your Spark? | Paths of Curiosity in an AI World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #255ff1;
+      --teal-light: #5b87f5;
+      --teal-pale: #0a1230;
+      --teal-mid: #1a2a6a;
+      --gold: #e8b84b;
+      --gold-light: #2a1f00;
+      --gold-pale: #0d1020;
+      --dark: #07090f;
+      --gray: #8892b0;
+      --gray-light: #0d1545;
+      --white: #e8f0fa;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #07090f;
+      color: var(--white);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #0a1020;
+      padding: 52px 56px 60px;
+    }
+
+    /* HEADER */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      border-bottom: 3px solid var(--teal);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      gap: 24px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--teal-light);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 38px;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .header h1 em {
+      color: var(--teal-light);
+      font-style: italic;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    .header-right {
+      text-align: right;
+      padding-top: 4px;
+    }
+
+    .podcast-badge {
+      display: inline-block;
+      background: var(--teal);
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .quarter-label {
+      display: block;
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    /* INTRO */
+    .intro {
+      background: var(--teal-pale);
+      border-left: 4px solid var(--teal);
+      padding: 18px 20px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 32px;
+    }
+
+    .intro p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* QUIZ CONTAINER */
+    .quiz-section {
+      display: none;
+    }
+
+    .quiz-section.active {
+      display: block;
+    }
+
+    .question-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--teal-light);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .question-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .answer-option {
+      background: var(--teal-pale);
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--white);
+      display: block;
+    }
+
+    .answer-option:hover {
+      border-color: var(--teal);
+      background: var(--teal-mid);
+    }
+
+    .answer-option.selected {
+      border-color: var(--teal);
+      background: rgba(37, 95, 241, 0.15);
+    }
+
+    .answer-option input {
+      display: none;
+    }
+
+    /* RESULTS */
+    .results-box {
+      display: none;
+      background: var(--teal-pale);
+      border-left: 4px solid var(--teal);
+      padding: 24px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 32px;
+    }
+
+    .results-box.show {
+      display: block;
+    }
+
+    .results-box h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .results-box p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #b0b8c8;
+      margin-bottom: 12px;
+    }
+
+    .results-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .result-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--teal);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--teal-light);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid var(--teal);
+      color: var(--teal-light);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(37, 95, 241, 0.1);
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #1a2a6a;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 11px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .site {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--teal-light);
+      margin-top: 12px;
+    }
+
+    /* PROGRESS */
+    .progress-bar {
+      background: #1a2a6a;
+      height: 4px;
+      border-radius: 2px;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background: var(--teal);
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 40px 24px 50px;
+      }
+      .question-text {
+        font-size: 22px;
+      }
+      .header {
+        grid-template-columns: 1fr;
+      }
+      .header-right {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="eyebrow">Paths of Curiosity in an AI World</div>
+      <h1>What's Your <em>Spark?</em></h1>
+      <div class="subtitle">Find your entry point in Q3: AI, Money &amp; Power</div>
+    </div>
+    <div class="header-right">
+      <div class="podcast-badge">Q3 Mini-Series</div>
+      <div class="quarter-label">5 minutes to your next step</div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <p><strong>Six people work at very different intersections of AI, money, and power.</strong> A decision scientist, a political economist of technology, a technology-and-society researcher, a financial policy economist, a behavioral scientist, and a sociotechnical investigator.</p>
+    <p>This short quiz will help you figure out which of their paths might spark something in you — and what concrete next step makes sense for where you are right now.</p>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-bar">
+    <div class="progress-fill"></div>
+  </div>
+
+  <!-- RESULTS (HIDDEN UNTIL COMPLETE) -->
+  <div class="results-box" id="results"></div>
+
+  <!-- QUIZ FORM -->
+  <form id="quiz">
+
+    <!-- QUESTION 1 -->
+    <div class="quiz-section active">
+      <div class="question-number">Question 1 of 5</div>
+      <div class="question-text">What gets under your skin most?</div>
+      <label class="answer-option">
+        <input type="radio" name="q1" value="decision">
+        <strong>Misplaced distrust.</strong> When people dismiss a genuinely good tool the moment it makes one visible mistake.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q1" value="critique">
+        <strong>Hidden control.</strong> When technology is sold as world-saving while quietly locking people into systems they never agreed to.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q1" value="society">
+        <strong>The gap between lab and life.</strong> When a "life-changing" project works beautifully in a controlled setting and falls apart in the real world.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q1" value="finance">
+        <strong>Quiet unfairness.</strong> When a system built to serve everyone ends up working best for people who already have money and connections.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q1" value="nudge">
+        <strong>Invisible steering.</strong> When someone assumes people would "just do the right thing" if they wanted to, ignoring how choices are designed.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q1" value="investigate">
+        <strong>Deliberate friction.</strong> When a company builds a maze of forms and fine print specifically to stop you from doing something you're entitled to do.
+      </label>
+    </div>
+
+    <!-- QUESTION 2 -->
+    <div class="quiz-section">
+      <div class="question-number">Question 2 of 5</div>
+      <div class="question-text">How do you like to spend your time?</div>
+      <label class="answer-option">
+        <input type="radio" name="q2" value="decision">
+        <strong>Designing simple experiments.</strong> Figuring out why people make the choices they make.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q2" value="critique">
+        <strong>Reading and writing about power.</strong> Who owns technology, who profits from it, who it controls.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q2" value="society">
+        <strong>Seeing how things actually get used.</strong> Traveling or observing how a technology plays out in a real community.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q2" value="finance">
+        <strong>Untangling a rule.</strong> Digging into how a number or policy actually got decided, and who it favors.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q2" value="nudge">
+        <strong>Testing small tweaks.</strong> Trying tiny changes to see what actually shifts people's behavior.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q2" value="investigate">
+        <strong>Following the paper trail.</strong> Chasing forms, fine print, and records until you find the real story.
+      </label>
+    </div>
+
+    <!-- QUESTION 3 -->
+    <div class="quiz-section">
+      <div class="question-number">Question 3 of 5</div>
+      <div class="question-text">Which sentence sounds most like you?</div>
+      <label class="answer-option">
+        <input type="radio" name="q3" value="decision">
+        <strong>"I trust data — but I want to know exactly where it breaks down."</strong>
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q3" value="critique">
+        <strong>"I want to know who profits, and who pays."</strong>
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q3" value="society">
+        <strong>"I care more about the impact on real people than the elegance of the tech."</strong>
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q3" value="finance">
+        <strong>"I like untangling systems that seem confusing on purpose."</strong>
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q3" value="nudge">
+        <strong>"I'm curious about the tiny design choices that quietly steer people."</strong>
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q3" value="investigate">
+        <strong>"I don't believe a company's story until I've checked it myself."</strong>
+      </label>
+    </div>
+
+    <!-- QUESTION 4 -->
+    <div class="quiz-section">
+      <div class="question-number">Question 4 of 5</div>
+      <div class="question-text">If you had to pick one skill to build first, it'd be...</div>
+      <label class="answer-option">
+        <input type="radio" name="q4" value="decision">
+        <strong>Statistics & judgment under uncertainty.</strong> Understanding how people misjudge risk and randomness.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q4" value="critique">
+        <strong>Critical theory.</strong> Studying how technology relates to society, ethics, and power.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q4" value="society">
+        <strong>Fieldwork.</strong> Going out, observing, and listening before you conclude anything.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q4" value="finance">
+        <strong>Financial literacy.</strong> Learning how regulations and institutions like credit systems actually function.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q4" value="nudge">
+        <strong>Research design.</strong> Learning how to build and run real behavioral field experiments.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q4" value="investigate">
+        <strong>Investigative reporting.</strong> Public records, interviews, and following evidence wherever it leads.
+      </label>
+    </div>
+
+    <!-- QUESTION 5 -->
+    <div class="quiz-section">
+      <div class="question-number">Question 5 of 5</div>
+      <div class="question-text">What feels like your most urgent next step?</div>
+      <label class="answer-option">
+        <input type="radio" name="q5" value="decision">
+        <strong>Read the research.</strong> Pick up a couple of academic papers on decision-making, even if they feel dense at first.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q5" value="critique">
+        <strong>Read one book on tech and power.</strong> Something connecting technology, capitalism, and who really benefits.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q5" value="society">
+        <strong>Ask a real user.</strong> Talk to someone who relies on a piece of everyday tech and ask what it's really like for them.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q5" value="finance">
+        <strong>Check your own data.</strong> Learn how your credit or financial information is actually being used right now.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q5" value="nudge">
+        <strong>Name a nudge.</strong> Notice one design choice already shaping your decisions today, and say it out loud.
+      </label>
+      <label class="answer-option">
+        <input type="radio" name="q5" value="investigate">
+        <strong>Request your own records.</strong> Practice asking a company or platform what data it actually has on you.
+      </label>
+    </div>
+
+  </form>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>After completing this quiz, you'll get a personalized pathway mapped to the careers in Q3 of the podcast.</p>
+    <p style="margin-top: 12px; font-size: 12px;"><strong>Your results are personalized to you — there are no "wrong" answers.</strong></p>
+    <a href="https://www.pathsofcuriosity.com" class="site">pathsofcuriosity.com</a>
+  </div>
+
+</div>
+
+<script>
+  const questions = document.querySelectorAll('.quiz-section');
+  let currentQuestion = 0;
+  const answers = {};
+
+  function showQuestion(index) {
+    questions.forEach(q => q.classList.remove('active'));
+    if (index < questions.length) {
+      questions[index].classList.add('active');
+      const progressFill = document.querySelector('.progress-fill');
+      progressFill.style.width = ((index) / questions.length * 100) + '%';
+    }
+  }
+
+  document.addEventListener('change', (e) => {
+    if (e.target.type === 'radio') {
+      const name = e.target.name;
+      const value = e.target.value;
+      answers[name] = value;
+
+      // Mark selected option
+      document.querySelectorAll(`label input[name="${name}"]`).forEach(radio => {
+        radio.parentElement.classList.remove('selected');
+      });
+      e.target.parentElement.classList.add('selected');
+
+      // Move to next question after delay
+      setTimeout(() => {
+        if (currentQuestion < questions.length - 1) {
+          currentQuestion++;
+          showQuestion(currentQuestion);
+        } else {
+          showResults();
+        }
+      }, 300);
+    }
+  });
+
+  function showResults() {
+    // Tally scores
+    const scores = {
+      decision: 0,
+      critique: 0,
+      society: 0,
+      finance: 0,
+      nudge: 0,
+      investigate: 0
+    };
+
+    Object.values(answers).forEach(answer => {
+      if (answer) scores[answer]++;
+    });
+
+    // Find top result
+    let topPath = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+    // Hide quiz, show results
+    document.querySelectorAll('.quiz-section').forEach(q => q.style.display = 'none');
+    const resultsBox = document.getElementById('results');
+    resultsBox.classList.add('show');
+
+    const resultsList = {
+      decision: {
+        title: "You're a Decision Scientist",
+        desc: "Your spark is understanding how people actually make choices — especially when it comes to trusting (or refusing to trust) a prediction. You want to know why a good tool gets rejected and what would change someone's mind. <strong>Next step:</strong> Take a statistics and psychology class. Read academic papers on judgment and decision-making, even the older ones — they hold up.",
+        guests: "Dr. Berkeley Dietvorst's research on algorithm aversion at the University of Chicago Booth School is where you'd start. His work shows people abandon algorithms the moment they see them err, even when the algorithm is right far more often than a person would be."
+      },
+      critique: {
+        title: "You're a Political Economist of Technology",
+        desc: "Your spark is power. You want to understand who builds technology, who profits from it, and who it's really working for — and you're not afraid to ask whether something should exist at all. <strong>Next step:</strong> Read a book connecting technology and power. Take a philosophy or science-and-technology-studies class.",
+        guests: "Dr. Jathan Sadowski's work at Monash University, and his podcast This Machine Kills, dig into who owns the infrastructure we depend on and how that ownership shapes our lives."
+      },
+      society: {
+        title: "You're a Technology & Society Researcher",
+        desc: "Your spark is real-world impact. You've noticed that a great piece of technology can fail completely once it leaves the lab, and you want to understand why — and what that means for how technology should actually be built and deployed. <strong>Next step:</strong> Get involved in fieldwork or community-based research. Read about technology and international development.",
+        guests: "Dr. Kentaro Toyama's \u201claw of amplification\u201d — the idea that technology amplifies existing human intentions rather than fixing them — grew out of his decade leading Microsoft Research India."
+      },
+      finance: {
+        title: "You're a Financial Policy Economist",
+        desc: "Your spark is fairness inside complicated systems. You want to understand how a number like a credit score gets decided, who it was built to serve, and whether new technology could make it more accurate — or just as broken in new ways. <strong>Next step:</strong> Learn how credit scoring and financial regulation actually work. Follow economic policy research.",
+        guests: "Aaron Klein's work at the Brookings Institution — and his years helping write financial reform after the 2008 crisis — traces how AI credit models decide who gets a loan, and why that system still isn't very fair."
+      },
+      nudge: {
+        title: "You're an Applied Behavioral Scientist",
+        desc: "Your spark is the small stuff — the tiny design choices that quietly shape huge outcomes. You're drawn to running real experiments that help people do the things they already want to do, from finishing medication to signing up for a program they qualify for. <strong>Next step:</strong> Learn about field experiments and behavioral science research design. Notice the nudges already shaping your own choices.",
+        guests: "Dr. Sayan Bhuyan's field experiments with governments and organizations — from TB treatment in Kenya to summer job applications in Philadelphia — show how small interventions change outcomes at scale."
+      },
+      investigate: {
+        title: "You're a Sociotechnical Investigator",
+        desc: "Your spark is accountability. You don't take a company's word for it — you want to test what actually happens when you try to say no, get your own data, or hold a system to its promises. <strong>Next step:</strong> Practice filing a real records request. Read investigative tech journalism. Learn what \"dark patterns\" look like so you can spot them.",
+        guests: "Dr. Alex Rosenblat rode over 5,000 miles with gig drivers to write Uberland, then spent years investigating manipulative design in healthcare data consent forms."
+      }
+    };
+
+    const result = resultsList[topPath];
+    resultsBox.innerHTML = `
+      <h2>${result.title}</h2>
+      <p>${result.desc}</p>
+      <p><strong>Podcast connection:</strong> ${result.guests}</p>
+      <div class="result-actions">
+        <a href="https://www.pathsofcuriosity.com" class="btn">Listen to Q3 Episodes</a>
+        <button type="button" onclick="location.reload()" class="btn btn-secondary">Take Quiz Again</button>
+      </div>
+    `;
+  }
+
+  showQuestion(0);
+</script>
+
+</body>
+</html>
