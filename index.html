@@ -1020,13 +1020,13 @@
           <p class="team-bio">What drives her isn't just curiosity about technology, it's the connections. How a change in one field ripples into another. How the choices students make now map onto careers that don't fully exist yet.</p>
         </div>
         <div class="team-photo">
-          <img src="Acadia Holve Thumbnail.png" alt="Acadia Holve"/>
+          <img src="Developers%20photos/Acadia%20Holve%20Thumbnail.png" onerror="this.onerror=null;this.src='Acadia%20Holve%20Thumbnail.png';" alt="Acadia Holve"/>
         </div>
       </div>
       <!-- Alora: Photo LEFT · Text RIGHT -->
       <div class="team-card card-alora">
         <div class="team-photo">
-          <img src="Alora Holve Thumbnail.png" alt="Alora Holve"/>
+          <img src="Developers%20photos/Alora%20Holve%20Thumbnail.png" onerror="this.onerror=null;this.src='Alora%20Holve%20Thumbnail.png';" alt="Alora Holve"/>
         </div>
         <div class="team-text">
           <div class="team-role">Co-Host &amp; Producer</div>
@@ -1049,7 +1049,7 @@
       <div class="contact-channels">
         <div class="contact-channel">
           <div class="channel-icon">✉️</div>
-          <div><div class="channel-label">Email</div><div class="channel-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c0b0a1b4a8b3afa6a3b5b2a9afb3a9b4b980a7ada1a9aceea3afad">[email&#160;protected]</a></div></div>
+          <div><div class="channel-label">Email</div><div class="channel-value"><a href="mailto:pathsofcuriosity@gmail.com" style="color:inherit;text-decoration:none;">pathsofcuriosity@gmail.com</a></div></div>
         </div>
         <a href="https://x.com/PathsCuriosity" class="contact-channel" target="_blank">
           <div class="channel-icon">𝕏</div>
@@ -1063,7 +1063,7 @@
     </div>
     <div class="contact-form">
       <h3>Send a Message</h3>
-      <form action="https://formspree.io/f/your-form-id" method="POST">
+      <form id="contact-form" action="https://formspree.io/f/maeqoazn" method="POST">
         <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="First and last name" required/></div>
         <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required/></div>
         <div class="form-group">
@@ -1078,6 +1078,7 @@
         </div>
         <div class="form-group"><label>Message</label><textarea name="message" placeholder="What's on your mind?" required></textarea></div>
         <button type="submit" class="form-submit">Send Message →</button>
+        <div id="form-status" role="status" aria-live="polite" style="display:none;margin-top:16px;padding:12px 16px;border-radius:10px;font-size:14px;line-height:1.5;"></div>
       </form>
     </div>
   </div>
@@ -1103,7 +1104,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // ── REPLACE THIS URL WITH YOUR APPS SCRIPT URL ──
   // Must start with https://  ← that was the bug before
   const API_URL = 'https://script.google.com/macros/s/AKfycbxx3XSQqfJphHAlYJuCSwNcTiB9vhtq7hTjU6EWnKf6U5lJBnKbP6hYlgP_IoRNrUom2w/exec';
@@ -1135,6 +1136,49 @@
       trackEvent(btn.getAttribute('data-name'), btn.getAttribute('data-action'));
     });
   });
+
+
+  // Contact form
+  // To receive messages directly: create a free form at formspree.io (sign in with
+  // pathsofcuriosity@gmail.com), copy the form URL, and paste it below.
+  // Until then, submitting opens the visitor's email app with the message pre-filled.
+  var FORM_ENDPOINT = 'https://formspree.io/f/maeqoazn';
+  var CONTACT_EMAIL = 'pathsofcuriosity@gmail.com';
+
+  (function() {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+    var status = document.getElementById('form-status');
+    function show(msg, ok) {
+      status.style.display = 'block';
+      status.style.background = ok ? '#e8f7ef' : '#fdecec';
+      status.style.color = ok ? '#14633b' : '#8a1f1f';
+      status.textContent = msg;
+    }
+    function mailtoFallback(fd) {
+      var body = 'Name: ' + fd.get('name') + '\nEmail: ' + fd.get('email') + '\nI am a: ' + (fd.get('type') || 'not specified') + '\n\n' + fd.get('message');
+      window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Message from pathsofcuriosity.com') + '&body=' + encodeURIComponent(body);
+    }
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var fd = new FormData(form);
+      trackEvent('Contact Form', 'submit');
+      if (FORM_ENDPOINT.indexOf('your-form-id') !== -1) {
+        mailtoFallback(fd);
+        show('Opening your email app. If nothing opens, write to ' + CONTACT_EMAIL + ' directly.', true);
+        return;
+      }
+      var btn = form.querySelector('.form-submit');
+      btn.disabled = true;
+      fetch(FORM_ENDPOINT, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+        .then(function(r) {
+          if (r.ok) { form.reset(); show('Thank you! Your message was sent. We will get back to you soon.', true); }
+          else { show('Something went wrong. Please email us at ' + CONTACT_EMAIL + '.', false); }
+        })
+        .catch(function() { show('Something went wrong. Please email us at ' + CONTACT_EMAIL + '.', false); })
+        .then(function() { btn.disabled = false; });
+    });
+  })();
 
   // Resource quarter switcher
   document.querySelectorAll('.res-tab').forEach(function(tab) {
