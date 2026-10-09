@@ -176,6 +176,7 @@
 
   <div class="resource-section">
     <div class="section-label">Resources — Views & Downloads</div>
+    <div id="quarter-tab-summary" style="display:none; font-size:11px; color:#8b97b0; margin:-6px 0 14px; letter-spacing:0.03em;"></div>
     <div class="resource-rows" id="resource-rows">
       <div class="no-activity">Loading...</div>
     </div>
@@ -238,10 +239,26 @@
   ];
 
   const RESOURCES = [
-    { key: 'Career Landscape Map', emoji: '🗺️', series: 'AI in Healthcare · Q1' },
-    { key: 'Whats Your Spark',     emoji: '📝', series: 'AI in Healthcare · Q1' },
-    { key: 'Teach This',           emoji: '📚', series: 'AI in Healthcare · Q1' },
-    { key: 'Main Series',          emoji: '📡', series: 'Series Follow / Subscribe' },
+    // Q1 — AI in Healthcare (legacy keys, kept unprefixed to preserve historical data)
+    { key: 'Career Landscape Map',    emoji: '🗺️', series: 'AI in Healthcare · Q1', quarter: 'Q1' },
+    { key: 'Whats Your Spark',        emoji: '📝', series: 'AI in Healthcare · Q1', quarter: 'Q1' },
+    { key: 'Teach This',              emoji: '📚', series: 'AI in Healthcare · Q1', quarter: 'Q1' },
+    // Q2 — Power & Law
+    { key: 'Q2 Career Landscape Map', emoji: '🗺️', series: 'Power & Law · Q2',      quarter: 'Q2' },
+    { key: 'Q2 Whats Your Spark',     emoji: '📝', series: 'Power & Law · Q2',      quarter: 'Q2' },
+    { key: 'Q2 Teach This',           emoji: '📚', series: 'Power & Law · Q2',      quarter: 'Q2' },
+    // Q3 — Data & Behavior
+    { key: 'Q3 Career Landscape Map', emoji: '🗺️', series: 'Data & Behavior · Q3',  quarter: 'Q3' },
+    { key: 'Q3 Whats Your Spark',     emoji: '📝', series: 'Data & Behavior · Q3',  quarter: 'Q3' },
+    { key: 'Q3 Teach This',           emoji: '📚', series: 'Data & Behavior · Q3',  quarter: 'Q3' },
+    { key: 'Main Series',             emoji: '📡', series: 'Series Follow / Subscribe' },
+  ];
+
+  const RESOURCE_QUARTERS = [
+    { key: 'Q1', label: 'Q1 — AI in Healthcare',  badge: '#5b87f5' },
+    { key: 'Q2', label: 'Q2 — Power & Law',       badge: '#8b6df0' },
+    { key: 'Q3', label: 'Q3 — Data & Behavior',   badge: '#3fc9a3' },
+    { key: 'Other', label: 'Other',               badge: '#8b97b0' },
   ];
 
   function fmt(n) { return (n && n > 0) ? n.toLocaleString() : '0'; }
@@ -297,13 +314,15 @@
       if (el) el.classList.remove('loading');
     });
 
-    // Resources — exclude episode keys, homepage, and both main show key variants
+    // Resources — exclude episode keys, homepage, both main show key variants, and tab-switch pings
     var EXCLUDE = new Set(['Homepage', 'Main Series', 'Main Show Link']);
+    var isTabKey = function(k) { return /^Resources Q\d$/.test(k); };
     var allKeys = new Set(RESOURCES.filter(function(r){ return !EXCLUDE.has(r.key); }).map(function(r) { return r.key; }));
     Object.keys(br).forEach(function(k) {
-      if (!k.startsWith('Episode') && !EXCLUDE.has(k)) allKeys.add(k);
+      if (!k.startsWith('Episode') && !EXCLUDE.has(k) && !isTabKey(k)) allKeys.add(k);
     });
-    document.getElementById('resource-rows').innerHTML = Array.from(allKeys).map(function(key) {
+
+    function rowFor(key) {
       var meta = RESOURCES.find(function(r) { return r.key === key; }) || { emoji: '📄', series: 'Resource' };
       var actions = br[key] || {};
       var v = actions['view'] || 0, d = actions['download'] || 0, c = v + d;
@@ -314,7 +333,35 @@
         + '<div class="metric"><div class="metric-num d' + (d===0?' zero':'') + '">' + fmt(d) + '</div><div class="metric-label">↓ Downloads</div></div>'
         + '<div class="metric"><div class="metric-num t' + (c===0?' zero':'') + '">' + fmt(c) + '</div><div class="metric-label">Total</div></div>'
         + '</div>';
-    }).join('');
+    }
+
+    function quarterOf(key) {
+      var meta = RESOURCES.find(function(r) { return r.key === key; });
+      return (meta && meta.quarter) ? meta.quarter : 'Other';
+    }
+
+    var remaining = Array.from(allKeys);
+    var resourceHtml = '';
+    RESOURCE_QUARTERS.forEach(function(q) {
+      var keys = remaining.filter(function(k) { return quarterOf(k) === q.key; });
+      if (!keys.length) return;
+      resourceHtml += '<div style="margin-top:14px; margin-bottom:6px;"><span style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:' + q.badge + ';">' + q.label + '</span></div>';
+      resourceHtml += keys.map(rowFor).join('');
+    });
+    document.getElementById('resource-rows').innerHTML = resourceHtml || '<div class="no-activity">No resource activity yet</div>';
+
+    // Quarter tab clicks on the resources section
+    var tabSummary = Object.keys(br).filter(isTabKey).sort().map(function(k) {
+      var n = br[k]['view-quarter'] || 0;
+      return k.replace('Resources ', '') + ': ' + fmt(n);
+    });
+    var tabEl = document.getElementById('quarter-tab-summary');
+    if (tabSummary.length) {
+      tabEl.textContent = 'Quarter tab clicks — ' + tabSummary.join('  ·  ');
+      tabEl.style.display = 'block';
+    } else {
+      tabEl.style.display = 'none';
+    }
 
     // Episodes — grouped by quarter
     var quarters = [
