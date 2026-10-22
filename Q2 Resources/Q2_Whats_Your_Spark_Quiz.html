@@ -100,478 +100,885 @@
       color: var(--gray);
     }
 
-    /* INTRO */
-    .intro {
+    /* INTRO BOX */
+    .intro-box {
       background: var(--teal-pale);
       border-left: 4px solid var(--teal);
-      padding: 18px 20px;
+      padding: 16px 20px;
       border-radius: 0 4px 4px 0;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
-    .intro p {
+    .intro-box p {
       font-size: 13px;
-      line-height: 1.7;
+      line-height: 1.75;
       color: var(--white);
-      margin-bottom: 12px;
     }
 
-    .intro p:last-child {
-      margin-bottom: 0;
-    }
+    .intro-box strong { color: var(--teal-light); }
 
-    /* QUIZ CONTAINER */
-    .quiz-section {
-      display: none;
-    }
-
-    .quiz-section.active {
-      display: block;
-    }
-
-    .question-number {
-      font-size: 11px;
-      font-weight: 700;
+    /* INSTRUCTIONS */
+    .instructions {
+      font-size: 12px;
+      font-weight: 600;
       letter-spacing: 0.1em;
-      color: var(--teal-light);
       text-transform: uppercase;
-      margin-bottom: 12px;
+      color: var(--gold);
+      margin-bottom: 20px;
     }
 
-    .question-text {
-      font-family: 'DM Serif Display', serif;
-      font-size: 28px;
-      line-height: 1.2;
-      color: var(--white);
-      margin-bottom: 24px;
-    }
-
-    .answer-option {
-      background: var(--teal-pale);
-      border: 2px solid transparent;
+    /* QUESTIONS */
+    .question-block {
+      margin-bottom: 22px;
+      border: 1.5px solid #1a2a6a;
       border-radius: 6px;
-      padding: 16px 18px;
-      margin-bottom: 12px;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--white);
-    }
-
-    .answer-option:hover {
-      border-color: var(--teal);
-      background: var(--teal-mid);
-    }
-
-    .answer-option.selected {
-      border-color: var(--teal);
-      background: rgba(37, 95, 241, 0.15);
-    }
-
-    .answer-option input {
-      display: none;
-    }
-
-    /* RESULTS */
-    .results-box {
-      display: none;
-      background: var(--teal-pale);
-      border-left: 4px solid var(--teal);
-      padding: 24px;
-      border-radius: 0 4px 4px 0;
-      margin-bottom: 32px;
-    }
-
-    .results-box.show {
-      display: block;
-    }
-
-    .results-box h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 28px;
-      line-height: 1.2;
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-
-    .results-box p {
-      font-size: 13px;
-      line-height: 1.7;
-      color: #b0b8c8;
-      margin-bottom: 12px;
-    }
-
-    .results-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    .result-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--teal);
-      color: white;
-      padding: 10px 18px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s;
-    }
-
-    .btn:hover {
-      background: var(--teal-light);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 1.5px solid var(--teal);
-      color: var(--teal-light);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(37, 95, 241, 0.1);
-    }
-
-    /* FOOTER */
-    .footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #1a2a6a;
-      text-align: center;
-    }
-
-    .footer p {
-      font-size: 11px;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-
-    .site {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--teal-light);
-      margin-top: 12px;
-    }
-
-    /* PROGRESS */
-    .progress-bar {
-      background: #1a2a6a;
-      height: 4px;
-      border-radius: 2px;
-      margin-bottom: 32px;
       overflow: hidden;
     }
 
-    .progress-fill {
+    .question-header {
       background: var(--teal);
-      height: 100%;
-      width: 0%;
-      transition: width 0.3s;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    @media (max-width: 768px) {
+    .q-number {
+      width: 26px;
+      height: 26px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .question-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.4;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: #0a1228;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 18px;
+      border-bottom: 1px solid #1a2a6a;
+      border-right: 1px solid #1a2a6a;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .option:nth-child(even) { border-right: none; }
+    .option:nth-last-child(-n+2) { border-bottom: none; }
+    .option:hover { background: #0d1a40; }
+
+    .option input[type="radio"] {
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: var(--teal);
+      width: 15px;
+      height: 15px;
+    }
+
+    .option-label {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* RESULTS SECTION */
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 14px;
+      margin-top: 32px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .spark-card {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1.5px solid #1a2a6a;
+    }
+
+    .spark-card-header {
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .spark-card-header.teal { background: var(--teal); }
+    .spark-card-header.gold { background: #b8882a; }
+    .spark-card-header.dark { background: #051248; }
+    .spark-card-header.teal-light { background: var(--teal-light); }
+
+    .spark-icon { font-size: 18px; flex-shrink: 0; }
+
+    .spark-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 0.02em;
+    }
+
+    .spark-subtitle {
+      font-size: 10px;
+      color: rgba(255,255,255,0.85);
+      margin-top: 1px;
+    }
+
+    .spark-card-body {
+      padding: 12px 16px;
+      background: #0a1228;
+    }
+
+    .spark-card-body p {
+      font-size: 11.5px;
+      line-height: 1.6;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .spark-clusters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .cluster-pill {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 20px;
+      background: var(--teal-pale);
+      color: var(--teal-light);
+      border: 1px solid var(--teal-mid);
+    }
+
+    .cluster-pill.gold {
+      background: var(--gold-pale);
+      color: var(--gold);
+      border-color: var(--gold-light);
+    }
+
+    .start-action {
+      font-size: 11px;
+      color: var(--gray);
+      font-style: italic;
+      border-top: 1px solid #1a2a6a;
+      padding-top: 8px;
+      margin-top: 4px;
+    }
+
+    .start-action strong {
+      color: var(--teal-light);
+      font-style: normal;
+    }
+
+    /* SCORE BOX */
+    .score-box {
+      background: var(--gold-pale);
+      border: 1.5px solid rgba(232,184,75,0.3);
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+
+    .score-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .score-col {
+      text-align: center;
+      background: #0a1228;
+      border-radius: 4px;
+      padding: 10px 8px;
+      border-top: 3px solid var(--teal);
+    }
+
+    .score-col.gold-top { border-top-color: var(--gold); }
+    .score-col.dark-top { border-top-color: #5b87f5; }
+    .score-col.teal-light-top { border-top-color: var(--teal-light); }
+
+    .score-letter {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--white);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .score-label { font-size: 10px; color: var(--gray); line-height: 1.4; }
+
+    .score-tally {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-top: 4px;
+    }
+
+    .score-tally.gold { color: var(--gold); }
+    .score-tally.dark { color: #5b87f5; }
+    .score-tally.teal-light { color: var(--teal-light); }
+
+    /* SERIES NOTE */
+    .series-note {
+      background: var(--gray-light);
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+
+    .series-note-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 10px;
+    }
+
+    .series-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+
+    .series-tag {
+      background: var(--teal);
+      color: white;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .series-tag.coming { background: var(--gold); color: #07090f; }
+
+    .series-desc { color: var(--white); font-weight: 500; }
+    .series-sub { color: var(--gray); font-size: 11px; }
+
+    /* FOOTER */
+    .footer {
+      border-top: 2px solid var(--teal-mid);
+      padding-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .footer-left p { font-size: 11px; color: var(--gray); line-height: 1.6; }
+    .footer-right { text-align: right; }
+    .footer-right .site { font-size: 12px; font-weight: 600; color: var(--teal-light); display: block; }
+    .footer-right .tagline { font-size: 10px; color: var(--gray); }
+
+    /* INTERACTIVE RESULTS (web only) */
+    .result-reveal {
+      display: none;
+      background: var(--teal-pale);
+      border: 2px solid var(--teal);
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin: 20px 0;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-reveal h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--teal-light);
+      margin-bottom: 6px;
+    }
+
+    .result-reveal p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .calc-btn {
+      display: inline-block;
+      background: var(--teal);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.15s;
+    }
+
+    .calc-btn:hover { background: var(--teal-light); }
+
+    .web-only { display: block; }
+    .print-only { display: none; }
+
+    /* PRINT NOTICE BAR */
+    .print-notice {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(232,184,75,0.1);
+      border: 1px solid rgba(232,184,75,0.3);
+      border-radius: 6px;
+      padding: 10px 16px;
+      margin-bottom: 28px;
+    }
+    .print-notice-text {
+      flex: 1;
+      font-size: 12px;
+      color: #c8a84b;
+      line-height: 1.4;
+    }
+    .print-notice-text strong { color: #e8c870; font-weight: 600; }
+    .print-btn {
+      background: var(--teal);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 7px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+      transition: background 0.15s;
+    }
+    .print-btn:hover { background: var(--teal-light); }
+
+    @media (max-width: 700px) {
+      .page { padding: 28px 20px; }
+      .header { grid-template-columns: 1fr; }
+      .options-grid { grid-template-columns: 1fr; }
+      .option { border-right: none; }
+      .results-grid { grid-template-columns: 1fr; }
+      .score-grid { grid-template-columns: 1fr 1fr; }
+      .footer { grid-template-columns: 1fr; }
+    }
+
+    /* =============================================
+       PRINT STYLES — light, ink-friendly
+       ============================================= */
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+      body { background: white !important; color: #111 !important; }
+
       .page {
-        padding: 40px 24px 50px;
+        background: white !important;
+        padding: 20px 28px !important;
+        max-width: 100% !important;
       }
-      .question-text {
-        font-size: 22px;
+
+      /* Header */
+      .header { border-bottom-color: #255ff1 !important; }
+      .eyebrow { color: #255ff1 !important; }
+      .header h1 { color: #07090f !important; }
+      .header h1 em { color: #255ff1 !important; }
+      .subtitle { color: #444 !important; }
+      .quarter-label { color: #555 !important; }
+      .podcast-badge { background: #255ff1 !important; color: white !important; }
+
+      /* Intro */
+      .intro-box { background: #f0f4ff !important; border-left-color: #255ff1 !important; }
+      .intro-box p { color: #111 !important; }
+      .intro-box strong { color: #255ff1 !important; }
+
+      .instructions { color: #b8882a !important; }
+
+      /* Questions */
+      .question-block { border-color: #c0c8e0 !important; }
+      .question-header { background: #255ff1 !important; }
+      .q-number { background: rgba(255,255,255,0.25) !important; color: white !important; }
+      .question-text { color: white !important; }
+
+      .options-grid { background: #f8f9ff !important; }
+      .option {
+        border-bottom-color: #dde2f0 !important;
+        border-right-color: #dde2f0 !important;
       }
-      .header {
-        grid-template-columns: 1fr;
-      }
-      .header-right {
-        text-align: left;
-      }
+      .option-label { color: #111 !important; }
+
+      /* Score box */
+      .score-box { background: #fffbf0 !important; border-color: #e8b84b !important; }
+      .score-title { color: #b8882a !important; }
+      .score-col { background: white !important; border: 1px solid #dde2f0 !important; }
+      .score-col { border-top: 3px solid #255ff1 !important; }
+      .score-col.gold-top { border-top-color: #e8b84b !important; }
+      .score-col.dark-top { border-top-color: #5b87f5 !important; }
+      .score-col.teal-light-top { border-top-color: #5b87f5 !important; }
+      .score-letter { color: #07090f !important; }
+      .score-label { color: #555 !important; }
+      .score-tally { color: #255ff1 !important; }
+      .score-tally.gold { color: #b8882a !important; }
+      .score-tally.dark,
+      .score-tally.teal-light { color: #5b87f5 !important; }
+
+      /* Spark result cards */
+      .results-grid { grid-template-columns: 1fr 1fr !important; }
+      .spark-card { border-color: #c0c8e0 !important; }
+      .spark-card-header.teal { background: #255ff1 !important; }
+      .spark-card-header.gold { background: #b8882a !important; }
+      .spark-card-header.dark { background: #1a3a9a !important; }
+      .spark-card-header.teal-light { background: #5b87f5 !important; }
+      .spark-title { color: white !important; }
+      .spark-subtitle { color: rgba(255,255,255,0.9) !important; }
+
+      .spark-card-body { background: #f8f9ff !important; }
+      .spark-card-body p { color: #111 !important; }
+
+      .cluster-pill { background: #e8eeff !important; color: #255ff1 !important; border-color: #c0ccee !important; }
+      .cluster-pill.gold { background: #fff8e8 !important; color: #b8882a !important; border-color: #e8c870 !important; }
+
+      .start-action { border-top-color: #dde2f0 !important; color: #555 !important; }
+      .start-action strong { color: #255ff1 !important; }
+
+      /* Series note */
+      .series-note { background: #f0f4ff !important; }
+      .series-note-title { color: #255ff1 !important; }
+      .series-tag { background: #255ff1 !important; color: white !important; }
+      .series-tag.coming { background: #e8b84b !important; color: #07090f !important; }
+      .series-desc { color: #111 !important; }
+      .series-sub { color: #555 !important; }
+
+      /* Footer */
+      .footer { border-top-color: #c0c8e0 !important; }
+      .footer-left p { color: #555 !important; }
+      .footer-right .site { color: #255ff1 !important; }
+      .footer-right .tagline { color: #777 !important; }
+
+      /* Section title */
+      .section-title { color: #255ff1 !important; }
+
+      /* Hide web-only, show print-only */
+      .calc-btn { display: none !important; }
+      .result-reveal { display: none !important; }
+      .web-only { display: none !important; }
+      .print-only { display: block !important; }
+      .print-notice { display: none !important; }
+
+      /* Page break helpers */
+      .question-block { break-inside: avoid; }
+      .spark-card { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
-
 <div class="page">
+
+  <!-- PRINT NOTICE -->
+  <div class="print-notice">
+    <div class="print-notice-text">🖨️ <strong>Printer friendly.</strong> This page prints cleanly on a white background. No ink waste.</div>
+    <button class="print-btn" onclick="window.print()">Print this page</button>
+  </div>
 
   <!-- HEADER -->
   <div class="header">
-    <div>
-      <div class="eyebrow">Paths of Curiosity in an AI World</div>
+    <div class="header-left">
+      <div class="eyebrow">Paths of Curiosity in an AI World &nbsp;·&nbsp; Quarter 2 &nbsp;·&nbsp; Student Self-Discovery</div>
       <h1>What's Your <em>Spark?</em></h1>
-      <div class="subtitle">Find your entry point in Q2: AI in Power, Law & Civic Life</div>
+      <div class="subtitle">Find the law and civic life path that fits how your mind works &nbsp;·&nbsp; For students navigating what's next</div>
     </div>
     <div class="header-right">
-      <div class="podcast-badge">Q2 Mini-Series</div>
-      <div class="quarter-label">5 minutes to your next step</div>
+      <span class="podcast-badge">Student-Created Podcast</span>
+      <span class="quarter-label">pathsofcuriosity.com</span>
     </div>
   </div>
 
   <!-- INTRO -->
-  <div class="intro">
-    <p><strong>Six people work at very different intersections of AI, power, and justice.</strong> A constitutional lawyer, a labor researcher, a legal technologist, a cultural critic, a civil rights attorney, and an entrepreneur rebuilding the legal profession.</p>
-    <p>This short quiz will help you figure out which of their paths might spark something in you — and what concrete next step makes sense for where you are right now.</p>
+  <div class="intro-box">
+    <p>AI isn't one thing, and neither are the careers around it. Some people want to <strong>defend people's rights.</strong> Others want to <strong>build and test the tools.</strong> Some want to <strong>write the rules</strong> that keep technology accountable. Others want to <strong>investigate and explain</strong> what's happening so the rest of us can understand it. All of these matter. This quiz helps you figure out where <em>you</em> might fit.</p>
   </div>
 
-  <!-- PROGRESS -->
-  <div class="progress-bar">
-    <div class="progress-fill"></div>
+  <div class="instructions">→ Circle or check one answer per question. Count your letters at the end.</div>
+
+  <!-- QUESTIONS -->
+  <div class="question-block">
+    <div class="question-header">
+      <div class="q-number">1</div>
+      <div class="question-text">It's a free Saturday and you can learn anything. What sounds most appealing?</div>
+    </div>
+    <div class="options-grid">
+      <label class="option"><input type="radio" name="q1" value="A"><span class="option-label">Volunteering with a community group that helps people understand their rights</span></label>
+      <label class="option"><input type="radio" name="q1" value="B"><span class="option-label">Building something with code, like a tool that searches through lots of text</span></label>
+      <label class="option"><input type="radio" name="q1" value="C"><span class="option-label">Reading about a new law or a city council debate about technology</span></label>
+      <label class="option"><input type="radio" name="q1" value="D"><span class="option-label">Researching a story or writing up something you learned for other people</span></label>
+    </div>
   </div>
 
-  <!-- RESULTS (HIDDEN UNTIL COMPLETE) -->
-  <div class="results-box" id="results"></div>
+  <div class="question-block">
+    <div class="question-header">
+      <div class="q-number">2</div>
+      <div class="question-text">Your school adds cameras with facial recognition at the entrance. What's your first reaction?</div>
+    </div>
+    <div class="options-grid">
+      <label class="option"><input type="radio" name="q2" value="A"><span class="option-label">I want to know what rights students have and who they can turn to if something goes wrong</span></label>
+      <label class="option"><input type="radio" name="q2" value="B"><span class="option-label">I'm curious how the system works and how often it gets faces wrong</span></label>
+      <label class="option"><input type="radio" name="q2" value="C"><span class="option-label">I'd want a clear written rule on who can see the footage and for how long</span></label>
+      <label class="option"><input type="radio" name="q2" value="D"><span class="option-label">I want to interview students and staff and report on how people actually feel about it</span></label>
+    </div>
+  </div>
 
-  <!-- QUIZ FORM -->
-  <form id="quiz">
+  <div class="question-block">
+    <div class="question-header">
+      <div class="q-number">3</div>
+      <div class="question-text">A delivery app changes a driver's pay overnight with no explanation. What do you most want to dig into?</div>
+    </div>
+    <div class="options-grid">
+      <label class="option"><input type="radio" name="q3" value="A"><span class="option-label">Whether the driver has any legal protections and how to help them use them</span></label>
+      <label class="option"><input type="radio" name="q3" value="B"><span class="option-label">What the algorithm is actually measuring, and what the data would show</span></label>
+      <label class="option"><input type="radio" name="q3" value="C"><span class="option-label">What rules should say about how companies must explain pay to workers</span></label>
+      <label class="option"><input type="radio" name="q3" value="D"><span class="option-label">What drivers say it's like to work for an app, and how to tell that story honestly</span></label>
+    </div>
+  </div>
 
-    <!-- QUESTION 1 -->
-    <div class="quiz-section active">
-      <div class="question-number">Question 1 of 5</div>
-      <div class="question-text">What gets under your skin most?</div>
-      <label class="answer-option">
-        <input type="radio" name="q1" value="rights">
-        <strong>Injustice.</strong> When you see systems harming people who are already vulnerable — and nobody's doing anything about it.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q1" value="law">
-        <strong>Inequity in the system.</strong> When rules are broken and nobody's holding powerful people accountable.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q1" value="workers">
-        <strong>Exploitation.</strong> When companies abuse power over people who depend on them, especially workers with no other options.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q1" value="culture">
-        <strong>Manipulation.</strong> When powerful people shape what others believe without their knowledge or consent.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q1" value="future">
-        <strong>Broken systems.</strong> When institutions are failing and need to be rebuilt from the ground up.
-      </label>
+  <div class="question-block">
+    <div class="question-header">
+      <div class="q-number">4</div>
+      <div class="question-text">Which school project sounds most like something you'd be proud of?</div>
+    </div>
+    <div class="options-grid">
+      <label class="option"><input type="radio" name="q4" value="A"><span class="option-label">Arguing a case in mock trial or debate about a digital privacy right</span></label>
+      <label class="option"><input type="radio" name="q4" value="B"><span class="option-label">Building a program that finds patterns in a big set of public records</span></label>
+      <label class="option"><input type="radio" name="q4" value="C"><span class="option-label">Drafting a model law for how a town should use AI in public services</span></label>
+      <label class="option"><input type="radio" name="q4" value="D"><span class="option-label">Producing a podcast, documentary, or article on how algorithms affect daily life</span></label>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question-header">
+      <div class="q-number">5</div>
+      <div class="question-text">Which kind of problem frustrates you most when it goes unsolved?</div>
+    </div>
+    <div class="options-grid">
+      <label class="option"><input type="radio" name="q5" value="A"><span class="option-label">People being treated unfairly with nowhere to turn</span></label>
+      <label class="option"><input type="radio" name="q5" value="B"><span class="option-label">Important information buried in so much paperwork that no one can find it</span></label>
+      <label class="option"><input type="radio" name="q5" value="C"><span class="option-label">Powerful technology moving faster than the rules that are supposed to govern it</span></label>
+      <label class="option"><input type="radio" name="q5" value="D"><span class="option-label">Important issues staying hidden because nobody explained them clearly</span></label>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question-header">
+      <div class="q-number">6</div>
+      <div class="question-text">Which subject do you find yourself going down rabbit holes in, even when it's not assigned?</div>
+    </div>
+    <div class="options-grid">
+      <label class="option"><input type="radio" name="q6" value="A"><span class="option-label">Court cases and civil rights history, and how people won or lost landmark fights</span></label>
+      <label class="option"><input type="radio" name="q6" value="B"><span class="option-label">Math, statistics, and computer science, and how systems sort and search</span></label>
+      <label class="option"><input type="radio" name="q6" value="C"><span class="option-label">Government and economics, and how institutions make and enforce rules</span></label>
+      <label class="option"><input type="radio" name="q6" value="D"><span class="option-label">Sociology and journalism, and how real people live and what they say about it</span></label>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question-header">
+      <div class="q-number">7</div>
+      <div class="question-text">You're on a team building an AI tool for a court system. Which role do you naturally end up in?</div>
+    </div>
+    <div class="options-grid">
+      <label class="option"><input type="radio" name="q7" value="A"><span class="option-label">The one asking how this will affect the person standing in front of the judge</span></label>
+      <label class="option"><input type="radio" name="q7" value="B"><span class="option-label">The one building and testing the tool to make sure it works accurately</span></label>
+      <label class="option"><input type="radio" name="q7" value="C"><span class="option-label">The one writing the guidelines for when it can and can't be used</span></label>
+      <label class="option"><input type="radio" name="q7" value="D"><span class="option-label">The one explaining it to lawyers, judges, and the public so they know what it does</span></label>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question-header">
+      <div class="q-number">8</div>
+      <div class="question-text">Which sentence sounds most like something you'd say?</div>
+    </div>
+    <div class="options-grid">
+      <label class="option"><input type="radio" name="q8" value="A"><span class="option-label">"If a system treats people unfairly, someone has to stand up and say so."</span></label>
+      <label class="option"><input type="radio" name="q8" value="B"><span class="option-label">"Show me the data and let me test whether it actually works."</span></label>
+      <label class="option"><input type="radio" name="q8" value="C"><span class="option-label">"Good rules, written early, can prevent a lot of harm later."</span></label>
+      <label class="option"><input type="radio" name="q8" value="D"><span class="option-label">"If people don't understand how this works, they can't push back on it."</span></label>
+    </div>
+  </div>
+
+  <!-- WEB: CALCULATE BUTTON -->
+  <div class="web-only">
+    <button class="calc-btn" onclick="calculateSpark()">→ See My Spark</button>
+    <div class="result-reveal" id="resultBox"></div>
+  </div>
+
+  <!-- SCORE TALLY (print version) -->
+  <div class="print-only">
+    <div class="section-title">Score Your Answers</div>
+    <div class="score-box">
+      <div class="score-title">Tally your letters below</div>
+      <div class="score-grid">
+        <div class="score-col">
+          <span class="score-letter">A</span>
+          <div class="score-label">Advocacy &amp; Justice</div>
+          <span class="score-tally">_____ / 8</span>
+        </div>
+        <div class="score-col gold-top">
+          <span class="score-letter">B</span>
+          <div class="score-label">Legal Tech &amp; Data</div>
+          <span class="score-tally gold">_____ / 8</span>
+        </div>
+        <div class="score-col dark-top">
+          <span class="score-letter">C</span>
+          <div class="score-label">Policy &amp; Governance</div>
+          <span class="score-tally dark">_____ / 8</span>
+        </div>
+        <div class="score-col teal-light-top">
+          <span class="score-letter">D</span>
+          <div class="score-label">Research &amp; Storytelling</div>
+          <span class="score-tally teal-light">_____ / 8</span>
+        </div>
+      </div>
+      <p style="font-size:11px;color:#666;margin-top:10px;">Your highest letter is your primary spark. Close scores? You might be a natural bridge-builder — see the results below.</p>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="section-title">What Your Spark Means</div>
+  <div class="results-grid">
+
+    <div class="spark-card">
+      <div class="spark-card-header teal">
+        <div class="spark-icon">⚖️</div>
+        <div>
+          <div class="spark-title">Spark A — Advocacy &amp; Justice</div>
+          <div class="spark-subtitle">You want to defend people's rights</div>
+        </div>
+      </div>
+      <div class="spark-card-body">
+        <p>You're drawn to the human side of law and technology. You want to stand up for people when a system treats them unfairly, whether that system is a court, a company, or an algorithm.</p>
+        <div class="spark-clusters">
+          <span class="cluster-pill">Civil Liberties Law</span>
+          <span class="cluster-pill">Civil Rights &amp; Algorithmic Justice</span>
+          <span class="cluster-pill">Worker Advocacy</span>
+        </div>
+        <div class="start-action"><strong>Start here:</strong> Join mock trial or debate. Read a summary of a landmark privacy case. Volunteer with a community or civil rights group. Listen to Episodes 1 and 5.</div>
+      </div>
     </div>
 
-    <!-- QUESTION 2 -->
-    <div class="quiz-section">
-      <div class="question-number">Question 2 of 5</div>
-      <div class="question-text">How do you actually make change happen?</div>
-      <label class="answer-option">
-        <input type="radio" name="q2" value="law">
-        <strong>Through law & courts.</strong> You believe the system can be fixed if you hold people accountable and argue your case well.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q2" value="research">
-        <strong>Through evidence.</strong> You document what's really happening, publish it, and let the facts speak for themselves.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q2" value="organizing">
-        <strong>Through people.</strong> You organize communities, build collective power, use art and storytelling to help people see their own strength.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q2" value="culture">
-        <strong>Through shifting how people think.</strong> You change narratives, expose what's hidden, help people see systems differently.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q2" value="future">
-        <strong>By building something new.</strong> Old ways aren't working — you'd rather design from scratch than try to fix what's broken.
-      </label>
+    <div class="spark-card">
+      <div class="spark-card-header gold">
+        <div class="spark-icon">💻</div>
+        <div>
+          <div class="spark-title">Spark B — Legal Tech &amp; Data</div>
+          <div class="spark-subtitle">You want to build and test the tools</div>
+        </div>
+      </div>
+      <div class="spark-card-body">
+        <p>You see patterns where others see piles of paper. You want to build, test, and question the tools that sort evidence and speed up legal work, and to ask: does this actually work, and how would we know?</p>
+        <div class="spark-clusters">
+          <span class="cluster-pill gold">eDiscovery</span>
+          <span class="cluster-pill gold">Legal Technology</span>
+          <span class="cluster-pill gold">Legal Operations</span>
+        </div>
+        <div class="start-action"><strong>Start here:</strong> Learn Python and basic text analysis. Try searching a public records dataset. Study logic and statistics. Listen to Episodes 3 and 6.</div>
+      </div>
     </div>
 
-    <!-- QUESTION 3 -->
-    <div class="quiz-section">
-      <div class="question-number">Question 3 of 5</div>
-      <div class="question-text">What kind of work energizes you?</div>
-      <label class="answer-option">
-        <input type="radio" name="q3" value="rights">
-        <strong>Being in community.</strong> Working alongside people experiencing harm, building trust, making them feel heard.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q3" value="law">
-        <strong>Working through arguments.</strong> Researching, writing, building airtight cases, winning in court.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q3" value="workers">
-        <strong>Investigating & interviewing.</strong> Talking to real people, documenting their experiences, finding patterns nobody else sees.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q3" value="culture">
-        <strong>Understanding systems deeply.</strong> Studying how power works, what histories matter, whose voices are missing.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q3" value="future">
-        <strong>Solving practical problems.</strong> Building tools, systems, processes that actually work and help people move forward.
-      </label>
+    <div class="spark-card">
+      <div class="spark-card-header dark">
+        <div class="spark-icon">🏛️</div>
+        <div>
+          <div class="spark-title">Spark C — Policy &amp; Governance</div>
+          <div class="spark-subtitle">You want to design the rules</div>
+        </div>
+      </div>
+      <div class="spark-card-body">
+        <p>You ask what the rules should be before anyone asks what the technology can do. You think about who has power, who is left out, and how institutions can keep up with fast-moving technology.</p>
+        <div class="spark-clusters">
+          <span class="cluster-pill">Technology Policy</span>
+          <span class="cluster-pill">Labor Policy</span>
+          <span class="cluster-pill">Internet Governance</span>
+        </div>
+        <div class="start-action"><strong>Start here:</strong> Follow a local technology policy debate. Write a one-page policy memo. Attend a city council meeting. Listen to Episodes 2 and 4.</div>
+      </div>
     </div>
 
-    <!-- QUESTION 4 -->
-    <div class="quiz-section">
-      <div class="question-number">Question 4 of 5</div>
-      <div class="question-text">If you had to pick one skill to develop, it'd be...</div>
-      <label class="answer-option">
-        <input type="radio" name="q4" value="rights">
-        <strong>Storytelling & narrative.</strong> Helping people feel and understand through stories, not just facts.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q4" value="law">
-        <strong>Legal reasoning & writing.</strong> Building arguments that hold up in any setting, especially courts.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q4" value="workers">
-        <strong>Research & critical analysis.</strong> Digging into data, asking sharp questions, knowing what matters.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q4" value="culture">
-        <strong>Systems thinking.</strong> Understanding how everything connects, what gets built into code and institutions.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q4" value="future">
-        <strong>Design & innovation.</strong> Imagining what could work differently, building prototypes, iterating fast.
-      </label>
+    <div class="spark-card">
+      <div class="spark-card-header teal-light">
+        <div class="spark-icon">🎙️</div>
+        <div>
+          <div class="spark-title">Spark D — Research &amp; Storytelling</div>
+          <div class="spark-subtitle">You want to investigate and explain</div>
+        </div>
+      </div>
+      <div class="spark-card-body">
+        <p>You know that a ruling or a rule only matters if people understand it. You're a translator, between courts and communities, between researchers and the public, between what the law says and what people think it says.</p>
+        <div class="spark-clusters">
+          <span class="cluster-pill">Legal Research</span>
+          <span class="cluster-pill">Civic Tech Communication</span>
+          <span class="cluster-pill">Education &amp; Media</span>
+        </div>
+        <div class="start-action"><strong>Start here:</strong> Write an explainer on a recent court ruling. Interview someone about a system that affects them. Start a podcast, blog, or video series. Listen to Episodes 3 and 4.</div>
+      </div>
     </div>
 
-    <!-- QUESTION 5 -->
-    <div class="quiz-section">
-      <div class="question-number">Question 5 of 5</div>
-      <div class="question-text">What feels like your most urgent next step?</div>
-      <label class="answer-option">
-        <input type="radio" name="q5" value="rights">
-        <strong>Get closer to the people doing this work.</strong> Volunteer, intern, shadow someone, build relationships.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q5" value="law">
-        <strong>Understand the law & courts better.</strong> Read cases, study constitutional law, understand how the system works.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q5" value="workers">
-        <strong>Learn to document & analyze.</strong> Take a research class, learn statistics, interview people systematically.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q5" value="culture">
-        <strong>Travel or study differently.</strong> Read widely, talk to people from different backgrounds, think bigger.
-      </label>
-      <label class="answer-option">
-        <input type="radio" name="q5" value="future">
-        <strong>Build something.</strong> Take a coding class, design a system, start a project, learn by doing.
-      </label>
-    </div>
+  </div>
 
-  </form>
+  <!-- SERIES NOTE -->
+  <div class="series-note">
+    <div class="series-note-title">Where to go from here — Paths of Curiosity Mini-Series</div>
+    <div class="series-row">
+      <span class="series-tag">Q1</span>
+      <span class="series-desc">AI in Healthcare</span>
+      <span class="series-sub">— 6 episodes · available now</span>
+    </div>
+    <div class="series-row">
+      <span class="series-tag">Q2</span>
+      <span class="series-desc">Power, Law &amp; Civic Life</span>
+      <span class="series-sub">— 6 episodes + recap · the series this quiz accompanies</span>
+    </div>
+    <div class="series-row">
+      <span class="series-tag">Q3</span>
+      <span class="series-desc">Data, Behavior &amp; Human Systems</span>
+      <span class="series-sub">— now airing · pathsofcuriosity.com</span>
+    </div>
+    <div class="series-row">
+      <span class="series-tag coming">Q4</span>
+      <span class="series-desc">Engineering, Science &amp; Discovery</span>
+      <span class="series-sub">— coming soon</span>
+    </div>
+    <p style="font-size:11.5px;color:var(--gray);margin-top:10px;">Each mini-series connects your spark to a new field. Your Spark A in healthcare might look like Spark A in law: the same curiosity, a different domain. Subscribe so you don't miss what's next.</p>
+  </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    <p>After completing this quiz, you'll get a personalized pathway mapped to the careers in Q2 of the podcast.</p>
-    <p style="margin-top: 12px; font-size: 12px;"><strong>Your results are personalized to you — there are no "wrong" answers.</strong></p>
-    <a href="https://www.pathsofcuriosity.com" class="site">pathsofcuriosity.com</a>
+    <div class="footer-left">
+      <p>This quiz accompanies <em>Paths of Curiosity in an AI World.</em> Use alongside the Power, Law &amp; Civic Life Career Landscape Map and Educator Guide. May be freely reproduced for educational purposes.<br>Apple Podcasts · Spotify · YouTube · pathsofcuriosity.com</p>
+    </div>
+    <div class="footer-right">
+      <span class="site">pathsofcuriosity.com</span>
+      <span class="tagline">Exploring tomorrow's careers through the lens of AI</span>
+    </div>
   </div>
 
 </div>
 
 <script>
-  const questions = document.querySelectorAll('.quiz-section');
-  let currentQuestion = 0;
-  const answers = {};
-
-  function showQuestion(index) {
-    questions.forEach(q => q.classList.remove('active'));
-    if (index < questions.length) {
-      questions[index].classList.add('active');
-      const progressFill = document.querySelector('.progress-fill');
-      progressFill.style.width = ((index) / questions.length * 100) + '%';
+  const sparks = {
+    A: {
+      title: "Spark A — Advocacy & Justice",
+      subtitle: "You want to defend people's rights.",
+      desc: "You're drawn to the human side of law and technology. When a system treats someone unfairly, you want to be the person who speaks up. You'd thrive as a civil liberties attorney, a civil rights lawyer, or a worker advocate. Your superpower is courage backed by careful argument.",
+      action: "Join mock trial or debate. Read a summary of a landmark privacy case. Volunteer with a community or civil rights group. Listen to Episodes 1 and 5."
+    },
+    B: {
+      title: "Spark B — Legal Tech & Data",
+      subtitle: "You want to build and test the tools.",
+      desc: "You see patterns where others see piles of paper. You want to build, test, and question the tools that sort evidence and speed up legal work. You'd thrive in eDiscovery, legal technology, or legal operations. Your superpower is rigor: asking how we would know a tool actually works.",
+      action: "Learn Python and basic text analysis. Try searching a public records dataset. Study logic and statistics. Listen to Episodes 3 and 6."
+    },
+    C: {
+      title: "Spark C — Policy & Governance",
+      subtitle: "You want to design the rules.",
+      desc: "You ask what the rules should be before anyone asks what the technology can do. You think about who holds power, who gets left out, and how institutions can keep up. You'd thrive as a technology policy analyst, a labor policy researcher, or a governance scholar. Your superpower is seeing the system, not just the tool.",
+      action: "Follow a local technology policy debate. Write a one-page policy memo. Attend a city council meeting. Listen to Episodes 2 and 4."
+    },
+    D: {
+      title: "Spark D — Research & Storytelling",
+      subtitle: "You want to investigate and explain.",
+      desc: "You know a ruling or a rule only matters if people understand it. You're a natural translator between courts and communities, and between what the law says and what people think it says. You'd thrive as a legal researcher, a civic tech communicator, or an educator. Your superpower is making something complicated click.",
+      action: "Write an explainer on a recent court ruling. Interview someone about a system that affects them. Start a podcast, blog, or video series. Listen to Episodes 3 and 4."
     }
-  }
+  };
 
-  document.addEventListener('change', (e) => {
-    if (e.target.type === 'radio') {
-      const name = e.target.name;
-      const value = e.target.value;
-      answers[name] = value;
-
-      // Mark selected option
-      document.querySelectorAll(`label input[name="${name}"]`).forEach(radio => {
-        radio.parentElement.classList.remove('selected');
-      });
-      e.target.parentElement.classList.add('selected');
-
-      // Move to next question after delay
-      setTimeout(() => {
-        if (currentQuestion < questions.length - 1) {
-          currentQuestion++;
-          showQuestion(currentQuestion);
-        } else {
-          showResults();
-        }
-      }, 300);
-    }
-  });
-
-  function showResults() {
-    // Tally scores
-    const scores = {
-      rights: 0,
-      law: 0,
-      workers: 0,
-      culture: 0,
-      future: 0
-    };
-
-    Object.values(answers).forEach(answer => {
-      if (answer) scores[answer]++;
+  function calculateSpark() {
+    const questions = ['q1','q2','q3','q4','q5','q6','q7','q8'];
+    const counts = {A:0, B:0, C:0, D:0};
+    questions.forEach(q => {
+      const checked = document.querySelector(`input[name="${q}"]:checked`);
+      if (checked) counts[checked.value]++;
     });
 
-    // Find top result
-    let topPath = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+    const total = Object.values(counts).reduce((a,b) => a+b, 0);
+    if (total < 6) {
+      const box = document.getElementById('resultBox');
+      box.style.display = 'block';
+      box.innerHTML = `<h3>Almost there!</h3><p>Answer at least 6 questions to see your result.</p>`;
+      return;
+    }
 
-    // Hide quiz, show results
-    document.querySelectorAll('.quiz-section').forEach(q => q.style.display = 'none');
-    const resultsBox = document.getElementById('results');
-    resultsBox.classList.add('show');
+    const sorted = Object.entries(counts).sort((a,b) => b[1]-a[1]);
+    const top = sorted[0][0];
+    const second = sorted[1][0];
+    const isClose = sorted[0][1] - sorted[1][1] <= 1;
+    const s = sparks[top];
+    const s2 = sparks[second];
 
-    const resultsList = {
-      rights: {
-        title: "You're a Community Justice Person",
-        desc: "Your spark is rooted in solidarity. You want to be in community with people experiencing harm, build collective power, and help people discover their own strength. <strong>Next step:</strong> Find a local civil rights or advocacy group. Volunteer. Go where the harm is happening and ask how you can help.",
-        guests: "Clarence Okoh's work on youth surveillance and community organizing is where you'd start. Talk to people doing this work locally."
-      },
-      law: {
-        title: "You're a Constitutional & Litigation Person",
-        desc: "Your spark is justice through courts and law. You believe systems can be fixed if you hold people accountable and argue your case well. You're drawn to the clarity of legal reasoning. <strong>Next step:</strong> Read Supreme Court cases. Study constitutional law. Consider law school, but first understand what lawyers actually do.",
-        guests: "Nathan Wessler's path in surveillance law and constitutional litigation shows how to make change through courts. Follow ACLU litigation."
-      },
-      workers: {
-        title: "You're a Researcher & Documentarian",
-        desc: "Your spark is evidence. You want to document what's really happening, especially systems that exploit people with less power. You believe facts matter, and good research can change minds. <strong>Next step:</strong> Take a research methods class. Learn statistics. Interview people systematically. Start a notebook of what you observe.",
-        guests: "Veena Dubal's fieldwork with gig workers shows how deep research can expose algorithmic exploitation. Read Labor Notes. Follow researchers doing this work."
-      },
-      culture: {
-        title: "You're a Systems & Culture Person",
-        desc: "Your spark is understanding how power works — what gets coded into systems, whose values are invisible, what gets built into culture. You want to expose and reshape how people see the world. <strong>Next step:</strong> Study widely. Read anthropology, sociology, critical theory. Travel. Talk to people everywhere. Think big.",
-        guests: "Ramesh Srinivasan's work on Digital Cultures Lab and how algorithms shape society is where you'd start. Study culture, technology, and power critically."
-      },
-      future: {
-        title: "You're a Builder & Innovator",
-        desc: "Your spark is designing something new. You don't want to fix broken systems — you want to imagine and build what could work better. You're energized by solving problems and creating tools that actually help people. <strong>Next step:</strong> Learn to build. Take a coding or design class. Start a project. Innovate.",
-        guests: "Jennifer Leonard's work rebuilding the legal profession and reimagining how law works is where you'd start. Learn innovation, design thinking, and legal tech."
-      }
-    };
+    let html = `<h3>${s.title}</h3>
+      <p style="color:var(--teal-light);font-weight:600;margin-bottom:8px;">${s.subtitle}</p>
+      <p>${s.desc}</p>`;
 
-    const result = resultsList[topPath];
-    resultsBox.innerHTML = `
-      <h2>${result.title}</h2>
-      <p>${result.desc}</p>
-      <p><strong>Podcast connection:</strong> ${result.guests}</p>
-      <div class="result-actions">
-        <a href="https://www.pathsofcuriosity.com" class="btn">Listen to Q2 Episodes</a>
-        <button onclick="location.reload()" class="btn btn-secondary">Take Quiz Again</button>
-      </div>
-    `;
+    if (isClose) {
+      html += `<p><strong>You also scored high in ${s2.title.split('—')[1].trim()}.</strong> That combination — ${top} + ${second} — is actually a rare bridge-builder profile. The field needs people who can cross those lines.</p>`;
+    }
+
+    html += `<p style="margin-top:10px;"><strong style="color:var(--teal-light);">Your next step:</strong> ${s.action}</p>`;
+    html += `<p style="font-size:11px;color:var(--gray);margin-top:10px;">Your scores: A (Advocacy & Justice): ${counts.A} | B (Legal Tech & Data): ${counts.B} | C (Policy & Governance): ${counts.C} | D (Research & Storytelling): ${counts.D}</p>`;
+
+    const box = document.getElementById('resultBox');
+    box.innerHTML = html;
+    box.style.display = 'block';
+    box.scrollIntoView({behavior: 'smooth', block: 'nearest'});
   }
-
-  showQuestion(0);
 </script>
-
 </body>
 </html>
