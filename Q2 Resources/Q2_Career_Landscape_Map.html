@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI in Power, Law & Civic Life: Career Landscape Map</title>
+<title>Power, Law &amp; Civic Life: Career Landscape Map</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -225,84 +225,73 @@
     border-bottom: 1px solid #1a2a6a;
   }
 
-  .role:last-child {
-    border-bottom: none;
-  }
+  .role:last-child { border-bottom: none; }
 
   .role-header {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 6px;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 5px;
   }
 
   .role-name {
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--white);
-    flex: 1;
+    line-height: 1.3;
   }
 
   .guest-tags {
     display: flex;
     gap: 4px;
     flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .guest-tag {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     background: var(--gold);
     color: #07090f;
     font-size: 9px;
-    font-weight: 700;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-
-  .guest-tag:hover {
-    transform: scale(1.1);
+    border: 2px solid rgba(232,184,75,0.3);
+    cursor: default;
   }
 
   .role-desc {
-    font-size: 12px;
+    font-size: 11.5px;
+    color: #a8b4cc;
     line-height: 1.55;
-    color: #b0b8c8;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .role-meta {
     display: flex;
+    gap: 10px;
     flex-wrap: wrap;
-    gap: 8px;
   }
 
   .role-tag {
-    display: inline-block;
     font-size: 10px;
-    padding: 3px 8px;
-    border-radius: 3px;
-    background: #1a2a6a;
-    color: #b0b8c8;
-  }
-
-  .role-tag.skills {
-    border: 1px solid #2a4a8a;
-    background: transparent;
-  }
-
-  .role-tag.spark {
+    font-weight: 600;
     color: var(--teal-light);
-    border: 1px solid var(--teal);
-    background: rgba(37, 95, 241, 0.08);
+    background: var(--teal-pale);
+    padding: 2px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.03em;
   }
 
-  /* CLUSTER FULL WIDTH */
+  .role-tag.skills { color: #8899cc; background: #0d1030; }
+  .role-tag.spark { color: #4ade80; background: #061a0e; }
+
+  /* FULL WIDTH CLUSTER */
   .cluster-full {
     border: 1.5px solid #1a2a6a;
     border-radius: 6px;
@@ -311,145 +300,274 @@
   }
 
   .cluster-full .cluster-header {
-    background: var(--teal);
-    padding: 12px 18px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    background: #051248;
   }
 
   .cluster-full .cluster-body {
-    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
     background: #0a1228;
   }
 
-  /* PATH SECTION */
+  .cluster-full .role {
+    padding: 14px 18px;
+    border-bottom: none;
+    border-right: 1px solid #1a2a6a;
+  }
+
+  .cluster-full .role:last-child { border-right: none; }
+
+  /* PATH GUIDE */
   .path-section {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    background: var(--gray-light);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
   }
 
   .path-section-title {
-    font-size: 16px;
+    font-size: 11px;
     font-weight: 700;
-    color: var(--white);
-    margin-bottom: 20px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 14px;
   }
 
   .paths-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
   }
 
   .path-card {
-    background: var(--teal-pale);
-    border-left: 4px solid var(--teal);
-    padding: 18px 20px;
-    border-radius: 0 4px 4px 0;
+    background: #0a1228;
+    border-radius: 4px;
+    padding: 14px;
+    border-top: 3px solid var(--teal);
   }
 
   .path-card h4 {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
     color: var(--white);
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
 
   .path-card p {
-    font-size: 12px;
-    line-height: 1.6;
-    color: #b0b8c8;
+    font-size: 11px;
+    color: #a8b4cc;
+    line-height: 1.5;
   }
 
   /* FOOTER */
   .footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #1a2a6a;
+    border-top: 2px solid var(--teal-mid);
+    padding-top: 18px;
     display: grid;
     grid-template-columns: 1fr auto;
+    align-items: center;
     gap: 20px;
-    align-items: start;
   }
 
   .footer-left p {
     font-size: 11px;
-    line-height: 1.6;
     color: var(--gray);
+    line-height: 1.6;
   }
 
-  .footer-right {
-    text-align: right;
-  }
+  .footer-right { text-align: right; }
 
-  .site {
-    display: block;
+  .footer-right .site {
     font-size: 12px;
     font-weight: 600;
     color: var(--teal-light);
-    margin-bottom: 4px;
-  }
-
-  .tagline {
     display: block;
-    font-size: 11px;
-    color: var(--gray);
-    font-style: italic;
   }
 
-  @media (max-width: 768px) {
-    .intro-row, .clusters-grid, .paths-grid {
-      grid-template-columns: 1fr;
+  .footer-right .tagline {
+    font-size: 10px;
+    color: var(--gray);
+  }
+
+  /* PRINT NOTICE BAR */
+  .print-notice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(232,184,75,0.1);
+    border: 1px solid rgba(232,184,75,0.3);
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin-bottom: 28px;
+  }
+  .print-notice-text {
+    flex: 1;
+    font-size: 12px;
+    color: #c8a84b;
+    line-height: 1.4;
+  }
+  .print-notice-text strong { color: #e8c870; font-weight: 600; }
+  .print-btn {
+    background: var(--teal);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    transition: background 0.15s;
+  }
+  .print-btn:hover { background: var(--teal-light); }
+
+  @media (max-width: 800px) {
+    .clusters-grid { grid-template-columns: 1fr; }
+    .cluster-full .cluster-body { grid-template-columns: 1fr; }
+    .paths-grid { grid-template-columns: 1fr 1fr; }
+    .intro-row { grid-template-columns: 1fr; }
+    .header { grid-template-columns: 1fr; }
+    .page { padding: 28px 24px; }
+  }
+
+  /* =============================================
+     PRINT STYLES — light, ink-friendly
+     ============================================= */
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    body {
+      background: white !important;
+      color: #111 !important;
     }
+
+    .page {
+      background: white !important;
+      padding: 20px 28px !important;
+      max-width: 100% !important;
+    }
+
+    .print-notice { display: none !important; }
+
+    /* Header */
     .header {
-      grid-template-columns: 1fr;
+      border-bottom-color: #255ff1 !important;
     }
-    .footer {
-      grid-template-columns: 1fr;
+    .header-left .eyebrow { color: #255ff1 !important; }
+    .header-left h1 { color: #07090f !important; }
+    .header-left h1 em { color: #255ff1 !important; }
+    .header-left .subtitle { color: #444 !important; }
+    .header-right .quarter-label { color: #555 !important; }
+    .podcast-badge { background: #255ff1 !important; color: white !important; }
+
+    /* Intro row */
+    .intro-box {
+      background: #f0f4ff !important;
+      border-left-color: #255ff1 !important;
     }
-    .footer-right {
-      text-align: left;
+    .intro-box p { color: #111 !important; }
+
+    .guest-legend {
+      background: #fffbf0 !important;
+      border-color: #e8b84b !important;
     }
+    .guest-legend .legend-title { color: #b8882a !important; }
+    .guest-pill {
+      background: white !important;
+      border-color: #e8b84b !important;
+      color: #111 !important;
+    }
+    .guest-dot { background: #e8b84b !important; color: #07090f !important; }
+
+    /* Clusters */
+    .cluster { border-color: #c0c8e0 !important; }
+    .cluster-header { background: #255ff1 !important; }
+    .cluster-title { color: white !important; }
+    .cluster-subtitle { color: rgba(255,255,255,0.9) !important; }
+    .cluster-number { background: rgba(255,255,255,0.25) !important; color: white !important; }
+
+    .cluster-body { background: #f8f9ff !important; }
+    .role { border-bottom-color: #dde2f0 !important; }
+    .role-name { color: #07090f !important; }
+    .role-desc { color: #444 !important; }
+
+    .role-tag { background: #e8eeff !important; color: #255ff1 !important; }
+    .role-tag.skills { background: #eef0f8 !important; color: #555 !important; }
+    .role-tag.spark { background: #efffee !important; color: #1a7a2a !important; }
+
+    .guest-tag { background: #e8b84b !important; color: #07090f !important; border-color: #c8942a !important; }
+
+    /* Full-width cluster 5 */
+    .cluster-full { border-color: #c0c8e0 !important; }
+    .cluster-full .cluster-header { background: #1a3a9a !important; }
+    .cluster-full .cluster-body { background: #f8f9ff !important; }
+    .cluster-full .role { border-right-color: #dde2f0 !important; }
+
+    /* Path section */
+    .path-section { background: #f0f4ff !important; }
+    .path-section-title { color: #255ff1 !important; }
+    .path-card { background: white !important; border-top-color: #255ff1 !important; border: 1px solid #dde2f0; border-top: 3px solid #255ff1 !important; }
+    .path-card h4 { color: #07090f !important; }
+    .path-card p { color: #444 !important; }
+
+    /* Footer */
+    .footer { border-top-color: #c0c8e0 !important; }
+    .footer-left p { color: #555 !important; }
+    .footer-right .site { color: #255ff1 !important; }
+    .footer-right .tagline { color: #777 !important; }
+
+    /* Page break helpers */
+    .cluster { break-inside: avoid; }
+    .role { break-inside: avoid; }
+    .path-card { break-inside: avoid; }
   }
 </style>
 </head>
 <body>
-
 <div class="page">
+
+  <!-- PRINT NOTICE -->
+  <div class="print-notice">
+    <div class="print-notice-text">🖨️ <strong>Printer friendly.</strong> This page prints cleanly on a white background. No ink waste.</div>
+    <button class="print-btn" onclick="window.print()">Print this page</button>
+  </div>
 
   <!-- HEADER -->
   <div class="header">
     <div class="header-left">
-      <div class="eyebrow">Paths of Curiosity in an AI World</div>
-      <h1>AI in Power, Law &amp; <em>Civic Life</em></h1>
-      <div class="subtitle">Career Landscape Map — Quarter 2</div>
+      <div class="eyebrow">Paths of Curiosity in an AI World &nbsp;·&nbsp; Quarter 2</div>
+      <h1>Power, Law &amp; <em>Civic Life</em><br>Career Landscape Map</h1>
+      <div class="subtitle">Careers where law, technology, and civic life meet &nbsp;·&nbsp; For students navigating what's next</div>
     </div>
     <div class="header-right">
-      <div class="podcast-badge">Q2 Mini-Series</div>
-      <div class="quarter-label">When Algorithms Govern Your Life</div>
+      <span class="podcast-badge">Student-Created Podcast</span>
+      <span class="quarter-label">pathsofcuriosity.com</span>
     </div>
   </div>
 
-  <!-- INTRO -->
+  <!-- INTRO ROW -->
   <div class="intro-row">
     <div class="intro-box">
-      <p><strong>This quarter, six people who work at the intersection of AI, power, and justice shared what their days actually look like.</strong> This map shows the emerging careers in surveillance law, algorithmic auditing, labor justice, civil rights litigation, legal technology, and the future of how lawyers work. None of these roles looked the same five years ago. Many will evolve completely in five more.</p>
+      <p>AI isn't replacing lawyers, advocates, or public servants. It's changing what they do, and raising new questions about rights, power, and fairness. The most important roles will belong to people who can think across law, technology, and human impact at once. This map shows where those careers live, what they require, and how to start exploring them now.</p>
     </div>
     <div class="guest-legend">
-      <div class="legend-title">Guest Indicators</div>
-      <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-        <div class="guest-pill"><div class="guest-dot">1</div> Nathan Wessler — Surveillance Law</div>
-        <div class="guest-pill"><div class="guest-dot">2</div> Veena Dubal — Labor & Algorithms</div>
-        <div class="guest-pill"><div class="guest-dot">3</div> Maura Grossman — Legal Tech</div>
-        <div class="guest-pill"><div class="guest-dot">4</div> Ramesh Srinivasan — Culture & Code</div>
-        <div class="guest-pill"><div class="guest-dot">5</div> Clarence Okoh — Civil Rights</div>
-        <div class="guest-pill"><div class="guest-dot">6</div> Jennifer Leonard — Future of Law</div>
+      <div class="legend-title">&#11088; Our Six Podcast Guests — See Where They Appear</div>
+      <div>
+        <span class="guest-pill"><span class="guest-dot">1</span>Nathan Wessler · ACLU</span>
+        <span class="guest-pill"><span class="guest-dot">2</span>Veena Dubal · UC Law SF</span>
+        <span class="guest-pill"><span class="guest-dot">3</span>Maura Grossman · Waterloo</span>
+        <span class="guest-pill"><span class="guest-dot">4</span>Ramesh Srinivasan · UCLA</span>
+        <span class="guest-pill"><span class="guest-dot">5</span>Clarence Okoh · Civil Rights Attorney</span>
+        <span class="guest-pill"><span class="guest-dot">6</span>Jennifer Leonard · College of Law Practice Mgmt</span>
       </div>
     </div>
   </div>
 
-  <!-- CLUSTERS -->
+  <!-- CLUSTERS GRID -->
   <div class="clusters-grid">
 
     <!-- CLUSTER 1 -->
@@ -457,37 +575,38 @@
       <div class="cluster-header">
         <div class="cluster-number">1</div>
         <div>
-          <div class="cluster-title">Constitutional & Surveillance Law</div>
-          <div class="cluster-subtitle">Protecting privacy in the digital age</div>
+          <div class="cluster-title">Civil Liberties &amp; Litigation</div>
+          <div class="cluster-subtitle">Defending rights in the age of algorithms</div>
         </div>
       </div>
       <div class="cluster-body">
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Privacy Rights Litigator</div>
+            <div class="role-name">Civil Liberties &amp; Privacy Attorney</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Nathan Wessler — ACLU Deputy Director, won Carpenter v. US at Supreme Court">1</div>
-            </div>
+            <div class="guest-tag" title="Nathan Wessler: argued Carpenter v. United States; digital privacy and civil liberties">1</div>
+            <div class="guest-tag" title="Clarence Okoh: fighting machine-made decisions through civil rights law">5</div>
           </div>
-          <div class="role-desc">Litigates cases challenging government surveillance, facial recognition, and warrantless data access — arguing before courts that the Fourth Amendment applies to digital life.</div>
+          </div>
+          <div class="role-desc">Brings cases that test how constitutional rights apply to surveillance, location tracking, facial recognition, and other data collection, in courtrooms and in public debate.</div>
           <div class="role-meta">
-            <span class="role-tag">Law / Constitutional</span>
-            <span class="role-tag skills">Legal research + court strategy</span>
-            <span class="role-tag spark">↪ ACLU Free Future blog; read case law</span>
+            <span class="role-tag">Law / Constitutional Law</span>
+            <span class="role-tag skills">Writing + argument + tech literacy</span>
+            <span class="role-tag spark">&#8627; Join mock trial or debate</span>
           </div>
         </div>
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Surveillance Policy Advocate</div>
+            <div class="role-name">Civil Rights &amp; Algorithmic Justice Lawyer</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Nathan Wessler — impact litigation for privacy rights">1</div>
-            </div>
+            <div class="guest-tag" title="Clarence Okoh: racial equity and AI policy advocacy">5</div>
           </div>
-          <div class="role-desc">Works with legislators, advocacy organizations, and the public to shape laws regulating facial recognition, location tracking, and algorithmic surveillance before they cause systemic harm.</div>
+          </div>
+          <div class="role-desc">Challenges automated decisions in lending, hiring, and criminal justice that treat people unfairly, working through courts, regulators, and public advocacy.</div>
           <div class="role-meta">
-            <span class="role-tag">Policy / Advocacy</span>
-            <span class="role-tag skills">Policy writing + public engagement</span>
-            <span class="role-tag spark">↪ Study Freedom of Information Act</span>
+            <span class="role-tag">Law / Civil Rights</span>
+            <span class="role-tag skills">Law + data literacy + empathy</span>
+            <span class="role-tag spark">&#8627; Study real cases of algorithmic bias</span>
           </div>
         </div>
       </div>
@@ -498,37 +617,37 @@
       <div class="cluster-header">
         <div class="cluster-number">2</div>
         <div>
-          <div class="cluster-title">Labor Law & Worker Justice</div>
-          <div class="cluster-subtitle">AI and the future of work</div>
+          <div class="cluster-title">Labor, Work &amp; the Algorithmic Boss</div>
+          <div class="cluster-subtitle">Protecting people when software manages work</div>
         </div>
       </div>
       <div class="cluster-body">
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Labor Law Scholar & Advocate</div>
+            <div class="role-name">Labor &amp; Employment Law Scholar</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Veena Dubal — UC Irvine, coined 'algorithmic wage discrimination'">2</div>
-            </div>
+            <div class="guest-tag" title="Veena Dubal: law and the algorithmic management of workers">2</div>
           </div>
-          <div class="role-desc">Researches how AI algorithms set wages, control schedules, and monitor workers — documenting the gap between what companies claim algorithms do and what actually happens to real workers.</div>
+          </div>
+          <div class="role-desc">Studies how pay, scheduling, and firing decisions made by apps are covered (or not) by the law, and proposes how workplace rules should change.</div>
           <div class="role-meta">
-            <span class="role-tag">Law / Research</span>
-            <span class="role-tag skills">Fieldwork + critical analysis + writing</span>
-            <span class="role-tag spark">↪ Labor Notes; interview gig workers</span>
+            <span class="role-tag">Law / Labor Studies</span>
+            <span class="role-tag skills">Research + legal reasoning</span>
+            <span class="role-tag spark">&#8627; Read about gig worker lawsuits</span>
           </div>
         </div>
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Worker Rights Litigator</div>
+            <div class="role-name">Worker Rights Advocate &amp; Policy Organizer</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Veena Dubal — represents workers affected by algorithmic management">2</div>
-            </div>
+            <div class="guest-tag" title="Veena Dubal: what the law says when the boss is an algorithm">2</div>
           </div>
-          <div class="role-desc">Takes cases on behalf of workers harmed by algorithmic wage discrimination, misclassification, and surveillance — fighting for minimum wage protections and organizing rights in the gig economy.</div>
+          </div>
+          <div class="role-desc">Helps workers understand and challenge decisions made by apps and automated systems, and pushes for rules that give workers a voice in how those systems are used.</div>
           <div class="role-meta">
-            <span class="role-tag">Labor Law / Litigation</span>
-            <span class="role-tag skills">Labor law + trial strategy</span>
-            <span class="role-tag spark">↪ Study employment law; volunteer legal aid</span>
+            <span class="role-tag">Advocacy / Labor</span>
+            <span class="role-tag skills">Organizing + communication</span>
+            <span class="role-tag spark">&#8627; Interview someone who works for an app</span>
           </div>
         </div>
       </div>
@@ -539,37 +658,37 @@
       <div class="cluster-header">
         <div class="cluster-number">3</div>
         <div>
-          <div class="cluster-title">Legal Technology & Courts</div>
-          <div class="cluster-subtitle">AI meets the justice system</div>
+          <div class="cluster-title">Courts, Evidence &amp; Legal Technology</div>
+          <div class="cluster-subtitle">Where law meets machine learning</div>
         </div>
       </div>
       <div class="cluster-body">
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Legal Technology Researcher</div>
+            <div class="role-name">eDiscovery &amp; Litigation Technology Specialist</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Maura Grossman — University of Waterloo, building deepfake detection for courts">3</div>
-            </div>
+            <div class="guest-tag" title="Maura Grossman: helped write the playbook for responsible AI-assisted document review">3</div>
           </div>
-          <div class="role-desc">Builds tools to help courts evaluate AI-generated evidence, deepfakes, and algorithmic outputs — ensuring judges understand how machines reach conclusions, not just what they decide.</div>
+          </div>
+          <div class="role-desc">Uses AI tools to search millions of documents for evidence, and designs the checks that make sure the results are accurate, defensible, and fair to both sides.</div>
           <div class="role-meta">
-            <span class="role-tag">Legal Tech / Research</span>
-            <span class="role-tag skills">Computer science + law + explainability</span>
-            <span class="role-tag spark">↪ Study ML interpretability + digital forensics</span>
+            <span class="role-tag">Law / Legal Tech</span>
+            <span class="role-tag skills">Data skills + legal process</span>
+            <span class="role-tag spark">&#8627; Try a basic text-search project</span>
           </div>
         </div>
         <div class="role">
           <div class="role-header">
-            <div class="role-name">AI Evidence Expert</div>
+            <div class="role-name">Legal Innovation &amp; Operations Leader</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Maura Grossman — trains judges on AI evidence globally">3</div>
-            </div>
+            <div class="guest-tag" title="Jennifer Leonard: President &amp; CEO, The College of Law Practice Management">6</div>
           </div>
-          <div class="role-desc">Trains judges and legal professionals worldwide on how to evaluate AI tools used in evidence, understand algorithmic bias, and ask critical questions about digital evidence in high-stakes cases.</div>
+          </div>
+          <div class="role-desc">Helps law firms, courts, and legal departments adopt new tools and rethink how legal work gets done, and what lawyers should be trained to do.</div>
           <div class="role-meta">
-            <span class="role-tag">Legal Education / Expert Witness</span>
-            <span class="role-tag skills">Technical literacy + communication</span>
-            <span class="role-tag spark">↪ Study evidence rules + ML fundamentals</span>
+            <span class="role-tag">Law / Management</span>
+            <span class="role-tag skills">Strategy + change management</span>
+            <span class="role-tag spark">&#8627; Explore how legal teams use technology</span>
           </div>
         </div>
       </div>
@@ -580,119 +699,38 @@
       <div class="cluster-header">
         <div class="cluster-number">4</div>
         <div>
-          <div class="cluster-title">Platform Justice & Democracy</div>
-          <div class="cluster-subtitle">Whose values are encoded into AI?</div>
+          <div class="cluster-title">Technology Policy &amp; Democratic Governance</div>
+          <div class="cluster-subtitle">Writing the rules for the digital world</div>
         </div>
       </div>
       <div class="cluster-body">
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Cultural Studies Scholar</div>
+            <div class="role-name">Technology Policy Analyst</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Ramesh Srinivasan — UCLA Digital Cultures Lab">4</div>
-            </div>
+            <div class="guest-tag" title="Ramesh Srinivasan: technology and democracy">4</div>
+            <div class="guest-tag" title="Clarence Okoh: AI policy advocacy">5</div>
           </div>
-          <div class="role-desc">Studies how algorithms shape culture, media, and democracy — asking whose worldviews and values get coded into the platforms billions use, and what gets left out.</div>
+          </div>
+          <div class="role-desc">Researches how technology affects communities and drafts recommendations for lawmakers, regulators, and companies on how to govern it responsibly.</div>
           <div class="role-meta">
-            <span class="role-tag">Research / Culture</span>
-            <span class="role-tag skills">Ethnography + critical theory</span>
-            <span class="role-tag spark">↪ Study anthropology + media studies</span>
+            <span class="role-tag">Policy / Government</span>
+            <span class="role-tag skills">Research + writing + data literacy</span>
+            <span class="role-tag spark">&#8627; Follow a local tech policy debate</span>
           </div>
         </div>
         <div class="role">
           <div class="role-header">
-            <div class="role-name">AI Equity &amp; Access Advocate</div>
+            <div class="role-name">Internet Governance &amp; Technology-and-Democracy Researcher</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Ramesh Srinivasan — advisor to White House and EU on human-centered AI">4</div>
-            </div>
+            <div class="guest-tag" title="Ramesh Srinivasan: who controls the internet and who gets left out">4</div>
           </div>
-          <div class="role-desc">Works with governments and communities to ensure AI policy reflects diverse voices and protects vulnerable populations — pushing back against tech that fragments shared reality and deepens inequality.</div>
+          </div>
+          <div class="role-desc">Studies who controls digital infrastructure and platforms, and works with communities around the world so that more voices shape the technology that affects them.</div>
           <div class="role-meta">
-            <span class="role-tag">Policy / Advocacy</span>
-            <span class="role-tag skills">Community organizing + policy analysis</span>
-            <span class="role-tag spark">↪ Travel + study globally; talk to real communities</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CLUSTER 5 -->
-    <div class="cluster">
-      <div class="cluster-header">
-        <div class="cluster-number">5</div>
-        <div>
-          <div class="cluster-title">Civil Rights & Youth Justice</div>
-          <div class="cluster-subtitle">Stopping algorithmic harm</div>
-        </div>
-      </div>
-      <div class="cluster-body">
-        <div class="role">
-          <div class="role-header">
-            <div class="role-name">Civil Rights Attorney (AI Focus)</div>
-            <div class="guest-tags">
-              <div class="guest-tag" title="Clarence Okoh — NOTICE Coalition, fought school surveillance program">5</div>
-            </div>
-          </div>
-          <div class="role-desc">Litigates civil rights cases challenging algorithmic discrimination in schools, hiring, lending, and policing — bringing legal accountability to systems that harm marginalized communities.</div>
-          <div class="role-meta">
-            <span class="role-tag">Civil Rights Law</span>
-            <span class="role-tag skills">Trial law + community connection</span>
-            <span class="role-tag spark">↪ Study civil rights history + current cases</span>
-          </div>
-        </div>
-        <div class="role">
-          <div class="role-header">
-            <div class="role-name">Youth Surveillance Organizer</div>
-            <div class="guest-tags">
-              <div class="guest-tag" title="Clarence Okoh — co-founder NOTICE Coalition, community-driven advocacy">5</div>
-            </div>
-          </div>
-          <div class="role-desc">Builds community campaigns against predictive policing and surveillance in schools — using research, art, and grassroots organizing to help communities understand and fight algorithmic injustice.</div>
-          <div class="role-meta">
-            <span class="role-tag">Advocacy / Organizing</span>
-            <span class="role-tag skills">Community organizing + creative storytelling</span>
-            <span class="role-tag spark">↪ Get involved locally; use art as a tool</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CLUSTER 6 -->
-    <div class="cluster">
-      <div class="cluster-header">
-        <div class="cluster-number">6</div>
-        <div>
-          <div class="cluster-title">Future of Legal Practice</div>
-          <div class="cluster-subtitle">Rebuilding law for the AI era</div>
-        </div>
-      </div>
-      <div class="cluster-body">
-        <div class="role">
-          <div class="role-header">
-            <div class="role-name">Legal Innovation Leader</div>
-            <div class="guest-tags">
-              <div class="guest-tag" title="Jennifer Leonard — Creative Lawyers, former Chief Innovation Officer at Penn Law">6</div>
-            </div>
-          </div>
-          <div class="role-desc">Redesigns how law firms, law schools, and legal services work in an era of AI — creating new business models, training approaches, and roles that serve more people with better tools.</div>
-          <div class="role-meta">
-            <span class="role-tag">Legal Leadership / Entrepreneurship</span>
-            <span class="role-tag skills">Systems thinking + business strategy</span>
-            <span class="role-tag spark">↪ Study legal education + innovation management</span>
-          </div>
-        </div>
-        <div class="role">
-          <div class="role-header">
-            <div class="role-name">Legal AI Strategist / Auditor</div>
-            <div class="guest-tags">
-              <div class="guest-tag" title="Jennifer Leonard — advises law firms on AI implementation">6</div>
-            </div>
-          </div>
-          <div class="role-desc">Helps law firms understand when and how AI actually helps — avoiding hype, maintaining quality, and ensuring tools amplify lawyer judgment rather than replace it or expose clients to risk.</div>
-          <div class="role-meta">
-            <span class="role-tag">Legal Tech / Strategy</span>
-            <span class="role-tag skills">Law + tech literacy + critical thinking</span>
-            <span class="role-tag spark">↪ Learn AI fundamentals + legal workflows</span>
+            <span class="role-tag">Social Science / Policy</span>
+            <span class="role-tag skills">Listening + interviewing + analysis</span>
+            <span class="role-tag spark">&#8627; Read about who runs the internet</span>
           </div>
         </div>
       </div>
@@ -700,74 +738,79 @@
 
   </div>
 
-  <!-- FULL-WIDTH CLUSTER: SUPPORTING ROLES -->
+  <!-- CLUSTER 5 — FULL WIDTH -->
   <div class="cluster-full">
     <div class="cluster-header">
-      <div class="cluster-number">7</div>
+      <div class="cluster-number">5</div>
       <div>
-        <div class="cluster-title">Supporting & Emerging Roles</div>
-        <div class="cluster-subtitle">The people who make change stick</div>
+        <div class="cluster-title">Legal Education, Research &amp; Public Engagement</div>
+        <div class="cluster-subtitle">The roles that shape who understands and uses the law</div>
       </div>
     </div>
     <div class="cluster-body">
       <div class="role">
         <div class="role-header">
-          <div class="role-name">AI Policy Researcher</div>
-          <div class="guest-tags"></div>
+          <div class="role-name">Law Professor &amp; Legal Researcher</div>
+          <div class="guest-tags">
+          <div class="guest-tag" title="Veena Dubal: Professor of Law, UC College of the Law San Francisco">2</div>
+          <div class="guest-tag" title="Maura Grossman: Research Professor, University of Waterloo">3</div>
         </div>
-        <div class="role-desc">Produces evidence-based research on how AI affects workers, governance, and justice — building the knowledge base that drives better laws and policies.</div>
+        </div>
+        <div class="role-desc">Teaches future lawyers, publishes research on how law applies to new technology, and informs courts and lawmakers with evidence.</div>
         <div class="role-meta">
-          <span class="role-tag">Research / Policy</span>
-          <span class="role-tag skills">Research design + statistics + writing</span>
-          <span class="role-tag spark">↪ Read policy research papers; learn data analysis</span>
+          <span class="role-tag">Academia / Law</span>
+          <span class="role-tag skills">Research + teaching</span>
+          <span class="role-tag spark">&#8627; Write a short case summary</span>
         </div>
       </div>
       <div class="role">
         <div class="role-header">
-          <div class="role-name">Algorithmic Auditor</div>
-          <div class="guest-tags"></div>
+          <div class="role-name">Legal Educator &amp; Curriculum Innovator</div>
+          <div class="guest-tags">
+          <div class="guest-tag" title="Jennifer Leonard: what law students should be learning to do">6</div>
         </div>
-        <div class="role-desc">Tests AI systems used in hiring, lending, and policing to find bias, discrimination, and unintended harms — then reports findings to regulators, legal teams, and communities.</div>
+        </div>
+        <div class="role-desc">Rethinks what law students and professionals need to learn as AI handles routine research and drafting, building skills like judgment, ethics, and client trust.</div>
         <div class="role-meta">
-          <span class="role-tag">Auditing / Testing</span>
-          <span class="role-tag skills">Data science + fairness + legal knowledge</span>
-          <span class="role-tag spark">↪ Study fairness in machine learning; learn audit frameworks</span>
+          <span class="role-tag">Education / Professional Training</span>
+          <span class="role-tag skills">Teaching + program design</span>
+          <span class="role-tag spark">&#8627; Compare how two fields train people</span>
         </div>
       </div>
       <div class="role">
         <div class="role-header">
-          <div class="role-name">Tech Policy Communicator</div>
+          <div class="role-name">Civic Tech Communicator<br><span style="font-weight:400;font-size:11.5px;color:#8892b0">Journalist / Author / Public Educator</span></div>
           <div class="guest-tags"></div>
         </div>
-        <div class="role-desc">Translates complex AI policy and legal concepts into stories that matter to students, voters, and communities — helping people understand why this field matters to their lives.</div>
+        <div class="role-desc">Explains laws, rights, and technology to the public in clear, honest language, so people know when a decision about their life is being made by a machine.</div>
         <div class="role-meta">
-          <span class="role-tag">Media / Education</span>
-          <span class="role-tag skills">Writing + storytelling + subject expertise</span>
-          <span class="role-tag spark">↪ Start a podcast or newsletter; tell real stories</span>
+          <span class="role-tag">Media / Civic Education</span>
+          <span class="role-tag skills">Writing + curiosity + legal literacy</span>
+          <span class="role-tag spark">&#8627; Start a blog, podcast, or video series</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- PATH SECTION -->
+  <!-- START HERE PATHS -->
   <div class="path-section">
     <div class="path-section-title">How to Start — Pick Your Spark</div>
     <div class="paths-grid">
       <div class="path-card">
-        <h4>If you care about constitutional law</h4>
-        <p>Read Supreme Court cases. Study the Fourth Amendment. Understand how technology changes what "privacy" means. Consider law school with a focus on constitutional or civil rights.</p>
+        <h4>If you love advocacy + justice</h4>
+        <p>Join mock trial or debate. Read a summary of a landmark privacy case. Volunteer with a community or civil rights organization. Consider pre-law with a data or tech minor.</p>
       </div>
       <div class="path-card">
-        <h4>If you care about workers & fairness</h4>
-        <p>Talk to people doing gig work. Volunteer with worker advocacy groups. Study labor history and current labor law. Write about what you learn.</p>
+        <h4>If you love legal tech + data</h4>
+        <p>Learn Python and basic text analysis. Try searching a public records dataset. Read about how courts review AI-assisted evidence. Study logic and statistics.</p>
       </div>
       <div class="path-card">
-        <h4>If you care about community justice</h4>
-        <p>Get involved locally against surveillance or harmful algorithms. Use art or organizing. Connect with civil rights groups. Show up where the harm is happening.</p>
+        <h4>If you love policy + governance</h4>
+        <p>Follow a local or state technology policy debate. Write a one-page policy memo. Attend a city council meeting. Explore political science or public policy.</p>
       </div>
       <div class="path-card">
-        <h4>If you're fascinated by how it all works</h4>
-        <p>Study the intersection of culture, power, and technology. Learn how algorithms shape what we see and believe. Read widely. Travel. Talk to people everywhere.</p>
+        <h4>If you love research + storytelling</h4>
+        <p>Write an explainer on a recent court ruling. Interview a worker or neighbor about a system that affects them. Start a podcast, blog, or video series.</p>
       </div>
     </div>
   </div>
@@ -775,7 +818,7 @@
   <!-- FOOTER -->
   <div class="footer">
     <div class="footer-left">
-      <p>This map accompanies <strong>Paths of Curiosity in an AI World</strong>, Quarter 2: AI in Power, Law &amp; Civic Life. Explore all six guest episodes at pathsofcuriosity.com  ·  Available on Apple Podcasts, Spotify, and YouTube.<br>
+      <p>This map accompanies <strong>Paths of Curiosity in an AI World</strong>, Quarter 2: Power, Law &amp; Civic Life. Explore all six guest episodes at pathsofcuriosity.com &nbsp;·&nbsp; Available on Apple Podcasts, Spotify, and YouTube.<br>
       For educational use. May be freely reproduced for classroom and advisory settings. Guest number indicators (1–6) show where each podcast guest's work directly connects to a career cluster.</p>
     </div>
     <div class="footer-right">
