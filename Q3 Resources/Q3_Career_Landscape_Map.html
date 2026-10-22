@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI, Money & Power: Career Landscape Map</title>
+<title>Data, Behavior &amp; Human Systems: Career Landscape Map</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -225,84 +225,73 @@
     border-bottom: 1px solid #1a2a6a;
   }
 
-  .role:last-child {
-    border-bottom: none;
-  }
+  .role:last-child { border-bottom: none; }
 
   .role-header {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 6px;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 5px;
   }
 
   .role-name {
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--white);
-    flex: 1;
+    line-height: 1.3;
   }
 
   .guest-tags {
     display: flex;
     gap: 4px;
     flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .guest-tag {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     background: var(--gold);
     color: #07090f;
     font-size: 9px;
-    font-weight: 700;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-
-  .guest-tag:hover {
-    transform: scale(1.1);
+    border: 2px solid rgba(232,184,75,0.3);
+    cursor: default;
   }
 
   .role-desc {
-    font-size: 12px;
+    font-size: 11.5px;
+    color: #a8b4cc;
     line-height: 1.55;
-    color: #b0b8c8;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .role-meta {
     display: flex;
+    gap: 10px;
     flex-wrap: wrap;
-    gap: 8px;
   }
 
   .role-tag {
-    display: inline-block;
     font-size: 10px;
-    padding: 3px 8px;
-    border-radius: 3px;
-    background: #1a2a6a;
-    color: #b0b8c8;
-  }
-
-  .role-tag.skills {
-    border: 1px solid #2a4a8a;
-    background: transparent;
-  }
-
-  .role-tag.spark {
+    font-weight: 600;
     color: var(--teal-light);
-    border: 1px solid var(--teal);
-    background: rgba(37, 95, 241, 0.08);
+    background: var(--teal-pale);
+    padding: 2px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.03em;
   }
 
-  /* CLUSTER FULL WIDTH */
+  .role-tag.skills { color: #8899cc; background: #0d1030; }
+  .role-tag.spark { color: #4ade80; background: #061a0e; }
+
+  /* FULL WIDTH CLUSTER */
   .cluster-full {
     border: 1.5px solid #1a2a6a;
     border-radius: 6px;
@@ -311,145 +300,274 @@
   }
 
   .cluster-full .cluster-header {
-    background: var(--teal);
-    padding: 12px 18px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    background: #051248;
   }
 
   .cluster-full .cluster-body {
-    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
     background: #0a1228;
   }
 
-  /* PATH SECTION */
+  .cluster-full .role {
+    padding: 14px 18px;
+    border-bottom: none;
+    border-right: 1px solid #1a2a6a;
+  }
+
+  .cluster-full .role:last-child { border-right: none; }
+
+  /* PATH GUIDE */
   .path-section {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    background: var(--gray-light);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
   }
 
   .path-section-title {
-    font-size: 16px;
+    font-size: 11px;
     font-weight: 700;
-    color: var(--white);
-    margin-bottom: 20px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 14px;
   }
 
   .paths-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
   }
 
   .path-card {
-    background: var(--teal-pale);
-    border-left: 4px solid var(--teal);
-    padding: 18px 20px;
-    border-radius: 0 4px 4px 0;
+    background: #0a1228;
+    border-radius: 4px;
+    padding: 14px;
+    border-top: 3px solid var(--teal);
   }
 
   .path-card h4 {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
     color: var(--white);
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
 
   .path-card p {
-    font-size: 12px;
-    line-height: 1.6;
-    color: #b0b8c8;
+    font-size: 11px;
+    color: #a8b4cc;
+    line-height: 1.5;
   }
 
   /* FOOTER */
   .footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #1a2a6a;
+    border-top: 2px solid var(--teal-mid);
+    padding-top: 18px;
     display: grid;
     grid-template-columns: 1fr auto;
+    align-items: center;
     gap: 20px;
-    align-items: start;
   }
 
   .footer-left p {
     font-size: 11px;
-    line-height: 1.6;
     color: var(--gray);
+    line-height: 1.6;
   }
 
-  .footer-right {
-    text-align: right;
-  }
+  .footer-right { text-align: right; }
 
-  .site {
-    display: block;
+  .footer-right .site {
     font-size: 12px;
     font-weight: 600;
     color: var(--teal-light);
-    margin-bottom: 4px;
-  }
-
-  .tagline {
     display: block;
-    font-size: 11px;
-    color: var(--gray);
-    font-style: italic;
   }
 
-  @media (max-width: 768px) {
-    .intro-row, .clusters-grid, .paths-grid {
-      grid-template-columns: 1fr;
+  .footer-right .tagline {
+    font-size: 10px;
+    color: var(--gray);
+  }
+
+  /* PRINT NOTICE BAR */
+  .print-notice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(232,184,75,0.1);
+    border: 1px solid rgba(232,184,75,0.3);
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin-bottom: 28px;
+  }
+  .print-notice-text {
+    flex: 1;
+    font-size: 12px;
+    color: #c8a84b;
+    line-height: 1.4;
+  }
+  .print-notice-text strong { color: #e8c870; font-weight: 600; }
+  .print-btn {
+    background: var(--teal);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    transition: background 0.15s;
+  }
+  .print-btn:hover { background: var(--teal-light); }
+
+  @media (max-width: 800px) {
+    .clusters-grid { grid-template-columns: 1fr; }
+    .cluster-full .cluster-body { grid-template-columns: 1fr; }
+    .paths-grid { grid-template-columns: 1fr 1fr; }
+    .intro-row { grid-template-columns: 1fr; }
+    .header { grid-template-columns: 1fr; }
+    .page { padding: 28px 24px; }
+  }
+
+  /* =============================================
+     PRINT STYLES — light, ink-friendly
+     ============================================= */
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    body {
+      background: white !important;
+      color: #111 !important;
     }
+
+    .page {
+      background: white !important;
+      padding: 20px 28px !important;
+      max-width: 100% !important;
+    }
+
+    .print-notice { display: none !important; }
+
+    /* Header */
     .header {
-      grid-template-columns: 1fr;
+      border-bottom-color: #255ff1 !important;
     }
-    .footer {
-      grid-template-columns: 1fr;
+    .header-left .eyebrow { color: #255ff1 !important; }
+    .header-left h1 { color: #07090f !important; }
+    .header-left h1 em { color: #255ff1 !important; }
+    .header-left .subtitle { color: #444 !important; }
+    .header-right .quarter-label { color: #555 !important; }
+    .podcast-badge { background: #255ff1 !important; color: white !important; }
+
+    /* Intro row */
+    .intro-box {
+      background: #f0f4ff !important;
+      border-left-color: #255ff1 !important;
     }
-    .footer-right {
-      text-align: left;
+    .intro-box p { color: #111 !important; }
+
+    .guest-legend {
+      background: #fffbf0 !important;
+      border-color: #e8b84b !important;
     }
+    .guest-legend .legend-title { color: #b8882a !important; }
+    .guest-pill {
+      background: white !important;
+      border-color: #e8b84b !important;
+      color: #111 !important;
+    }
+    .guest-dot { background: #e8b84b !important; color: #07090f !important; }
+
+    /* Clusters */
+    .cluster { border-color: #c0c8e0 !important; }
+    .cluster-header { background: #255ff1 !important; }
+    .cluster-title { color: white !important; }
+    .cluster-subtitle { color: rgba(255,255,255,0.9) !important; }
+    .cluster-number { background: rgba(255,255,255,0.25) !important; color: white !important; }
+
+    .cluster-body { background: #f8f9ff !important; }
+    .role { border-bottom-color: #dde2f0 !important; }
+    .role-name { color: #07090f !important; }
+    .role-desc { color: #444 !important; }
+
+    .role-tag { background: #e8eeff !important; color: #255ff1 !important; }
+    .role-tag.skills { background: #eef0f8 !important; color: #555 !important; }
+    .role-tag.spark { background: #efffee !important; color: #1a7a2a !important; }
+
+    .guest-tag { background: #e8b84b !important; color: #07090f !important; border-color: #c8942a !important; }
+
+    /* Full-width cluster 5 */
+    .cluster-full { border-color: #c0c8e0 !important; }
+    .cluster-full .cluster-header { background: #1a3a9a !important; }
+    .cluster-full .cluster-body { background: #f8f9ff !important; }
+    .cluster-full .role { border-right-color: #dde2f0 !important; }
+
+    /* Path section */
+    .path-section { background: #f0f4ff !important; }
+    .path-section-title { color: #255ff1 !important; }
+    .path-card { background: white !important; border-top-color: #255ff1 !important; border: 1px solid #dde2f0; border-top: 3px solid #255ff1 !important; }
+    .path-card h4 { color: #07090f !important; }
+    .path-card p { color: #444 !important; }
+
+    /* Footer */
+    .footer { border-top-color: #c0c8e0 !important; }
+    .footer-left p { color: #555 !important; }
+    .footer-right .site { color: #255ff1 !important; }
+    .footer-right .tagline { color: #777 !important; }
+
+    /* Page break helpers */
+    .cluster { break-inside: avoid; }
+    .role { break-inside: avoid; }
+    .path-card { break-inside: avoid; }
   }
 </style>
 </head>
 <body>
-
 <div class="page">
+
+  <!-- PRINT NOTICE -->
+  <div class="print-notice">
+    <div class="print-notice-text">🖨️ <strong>Printer friendly.</strong> This page prints cleanly on a white background. No ink waste.</div>
+    <button class="print-btn" onclick="window.print()">Print this page</button>
+  </div>
 
   <!-- HEADER -->
   <div class="header">
     <div class="header-left">
-      <div class="eyebrow">Paths of Curiosity in an AI World</div>
-      <h1>AI, Money &amp; <em>Power</em></h1>
-      <div class="subtitle">Career Landscape Map — Quarter 3</div>
+      <div class="eyebrow">Paths of Curiosity in an AI World &nbsp;·&nbsp; Quarter 3</div>
+      <h1>Data, Behavior &amp; <em>Human Systems</em><br>Career Landscape Map</h1>
+      <div class="subtitle">Careers where data, behavior, and human systems collide &nbsp;·&nbsp; For students navigating what's next</div>
     </div>
     <div class="header-right">
-      <div class="podcast-badge">Q3 Mini-Series</div>
-      <div class="quarter-label">How Algorithms Shape What We Buy, Trust &amp; Believe</div>
+      <span class="podcast-badge">Student-Created Podcast</span>
+      <span class="quarter-label">pathsofcuriosity.com</span>
     </div>
   </div>
 
-  <!-- INTRO -->
+  <!-- INTRO ROW -->
   <div class="intro-row">
     <div class="intro-box">
-      <p><strong>This quarter, six researchers working at the intersection of AI, money, and power shared what their days actually look like.</strong> This map shows the emerging careers in behavioral science, technology policy, financial regulation, and investigative research. None of these roles looked the same five years ago. Many will evolve completely in five more.</p>
+      <p>Data now shapes what we see, who gets a loan, how workers are managed, and even how we behave. The people who study, build, and question these systems come from economics, psychology, anthropology, computer science, law, and more. This map shows where those careers live, what they require, and how to start exploring them now.</p>
     </div>
     <div class="guest-legend">
-      <div class="legend-title">Guest Indicators</div>
-      <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-        <div class="guest-pill"><div class="guest-dot">1</div> Berkeley Dietvorst — Algorithm Trust</div>
-        <div class="guest-pill"><div class="guest-dot">2</div> Jathan Sadowski — Tech &amp; Power</div>
-        <div class="guest-pill"><div class="guest-dot">3</div> Kentaro Toyama — Tech &amp; Society</div>
-        <div class="guest-pill"><div class="guest-dot">4</div> Aaron Klein — Financial Policy</div>
-        <div class="guest-pill"><div class="guest-dot">5</div> Sayan Bhuyan — Behavioral Science</div>
-        <div class="guest-pill"><div class="guest-dot">6</div> Alex Rosenblat — Sociotechnical Research</div>
+      <div class="legend-title">&#11088; Our Six Podcast Guests — See Where They Appear</div>
+      <div>
+        <span class="guest-pill"><span class="guest-dot">1</span>Syon Bhanot · Swarthmore</span>
+        <span class="guest-pill"><span class="guest-dot">2</span>Aaron Klein · Brookings</span>
+        <span class="guest-pill"><span class="guest-dot">3</span>Alex Rosenblat · Technology Ethnographer</span>
+        <span class="guest-pill"><span class="guest-dot">4</span>Jathan Sadowski · Monash</span>
+        <span class="guest-pill"><span class="guest-dot">5</span>Kentaro Toyama · U. Michigan</span>
+        <span class="guest-pill"><span class="guest-dot">6</span>Berkeley Dietvorst · Chicago Booth</span>
       </div>
     </div>
   </div>
 
-  <!-- CLUSTERS -->
+  <!-- CLUSTERS GRID -->
   <div class="clusters-grid">
 
     <!-- CLUSTER 1 -->
@@ -457,37 +575,37 @@
       <div class="cluster-header">
         <div class="cluster-number">1</div>
         <div>
-          <div class="cluster-title">Decision Science & Trust in AI</div>
-          <div class="cluster-subtitle">Why we trust (or don't trust) algorithms</div>
+          <div class="cluster-title">Behavioral Science &amp; Field Experiments</div>
+          <div class="cluster-subtitle">Testing what actually changes behavior</div>
         </div>
       </div>
       <div class="cluster-body">
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Behavioral / Decision Scientist</div>
+            <div class="role-name">Behavioral Economist</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Berkeley Dietvorst — Univ. of Chicago Booth, coined 'algorithm aversion'">1</div>
-            </div>
+            <div class="guest-tag" title="Syon Bhanot: field experiments on nudges and behavior">1</div>
           </div>
-          <div class="role-desc">Studies how people make predictions and decide whether to trust an algorithm's recommendation — research that shapes how banks, hospitals, and companies design AI tools people will actually use.</div>
+          </div>
+          <div class="role-desc">Designs and runs real-world experiments to learn which small design choices (defaults, reminders, framing) change what people do, from saving water to using health programs.</div>
           <div class="role-meta">
-            <span class="role-tag">Research / Academia</span>
-            <span class="role-tag skills">Statistics + experimental design</span>
-            <span class="role-tag spark">↪ Take econ, psych & stats classes; read decision-science papers</span>
+            <span class="role-tag">Economics / Research</span>
+            <span class="role-tag skills">Statistics + experiment design + curiosity</span>
+            <span class="role-tag spark">&#8627; Run a small test at your school</span>
           </div>
         </div>
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Human-AI Trust Researcher</div>
+            <div class="role-name">Decision Scientist &amp; Judgment Researcher</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Berkeley Dietvorst — research on giving users control over algorithm outputs">1</div>
-            </div>
+            <div class="guest-tag" title="Berkeley Dietvorst: algorithm aversion and decision-making">6</div>
           </div>
-          <div class="role-desc">Designs the interfaces and controls that determine whether people accept or reject an AI recommendation — figuring out how much control to give users so they trust tools that are already better than they are.</div>
+          </div>
+          <div class="role-desc">Studies how people make decisions and why they trust or reject advice from algorithms, helping organizations design tools that people will actually use.</div>
           <div class="role-meta">
-            <span class="role-tag">UX / Applied Research</span>
-            <span class="role-tag skills">User research + product design</span>
-            <span class="role-tag spark">↪ Study human-computer interaction basics</span>
+            <span class="role-tag">Psychology / Marketing</span>
+            <span class="role-tag skills">Experiments + statistics + psychology</span>
+            <span class="role-tag spark">&#8627; Read about algorithm aversion</span>
           </div>
         </div>
       </div>
@@ -498,37 +616,37 @@
       <div class="cluster-header">
         <div class="cluster-number">2</div>
         <div>
-          <div class="cluster-title">Political Economy of Technology</div>
-          <div class="cluster-subtitle">Who owns AI, and who it works for</div>
+          <div class="cluster-title">Fintech, Finance &amp; Fair Lending</div>
+          <div class="cluster-subtitle">Making sure money systems work for everyone</div>
         </div>
       </div>
       <div class="cluster-body">
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Science & Technology Studies Scholar</div>
+            <div class="role-name">Consumer Finance &amp; Fintech Policy Advisor</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Jathan Sadowski — Monash University, author of Too Smart & The Mechanic and the Luddite">2</div>
-            </div>
+            <div class="guest-tag" title="Aaron Klein: fintech, lending, and fairness; Brookings Institution">2</div>
           </div>
-          <div class="role-desc">Researches the relationship between technology, capitalism, and power — asking who benefits from "smart" systems, who is controlled by them, and whether a given technology should exist at all.</div>
+          </div>
+          <div class="role-desc">Helps regulators and lawmakers understand how technology changes who gets loans and mortgages, and shapes rules that expand access without hiding unfair treatment.</div>
           <div class="role-meta">
-            <span class="role-tag">Research / Academia</span>
-            <span class="role-tag skills">Critical theory + writing</span>
-            <span class="role-tag spark">↪ Take a philosophy or STS class; read widely on tech & power</span>
+            <span class="role-tag">Policy / Finance</span>
+            <span class="role-tag skills">Economics + writing + law</span>
+            <span class="role-tag spark">&#8627; Follow a financial regulation story</span>
           </div>
         </div>
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Tech Policy Podcaster / Public Intellectual</div>
+            <div class="role-name">Algorithmic Fairness Auditor</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Jathan Sadowski — hosts This Machine Kills podcast">2</div>
-            </div>
+            <div class="guest-tag" title="Aaron Klein: how biased data can quietly close doors">2</div>
           </div>
-          <div class="role-desc">Translates dense research on technology and power into accessible books, essays, and podcasts that shape public debate about how AI and data-driven business models should be regulated.</div>
+          </div>
+          <div class="role-desc">Tests lending, hiring, and pricing models for hidden bias, checking whether the data they learned from is leading to unfair results for some groups.</div>
           <div class="role-meta">
-            <span class="role-tag">Media / Public Scholarship</span>
-            <span class="role-tag skills">Writing + broadcasting</span>
-            <span class="role-tag spark">↪ Start a newsletter or podcast on a topic you care about</span>
+            <span class="role-tag">Data Science / Compliance</span>
+            <span class="role-tag skills">Statistics + ethics + domain knowledge</span>
+            <span class="role-tag spark">&#8627; Examine a public dataset for bias</span>
           </div>
         </div>
       </div>
@@ -539,37 +657,37 @@
       <div class="cluster-header">
         <div class="cluster-number">3</div>
         <div>
-          <div class="cluster-title">Technology & Society</div>
-          <div class="cluster-subtitle">Does the tech actually help — and who for?</div>
+          <div class="cluster-title">Technology Ethnography &amp; the Future of Work</div>
+          <div class="cluster-subtitle">Understanding technology from the ground up</div>
         </div>
       </div>
       <div class="cluster-body">
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Technology & Community Researcher</div>
+            <div class="role-name">Technology Ethnographer</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Kentaro Toyama — Univ. of Michigan, co-founded Microsoft Research India, author of Geek Heresy">3</div>
-            </div>
+            <div class="guest-tag" title="Alex Rosenblat: four years riding with Uber drivers; author of Uberland">3</div>
           </div>
-          <div class="role-desc">Studies digital technology's real-world impact on marginalized communities — and why tools that work in a lab often fail once real institutions, incentives, and people get involved.</div>
+          </div>
+          <div class="role-desc">Spends time with workers and users to understand how technology really works in daily life, and where the story a company tells differs from what people experience.</div>
           <div class="role-meta">
-            <span class="role-tag">Research / International Development</span>
-            <span class="role-tag skills">Fieldwork + program evaluation</span>
-            <span class="role-tag spark">↪ Volunteer or intern with a community tech program</span>
+            <span class="role-tag">Anthropology / Sociology</span>
+            <span class="role-tag skills">Interviewing + observation + writing</span>
+            <span class="role-tag spark">&#8627; Interview someone who uses an app for work</span>
           </div>
         </div>
         <div class="role">
           <div class="role-header">
-            <div class="role-name">AI Ethics & Education Professor</div>
+            <div class="role-name">Platform Labor &amp; Worker Policy Researcher</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Kentaro Toyama — School of Information; work has influenced World Bank policy">3</div>
-            </div>
+            <div class="guest-tag" title="Alex Rosenblat: what algorithms really do to workers">3</div>
           </div>
-          <div class="role-desc">Teaches and researches how AI should (and shouldn't) be used in schools and public institutions — questioning whether new technology solves problems or just amplifies whoever already has power.</div>
+          </div>
+          <div class="role-desc">Turns field research on gig and platform work into evidence that policymakers, unions, and companies can use to improve how algorithmic management works.</div>
           <div class="role-meta">
-            <span class="role-tag">Education / Policy</span>
-            <span class="role-tag skills">Teaching + research writing</span>
-            <span class="role-tag spark">↪ Read about ed-tech's real-world track record</span>
+            <span class="role-tag">Policy / Labor</span>
+            <span class="role-tag skills">Research + data + communication</span>
+            <span class="role-tag spark">&#8627; Read about gig work policy</span>
           </div>
         </div>
       </div>
@@ -580,119 +698,37 @@
       <div class="cluster-header">
         <div class="cluster-number">4</div>
         <div>
-          <div class="cluster-title">Financial Policy & Algorithmic Credit</div>
-          <div class="cluster-subtitle">Who gets a loan, and why</div>
+          <div class="cluster-title">Data Power, Technology &amp; Society</div>
+          <div class="cluster-subtitle">Asking who benefits from the data</div>
         </div>
       </div>
       <div class="cluster-body">
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Financial Regulation Economist</div>
+            <div class="role-name">Critical Data Studies Scholar</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Aaron Klein — Brookings Institution; helped write the Dodd-Frank Act">4</div>
-            </div>
+            <div class="guest-tag" title="Jathan Sadowski: how data and automated systems concentrate control">4</div>
           </div>
-          <div class="role-desc">Researches how AI credit-scoring models decide who gets a loan and at what rate — and pushes for policy that makes those systems more accurate and less biased.</div>
+          </div>
+          <div class="role-desc">Studies how data collection and "smart" systems shift power between companies, governments, and people, and asks who benefits when everything gets measured.</div>
           <div class="role-meta">
-            <span class="role-tag">Policy / Think Tank</span>
-            <span class="role-tag skills">Economics + policy writing</span>
-            <span class="role-tag spark">↪ Learn how credit scores & FICO work</span>
+            <span class="role-tag">Social Science / Tech Studies</span>
+            <span class="role-tag skills">Critical thinking + research + writing</span>
+            <span class="role-tag spark">&#8627; Pick a "smart" product and trace who benefits</span>
           </div>
         </div>
         <div class="role">
           <div class="role-header">
-            <div class="role-name">Consumer Financial Protection Analyst</div>
+            <div class="role-name">Technology for Social Impact Strategist</div>
             <div class="guest-tags">
-              <div class="guest-tag" title="Aaron Klein — former chief economist, Senate Banking Committee">4</div>
-            </div>
+            <div class="guest-tag" title="Kentaro Toyama: technology, poverty, and community information">5</div>
           </div>
-          <div class="role-desc">Investigates whether lenders are using illegal or discriminatory data in automated credit decisions, and works to enforce consumer protection law as algorithms take over more of the process.</div>
+          </div>
+          <div class="role-desc">Works out when technology can genuinely help communities and when the real need is stronger people and institutions, then designs programs accordingly.</div>
           <div class="role-meta">
-            <span class="role-tag">Regulation / Public Service</span>
-            <span class="role-tag skills">Legal literacy + data analysis</span>
-            <span class="role-tag spark">↪ Read the Equal Credit Opportunity Act; follow the CFPB</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CLUSTER 5 -->
-    <div class="cluster">
-      <div class="cluster-header">
-        <div class="cluster-number">5</div>
-        <div>
-          <div class="cluster-title">Applied Behavioral Science</div>
-          <div class="cluster-subtitle">Designing nudges that actually help</div>
-        </div>
-      </div>
-      <div class="cluster-body">
-        <div class="role">
-          <div class="role-header">
-            <div class="role-name">Behavioral Science Consultant</div>
-            <div class="guest-tags">
-              <div class="guest-tag" title="Sayan Bhuyan — Swarthmore & Wharton; runs experiments with the World Bank and US agencies">5</div>
-            </div>
-          </div>
-          <div class="role-desc">Designs and tests small interventions — reminders, defaults, simplified forms — that help governments and organizations get better real-world outcomes from programs people already qualify for.</div>
-          <div class="role-meta">
-            <span class="role-tag">Research / Consulting</span>
-            <span class="role-tag skills">Field experiments + economics</span>
-            <span class="role-tag spark">↪ Read abstracts in the Journal of Economic Perspectives</span>
-          </div>
-        </div>
-        <div class="role">
-          <div class="role-header">
-            <div class="role-name">Field Experiment Program Manager</div>
-            <div class="guest-tags">
-              <div class="guest-tag" title="Sayan Bhuyan — co-founded the Philadelphia Behavioral Science Initiative">5</div>
-            </div>
-          </div>
-          <div class="role-desc">Runs real-world studies with cities and agencies — like a Philadelphia summer jobs program — turning behavioral science insights into programs that actually reach the people they're meant for.</div>
-          <div class="role-meta">
-            <span class="role-tag">Program Management / Public Policy</span>
-            <span class="role-tag skills">Project management + data analysis</span>
-            <span class="role-tag spark">↪ Look for local behavioral-science or policy labs</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CLUSTER 6 -->
-    <div class="cluster">
-      <div class="cluster-header">
-        <div class="cluster-number">6</div>
-        <div>
-          <div class="cluster-title">Sociotechnical Investigation</div>
-          <div class="cluster-subtitle">Holding algorithms accountable</div>
-        </div>
-      </div>
-      <div class="cluster-body">
-        <div class="role">
-          <div class="role-header">
-            <div class="role-name">Investigative Tech Researcher / Journalist</div>
-            <div class="guest-tags">
-              <div class="guest-tag" title="Alex Rosenblat — Director of Sociotechnical Research, The Markup & CalMatters">6</div>
-            </div>
-          </div>
-          <div class="role-desc">Rides along, interviews, and audits real systems — from gig-work apps to hospital consent forms — to document the gap between what companies claim their algorithms do and what actually happens to real people.</div>
-          <div class="role-meta">
-            <span class="role-tag">Journalism / Research</span>
-            <span class="role-tag skills">Ethnography + investigative writing</span>
-            <span class="role-tag spark">↪ Read The Markup; practice a records request</span>
-          </div>
-        </div>
-        <div class="role">
-          <div class="role-header">
-            <div class="role-name">Data Ethics & Dark Pattern Auditor</div>
-            <div class="guest-tags">
-              <div class="guest-tag" title="Alex Rosenblat — author of Uberland; former Head of Marketplace Policy at Uber">6</div>
-            </div>
-          </div>
-          <div class="role-desc">Tests consent forms, apps, and platforms for manipulative design ("dark patterns") that make it hard for people to actually exercise the choices they're legally entitled to make about their own data.</div>
-          <div class="role-meta">
-            <span class="role-tag">Auditing / Consumer Protection</span>
-            <span class="role-tag skills">Policy analysis + close reading</span>
-            <span class="role-tag spark">↪ Learn to spot dark patterns in apps you use daily</span>
+            <span class="role-tag">Development / Public Interest</span>
+            <span class="role-tag skills">Systems thinking + humility + data</span>
+            <span class="role-tag spark">&#8627; Study a tech-for-good program critically</span>
           </div>
         </div>
       </div>
@@ -700,74 +736,80 @@
 
   </div>
 
-  <!-- FULL-WIDTH CLUSTER: SUPPORTING ROLES -->
+  <!-- CLUSTER 5 — FULL WIDTH -->
   <div class="cluster-full">
     <div class="cluster-header">
-      <div class="cluster-number">7</div>
+      <div class="cluster-number">5</div>
       <div>
-        <div class="cluster-title">Supporting & Emerging Roles</div>
-        <div class="cluster-subtitle">The people who make change stick</div>
+        <div class="cluster-title">Human-Centered Data, Product &amp; Communication</div>
+        <div class="cluster-subtitle">The roles that connect data to real decisions and real people</div>
       </div>
     </div>
     <div class="cluster-body">
       <div class="role">
         <div class="role-header">
-          <div class="role-name">AI Policy Researcher</div>
-          <div class="guest-tags"></div>
+          <div class="role-name">Human-Centered AI Designer / UX Researcher</div>
+          <div class="guest-tags">
+          <div class="guest-tag" title="Alex Rosenblat: observing how people actually experience systems">3</div>
+          <div class="guest-tag" title="Berkeley Dietvorst: what it takes for people to trust an algorithm">6</div>
         </div>
-        <div class="role-desc">Produces evidence-based research on how AI affects money, trust, and daily decisions — building the knowledge base that drives better laws and better-designed products.</div>
+        </div>
+        <div class="role-desc">Designs products and algorithms around how people actually behave and what they trust, using interviews, testing, and data to make tools that get used well.</div>
         <div class="role-meta">
-          <span class="role-tag">Research / Policy</span>
-          <span class="role-tag skills">Research design + statistics + writing</span>
-          <span class="role-tag spark">↪ Read policy research papers; learn data analysis</span>
+          <span class="role-tag">Design / HCI</span>
+          <span class="role-tag skills">Research + empathy + prototyping</span>
+          <span class="role-tag spark">&#8627; Test a design with five real users</span>
         </div>
       </div>
       <div class="role">
         <div class="role-header">
-          <div class="role-name">Algorithmic Auditor</div>
-          <div class="guest-tags"></div>
+          <div class="role-name">Decision Analytics &amp; Data Product Manager</div>
+          <div class="guest-tags">
+          <div class="guest-tag" title="Syon Bhanot: testing what works">1</div>
+          <div class="guest-tag" title="Berkeley Dietvorst: when to let data make the call">6</div>
         </div>
-        <div class="role-desc">Tests AI systems used in lending, hiring, and gig work to find bias, discrimination, and unintended harms — then reports findings to regulators, journalists, and the public.</div>
+        </div>
+        <div class="role-desc">Turns data and experiments into products and decisions inside organizations, deciding what to measure, what to test, and when to trust the numbers.</div>
         <div class="role-meta">
-          <span class="role-tag">Auditing / Testing</span>
-          <span class="role-tag skills">Data science + fairness + legal knowledge</span>
-          <span class="role-tag spark">↪ Study fairness in machine learning; learn audit frameworks</span>
+          <span class="role-tag">Product / Analytics</span>
+          <span class="role-tag skills">Statistics + communication + judgment</span>
+          <span class="role-tag spark">&#8627; Analyze a real dataset about a question you care about</span>
         </div>
       </div>
       <div class="role">
         <div class="role-header">
-          <div class="role-name">Behavioral Design Communicator</div>
+          <div class="role-name">Data &amp; Society Communicator<br><span style="font-weight:400;font-size:11.5px;color:#8892b0">Author / Journalist / Educator</span></div>
           <div class="guest-tags"></div>
         </div>
-        <div class="role-desc">Translates research on nudges, dark patterns, and algorithmic trust into stories that help everyday people recognize when — and how — their choices are being shaped.</div>
+        <div class="role-desc">Translates research on data, behavior, and technology into clear, honest stories for the public, closing the gap between what researchers know and what people understand.</div>
         <div class="role-meta">
           <span class="role-tag">Media / Education</span>
-          <span class="role-tag skills">Writing + storytelling + subject expertise</span>
-          <span class="role-tag spark">↪ Start a podcast or newsletter; tell real stories</span>
+          <span class="role-tag skills">Writing + curiosity + data literacy</span>
+          <span class="role-tag spark">&#8627; Start a blog, podcast, or video series</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- PATH SECTION -->
+  <!-- START HERE PATHS -->
   <div class="path-section">
     <div class="path-section-title">How to Start — Pick Your Spark</div>
     <div class="paths-grid">
       <div class="path-card">
-        <h4>If you care about how people think and decide</h4>
-        <p>Take a statistics and psychology class. Read academic papers on judgment, decision-making, and behavioral economics. Notice your own decisions and ask why you made them.</p>
+        <h4>If you love people + behavior</h4>
+        <p>Observe how people use something at school and ask why. Take psychology or economics. Interview someone about a decision they made. Read about nudges and field experiments.</p>
       </div>
       <div class="path-card">
-        <h4>If you care about who holds power over technology</h4>
-        <p>Read a book connecting technology, capitalism, and power. Study philosophy or science-and-technology studies. Ask who profits from a tool before you ask what it does.</p>
+        <h4>If you love data + experiments</h4>
+        <p>Learn statistics and basic Python. Run a simple A/B test with friends. Analyze a public dataset (Kaggle, government data). Read about how bias enters models.</p>
       </div>
       <div class="path-card">
-        <h4>If you care about fairness in money and credit</h4>
-        <p>Learn how credit scores and financial regulation actually work. Follow the Consumer Financial Protection Bureau. Ask who a "neutral" system was actually built to serve.</p>
+        <h4>If you love power + policy</h4>
+        <p>Study fair lending and algorithmic bias cases. Pick a "smart" product and trace who benefits from its data. Write a short opinion piece on a data policy debate.</p>
       </div>
       <div class="path-card">
-        <h4>If you're fascinated by uncovering how systems really work</h4>
-        <p>Practice requesting your own data from a company. Read investigative tech journalism. Learn to spot dark patterns and manipulative design in the apps you already use.</p>
+        <h4>If you love communicating ideas</h4>
+        <p>Write an explainer on a surprising research finding. Create a podcast, video, or visual series. Practice translating one data idea per week.</p>
       </div>
     </div>
   </div>
@@ -775,7 +817,7 @@
   <!-- FOOTER -->
   <div class="footer">
     <div class="footer-left">
-      <p>This map accompanies <strong>Paths of Curiosity in an AI World</strong>, Quarter 3: AI, Money &amp; Power. Explore all six guest episodes at pathsofcuriosity.com  ·  Available on Apple Podcasts, Spotify, and YouTube.<br>
+      <p>This map accompanies <strong>Paths of Curiosity in an AI World</strong>, Quarter 3: Data, Behavior &amp; Human Systems. Explore all six guest episodes at pathsofcuriosity.com &nbsp;·&nbsp; Available on Apple Podcasts, Spotify, and YouTube.<br>
       For educational use. May be freely reproduced for classroom and advisory settings. Guest number indicators (1–6) show where each podcast guest's work directly connects to a career cluster.</p>
     </div>
     <div class="footer-right">
